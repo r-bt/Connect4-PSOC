@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="rbeattie_final_project\ConnectFour\Source Files\main.c">
+<ExpandedNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\TopDesign</v>
+<v>rbeattie_final_project\ConnectFour\ConnectFour.cydwr</v>
+<v>rbeattie_final_project\ConnectFour\Header Files</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\Connect4.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\Connect4Board.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\cyapicallbacks.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\defs.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\GUIDRV_FlexColor.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\GUITDRV_ADS7846.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\LCDConf.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\tft.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\XPT2046.h</v>
+<v>rbeattie_final_project\ConnectFour\Source Files</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\Connect4.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\Connect4Board.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\GUI_X.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\GUIConf.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\LCDConf.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\main.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\tft.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\XPT2046.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\Clock_1\Clock_1.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\Clock_1\Clock_1.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cm3gcc.ld</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\Cm3Iar.icf</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\Cm3RealView.scat</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\Cm3Start.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cmsis_armcc.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cmsis_gcc.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\core_cm3.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\core_cm3_psoc5.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\core_cmFunc.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\core_cmInstr.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyBootAsmGnu.s</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyBootAsmIar.s</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyBootAsmRv.s</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyDmac.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyDmac.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyFlash.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyFlash.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyLib.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CyLib.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cypins.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cyPm.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cyPm.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CySpc.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\CySpc.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cytypes.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot\cyutils.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\DC\DC.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\DC\DC.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\DC\DC_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED\LED.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED\LED.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED\LED_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO\MISO.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO\MISO.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO\MISO_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI\MOSI.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI\MOSI.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI\MOSI_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\RESET</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\RESET\RESET.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\RESET\RESET.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\RESET\RESET_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SCLK</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SCLK\SCLK.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SCLK\SCLK.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SCLK\SCLK_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SPIM_1</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SPIM_1\SPIM_1.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SPIM_1\SPIM_1.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SPIM_1\SPIM_1_INT.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SPIM_1\SPIM_1_PM.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SPIM_1\SPIM_1_PVT.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SS</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SS\SS.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SS\SS.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\SS\SS_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CLK</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CLK\T_CLK.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CLK\T_CLK.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CLK\T_CLK_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CS</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CS\T_CS.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CS\T_CS.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_CS\T_CS_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DIN</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DIN\T_DIN.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DIN\T_DIN.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DIN\T_DIN_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DO</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DO\T_DO.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DO\T_DO.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_DO\T_DO_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_IRQ</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_IRQ\T_IRQ.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_IRQ\T_IRQ.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\T_IRQ\T_IRQ_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_audio.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_audio.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_boot.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_cdc.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_cdc.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_cdc.inf</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_cls.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_cydmac.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_descr.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_drv.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_episr.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_hid.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_hid.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_midi.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_midi.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_msc.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_msc.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_pm.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_pvt.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_std.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART\USBUART_vnd.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dm</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dm\USBUART_Dm.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dm\USBUART_Dm.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dm\USBUART_Dm_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dp</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dp\USBUART_Dp.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dp\USBUART_Dp.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\USBUART_Dp\USBUART_Dp_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydevice.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cyfitter.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cyfitter_cfg.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cyfitter_cfg.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cyfittergnu.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cyfitteriar.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cyfitterrv.inc</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cymetadata.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\project.h</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\TopDesign</v>
+<v>rbeattie_final_project\ConnectFour\ConnectFour.cydwr</v>
+<v>rbeattie_final_project\ConnectFour\Header Files</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\Connect4.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\Connect4Board.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\cyapicallbacks.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\defs.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\GUIDRV_FlexColor.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\GUITDRV_ADS7846.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\LCDConf.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\tft.h</v>
+<v>rbeattie_final_project\ConnectFour\Header Files\XPT2046.h</v>
+<v>rbeattie_final_project\ConnectFour\Source Files</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\Connect4.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\Connect4Board.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\GUI_X.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\GUIConf.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\LCDConf.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\main.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\tft.c</v>
+<v>rbeattie_final_project\ConnectFour\Source Files\XPT2046.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\Clock_1</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\cy_boot</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\DC</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED\LED.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED\LED.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\LED\LED_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO\MISO.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO\MISO.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MISO\MISO_aliases.h</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI\MOSI.c</v>
+<v>rbeattie_final_project\ConnectFour\Generated_Source\PSoC5\MOSI\MOSI.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="rbeattie_final_project">
+<ExpandedNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\TopDesign</v>
+<v>rbeattie_final_project\ConnectFour\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\TopDesign</v>
+<v>rbeattie_final_project\ConnectFour\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="rbeattie_final_project">
+<ExpandedNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\Clock_1.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\Connect4Board.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\DC.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\GUI_X.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\GUIConf.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\LCDConf.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\LED.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\MISO.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\MOSI.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\RESET.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SCLK.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_INT.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_PM.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SS.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_CLK.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_CS.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_DIN.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_DO.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_IRQ.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\tft.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_audio.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_boot.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_cdc.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_cls.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_descr.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_Dm.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_Dp.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_drv.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_episr.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_hid.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_midi.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_msc.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_pm.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_std.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART_vnd.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\XPT2046.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\ConnectFour.elf</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\ConnectFour.hex</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\ConnectFour.map</v>
+<v>rbeattie_final_project\ConnectFour\ConnectFour.gpdsc</v>
+<v>rbeattie_final_project\ConnectFour\ConnectFour.rpt</v>
+<v>rbeattie_final_project\ConnectFour\ConnectFour_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\Clock_1.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\Cm3Start.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\Connect4Board.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyDmac.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyFlash.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CyLib.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cymetadata.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cyPm.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\CySpc.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\cyutils.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\DC.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\GUI_X.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\GUIConf.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\LCDConf.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\LED.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\main.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\MISO.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\MOSI.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\RESET.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SCLK.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_INT.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SPIM_1_PM.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\SS.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_CLK.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_CS.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_DIN.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_DO.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\T_IRQ.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\tft.lst</v>
+<v>rbeattie_final_project\ConnectFour\CortexM3\ARM_GCC_493\Debug\Listing Files\USBUART.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="rbeattie_final_project">
+<ExpandedNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\PSoC 5 Architecture TRM</v>
+<v>rbeattie_final_project\ConnectFour\CY8C58LP Family Datasheet</v>
+<v>rbeattie_final_project\ConnectFour\System Reference Guides</v>
+<v>rbeattie_final_project\ConnectFour\System Reference Guides\cy_boot_v5_40</v>
+<v>rbeattie_final_project\ConnectFour\cy_clock_v2_20.pdf</v>
+<v>rbeattie_final_project\ConnectFour\cy_constant_v1_0</v>
+<v>rbeattie_final_project\ConnectFour\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>rbeattie_final_project\ConnectFour\cy_pins_v2_20</v>
+<v>rbeattie_final_project\ConnectFour\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>rbeattie_final_project\ConnectFour\SPI_Master_v2_50.pdf</v>
+<v>rbeattie_final_project\ConnectFour\USBFS_v3_0.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>rbeattie_final_project</v>
+<v>rbeattie_final_project\ConnectFour</v>
+<v>rbeattie_final_project\ConnectFour\PSoC 5 Architecture TRM</v>
+<v>rbeattie_final_project\ConnectFour\CY8C58LP Family Datasheet</v>
+<v>rbeattie_final_project\ConnectFour\System Reference Guides</v>
+<v>rbeattie_final_project\ConnectFour\System Reference Guides\cy_boot_v5_40</v>
+<v>rbeattie_final_project\ConnectFour\cy_clock_v2_20.pdf</v>
+<v>rbeattie_final_project\ConnectFour\cy_constant_v1_0</v>
+<v>rbeattie_final_project\ConnectFour\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>rbeattie_final_project\ConnectFour\cy_pins_v2_20</v>
+<v>rbeattie_final_project\ConnectFour\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>rbeattie_final_project\ConnectFour\SPI_Master_v2_50.pdf</v>
+<v>rbeattie_final_project\ConnectFour\USBFS_v3_0.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators>
+<CyGuid_67999771-01c6-4f62-90b3-2054bb36a318 type_name="CyDesigner.Framework.CyBookmark" version="1">
+<CyGuid_a1027fc4-3497-43a6-85d7-b91ffa0029b7 type_name="CyDesigner.Framework.CySerializableMarginIndicator" version="1" LineNumber="260" DocumentName=".\emWinGraphics_v5_46\Code\Include\PSoC4_5\GUI.h" />
+</CyGuid_67999771-01c6-4f62-90b3-2054bb36a318>
+</indicators>
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\ConnectFour.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\ConnectFour.cydsn\ConnectFour.cydwr" />
+<name v=".\ConnectFour.cydsn\main.c" />
+<name v=".\ConnectFour.cydsn\tft.c" />
+<name v=".\ConnectFour.cydsn\LCDConf.c" />
+<name v=".\ConnectFour.cydsn\Connect4Board.c" />
+<name v=".\ConnectFour.cydsn\Connect4Board.h" />
+<name v=".\ConnectFour.cydsn\GUI_X.c" />
+<name v=".\ConnectFour.cydsn\LCDConf.h" />
+<name v=".\ConnectFour.cydsn\tft.h" />
+<name v=".\ConnectFour.cydsn\GUIConf.c" />
+<name v=".\ConnectFour.cydsn\GUIDRV_FlexColor.h" />
+<name v=".\ConnectFour.cydsn\GUITDRV_ADS7846.h" />
+<name v=".\ConnectFour.cydsn\XPT2046.c" />
+<name v=".\ConnectFour.cydsn\XPT2046.h" />
+<name v=".\ConnectFour.cydsn\defs.h" />
+<name v=".\emWinGraphics_v5_46\Code\Include\PSoC4_5\GUI.h" />
+<name v=".\emWinGraphics_v5_46\Code\Include\PSoC4_5\GUI_ConfDefaults.h" />
+<name v=".\ConnectFour.cydsn\Connect4.h" />
+<name v=".\ConnectFour.cydsn\Connect4.c" />
+</OpenDocs>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>
