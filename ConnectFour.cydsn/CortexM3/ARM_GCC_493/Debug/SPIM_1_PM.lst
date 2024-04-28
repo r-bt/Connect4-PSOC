@@ -1,0 +1,887 @@
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"SPIM_1_PM.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text.SPIM_1_SaveConfig,"ax",%progbits
+  19              		.align	2
+  20              		.global	SPIM_1_SaveConfig
+  21              		.thumb
+  22              		.thumb_func
+  23              		.type	SPIM_1_SaveConfig, %function
+  24              	SPIM_1_SaveConfig:
+  25              	.LFB0:
+  26              		.file 1 ".\\Generated_Source\\PSoC5\\SPIM_1_PM.c"
+   1:.\Generated_Source\PSoC5/SPIM_1_PM.c **** /*******************************************************************************
+   2:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * File Name: SPIM_1_PM.c
+   3:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Version 2.50
+   4:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+   5:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Description:
+   6:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  This file contains the setup, control and status commands to support
+   7:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  component operations in low power mode.
+   8:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+   9:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Note:
+  10:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  11:.\Generated_Source\PSoC5/SPIM_1_PM.c **** ********************************************************************************
+  12:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Copyright 2008-2015, Cypress Semiconductor Corporation.  All rights reserved.
+  13:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * You may use this file only in accordance with the license, terms, conditions,
+  14:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * disclaimers, and limitations in the end user license agreement accompanying
+  15:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * the software package with which this file was provided.
+  16:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *******************************************************************************/
+  17:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  18:.\Generated_Source\PSoC5/SPIM_1_PM.c **** #include "SPIM_1_PVT.h"
+  19:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  20:.\Generated_Source\PSoC5/SPIM_1_PM.c **** static SPIM_1_BACKUP_STRUCT SPIM_1_backup =
+  21:.\Generated_Source\PSoC5/SPIM_1_PM.c **** {
+  22:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     SPIM_1_DISABLED,
+  23:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     SPIM_1_BITCTR_INIT,
+  24:.\Generated_Source\PSoC5/SPIM_1_PM.c **** };
+  25:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  26:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  27:.\Generated_Source\PSoC5/SPIM_1_PM.c **** /*******************************************************************************
+  28:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Function Name: SPIM_1_SaveConfig
+  29:.\Generated_Source\PSoC5/SPIM_1_PM.c **** ********************************************************************************
+  30:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  31:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Summary:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 2
+
+
+  32:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  Empty function. Included for consistency with other components.
+  33:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  34:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Parameters:
+  35:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+  36:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  37:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Return:
+  38:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+  39:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  40:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *******************************************************************************/
+  41:.\Generated_Source\PSoC5/SPIM_1_PM.c **** void SPIM_1_SaveConfig(void) 
+  42:.\Generated_Source\PSoC5/SPIM_1_PM.c **** {
+  27              		.loc 1 42 0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  32 0000 7047     		bx	lr
+  33              		.cfi_endproc
+  34              	.LFE0:
+  35              		.size	SPIM_1_SaveConfig, .-SPIM_1_SaveConfig
+  36 0002 00BF     		.section	.text.SPIM_1_RestoreConfig,"ax",%progbits
+  37              		.align	2
+  38              		.global	SPIM_1_RestoreConfig
+  39              		.thumb
+  40              		.thumb_func
+  41              		.type	SPIM_1_RestoreConfig, %function
+  42              	SPIM_1_RestoreConfig:
+  43              	.LFB1:
+  43:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  44:.\Generated_Source\PSoC5/SPIM_1_PM.c **** }
+  45:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  46:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  47:.\Generated_Source\PSoC5/SPIM_1_PM.c **** /*******************************************************************************
+  48:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Function Name: SPIM_1_RestoreConfig
+  49:.\Generated_Source\PSoC5/SPIM_1_PM.c **** ********************************************************************************
+  50:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  51:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Summary:
+  52:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  Empty function. Included for consistency with other components.
+  53:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  54:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Parameters:
+  55:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+  56:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  57:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Return:
+  58:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+  59:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  60:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *******************************************************************************/
+  61:.\Generated_Source\PSoC5/SPIM_1_PM.c **** void SPIM_1_RestoreConfig(void) 
+  62:.\Generated_Source\PSoC5/SPIM_1_PM.c **** {
+  44              		.loc 1 62 0
+  45              		.cfi_startproc
+  46              		@ args = 0, pretend = 0, frame = 0
+  47              		@ frame_needed = 0, uses_anonymous_args = 0
+  48              		@ link register save eliminated.
+  49 0000 7047     		bx	lr
+  50              		.cfi_endproc
+  51              	.LFE1:
+  52              		.size	SPIM_1_RestoreConfig, .-SPIM_1_RestoreConfig
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 3
+
+
+  53 0002 00BF     		.section	.text.SPIM_1_Sleep,"ax",%progbits
+  54              		.align	2
+  55              		.global	SPIM_1_Sleep
+  56              		.thumb
+  57              		.thumb_func
+  58              		.type	SPIM_1_Sleep, %function
+  59              	SPIM_1_Sleep:
+  60              	.LFB2:
+  63:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  64:.\Generated_Source\PSoC5/SPIM_1_PM.c **** }
+  65:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  66:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  67:.\Generated_Source\PSoC5/SPIM_1_PM.c **** /*******************************************************************************
+  68:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Function Name: SPIM_1_Sleep
+  69:.\Generated_Source\PSoC5/SPIM_1_PM.c **** ********************************************************************************
+  70:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  71:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Summary:
+  72:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  Prepare SPIM Component goes to sleep.
+  73:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  74:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Parameters:
+  75:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+  76:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  77:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Return:
+  78:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+  79:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  80:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Global Variables:
+  81:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  SPIM_1_backup - modified when non-retention registers are saved.
+  82:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  83:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Reentrant:
+  84:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  No.
+  85:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+  86:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *******************************************************************************/
+  87:.\Generated_Source\PSoC5/SPIM_1_PM.c **** void SPIM_1_Sleep(void) 
+  88:.\Generated_Source\PSoC5/SPIM_1_PM.c **** {
+  61              		.loc 1 88 0
+  62              		.cfi_startproc
+  63              		@ args = 0, pretend = 0, frame = 0
+  64              		@ frame_needed = 0, uses_anonymous_args = 0
+  65              		.loc 1 88 0
+  66 0000 08B5     		push	{r3, lr}
+  67              		.cfi_def_cfa_offset 8
+  68              		.cfi_offset 3, -8
+  69              		.cfi_offset 14, -4
+  89:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     /* Save components enable state */
+  90:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     SPIM_1_backup.enableState = ((uint8) SPIM_1_IS_ENABLED);
+  70              		.loc 1 90 0
+  71 0002 044B     		ldr	r3, .L5
+  72 0004 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  73 0006 C3F30013 		ubfx	r3, r3, #4, #1
+  74 000a 034A     		ldr	r2, .L5+4
+  75 000c 1370     		strb	r3, [r2]
+  91:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  92:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     SPIM_1_Stop();
+  76              		.loc 1 92 0
+  77 000e FFF7FEFF 		bl	SPIM_1_Stop
+  78              	.LVL0:
+  79 0012 08BD     		pop	{r3, pc}
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 4
+
+
+  80              	.L6:
+  81              		.align	2
+  82              	.L5:
+  83 0014 9F640040 		.word	1073767583
+  84 0018 00000000 		.word	.LANCHOR0
+  85              		.cfi_endproc
+  86              	.LFE2:
+  87              		.size	SPIM_1_Sleep, .-SPIM_1_Sleep
+  88              		.section	.text.SPIM_1_Wakeup,"ax",%progbits
+  89              		.align	2
+  90              		.global	SPIM_1_Wakeup
+  91              		.thumb
+  92              		.thumb_func
+  93              		.type	SPIM_1_Wakeup, %function
+  94              	SPIM_1_Wakeup:
+  95              	.LFB3:
+  93:.\Generated_Source\PSoC5/SPIM_1_PM.c **** }
+  94:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  95:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+  96:.\Generated_Source\PSoC5/SPIM_1_PM.c **** /*******************************************************************************
+  97:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Function Name: SPIM_1_Wakeup
+  98:.\Generated_Source\PSoC5/SPIM_1_PM.c **** ********************************************************************************
+  99:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+ 100:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Summary:
+ 101:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  Prepare SPIM Component to wake up.
+ 102:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+ 103:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Parameters:
+ 104:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+ 105:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+ 106:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Return:
+ 107:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  None.
+ 108:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+ 109:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Global Variables:
+ 110:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  SPIM_1_backup - used when non-retention registers are restored.
+ 111:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  SPIM_1_txBufferWrite - modified every function call - resets to
+ 112:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  zero.
+ 113:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  SPIM_1_txBufferRead - modified every function call - resets to
+ 114:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  zero.
+ 115:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  SPIM_1_rxBufferWrite - modified every function call - resets to
+ 116:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  zero.
+ 117:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  SPIM_1_rxBufferRead - modified every function call - resets to
+ 118:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  zero.
+ 119:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+ 120:.\Generated_Source\PSoC5/SPIM_1_PM.c **** * Reentrant:
+ 121:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *  No.
+ 122:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *
+ 123:.\Generated_Source\PSoC5/SPIM_1_PM.c **** *******************************************************************************/
+ 124:.\Generated_Source\PSoC5/SPIM_1_PM.c **** void SPIM_1_Wakeup(void) 
+ 125:.\Generated_Source\PSoC5/SPIM_1_PM.c **** {
+  96              		.loc 1 125 0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100 0000 08B5     		push	{r3, lr}
+ 101              		.cfi_def_cfa_offset 8
+ 102              		.cfi_offset 3, -8
+ 103              		.cfi_offset 14, -4
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 5
+
+
+ 126:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     #if(SPIM_1_RX_SOFTWARE_BUF_ENABLED)
+ 127:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_rxBufferFull  = 0u;
+ 128:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_rxBufferRead  = 0u;
+ 129:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_rxBufferWrite = 0u;
+ 130:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     #endif /* (SPIM_1_RX_SOFTWARE_BUF_ENABLED) */
+ 131:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+ 132:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     #if(SPIM_1_TX_SOFTWARE_BUF_ENABLED)
+ 133:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_txBufferFull  = 0u;
+ 134:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_txBufferRead  = 0u;
+ 135:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_txBufferWrite = 0u;
+ 136:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     #endif /* (SPIM_1_TX_SOFTWARE_BUF_ENABLED) */
+ 137:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+ 138:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     /* Clear any data from the RX and TX FIFO */
+ 139:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     SPIM_1_ClearFIFO();
+ 104              		.loc 1 139 0
+ 105 0002 FFF7FEFF 		bl	SPIM_1_ClearFIFO
+ 106              	.LVL1:
+ 140:.\Generated_Source\PSoC5/SPIM_1_PM.c **** 
+ 141:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     /* Restore components block enable state */
+ 142:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     if(0u != SPIM_1_backup.enableState)
+ 107              		.loc 1 142 0
+ 108 0006 034B     		ldr	r3, .L10
+ 109 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 110 000a 0BB1     		cbz	r3, .L7
+ 143:.\Generated_Source\PSoC5/SPIM_1_PM.c ****     {
+ 144:.\Generated_Source\PSoC5/SPIM_1_PM.c ****         SPIM_1_Enable();
+ 111              		.loc 1 144 0
+ 112 000c FFF7FEFF 		bl	SPIM_1_Enable
+ 113              	.LVL2:
+ 114              	.L7:
+ 115 0010 08BD     		pop	{r3, pc}
+ 116              	.L11:
+ 117 0012 00BF     		.align	2
+ 118              	.L10:
+ 119 0014 00000000 		.word	.LANCHOR0
+ 120              		.cfi_endproc
+ 121              	.LFE3:
+ 122              		.size	SPIM_1_Wakeup, .-SPIM_1_Wakeup
+ 123              		.data
+ 124              		.align	2
+ 125              		.set	.LANCHOR0,. + 0
+ 126              		.type	SPIM_1_backup, %object
+ 127              		.size	SPIM_1_backup, 2
+ 128              	SPIM_1_backup:
+ 129 0000 00       		.byte	0
+ 130 0001 0F       		.byte	15
+ 131 0002 0000     		.text
+ 132              	.Letext0:
+ 133              		.file 2 ".\\Generated_Source\\PSoC5\\cytypes.h"
+ 134              		.file 3 ".\\Generated_Source\\PSoC5\\SPIM_1.h"
+ 135              		.section	.debug_info,"",%progbits
+ 136              	.Ldebug_info0:
+ 137 0000 63010000 		.4byte	0x163
+ 138 0004 0400     		.2byte	0x4
+ 139 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 140 000a 04       		.byte	0x4
+ 141 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 6
+
+
+ 142 000c 34000000 		.4byte	.LASF26
+ 143 0010 01       		.byte	0x1
+ 144 0011 0D020000 		.4byte	.LASF27
+ 145 0015 F2000000 		.4byte	.LASF28
+ 146 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 147 001d 00000000 		.4byte	0
+ 148 0021 00000000 		.4byte	.Ldebug_line0
+ 149 0025 02       		.uleb128 0x2
+ 150 0026 01       		.byte	0x1
+ 151 0027 06       		.byte	0x6
+ 152 0028 60020000 		.4byte	.LASF0
+ 153 002c 02       		.uleb128 0x2
+ 154 002d 01       		.byte	0x1
+ 155 002e 08       		.byte	0x8
+ 156 002f 57010000 		.4byte	.LASF1
+ 157 0033 02       		.uleb128 0x2
+ 158 0034 02       		.byte	0x2
+ 159 0035 05       		.byte	0x5
+ 160 0036 03020000 		.4byte	.LASF2
+ 161 003a 02       		.uleb128 0x2
+ 162 003b 02       		.byte	0x2
+ 163 003c 07       		.byte	0x7
+ 164 003d CD000000 		.4byte	.LASF3
+ 165 0041 02       		.uleb128 0x2
+ 166 0042 04       		.byte	0x4
+ 167 0043 05       		.byte	0x5
+ 168 0044 3F020000 		.4byte	.LASF4
+ 169 0048 02       		.uleb128 0x2
+ 170 0049 04       		.byte	0x4
+ 171 004a 07       		.byte	0x7
+ 172 004b 6A010000 		.4byte	.LASF5
+ 173 004f 02       		.uleb128 0x2
+ 174 0050 08       		.byte	0x8
+ 175 0051 05       		.byte	0x5
+ 176 0052 E4010000 		.4byte	.LASF6
+ 177 0056 02       		.uleb128 0x2
+ 178 0057 08       		.byte	0x8
+ 179 0058 07       		.byte	0x7
+ 180 0059 C4010000 		.4byte	.LASF7
+ 181 005d 03       		.uleb128 0x3
+ 182 005e 04       		.byte	0x4
+ 183 005f 05       		.byte	0x5
+ 184 0060 696E7400 		.ascii	"int\000"
+ 185 0064 02       		.uleb128 0x2
+ 186 0065 04       		.byte	0x4
+ 187 0066 07       		.byte	0x7
+ 188 0067 A2010000 		.4byte	.LASF8
+ 189 006b 04       		.uleb128 0x4
+ 190 006c 7C010000 		.4byte	.LASF12
+ 191 0070 02       		.byte	0x2
+ 192 0071 9201     		.2byte	0x192
+ 193 0073 2C000000 		.4byte	0x2c
+ 194 0077 02       		.uleb128 0x2
+ 195 0078 04       		.byte	0x4
+ 196 0079 04       		.byte	0x4
+ 197 007a 51010000 		.4byte	.LASF9
+ 198 007e 02       		.uleb128 0x2
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 7
+
+
+ 199 007f 08       		.byte	0x8
+ 200 0080 04       		.byte	0x4
+ 201 0081 82010000 		.4byte	.LASF10
+ 202 0085 02       		.uleb128 0x2
+ 203 0086 01       		.byte	0x1
+ 204 0087 08       		.byte	0x8
+ 205 0088 F2010000 		.4byte	.LASF11
+ 206 008c 04       		.uleb128 0x4
+ 207 008d 65010000 		.4byte	.LASF13
+ 208 0091 02       		.byte	0x2
+ 209 0092 3C02     		.2byte	0x23c
+ 210 0094 98000000 		.4byte	0x98
+ 211 0098 05       		.uleb128 0x5
+ 212 0099 6B000000 		.4byte	0x6b
+ 213 009d 02       		.uleb128 0x2
+ 214 009e 08       		.byte	0x8
+ 215 009f 04       		.byte	0x4
+ 216 00a0 54020000 		.4byte	.LASF14
+ 217 00a4 02       		.uleb128 0x2
+ 218 00a5 04       		.byte	0x4
+ 219 00a6 07       		.byte	0x7
+ 220 00a7 DB010000 		.4byte	.LASF15
+ 221 00ab 06       		.uleb128 0x6
+ 222 00ac 02       		.byte	0x2
+ 223 00ad 03       		.byte	0x3
+ 224 00ae 46       		.byte	0x46
+ 225 00af CC000000 		.4byte	0xcc
+ 226 00b3 07       		.uleb128 0x7
+ 227 00b4 48020000 		.4byte	.LASF16
+ 228 00b8 03       		.byte	0x3
+ 229 00b9 48       		.byte	0x48
+ 230 00ba 6B000000 		.4byte	0x6b
+ 231 00be 00       		.byte	0
+ 232 00bf 07       		.uleb128 0x7
+ 233 00c0 97010000 		.4byte	.LASF17
+ 234 00c4 03       		.byte	0x3
+ 235 00c5 49       		.byte	0x49
+ 236 00c6 6B000000 		.4byte	0x6b
+ 237 00ca 01       		.byte	0x1
+ 238 00cb 00       		.byte	0
+ 239 00cc 08       		.uleb128 0x8
+ 240 00cd AF010000 		.4byte	.LASF18
+ 241 00d1 03       		.byte	0x3
+ 242 00d2 4A       		.byte	0x4a
+ 243 00d3 AB000000 		.4byte	0xab
+ 244 00d7 09       		.uleb128 0x9
+ 245 00d8 E0000000 		.4byte	.LASF19
+ 246 00dc 01       		.byte	0x1
+ 247 00dd 29       		.byte	0x29
+ 248 00de 00000000 		.4byte	.LFB0
+ 249 00e2 02000000 		.4byte	.LFE0-.LFB0
+ 250 00e6 01       		.uleb128 0x1
+ 251 00e7 9C       		.byte	0x9c
+ 252 00e8 09       		.uleb128 0x9
+ 253 00e9 00000000 		.4byte	.LASF20
+ 254 00ed 01       		.byte	0x1
+ 255 00ee 3D       		.byte	0x3d
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 8
+
+
+ 256 00ef 00000000 		.4byte	.LFB1
+ 257 00f3 02000000 		.4byte	.LFE1-.LFB1
+ 258 00f7 01       		.uleb128 0x1
+ 259 00f8 9C       		.byte	0x9c
+ 260 00f9 0A       		.uleb128 0xa
+ 261 00fa 32020000 		.4byte	.LASF21
+ 262 00fe 01       		.byte	0x1
+ 263 00ff 57       		.byte	0x57
+ 264 0100 00000000 		.4byte	.LFB2
+ 265 0104 1C000000 		.4byte	.LFE2-.LFB2
+ 266 0108 01       		.uleb128 0x1
+ 267 0109 9C       		.byte	0x9c
+ 268 010a 18010000 		.4byte	0x118
+ 269 010e 0B       		.uleb128 0xb
+ 270 010f 12000000 		.4byte	.LVL0
+ 271 0113 51010000 		.4byte	0x151
+ 272 0117 00       		.byte	0
+ 273 0118 0A       		.uleb128 0xa
+ 274 0119 89010000 		.4byte	.LASF22
+ 275 011d 01       		.byte	0x1
+ 276 011e 7C       		.byte	0x7c
+ 277 011f 00000000 		.4byte	.LFB3
+ 278 0123 18000000 		.4byte	.LFE3-.LFB3
+ 279 0127 01       		.uleb128 0x1
+ 280 0128 9C       		.byte	0x9c
+ 281 0129 40010000 		.4byte	0x140
+ 282 012d 0B       		.uleb128 0xb
+ 283 012e 06000000 		.4byte	.LVL1
+ 284 0132 58010000 		.4byte	0x158
+ 285 0136 0B       		.uleb128 0xb
+ 286 0137 10000000 		.4byte	.LVL2
+ 287 013b 5F010000 		.4byte	0x15f
+ 288 013f 00       		.byte	0
+ 289 0140 0C       		.uleb128 0xc
+ 290 0141 43010000 		.4byte	.LASF29
+ 291 0145 01       		.byte	0x1
+ 292 0146 14       		.byte	0x14
+ 293 0147 CC000000 		.4byte	0xcc
+ 294 014b 05       		.uleb128 0x5
+ 295 014c 03       		.byte	0x3
+ 296 014d 00000000 		.4byte	SPIM_1_backup
+ 297 0151 0D       		.uleb128 0xd
+ 298 0152 F7010000 		.4byte	.LASF23
+ 299 0156 03       		.byte	0x3
+ 300 0157 54       		.byte	0x54
+ 301 0158 0D       		.uleb128 0xd
+ 302 0159 23000000 		.4byte	.LASF24
+ 303 015d 03       		.byte	0x3
+ 304 015e 6C       		.byte	0x6c
+ 305 015f 0D       		.uleb128 0xd
+ 306 0160 15000000 		.4byte	.LASF25
+ 307 0164 03       		.byte	0x3
+ 308 0165 52       		.byte	0x52
+ 309 0166 00       		.byte	0
+ 310              		.section	.debug_abbrev,"",%progbits
+ 311              	.Ldebug_abbrev0:
+ 312 0000 01       		.uleb128 0x1
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 9
+
+
+ 313 0001 11       		.uleb128 0x11
+ 314 0002 01       		.byte	0x1
+ 315 0003 25       		.uleb128 0x25
+ 316 0004 0E       		.uleb128 0xe
+ 317 0005 13       		.uleb128 0x13
+ 318 0006 0B       		.uleb128 0xb
+ 319 0007 03       		.uleb128 0x3
+ 320 0008 0E       		.uleb128 0xe
+ 321 0009 1B       		.uleb128 0x1b
+ 322 000a 0E       		.uleb128 0xe
+ 323 000b 55       		.uleb128 0x55
+ 324 000c 17       		.uleb128 0x17
+ 325 000d 11       		.uleb128 0x11
+ 326 000e 01       		.uleb128 0x1
+ 327 000f 10       		.uleb128 0x10
+ 328 0010 17       		.uleb128 0x17
+ 329 0011 00       		.byte	0
+ 330 0012 00       		.byte	0
+ 331 0013 02       		.uleb128 0x2
+ 332 0014 24       		.uleb128 0x24
+ 333 0015 00       		.byte	0
+ 334 0016 0B       		.uleb128 0xb
+ 335 0017 0B       		.uleb128 0xb
+ 336 0018 3E       		.uleb128 0x3e
+ 337 0019 0B       		.uleb128 0xb
+ 338 001a 03       		.uleb128 0x3
+ 339 001b 0E       		.uleb128 0xe
+ 340 001c 00       		.byte	0
+ 341 001d 00       		.byte	0
+ 342 001e 03       		.uleb128 0x3
+ 343 001f 24       		.uleb128 0x24
+ 344 0020 00       		.byte	0
+ 345 0021 0B       		.uleb128 0xb
+ 346 0022 0B       		.uleb128 0xb
+ 347 0023 3E       		.uleb128 0x3e
+ 348 0024 0B       		.uleb128 0xb
+ 349 0025 03       		.uleb128 0x3
+ 350 0026 08       		.uleb128 0x8
+ 351 0027 00       		.byte	0
+ 352 0028 00       		.byte	0
+ 353 0029 04       		.uleb128 0x4
+ 354 002a 16       		.uleb128 0x16
+ 355 002b 00       		.byte	0
+ 356 002c 03       		.uleb128 0x3
+ 357 002d 0E       		.uleb128 0xe
+ 358 002e 3A       		.uleb128 0x3a
+ 359 002f 0B       		.uleb128 0xb
+ 360 0030 3B       		.uleb128 0x3b
+ 361 0031 05       		.uleb128 0x5
+ 362 0032 49       		.uleb128 0x49
+ 363 0033 13       		.uleb128 0x13
+ 364 0034 00       		.byte	0
+ 365 0035 00       		.byte	0
+ 366 0036 05       		.uleb128 0x5
+ 367 0037 35       		.uleb128 0x35
+ 368 0038 00       		.byte	0
+ 369 0039 49       		.uleb128 0x49
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 10
+
+
+ 370 003a 13       		.uleb128 0x13
+ 371 003b 00       		.byte	0
+ 372 003c 00       		.byte	0
+ 373 003d 06       		.uleb128 0x6
+ 374 003e 13       		.uleb128 0x13
+ 375 003f 01       		.byte	0x1
+ 376 0040 0B       		.uleb128 0xb
+ 377 0041 0B       		.uleb128 0xb
+ 378 0042 3A       		.uleb128 0x3a
+ 379 0043 0B       		.uleb128 0xb
+ 380 0044 3B       		.uleb128 0x3b
+ 381 0045 0B       		.uleb128 0xb
+ 382 0046 01       		.uleb128 0x1
+ 383 0047 13       		.uleb128 0x13
+ 384 0048 00       		.byte	0
+ 385 0049 00       		.byte	0
+ 386 004a 07       		.uleb128 0x7
+ 387 004b 0D       		.uleb128 0xd
+ 388 004c 00       		.byte	0
+ 389 004d 03       		.uleb128 0x3
+ 390 004e 0E       		.uleb128 0xe
+ 391 004f 3A       		.uleb128 0x3a
+ 392 0050 0B       		.uleb128 0xb
+ 393 0051 3B       		.uleb128 0x3b
+ 394 0052 0B       		.uleb128 0xb
+ 395 0053 49       		.uleb128 0x49
+ 396 0054 13       		.uleb128 0x13
+ 397 0055 38       		.uleb128 0x38
+ 398 0056 0B       		.uleb128 0xb
+ 399 0057 00       		.byte	0
+ 400 0058 00       		.byte	0
+ 401 0059 08       		.uleb128 0x8
+ 402 005a 16       		.uleb128 0x16
+ 403 005b 00       		.byte	0
+ 404 005c 03       		.uleb128 0x3
+ 405 005d 0E       		.uleb128 0xe
+ 406 005e 3A       		.uleb128 0x3a
+ 407 005f 0B       		.uleb128 0xb
+ 408 0060 3B       		.uleb128 0x3b
+ 409 0061 0B       		.uleb128 0xb
+ 410 0062 49       		.uleb128 0x49
+ 411 0063 13       		.uleb128 0x13
+ 412 0064 00       		.byte	0
+ 413 0065 00       		.byte	0
+ 414 0066 09       		.uleb128 0x9
+ 415 0067 2E       		.uleb128 0x2e
+ 416 0068 00       		.byte	0
+ 417 0069 3F       		.uleb128 0x3f
+ 418 006a 19       		.uleb128 0x19
+ 419 006b 03       		.uleb128 0x3
+ 420 006c 0E       		.uleb128 0xe
+ 421 006d 3A       		.uleb128 0x3a
+ 422 006e 0B       		.uleb128 0xb
+ 423 006f 3B       		.uleb128 0x3b
+ 424 0070 0B       		.uleb128 0xb
+ 425 0071 27       		.uleb128 0x27
+ 426 0072 19       		.uleb128 0x19
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 11
+
+
+ 427 0073 11       		.uleb128 0x11
+ 428 0074 01       		.uleb128 0x1
+ 429 0075 12       		.uleb128 0x12
+ 430 0076 06       		.uleb128 0x6
+ 431 0077 40       		.uleb128 0x40
+ 432 0078 18       		.uleb128 0x18
+ 433 0079 9742     		.uleb128 0x2117
+ 434 007b 19       		.uleb128 0x19
+ 435 007c 00       		.byte	0
+ 436 007d 00       		.byte	0
+ 437 007e 0A       		.uleb128 0xa
+ 438 007f 2E       		.uleb128 0x2e
+ 439 0080 01       		.byte	0x1
+ 440 0081 3F       		.uleb128 0x3f
+ 441 0082 19       		.uleb128 0x19
+ 442 0083 03       		.uleb128 0x3
+ 443 0084 0E       		.uleb128 0xe
+ 444 0085 3A       		.uleb128 0x3a
+ 445 0086 0B       		.uleb128 0xb
+ 446 0087 3B       		.uleb128 0x3b
+ 447 0088 0B       		.uleb128 0xb
+ 448 0089 27       		.uleb128 0x27
+ 449 008a 19       		.uleb128 0x19
+ 450 008b 11       		.uleb128 0x11
+ 451 008c 01       		.uleb128 0x1
+ 452 008d 12       		.uleb128 0x12
+ 453 008e 06       		.uleb128 0x6
+ 454 008f 40       		.uleb128 0x40
+ 455 0090 18       		.uleb128 0x18
+ 456 0091 9742     		.uleb128 0x2117
+ 457 0093 19       		.uleb128 0x19
+ 458 0094 01       		.uleb128 0x1
+ 459 0095 13       		.uleb128 0x13
+ 460 0096 00       		.byte	0
+ 461 0097 00       		.byte	0
+ 462 0098 0B       		.uleb128 0xb
+ 463 0099 898201   		.uleb128 0x4109
+ 464 009c 00       		.byte	0
+ 465 009d 11       		.uleb128 0x11
+ 466 009e 01       		.uleb128 0x1
+ 467 009f 31       		.uleb128 0x31
+ 468 00a0 13       		.uleb128 0x13
+ 469 00a1 00       		.byte	0
+ 470 00a2 00       		.byte	0
+ 471 00a3 0C       		.uleb128 0xc
+ 472 00a4 34       		.uleb128 0x34
+ 473 00a5 00       		.byte	0
+ 474 00a6 03       		.uleb128 0x3
+ 475 00a7 0E       		.uleb128 0xe
+ 476 00a8 3A       		.uleb128 0x3a
+ 477 00a9 0B       		.uleb128 0xb
+ 478 00aa 3B       		.uleb128 0x3b
+ 479 00ab 0B       		.uleb128 0xb
+ 480 00ac 49       		.uleb128 0x49
+ 481 00ad 13       		.uleb128 0x13
+ 482 00ae 02       		.uleb128 0x2
+ 483 00af 18       		.uleb128 0x18
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 12
+
+
+ 484 00b0 00       		.byte	0
+ 485 00b1 00       		.byte	0
+ 486 00b2 0D       		.uleb128 0xd
+ 487 00b3 2E       		.uleb128 0x2e
+ 488 00b4 00       		.byte	0
+ 489 00b5 3F       		.uleb128 0x3f
+ 490 00b6 19       		.uleb128 0x19
+ 491 00b7 03       		.uleb128 0x3
+ 492 00b8 0E       		.uleb128 0xe
+ 493 00b9 3A       		.uleb128 0x3a
+ 494 00ba 0B       		.uleb128 0xb
+ 495 00bb 3B       		.uleb128 0x3b
+ 496 00bc 0B       		.uleb128 0xb
+ 497 00bd 27       		.uleb128 0x27
+ 498 00be 19       		.uleb128 0x19
+ 499 00bf 3C       		.uleb128 0x3c
+ 500 00c0 19       		.uleb128 0x19
+ 501 00c1 00       		.byte	0
+ 502 00c2 00       		.byte	0
+ 503 00c3 00       		.byte	0
+ 504              		.section	.debug_aranges,"",%progbits
+ 505 0000 34000000 		.4byte	0x34
+ 506 0004 0200     		.2byte	0x2
+ 507 0006 00000000 		.4byte	.Ldebug_info0
+ 508 000a 04       		.byte	0x4
+ 509 000b 00       		.byte	0
+ 510 000c 0000     		.2byte	0
+ 511 000e 0000     		.2byte	0
+ 512 0010 00000000 		.4byte	.LFB0
+ 513 0014 02000000 		.4byte	.LFE0-.LFB0
+ 514 0018 00000000 		.4byte	.LFB1
+ 515 001c 02000000 		.4byte	.LFE1-.LFB1
+ 516 0020 00000000 		.4byte	.LFB2
+ 517 0024 1C000000 		.4byte	.LFE2-.LFB2
+ 518 0028 00000000 		.4byte	.LFB3
+ 519 002c 18000000 		.4byte	.LFE3-.LFB3
+ 520 0030 00000000 		.4byte	0
+ 521 0034 00000000 		.4byte	0
+ 522              		.section	.debug_ranges,"",%progbits
+ 523              	.Ldebug_ranges0:
+ 524 0000 00000000 		.4byte	.LFB0
+ 525 0004 02000000 		.4byte	.LFE0
+ 526 0008 00000000 		.4byte	.LFB1
+ 527 000c 02000000 		.4byte	.LFE1
+ 528 0010 00000000 		.4byte	.LFB2
+ 529 0014 1C000000 		.4byte	.LFE2
+ 530 0018 00000000 		.4byte	.LFB3
+ 531 001c 18000000 		.4byte	.LFE3
+ 532 0020 00000000 		.4byte	0
+ 533 0024 00000000 		.4byte	0
+ 534              		.section	.debug_line,"",%progbits
+ 535              	.Ldebug_line0:
+ 536 0000 A0000000 		.section	.debug_str,"MS",%progbits,1
+ 536      02005400 
+ 536      00000201 
+ 536      FB0E0D00 
+ 536      01010101 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 13
+
+
+ 537              	.LASF20:
+ 538 0000 5350494D 		.ascii	"SPIM_1_RestoreConfig\000"
+ 538      5F315F52 
+ 538      6573746F 
+ 538      7265436F 
+ 538      6E666967 
+ 539              	.LASF25:
+ 540 0015 5350494D 		.ascii	"SPIM_1_Enable\000"
+ 540      5F315F45 
+ 540      6E61626C 
+ 540      6500
+ 541              	.LASF24:
+ 542 0023 5350494D 		.ascii	"SPIM_1_ClearFIFO\000"
+ 542      5F315F43 
+ 542      6C656172 
+ 542      4649464F 
+ 542      00
+ 543              	.LASF26:
+ 544 0034 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 544      4320342E 
+ 544      392E3320 
+ 544      32303135 
+ 544      30333033 
+ 545 0067 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 545      20726576 
+ 545      6973696F 
+ 545      6E203232 
+ 545      31323230 
+ 546 009a 67202D73 		.ascii	"g -std=gnu11 -ffunction-sections -ffat-lto-objects\000"
+ 546      74643D67 
+ 546      6E753131 
+ 546      202D6666 
+ 546      756E6374 
+ 547              	.LASF3:
+ 548 00cd 73686F72 		.ascii	"short unsigned int\000"
+ 548      7420756E 
+ 548      7369676E 
+ 548      65642069 
+ 548      6E7400
+ 549              	.LASF19:
+ 550 00e0 5350494D 		.ascii	"SPIM_1_SaveConfig\000"
+ 550      5F315F53 
+ 550      61766543 
+ 550      6F6E6669 
+ 550      6700
+ 551              	.LASF28:
+ 552 00f2 433A5C55 		.ascii	"C:\\Users\\student\\Documents\\PSoC Creator\\rbeatt"
+ 552      73657273 
+ 552      5C737475 
+ 552      64656E74 
+ 552      5C446F63 
+ 553 0120 69655F66 		.ascii	"ie_final_project\\ConnectFour.cydsn\000"
+ 553      696E616C 
+ 553      5F70726F 
+ 553      6A656374 
+ 553      5C436F6E 
+ 554              	.LASF29:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 14
+
+
+ 555 0143 5350494D 		.ascii	"SPIM_1_backup\000"
+ 555      5F315F62 
+ 555      61636B75 
+ 555      7000
+ 556              	.LASF9:
+ 557 0151 666C6F61 		.ascii	"float\000"
+ 557      7400
+ 558              	.LASF1:
+ 559 0157 756E7369 		.ascii	"unsigned char\000"
+ 559      676E6564 
+ 559      20636861 
+ 559      7200
+ 560              	.LASF13:
+ 561 0165 72656738 		.ascii	"reg8\000"
+ 561      00
+ 562              	.LASF5:
+ 563 016a 6C6F6E67 		.ascii	"long unsigned int\000"
+ 563      20756E73 
+ 563      69676E65 
+ 563      6420696E 
+ 563      7400
+ 564              	.LASF12:
+ 565 017c 75696E74 		.ascii	"uint8\000"
+ 565      3800
+ 566              	.LASF10:
+ 567 0182 646F7562 		.ascii	"double\000"
+ 567      6C6500
+ 568              	.LASF22:
+ 569 0189 5350494D 		.ascii	"SPIM_1_Wakeup\000"
+ 569      5F315F57 
+ 569      616B6575 
+ 569      7000
+ 570              	.LASF17:
+ 571 0197 636E7472 		.ascii	"cntrPeriod\000"
+ 571      50657269 
+ 571      6F6400
+ 572              	.LASF8:
+ 573 01a2 756E7369 		.ascii	"unsigned int\000"
+ 573      676E6564 
+ 573      20696E74 
+ 573      00
+ 574              	.LASF18:
+ 575 01af 5350494D 		.ascii	"SPIM_1_BACKUP_STRUCT\000"
+ 575      5F315F42 
+ 575      41434B55 
+ 575      505F5354 
+ 575      52554354 
+ 576              	.LASF7:
+ 577 01c4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 577      206C6F6E 
+ 577      6720756E 
+ 577      7369676E 
+ 577      65642069 
+ 578              	.LASF15:
+ 579 01db 73697A65 		.ascii	"sizetype\000"
+ 579      74797065 
+ 579      00
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccFXjfdx.s 			page 15
+
+
+ 580              	.LASF6:
+ 581 01e4 6C6F6E67 		.ascii	"long long int\000"
+ 581      206C6F6E 
+ 581      6720696E 
+ 581      7400
+ 582              	.LASF11:
+ 583 01f2 63686172 		.ascii	"char\000"
+ 583      00
+ 584              	.LASF23:
+ 585 01f7 5350494D 		.ascii	"SPIM_1_Stop\000"
+ 585      5F315F53 
+ 585      746F7000 
+ 586              	.LASF2:
+ 587 0203 73686F72 		.ascii	"short int\000"
+ 587      7420696E 
+ 587      7400
+ 588              	.LASF27:
+ 589 020d 2E5C4765 		.ascii	".\\Generated_Source\\PSoC5\\SPIM_1_PM.c\000"
+ 589      6E657261 
+ 589      7465645F 
+ 589      536F7572 
+ 589      63655C50 
+ 590              	.LASF21:
+ 591 0232 5350494D 		.ascii	"SPIM_1_Sleep\000"
+ 591      5F315F53 
+ 591      6C656570 
+ 591      00
+ 592              	.LASF4:
+ 593 023f 6C6F6E67 		.ascii	"long int\000"
+ 593      20696E74 
+ 593      00
+ 594              	.LASF16:
+ 595 0248 656E6162 		.ascii	"enableState\000"
+ 595      6C655374 
+ 595      61746500 
+ 596              	.LASF14:
+ 597 0254 6C6F6E67 		.ascii	"long double\000"
+ 597      20646F75 
+ 597      626C6500 
+ 598              	.LASF0:
+ 599 0260 7369676E 		.ascii	"signed char\000"
+ 599      65642063 
+ 599      68617200 
+ 600              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

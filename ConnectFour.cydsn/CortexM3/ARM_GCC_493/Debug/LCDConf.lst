@@ -1,0 +1,2905 @@
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.file	"LCDConf.c"
+  15              		.text
+  16              	.Ltext0:
+  17              		.cfi_sections	.debug_frame
+  18              		.section	.text._InitController,"ax",%progbits
+  19              		.align	2
+  20              		.thumb
+  21              		.thumb_func
+  22              		.type	_InitController, %function
+  23              	_InitController:
+  24              	.LFB63:
+  25              		.file 1 ".\\LCDConf.c"
+   1:.\LCDConf.c   **** /*********************************************************************
+   2:.\LCDConf.c   **** *                SEGGER Microcontroller GmbH & Co. KG                *
+   3:.\LCDConf.c   **** *        Solutions for real time microcontroller applications        *
+   4:.\LCDConf.c   **** **********************************************************************
+   5:.\LCDConf.c   **** *                                                                    *
+   6:.\LCDConf.c   **** *        (c) 1996 - 2017  SEGGER Microcontroller GmbH & Co. KG       *
+   7:.\LCDConf.c   **** *                                                                    *
+   8:.\LCDConf.c   **** *        Internet: www.segger.com    Support:  support@segger.com    *
+   9:.\LCDConf.c   **** *                                                                    *
+  10:.\LCDConf.c   **** **********************************************************************
+  11:.\LCDConf.c   **** 
+  12:.\LCDConf.c   **** ** emWin V5.46 - Graphical user interface for embedded applications **
+  13:.\LCDConf.c   **** All  Intellectual Property rights  in the Software belongs to  SEGGER.
+  14:.\LCDConf.c   **** emWin is protected by  international copyright laws.  Knowledge of the
+  15:.\LCDConf.c   **** source code may not be used to write a similar product.  This file may
+  16:.\LCDConf.c   **** only be used in accordance with the following terms:
+  17:.\LCDConf.c   **** 
+  18:.\LCDConf.c   **** The software  has been licensed to  Cypress Semiconductor Corporation,
+  19:.\LCDConf.c   **** whose registered  office is situated  at 198 Champion Ct. San Jose, CA 
+  20:.\LCDConf.c   **** 95134 USA  solely for the  purposes of creating  libraries for Cypress
+  21:.\LCDConf.c   **** PSoC3 and  PSoC5 processor-based devices,  sublicensed and distributed
+  22:.\LCDConf.c   **** under  the  terms  and  conditions  of  the  Cypress  End User License
+  23:.\LCDConf.c   **** Agreement.
+  24:.\LCDConf.c   **** Full source code is available at: www.segger.com
+  25:.\LCDConf.c   **** 
+  26:.\LCDConf.c   **** We appreciate your understanding and fairness.
+  27:.\LCDConf.c   **** ----------------------------------------------------------------------
+  28:.\LCDConf.c   **** Licensing information
+  29:.\LCDConf.c   **** Licensor:                 SEGGER Microcontroller Systems LLC
+  30:.\LCDConf.c   **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
+  31:.\LCDConf.c   **** Licensed SEGGER software: emWin
+  32:.\LCDConf.c   **** License number:           GUI-00319
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 2
+
+
+  33:.\LCDConf.c   **** License model:            Services and License Agreement, signed June 10th, 2009
+  34:.\LCDConf.c   **** Licensed platform:        Any Cypress platform (Initial targets are: PSoC3, PSoC5)
+  35:.\LCDConf.c   **** ----------------------------------------------------------------------
+  36:.\LCDConf.c   **** Support and Update Agreement (SUA)
+  37:.\LCDConf.c   **** SUA period:               2009-06-12 - 2022-07-27
+  38:.\LCDConf.c   **** Contact to extend SUA:    sales@segger.com
+  39:.\LCDConf.c   **** ----------------------------------------------------------------------
+  40:.\LCDConf.c   **** File        : LCDConf.c
+  41:.\LCDConf.c   **** Purpose     : Display controller configuration (single layer)
+  42:.\LCDConf.c   **** ---------------------------END-OF-HEADER------------------------------
+  43:.\LCDConf.c   **** */
+  44:.\LCDConf.c   **** 
+  45:.\LCDConf.c   **** #include "project.h" 
+  46:.\LCDConf.c   **** 
+  47:.\LCDConf.c   **** #include "GUI.h"
+  48:.\LCDConf.c   **** #include "GUIDRV_FlexColor.h"
+  49:.\LCDConf.c   **** #include "GUITDRV_ADS7846.h"
+  50:.\LCDConf.c   **** #include "defs.h"
+  51:.\LCDConf.c   **** 
+  52:.\LCDConf.c   **** #include "tft.h"
+  53:.\LCDConf.c   **** 
+  54:.\LCDConf.c   **** /*********************************************************************
+  55:.\LCDConf.c   **** *
+  56:.\LCDConf.c   **** *       Layer configuration (to be modified)
+  57:.\LCDConf.c   **** *
+  58:.\LCDConf.c   **** **********************************************************************
+  59:.\LCDConf.c   **** */
+  60:.\LCDConf.c   **** //
+  61:.\LCDConf.c   **** // Physical display size
+  62:.\LCDConf.c   **** //   The display size should be adapted in order to match the size of
+  63:.\LCDConf.c   **** //   the target display.
+  64:.\LCDConf.c   **** //
+  65:.\LCDConf.c   **** #define LCD_CONTROLLER GUIDRV_FLEXCOLOR_F66709
+  66:.\LCDConf.c   **** 
+  67:.\LCDConf.c   **** 
+  68:.\LCDConf.c   **** 
+  69:.\LCDConf.c   **** //
+  70:.\LCDConf.c   **** // Color conversion
+  71:.\LCDConf.c   **** //   The color conversion functions should be selected according to
+  72:.\LCDConf.c   **** //   the color mode of the target display. Details can be found in
+  73:.\LCDConf.c   **** //   the chapter "Colors" in the emWin user manual.
+  74:.\LCDConf.c   **** //
+  75:.\LCDConf.c   **** #define COLOR_CONVERSION GUICC_565
+  76:.\LCDConf.c   **** 
+  77:.\LCDConf.c   **** //
+  78:.\LCDConf.c   **** // Display driver
+  79:.\LCDConf.c   **** //
+  80:.\LCDConf.c   **** #define DISPLAY_DRIVER GUIDRV_FLEXCOLOR
+  81:.\LCDConf.c   **** 
+  82:.\LCDConf.c   **** /*********************************************************************
+  83:.\LCDConf.c   **** *
+  84:.\LCDConf.c   **** *       Configuration checking
+  85:.\LCDConf.c   **** *
+  86:.\LCDConf.c   **** **********************************************************************
+  87:.\LCDConf.c   **** */
+  88:.\LCDConf.c   **** #ifndef   VXSIZE_PHYS
+  89:.\LCDConf.c   ****   #define VXSIZE_PHYS XSIZE_PHYS
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 3
+
+
+  90:.\LCDConf.c   **** #endif
+  91:.\LCDConf.c   **** #ifndef   VYSIZE_PHYS
+  92:.\LCDConf.c   ****   #define VYSIZE_PHYS YSIZE_PHYS
+  93:.\LCDConf.c   **** #endif
+  94:.\LCDConf.c   **** #ifndef   XSIZE_PHYS
+  95:.\LCDConf.c   ****   #error Physical X size of display is not defined!
+  96:.\LCDConf.c   **** #endif
+  97:.\LCDConf.c   **** #ifndef   YSIZE_PHYS
+  98:.\LCDConf.c   ****   #error Physical Y size of display is not defined!
+  99:.\LCDConf.c   **** #endif
+ 100:.\LCDConf.c   **** #ifndef   COLOR_CONVERSION
+ 101:.\LCDConf.c   ****   #error Color conversion not defined!
+ 102:.\LCDConf.c   **** #endif
+ 103:.\LCDConf.c   **** #ifndef   DISPLAY_DRIVER
+ 104:.\LCDConf.c   ****   #error No display driver defined!
+ 105:.\LCDConf.c   **** #endif
+ 106:.\LCDConf.c   **** 
+ 107:.\LCDConf.c   **** /********************************************************************
+ 108:.\LCDConf.c   **** *
+ 109:.\LCDConf.c   **** *       _InitController
+ 110:.\LCDConf.c   **** *
+ 111:.\LCDConf.c   **** * Purpose:
+ 112:.\LCDConf.c   **** *   Initializes the LCD controller
+ 113:.\LCDConf.c   **** *
+ 114:.\LCDConf.c   **** */
+ 115:.\LCDConf.c   **** static void _InitController(void) {
+  26              		.loc 1 115 0
+  27              		.cfi_startproc
+  28              		@ args = 0, pretend = 0, frame = 0
+  29              		@ frame_needed = 0, uses_anonymous_args = 0
+  30 0000 08B5     		push	{r3, lr}
+  31              		.cfi_def_cfa_offset 8
+  32              		.cfi_offset 3, -8
+  33              		.cfi_offset 14, -4
+ 116:.\LCDConf.c   ****   /* Set up the display controller and put it into operation. If the 
+ 117:.\LCDConf.c   ****   *  display controller is not initialized by any external routine 
+ 118:.\LCDConf.c   ****   *  this needs to be adapted by the customer.
+ 119:.\LCDConf.c   ****   */
+ 120:.\LCDConf.c   ****     tftStart();
+  34              		.loc 1 120 0
+  35 0002 FFF7FEFF 		bl	tftStart
+  36              	.LVL0:
+  37 0006 08BD     		pop	{r3, pc}
+  38              		.cfi_endproc
+  39              	.LFE63:
+  40              		.size	_InitController, .-_InitController
+  41              		.section	.text.LCD_X_Config,"ax",%progbits
+  42              		.align	2
+  43              		.global	LCD_X_Config
+  44              		.thumb
+  45              		.thumb_func
+  46              		.type	LCD_X_Config, %function
+  47              	LCD_X_Config:
+  48              	.LFB64:
+ 121:.\LCDConf.c   **** }
+ 122:.\LCDConf.c   **** 
+ 123:.\LCDConf.c   **** /*********************************************************************
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 4
+
+
+ 124:.\LCDConf.c   **** *
+ 125:.\LCDConf.c   **** *       Public code
+ 126:.\LCDConf.c   **** *
+ 127:.\LCDConf.c   **** **********************************************************************
+ 128:.\LCDConf.c   **** */
+ 129:.\LCDConf.c   **** /*********************************************************************
+ 130:.\LCDConf.c   **** *
+ 131:.\LCDConf.c   **** *       LCD_X_Config
+ 132:.\LCDConf.c   **** *
+ 133:.\LCDConf.c   **** * Function description
+ 134:.\LCDConf.c   **** *   Called during the initialization process in order to set up the
+ 135:.\LCDConf.c   **** *   display driver configuration.
+ 136:.\LCDConf.c   **** */
+ 137:.\LCDConf.c   **** void LCD_X_Config(void) {
+  49              		.loc 1 137 0
+  50              		.cfi_startproc
+  51              		@ args = 0, pretend = 0, frame = 128
+  52              		@ frame_needed = 0, uses_anonymous_args = 0
+  53 0000 30B5     		push	{r4, r5, lr}
+  54              		.cfi_def_cfa_offset 12
+  55              		.cfi_offset 4, -12
+  56              		.cfi_offset 5, -8
+  57              		.cfi_offset 14, -4
+  58 0002 A1B0     		sub	sp, sp, #132
+  59              		.cfi_def_cfa_offset 144
+ 138:.\LCDConf.c   ****  
+ 139:.\LCDConf.c   ****   GUI_DEVICE * pDevice;
+ 140:.\LCDConf.c   ****   CONFIG_FLEXCOLOR Config = {0};
+  60              		.loc 1 140 0
+  61 0004 0024     		movs	r4, #0
+  62 0006 1B94     		str	r4, [sp, #108]
+  63 0008 1C94     		str	r4, [sp, #112]
+  64 000a 1D94     		str	r4, [sp, #116]
+  65 000c 1E94     		str	r4, [sp, #120]
+  66 000e 1F94     		str	r4, [sp, #124]
+ 141:.\LCDConf.c   ****   GUI_PORT_API PortAPI = {0};
+  67              		.loc 1 141 0
+  68 0010 01A8     		add	r0, sp, #4
+  69 0012 2146     		mov	r1, r4
+  70 0014 6822     		movs	r2, #104
+  71 0016 FFF7FEFF 		bl	memset
+  72              	.LVL1:
+ 142:.\LCDConf.c   **** 
+ 143:.\LCDConf.c   ****   //
+ 144:.\LCDConf.c   ****   // Set the display driver and color conversion
+ 145:.\LCDConf.c   ****   //
+ 146:.\LCDConf.c   ****   pDevice = GUI_DEVICE_CreateAndLink(DISPLAY_DRIVER, COLOR_CONVERSION, 0, 0);
+  73              		.loc 1 146 0
+  74 001a 1548     		ldr	r0, .L5
+  75 001c 1549     		ldr	r1, .L5+4
+  76 001e 2246     		mov	r2, r4
+  77 0020 2346     		mov	r3, r4
+  78 0022 FFF7FEFF 		bl	GUI_DEVICE_CreateAndLink
+  79              	.LVL2:
+  80 0026 0546     		mov	r5, r0
+  81              	.LVL3:
+ 147:.\LCDConf.c   ****   //
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 5
+
+
+ 148:.\LCDConf.c   ****   // Display driver configuration
+ 149:.\LCDConf.c   ****   //
+ 150:.\LCDConf.c   ****   LCD_SetSizeEx    (0, XSIZE_PHYS,   YSIZE_PHYS);
+  82              		.loc 1 150 0
+  83 0028 2046     		mov	r0, r4
+  84              	.LVL4:
+  85 002a F021     		movs	r1, #240
+  86 002c 4FF4A072 		mov	r2, #320
+  87 0030 FFF7FEFF 		bl	LCD_SetSizeEx
+  88              	.LVL5:
+ 151:.\LCDConf.c   ****   LCD_SetVSizeEx   (0, VXSIZE_PHYS,  VYSIZE_PHYS);
+  89              		.loc 1 151 0
+  90 0034 2046     		mov	r0, r4
+  91 0036 F021     		movs	r1, #240
+  92 0038 4FF4A072 		mov	r2, #320
+  93 003c FFF7FEFF 		bl	LCD_SetVSizeEx
+  94              	.LVL6:
+ 152:.\LCDConf.c   **** 
+ 153:.\LCDConf.c   ****   //
+ 154:.\LCDConf.c   ****   // Orientation
+ 155:.\LCDConf.c   ****   //
+ 156:.\LCDConf.c   ****   Config.Orientation = GUI_SWAP_XY;
+  95              		.loc 1 156 0
+  96 0040 0423     		movs	r3, #4
+  97 0042 1D93     		str	r3, [sp, #116]
+ 157:.\LCDConf.c   **** 
+ 158:.\LCDConf.c   ****   GUIDRV_FlexColor_Config(pDevice, &Config);
+  98              		.loc 1 158 0
+  99 0044 2846     		mov	r0, r5
+ 100 0046 1BA9     		add	r1, sp, #108
+ 101 0048 FFF7FEFF 		bl	GUIDRV_FlexColor_Config
+ 102              	.LVL7:
+ 159:.\LCDConf.c   ****   //
+ 160:.\LCDConf.c   ****   // Set controller and operation mode
+ 161:.\LCDConf.c   ****   //
+ 162:.\LCDConf.c   ****   PortAPI.pfWrite8_A0 = write8_a0;
+ 103              		.loc 1 162 0
+ 104 004c 0A4B     		ldr	r3, .L5+8
+ 105 004e 0193     		str	r3, [sp, #4]
+ 163:.\LCDConf.c   ****   PortAPI.pfWrite8_A1 = write8_a1;
+ 106              		.loc 1 163 0
+ 107 0050 0A4B     		ldr	r3, .L5+12
+ 108 0052 0293     		str	r3, [sp, #8]
+ 164:.\LCDConf.c   ****   PortAPI.pfWriteM8_A1 = writeM8_a1;
+ 109              		.loc 1 164 0
+ 110 0054 0A4B     		ldr	r3, .L5+16
+ 111 0056 0493     		str	r3, [sp, #16]
+ 165:.\LCDConf.c   ****   PortAPI.pfRead8_A1 = read8_a1;
+ 112              		.loc 1 165 0
+ 113 0058 0A4B     		ldr	r3, .L5+20
+ 114 005a 0693     		str	r3, [sp, #24]
+ 166:.\LCDConf.c   ****   PortAPI.pfReadM8_A1 = readM8_a1;
+ 115              		.loc 1 166 0
+ 116 005c 0A4B     		ldr	r3, .L5+24
+ 117 005e 0893     		str	r3, [sp, #32]
+ 167:.\LCDConf.c   **** 
+ 168:.\LCDConf.c   ****   GUIDRV_FlexColor_SetFunc(pDevice, &PortAPI, LCD_CONTROLLER, GUIDRV_FLEXCOLOR_M16C0B8);
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 6
+
+
+ 118              		.loc 1 168 0
+ 119 0060 2846     		mov	r0, r5
+ 120 0062 01A9     		add	r1, sp, #4
+ 121 0064 094A     		ldr	r2, .L5+28
+ 122 0066 0A4B     		ldr	r3, .L5+32
+ 123 0068 FFF7FEFF 		bl	GUIDRV_FlexColor_SetFunc
+ 124              	.LVL8:
+ 169:.\LCDConf.c   ****     
+ 170:.\LCDConf.c   **** }
+ 125              		.loc 1 170 0
+ 126 006c 21B0     		add	sp, sp, #132
+ 127              		.cfi_def_cfa_offset 12
+ 128              		@ sp needed
+ 129 006e 30BD     		pop	{r4, r5, pc}
+ 130              	.LVL9:
+ 131              	.L6:
+ 132              		.align	2
+ 133              	.L5:
+ 134 0070 00000000 		.word	GUIDRV_FlexColor_API
+ 135 0074 00000000 		.word	LCD_API_ColorConv_565
+ 136 0078 00000000 		.word	write8_a0
+ 137 007c 00000000 		.word	write8_a1
+ 138 0080 00000000 		.word	writeM8_a1
+ 139 0084 00000000 		.word	read8_a1
+ 140 0088 00000000 		.word	readM8_a1
+ 141 008c 00000000 		.word	GUIDRV_FlexColor_SetFunc66709
+ 142 0090 00000000 		.word	GUIDRV_FlexColor_SetMode16bppC0B8
+ 143              		.cfi_endproc
+ 144              	.LFE64:
+ 145              		.size	LCD_X_Config, .-LCD_X_Config
+ 146              		.section	.text.LCD_X_DisplayDriver,"ax",%progbits
+ 147              		.align	2
+ 148              		.global	LCD_X_DisplayDriver
+ 149              		.thumb
+ 150              		.thumb_func
+ 151              		.type	LCD_X_DisplayDriver, %function
+ 152              	LCD_X_DisplayDriver:
+ 153              	.LFB65:
+ 171:.\LCDConf.c   **** 
+ 172:.\LCDConf.c   **** /*********************************************************************
+ 173:.\LCDConf.c   **** *
+ 174:.\LCDConf.c   **** *       LCD_X_DisplayDriver
+ 175:.\LCDConf.c   **** *
+ 176:.\LCDConf.c   **** * Purpose:
+ 177:.\LCDConf.c   **** *   This function is called by the display driver for several purposes.
+ 178:.\LCDConf.c   **** *   To support the according task, the routine needs to be adapted to
+ 179:.\LCDConf.c   **** *   the display controller. Note that the commands marked
+ 180:.\LCDConf.c   **** *   "optional" are not cogently required and should only be adapted if 
+ 181:.\LCDConf.c   **** *   the display controller supports these features.
+ 182:.\LCDConf.c   **** *
+ 183:.\LCDConf.c   **** * Parameter:
+ 184:.\LCDConf.c   **** *   LayerIndex - Zero based layer index
+ 185:.\LCDConf.c   **** *   Cmd        - Command to be executed
+ 186:.\LCDConf.c   **** *   pData      - Pointer to a data structure.
+ 187:.\LCDConf.c   **** * 
+ 188:.\LCDConf.c   **** * Return Value:
+ 189:.\LCDConf.c   **** *   < -1 - Error
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 7
+
+
+ 190:.\LCDConf.c   **** *     -1 - The command is not handled.
+ 191:.\LCDConf.c   **** *      0 - OK.
+ 192:.\LCDConf.c   **** */
+ 193:.\LCDConf.c   **** int LCD_X_DisplayDriver(unsigned LayerIndex, unsigned Cmd, void * pData) {
+ 154              		.loc 1 193 0
+ 155              		.cfi_startproc
+ 156              		@ args = 0, pretend = 0, frame = 0
+ 157              		@ frame_needed = 0, uses_anonymous_args = 0
+ 158              	.LVL10:
+ 194:.\LCDConf.c   ****   int r;
+ 195:.\LCDConf.c   ****   
+ 196:.\LCDConf.c   ****   GUI_USE_PARA(LayerIndex);
+ 197:.\LCDConf.c   ****   GUI_USE_PARA(pData);
+ 198:.\LCDConf.c   ****   
+ 199:.\LCDConf.c   ****   switch (Cmd) {
+ 159              		.loc 1 199 0
+ 160 0000 0129     		cmp	r1, #1
+ 161 0002 04D1     		bne	.L11
+ 193:.\LCDConf.c   ****   int r;
+ 162              		.loc 1 193 0
+ 163 0004 08B5     		push	{r3, lr}
+ 164              		.cfi_def_cfa_offset 8
+ 165              		.cfi_offset 3, -8
+ 166              		.cfi_offset 14, -4
+ 200:.\LCDConf.c   ****   case LCD_X_INITCONTROLLER: {
+ 201:.\LCDConf.c   ****     //
+ 202:.\LCDConf.c   ****     // Called during the initialization process in order to set up the
+ 203:.\LCDConf.c   ****     // display controller and put it into operation. If the display
+ 204:.\LCDConf.c   ****     // controller is not initialized by any external routine, this needs
+ 205:.\LCDConf.c   ****     // to be adapted by the customer...
+ 206:.\LCDConf.c   ****     //
+ 207:.\LCDConf.c   ****     // ...
+ 208:.\LCDConf.c   ****     _InitController();
+ 167              		.loc 1 208 0
+ 168 0006 FFF7FEFF 		bl	_InitController
+ 169              	.LVL11:
+ 209:.\LCDConf.c   ****     return 0;
+ 170              		.loc 1 209 0
+ 171 000a 0020     		movs	r0, #0
+ 172 000c 08BD     		pop	{r3, pc}
+ 173              	.LVL12:
+ 174              	.L11:
+ 175              		.cfi_def_cfa_offset 0
+ 176              		.cfi_restore 3
+ 177              		.cfi_restore 14
+ 210:.\LCDConf.c   ****   }
+ 211:.\LCDConf.c   ****   default:
+ 212:.\LCDConf.c   ****     r = -1;
+ 213:.\LCDConf.c   ****   }
+ 214:.\LCDConf.c   ****   return r;
+ 178              		.loc 1 214 0
+ 179 000e 4FF0FF30 		mov	r0, #-1
+ 180              	.LVL13:
+ 181 0012 7047     		bx	lr
+ 182              		.cfi_endproc
+ 183              	.LFE65:
+ 184              		.size	LCD_X_DisplayDriver, .-LCD_X_DisplayDriver
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 8
+
+
+ 185              		.text
+ 186              	.Letext0:
+ 187              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 188              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 189              		.file 4 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/LCD.h"
+ 190              		.file 5 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI.h"
+ 191              		.file 6 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI_Type.h"
+ 192              		.file 7 ".\\GUIDRV_FlexColor.h"
+ 193              		.file 8 "Generated_Source\\PSoC5/core_cm3.h"
+ 194              		.file 9 ".\\tft.h"
+ 195              		.section	.debug_info,"",%progbits
+ 196              	.Ldebug_info0:
+ 197 0000 83090000 		.4byte	0x983
+ 198 0004 0400     		.2byte	0x4
+ 199 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 200 000a 04       		.byte	0x4
+ 201 000b 01       		.uleb128 0x1
+ 202 000c 39050000 		.4byte	.LASF99
+ 203 0010 01       		.byte	0x1
+ 204 0011 A3040000 		.4byte	.LASF100
+ 205 0015 99020000 		.4byte	.LASF101
+ 206 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 207 001d 00000000 		.4byte	0
+ 208 0021 00000000 		.4byte	.Ldebug_line0
+ 209 0025 02       		.uleb128 0x2
+ 210 0026 01       		.byte	0x1
+ 211 0027 06       		.byte	0x6
+ 212 0028 8D020000 		.4byte	.LASF0
+ 213 002c 02       		.uleb128 0x2
+ 214 002d 01       		.byte	0x1
+ 215 002e 08       		.byte	0x8
+ 216 002f 7F020000 		.4byte	.LASF1
+ 217 0033 02       		.uleb128 0x2
+ 218 0034 02       		.byte	0x2
+ 219 0035 05       		.byte	0x5
+ 220 0036 6F000000 		.4byte	.LASF2
+ 221 003a 02       		.uleb128 0x2
+ 222 003b 02       		.byte	0x2
+ 223 003c 07       		.byte	0x7
+ 224 003d 13040000 		.4byte	.LASF3
+ 225 0041 03       		.uleb128 0x3
+ 226 0042 BD040000 		.4byte	.LASF9
+ 227 0046 02       		.byte	0x2
+ 228 0047 3F       		.byte	0x3f
+ 229 0048 4C000000 		.4byte	0x4c
+ 230 004c 02       		.uleb128 0x2
+ 231 004d 04       		.byte	0x4
+ 232 004e 05       		.byte	0x5
+ 233 004f E6010000 		.4byte	.LASF4
+ 234 0053 02       		.uleb128 0x2
+ 235 0054 04       		.byte	0x4
+ 236 0055 07       		.byte	0x7
+ 237 0056 40040000 		.4byte	.LASF5
+ 238 005a 02       		.uleb128 0x2
+ 239 005b 08       		.byte	0x8
+ 240 005c 05       		.byte	0x5
+ 241 005d 9F010000 		.4byte	.LASF6
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 9
+
+
+ 242 0061 02       		.uleb128 0x2
+ 243 0062 08       		.byte	0x8
+ 244 0063 07       		.byte	0x7
+ 245 0064 AD010000 		.4byte	.LASF7
+ 246 0068 04       		.uleb128 0x4
+ 247 0069 04       		.byte	0x4
+ 248 006a 05       		.byte	0x5
+ 249 006b 696E7400 		.ascii	"int\000"
+ 250 006f 02       		.uleb128 0x2
+ 251 0070 04       		.byte	0x4
+ 252 0071 07       		.byte	0x7
+ 253 0072 1C030000 		.4byte	.LASF8
+ 254 0076 03       		.uleb128 0x3
+ 255 0077 A6030000 		.4byte	.LASF10
+ 256 007b 03       		.byte	0x3
+ 257 007c 2C       		.byte	0x2c
+ 258 007d 41000000 		.4byte	0x41
+ 259 0081 02       		.uleb128 0x2
+ 260 0082 04       		.byte	0x4
+ 261 0083 04       		.byte	0x4
+ 262 0084 86010000 		.4byte	.LASF11
+ 263 0088 02       		.uleb128 0x2
+ 264 0089 08       		.byte	0x8
+ 265 008a 04       		.byte	0x4
+ 266 008b 52040000 		.4byte	.LASF12
+ 267 008f 02       		.uleb128 0x2
+ 268 0090 01       		.byte	0x1
+ 269 0091 08       		.byte	0x8
+ 270 0092 81030000 		.4byte	.LASF13
+ 271 0096 05       		.uleb128 0x5
+ 272 0097 04       		.byte	0x4
+ 273 0098 9C000000 		.4byte	0x9c
+ 274 009c 06       		.uleb128 0x6
+ 275 009d 02       		.uleb128 0x2
+ 276 009e 08       		.byte	0x8
+ 277 009f 04       		.byte	0x4
+ 278 00a0 D5000000 		.4byte	.LASF14
+ 279 00a4 02       		.uleb128 0x2
+ 280 00a5 04       		.byte	0x4
+ 281 00a6 07       		.byte	0x7
+ 282 00a7 85000000 		.4byte	.LASF15
+ 283 00ab 07       		.uleb128 0x7
+ 284 00ac 04       		.byte	0x4
+ 285 00ad 05       		.uleb128 0x5
+ 286 00ae 04       		.byte	0x4
+ 287 00af 2C000000 		.4byte	0x2c
+ 288 00b3 03       		.uleb128 0x3
+ 289 00b4 12010000 		.4byte	.LASF16
+ 290 00b8 04       		.byte	0x4
+ 291 00b9 6A       		.byte	0x6a
+ 292 00ba 53000000 		.4byte	0x53
+ 293 00be 08       		.uleb128 0x8
+ 294 00bf 08       		.byte	0x8
+ 295 00c0 04       		.byte	0x4
+ 296 00c1 71       		.byte	0x71
+ 297 00c2 F3000000 		.4byte	0xf3
+ 298 00c6 09       		.uleb128 0x9
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 10
+
+
+ 299 00c7 783000   		.ascii	"x0\000"
+ 300 00ca 04       		.byte	0x4
+ 301 00cb 71       		.byte	0x71
+ 302 00cc 33000000 		.4byte	0x33
+ 303 00d0 00       		.byte	0
+ 304 00d1 09       		.uleb128 0x9
+ 305 00d2 793000   		.ascii	"y0\000"
+ 306 00d5 04       		.byte	0x4
+ 307 00d6 71       		.byte	0x71
+ 308 00d7 33000000 		.4byte	0x33
+ 309 00db 02       		.byte	0x2
+ 310 00dc 09       		.uleb128 0x9
+ 311 00dd 783100   		.ascii	"x1\000"
+ 312 00e0 04       		.byte	0x4
+ 313 00e1 71       		.byte	0x71
+ 314 00e2 33000000 		.4byte	0x33
+ 315 00e6 04       		.byte	0x4
+ 316 00e7 09       		.uleb128 0x9
+ 317 00e8 793100   		.ascii	"y1\000"
+ 318 00eb 04       		.byte	0x4
+ 319 00ec 71       		.byte	0x71
+ 320 00ed 33000000 		.4byte	0x33
+ 321 00f1 06       		.byte	0x6
+ 322 00f2 00       		.byte	0
+ 323 00f3 03       		.uleb128 0x3
+ 324 00f4 76020000 		.4byte	.LASF17
+ 325 00f8 04       		.byte	0x4
+ 326 00f9 71       		.byte	0x71
+ 327 00fa BE000000 		.4byte	0xbe
+ 328 00fe 03       		.uleb128 0x3
+ 329 00ff D2050000 		.4byte	.LASF18
+ 330 0103 04       		.byte	0x4
+ 331 0104 88       		.byte	0x88
+ 332 0105 09010000 		.4byte	0x109
+ 333 0109 0A       		.uleb128 0xa
+ 334 010a B3000000 		.4byte	0xb3
+ 335 010e 18010000 		.4byte	0x118
+ 336 0112 0B       		.uleb128 0xb
+ 337 0113 53000000 		.4byte	0x53
+ 338 0117 00       		.byte	0
+ 339 0118 03       		.uleb128 0x3
+ 340 0119 2B060000 		.4byte	.LASF19
+ 341 011d 04       		.byte	0x4
+ 342 011e 89       		.byte	0x89
+ 343 011f 23010000 		.4byte	0x123
+ 344 0123 0A       		.uleb128 0xa
+ 345 0124 53000000 		.4byte	0x53
+ 346 0128 32010000 		.4byte	0x132
+ 347 012c 0B       		.uleb128 0xb
+ 348 012d B3000000 		.4byte	0xb3
+ 349 0131 00       		.byte	0
+ 350 0132 03       		.uleb128 0x3
+ 351 0133 D1010000 		.4byte	.LASF20
+ 352 0137 04       		.byte	0x4
+ 353 0138 8A       		.byte	0x8a
+ 354 0139 3D010000 		.4byte	0x13d
+ 355 013d 0C       		.uleb128 0xc
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 11
+
+
+ 356 013e 53000000 		.4byte	0x53
+ 357 0142 03       		.uleb128 0x3
+ 358 0143 21050000 		.4byte	.LASF21
+ 359 0147 04       		.byte	0x4
+ 360 0148 8C       		.byte	0x8c
+ 361 0149 4D010000 		.4byte	0x14d
+ 362 014d 0D       		.uleb128 0xd
+ 363 014e 67010000 		.4byte	0x167
+ 364 0152 0B       		.uleb128 0xb
+ 365 0153 AB000000 		.4byte	0xab
+ 366 0157 0B       		.uleb128 0xb
+ 367 0158 67010000 		.4byte	0x167
+ 368 015c 0B       		.uleb128 0xb
+ 369 015d 53000000 		.4byte	0x53
+ 370 0161 0B       		.uleb128 0xb
+ 371 0162 2C000000 		.4byte	0x2c
+ 372 0166 00       		.byte	0
+ 373 0167 05       		.uleb128 0x5
+ 374 0168 04       		.byte	0x4
+ 375 0169 B3000000 		.4byte	0xb3
+ 376 016d 03       		.uleb128 0x3
+ 377 016e 69030000 		.4byte	.LASF22
+ 378 0172 04       		.byte	0x4
+ 379 0173 8D       		.byte	0x8d
+ 380 0174 78010000 		.4byte	0x178
+ 381 0178 0D       		.uleb128 0xd
+ 382 0179 92010000 		.4byte	0x192
+ 383 017d 0B       		.uleb128 0xb
+ 384 017e 67010000 		.4byte	0x167
+ 385 0182 0B       		.uleb128 0xb
+ 386 0183 AB000000 		.4byte	0xab
+ 387 0187 0B       		.uleb128 0xb
+ 388 0188 53000000 		.4byte	0x53
+ 389 018c 0B       		.uleb128 0xb
+ 390 018d 2C000000 		.4byte	0x2c
+ 391 0191 00       		.byte	0
+ 392 0192 08       		.uleb128 0x8
+ 393 0193 18       		.byte	0x18
+ 394 0194 04       		.byte	0x4
+ 395 0195 93       		.byte	0x93
+ 396 0196 E3010000 		.4byte	0x1e3
+ 397 019a 0E       		.uleb128 0xe
+ 398 019b 4E030000 		.4byte	.LASF23
+ 399 019f 04       		.byte	0x4
+ 400 01a0 94       		.byte	0x94
+ 401 01a1 E3010000 		.4byte	0x1e3
+ 402 01a5 00       		.byte	0
+ 403 01a6 0E       		.uleb128 0xe
+ 404 01a7 0E030000 		.4byte	.LASF24
+ 405 01ab 04       		.byte	0x4
+ 406 01ac 95       		.byte	0x95
+ 407 01ad E9010000 		.4byte	0x1e9
+ 408 01b1 04       		.byte	0x4
+ 409 01b2 0E       		.uleb128 0xe
+ 410 01b3 29010000 		.4byte	.LASF25
+ 411 01b7 04       		.byte	0x4
+ 412 01b8 96       		.byte	0x96
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 12
+
+
+ 413 01b9 EF010000 		.4byte	0x1ef
+ 414 01bd 08       		.byte	0x8
+ 415 01be 0E       		.uleb128 0xe
+ 416 01bf 06030000 		.4byte	.LASF26
+ 417 01c3 04       		.byte	0x4
+ 418 01c4 97       		.byte	0x97
+ 419 01c5 68000000 		.4byte	0x68
+ 420 01c9 0C       		.byte	0xc
+ 421 01ca 0E       		.uleb128 0xe
+ 422 01cb 38010000 		.4byte	.LASF27
+ 423 01cf 04       		.byte	0x4
+ 424 01d0 98       		.byte	0x98
+ 425 01d1 F5010000 		.4byte	0x1f5
+ 426 01d5 10       		.byte	0x10
+ 427 01d6 0E       		.uleb128 0xe
+ 428 01d7 C5030000 		.4byte	.LASF28
+ 429 01db 04       		.byte	0x4
+ 430 01dc 99       		.byte	0x99
+ 431 01dd FB010000 		.4byte	0x1fb
+ 432 01e1 14       		.byte	0x14
+ 433 01e2 00       		.byte	0
+ 434 01e3 05       		.uleb128 0x5
+ 435 01e4 04       		.byte	0x4
+ 436 01e5 18010000 		.4byte	0x118
+ 437 01e9 05       		.uleb128 0x5
+ 438 01ea 04       		.byte	0x4
+ 439 01eb FE000000 		.4byte	0xfe
+ 440 01ef 05       		.uleb128 0x5
+ 441 01f0 04       		.byte	0x4
+ 442 01f1 32010000 		.4byte	0x132
+ 443 01f5 05       		.uleb128 0x5
+ 444 01f6 04       		.byte	0x4
+ 445 01f7 6D010000 		.4byte	0x16d
+ 446 01fb 05       		.uleb128 0x5
+ 447 01fc 04       		.byte	0x4
+ 448 01fd 42010000 		.4byte	0x142
+ 449 0201 03       		.uleb128 0x3
+ 450 0202 FF010000 		.4byte	.LASF29
+ 451 0206 04       		.byte	0x4
+ 452 0207 9A       		.byte	0x9a
+ 453 0208 92010000 		.4byte	0x192
+ 454 020c 05       		.uleb128 0x5
+ 455 020d 04       		.byte	0x4
+ 456 020e F3000000 		.4byte	0xf3
+ 457 0212 0F       		.uleb128 0xf
+ 458 0213 BA030000 		.4byte	.LASF30
+ 459 0217 04       		.byte	0x4
+ 460 0218 4301     		.2byte	0x143
+ 461 021a 1E020000 		.4byte	0x21e
+ 462 021e 10       		.uleb128 0x10
+ 463 021f BA030000 		.4byte	.LASF30
+ 464 0223 1C       		.byte	0x1c
+ 465 0224 05       		.byte	0x5
+ 466 0225 B0       		.byte	0xb0
+ 467 0226 7D020000 		.4byte	0x27d
+ 468 022a 0E       		.uleb128 0xe
+ 469 022b C4010000 		.4byte	.LASF31
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 13
+
+
+ 470 022f 05       		.byte	0x5
+ 471 0230 B4       		.byte	0xb4
+ 472 0231 85050000 		.4byte	0x585
+ 473 0235 00       		.byte	0
+ 474 0236 0E       		.uleb128 0xe
+ 475 0237 34020000 		.4byte	.LASF32
+ 476 023b 05       		.byte	0x5
+ 477 023c B5       		.byte	0xb5
+ 478 023d 85050000 		.4byte	0x585
+ 479 0241 04       		.byte	0x4
+ 480 0242 09       		.uleb128 0x9
+ 481 0243 7500     		.ascii	"u\000"
+ 482 0245 05       		.byte	0x5
+ 483 0246 BC       		.byte	0xbc
+ 484 0247 A5060000 		.4byte	0x6a5
+ 485 024b 08       		.byte	0x8
+ 486 024c 0E       		.uleb128 0xe
+ 487 024d EB000000 		.4byte	.LASF33
+ 488 0251 05       		.byte	0x5
+ 489 0252 C0       		.byte	0xc0
+ 490 0253 C4060000 		.4byte	0x6c4
+ 491 0257 0C       		.byte	0xc
+ 492 0258 0E       		.uleb128 0xe
+ 493 0259 00000000 		.4byte	.LASF34
+ 494 025d 05       		.byte	0x5
+ 495 025e C1       		.byte	0xc1
+ 496 025f 4E030000 		.4byte	0x34e
+ 497 0263 10       		.byte	0x10
+ 498 0264 0E       		.uleb128 0xe
+ 499 0265 80010000 		.4byte	.LASF35
+ 500 0269 05       		.byte	0x5
+ 501 026a C2       		.byte	0xc2
+ 502 026b 3A000000 		.4byte	0x3a
+ 503 026f 14       		.byte	0x14
+ 504 0270 0E       		.uleb128 0xe
+ 505 0271 94010000 		.4byte	.LASF36
+ 506 0275 05       		.byte	0x5
+ 507 0276 C3       		.byte	0xc3
+ 508 0277 68000000 		.4byte	0x68
+ 509 027b 18       		.byte	0x18
+ 510 027c 00       		.byte	0
+ 511 027d 0F       		.uleb128 0xf
+ 512 027e 03010000 		.4byte	.LASF37
+ 513 0282 04       		.byte	0x4
+ 514 0283 4401     		.2byte	0x144
+ 515 0285 89020000 		.4byte	0x289
+ 516 0289 10       		.uleb128 0x10
+ 517 028a 03010000 		.4byte	.LASF37
+ 518 028e 34       		.byte	0x34
+ 519 028f 05       		.byte	0x5
+ 520 0290 6A       		.byte	0x6a
+ 521 0291 32030000 		.4byte	0x332
+ 522 0295 0E       		.uleb128 0xe
+ 523 0296 95030000 		.4byte	.LASF38
+ 524 029a 05       		.byte	0x5
+ 525 029b 6E       		.byte	0x6e
+ 526 029c 68000000 		.4byte	0x68
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 14
+
+
+ 527 02a0 00       		.byte	0
+ 528 02a1 0E       		.uleb128 0xe
+ 529 02a2 06040000 		.4byte	.LASF39
+ 530 02a6 05       		.byte	0x5
+ 531 02a7 72       		.byte	0x72
+ 532 02a8 96050000 		.4byte	0x596
+ 533 02ac 04       		.byte	0x4
+ 534 02ad 0E       		.uleb128 0xe
+ 535 02ae 74010000 		.4byte	.LASF40
+ 536 02b2 05       		.byte	0x5
+ 537 02b3 73       		.byte	0x73
+ 538 02b4 B6050000 		.4byte	0x5b6
+ 539 02b8 08       		.byte	0x8
+ 540 02b9 0E       		.uleb128 0xe
+ 541 02ba BB000000 		.4byte	.LASF41
+ 542 02be 05       		.byte	0x5
+ 543 02bf 74       		.byte	0x74
+ 544 02c0 B6050000 		.4byte	0x5b6
+ 545 02c4 0C       		.byte	0xc
+ 546 02c5 0E       		.uleb128 0xe
+ 547 02c6 3D000000 		.4byte	.LASF42
+ 548 02ca 05       		.byte	0x5
+ 549 02cb 75       		.byte	0x75
+ 550 02cc DB050000 		.4byte	0x5db
+ 551 02d0 10       		.byte	0x10
+ 552 02d1 0E       		.uleb128 0xe
+ 553 02d2 EF010000 		.4byte	.LASF43
+ 554 02d6 05       		.byte	0x5
+ 555 02d7 76       		.byte	0x76
+ 556 02d8 FA050000 		.4byte	0x5fa
+ 557 02dc 14       		.byte	0x14
+ 558 02dd 0E       		.uleb128 0xe
+ 559 02de 29030000 		.4byte	.LASF44
+ 560 02e2 05       		.byte	0x5
+ 561 02e3 77       		.byte	0x77
+ 562 02e4 1A060000 		.4byte	0x61a
+ 563 02e8 18       		.byte	0x18
+ 564 02e9 0E       		.uleb128 0xe
+ 565 02ea DD040000 		.4byte	.LASF45
+ 566 02ee 05       		.byte	0x5
+ 567 02ef 78       		.byte	0x78
+ 568 02f0 35060000 		.4byte	0x635
+ 569 02f4 1C       		.byte	0x1c
+ 570 02f5 0E       		.uleb128 0xe
+ 571 02f6 FE040000 		.4byte	.LASF46
+ 572 02fa 05       		.byte	0x5
+ 573 02fb 7C       		.byte	0x7c
+ 574 02fc 35060000 		.4byte	0x635
+ 575 0300 20       		.byte	0x20
+ 576 0301 0E       		.uleb128 0xe
+ 577 0302 26040000 		.4byte	.LASF47
+ 578 0306 05       		.byte	0x5
+ 579 0307 80       		.byte	0x80
+ 580 0308 55060000 		.4byte	0x655
+ 581 030c 24       		.byte	0x24
+ 582 030d 0E       		.uleb128 0xe
+ 583 030e 1E060000 		.4byte	.LASF48
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 15
+
+
+ 584 0312 05       		.byte	0x5
+ 585 0313 81       		.byte	0x81
+ 586 0314 6F060000 		.4byte	0x66f
+ 587 0318 28       		.byte	0x28
+ 588 0319 0E       		.uleb128 0xe
+ 589 031a 8E000000 		.4byte	.LASF49
+ 590 031e 05       		.byte	0x5
+ 591 031f 82       		.byte	0x82
+ 592 0320 89060000 		.4byte	0x689
+ 593 0324 2C       		.byte	0x2c
+ 594 0325 0E       		.uleb128 0xe
+ 595 0326 E1000000 		.4byte	.LASF50
+ 596 032a 05       		.byte	0x5
+ 597 032b 83       		.byte	0x83
+ 598 032c 9F060000 		.4byte	0x69f
+ 599 0330 30       		.byte	0x30
+ 600 0331 00       		.byte	0
+ 601 0332 05       		.uleb128 0x5
+ 602 0333 04       		.byte	0x4
+ 603 0334 38030000 		.4byte	0x338
+ 604 0338 11       		.uleb128 0x11
+ 605 0339 2C000000 		.4byte	0x2c
+ 606 033d 0D       		.uleb128 0xd
+ 607 033e 48030000 		.4byte	0x348
+ 608 0342 0B       		.uleb128 0xb
+ 609 0343 53000000 		.4byte	0x53
+ 610 0347 00       		.byte	0
+ 611 0348 05       		.uleb128 0x5
+ 612 0349 04       		.byte	0x4
+ 613 034a 3D030000 		.4byte	0x33d
+ 614 034e 05       		.uleb128 0x5
+ 615 034f 04       		.byte	0x4
+ 616 0350 54030000 		.4byte	0x354
+ 617 0354 11       		.uleb128 0x11
+ 618 0355 01020000 		.4byte	0x201
+ 619 0359 0D       		.uleb128 0xd
+ 620 035a 64030000 		.4byte	0x364
+ 621 035e 0B       		.uleb128 0xb
+ 622 035f 3A000000 		.4byte	0x3a
+ 623 0363 00       		.byte	0
+ 624 0364 12       		.uleb128 0x12
+ 625 0365 68       		.byte	0x68
+ 626 0366 06       		.byte	0x6
+ 627 0367 7102     		.2byte	0x271
+ 628 0369 C0040000 		.4byte	0x4c0
+ 629 036d 13       		.uleb128 0x13
+ 630 036e 59040000 		.4byte	.LASF51
+ 631 0372 06       		.byte	0x6
+ 632 0373 7502     		.2byte	0x275
+ 633 0375 CB040000 		.4byte	0x4cb
+ 634 0379 00       		.byte	0
+ 635 037a 13       		.uleb128 0x13
+ 636 037b 65040000 		.4byte	.LASF52
+ 637 037f 06       		.byte	0x6
+ 638 0380 7602     		.2byte	0x276
+ 639 0382 CB040000 		.4byte	0x4cb
+ 640 0386 04       		.byte	0x4
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 16
+
+
+ 641 0387 13       		.uleb128 0x13
+ 642 0388 F0030000 		.4byte	.LASF53
+ 643 038c 06       		.byte	0x6
+ 644 038d 7702     		.2byte	0x277
+ 645 038f E1040000 		.4byte	0x4e1
+ 646 0393 08       		.byte	0x8
+ 647 0394 13       		.uleb128 0x13
+ 648 0395 1C010000 		.4byte	.LASF54
+ 649 0399 06       		.byte	0x6
+ 650 039a 7802     		.2byte	0x278
+ 651 039c E1040000 		.4byte	0x4e1
+ 652 03a0 0C       		.byte	0xc
+ 653 03a1 13       		.uleb128 0x13
+ 654 03a2 C7040000 		.4byte	.LASF55
+ 655 03a6 06       		.byte	0x6
+ 656 03a7 7902     		.2byte	0x279
+ 657 03a9 EC040000 		.4byte	0x4ec
+ 658 03ad 10       		.byte	0x10
+ 659 03ae 13       		.uleb128 0x13
+ 660 03af D2040000 		.4byte	.LASF56
+ 661 03b3 06       		.byte	0x6
+ 662 03b4 7A02     		.2byte	0x27a
+ 663 03b6 EC040000 		.4byte	0x4ec
+ 664 03ba 14       		.byte	0x14
+ 665 03bb 13       		.uleb128 0x13
+ 666 03bc D7030000 		.4byte	.LASF57
+ 667 03c0 06       		.byte	0x6
+ 668 03c1 7B02     		.2byte	0x27b
+ 669 03c3 E1040000 		.4byte	0x4e1
+ 670 03c7 18       		.byte	0x18
+ 671 03c8 13       		.uleb128 0x13
+ 672 03c9 6A020000 		.4byte	.LASF58
+ 673 03cd 06       		.byte	0x6
+ 674 03ce 7C02     		.2byte	0x27c
+ 675 03d0 E1040000 		.4byte	0x4e1
+ 676 03d4 1C       		.byte	0x1c
+ 677 03d5 13       		.uleb128 0x13
+ 678 03d6 07050000 		.4byte	.LASF59
+ 679 03da 06       		.byte	0x6
+ 680 03db 8002     		.2byte	0x280
+ 681 03dd F2040000 		.4byte	0x4f2
+ 682 03e1 20       		.byte	0x20
+ 683 03e2 13       		.uleb128 0x13
+ 684 03e3 14050000 		.4byte	.LASF60
+ 685 03e7 06       		.byte	0x6
+ 686 03e8 8102     		.2byte	0x281
+ 687 03ea F2040000 		.4byte	0x4f2
+ 688 03ee 24       		.byte	0x24
+ 689 03ef 13       		.uleb128 0x13
+ 690 03f0 EA020000 		.4byte	.LASF61
+ 691 03f4 06       		.byte	0x6
+ 692 03f5 8202     		.2byte	0x282
+ 693 03f7 0E050000 		.4byte	0x50e
+ 694 03fb 28       		.byte	0x28
+ 695 03fc 13       		.uleb128 0x13
+ 696 03fd F8020000 		.4byte	.LASF62
+ 697 0401 06       		.byte	0x6
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 17
+
+
+ 698 0402 8302     		.2byte	0x283
+ 699 0404 0E050000 		.4byte	0x50e
+ 700 0408 2C       		.byte	0x2c
+ 701 0409 13       		.uleb128 0x13
+ 702 040a A3000000 		.4byte	.LASF63
+ 703 040e 06       		.byte	0x6
+ 704 040f 8402     		.2byte	0x284
+ 705 0411 19050000 		.4byte	0x519
+ 706 0415 30       		.byte	0x30
+ 707 0416 13       		.uleb128 0x13
+ 708 0417 AF000000 		.4byte	.LASF64
+ 709 041b 06       		.byte	0x6
+ 710 041c 8502     		.2byte	0x285
+ 711 041e 19050000 		.4byte	0x519
+ 712 0422 34       		.byte	0x34
+ 713 0423 13       		.uleb128 0x13
+ 714 0424 5C030000 		.4byte	.LASF65
+ 715 0428 06       		.byte	0x6
+ 716 0429 8602     		.2byte	0x286
+ 717 042b 0E050000 		.4byte	0x50e
+ 718 042f 38       		.byte	0x38
+ 719 0430 13       		.uleb128 0x13
+ 720 0431 96040000 		.4byte	.LASF66
+ 721 0435 06       		.byte	0x6
+ 722 0436 8702     		.2byte	0x287
+ 723 0438 0E050000 		.4byte	0x50e
+ 724 043c 3C       		.byte	0x3c
+ 725 043d 13       		.uleb128 0x13
+ 726 043e E3030000 		.4byte	.LASF67
+ 727 0442 06       		.byte	0x6
+ 728 0443 8B02     		.2byte	0x28b
+ 729 0445 48030000 		.4byte	0x348
+ 730 0449 40       		.byte	0x40
+ 731 044a 13       		.uleb128 0x13
+ 732 044b 71040000 		.4byte	.LASF68
+ 733 044f 06       		.byte	0x6
+ 734 0450 8C02     		.2byte	0x28c
+ 735 0452 48030000 		.4byte	0x348
+ 736 0456 44       		.byte	0x44
+ 737 0457 13       		.uleb128 0x13
+ 738 0458 61000000 		.4byte	.LASF69
+ 739 045c 06       		.byte	0x6
+ 740 045d 8D02     		.2byte	0x28d
+ 741 045f 35050000 		.4byte	0x535
+ 742 0463 48       		.byte	0x48
+ 743 0464 13       		.uleb128 0x13
+ 744 0465 C7000000 		.4byte	.LASF70
+ 745 0469 06       		.byte	0x6
+ 746 046a 8E02     		.2byte	0x28e
+ 747 046c 35050000 		.4byte	0x535
+ 748 0470 4C       		.byte	0x4c
+ 749 0471 13       		.uleb128 0x13
+ 750 0472 41020000 		.4byte	.LASF71
+ 751 0476 06       		.byte	0x6
+ 752 0477 8F02     		.2byte	0x28f
+ 753 0479 3B050000 		.4byte	0x53b
+ 754 047d 50       		.byte	0x50
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 18
+
+
+ 755 047e 13       		.uleb128 0x13
+ 756 047f 79000000 		.4byte	.LASF72
+ 757 0483 06       		.byte	0x6
+ 758 0484 9002     		.2byte	0x290
+ 759 0486 3B050000 		.4byte	0x53b
+ 760 048a 54       		.byte	0x54
+ 761 048b 13       		.uleb128 0x13
+ 762 048c 5A010000 		.4byte	.LASF73
+ 763 0490 06       		.byte	0x6
+ 764 0491 9102     		.2byte	0x291
+ 765 0493 35050000 		.4byte	0x535
+ 766 0497 58       		.byte	0x58
+ 767 0498 13       		.uleb128 0x13
+ 768 0499 67010000 		.4byte	.LASF74
+ 769 049d 06       		.byte	0x6
+ 770 049e 9202     		.2byte	0x292
+ 771 04a0 35050000 		.4byte	0x535
+ 772 04a4 5C       		.byte	0x5c
+ 773 04a5 13       		.uleb128 0x13
+ 774 04a6 9B000000 		.4byte	.LASF75
+ 775 04aa 06       		.byte	0x6
+ 776 04ab 9602     		.2byte	0x296
+ 777 04ad CB040000 		.4byte	0x4cb
+ 778 04b1 60       		.byte	0x60
+ 779 04b2 13       		.uleb128 0x13
+ 780 04b3 AF040000 		.4byte	.LASF76
+ 781 04b7 06       		.byte	0x6
+ 782 04b8 9A02     		.2byte	0x29a
+ 783 04ba 96000000 		.4byte	0x96
+ 784 04be 64       		.byte	0x64
+ 785 04bf 00       		.byte	0
+ 786 04c0 0D       		.uleb128 0xd
+ 787 04c1 CB040000 		.4byte	0x4cb
+ 788 04c5 0B       		.uleb128 0xb
+ 789 04c6 2C000000 		.4byte	0x2c
+ 790 04ca 00       		.byte	0
+ 791 04cb 05       		.uleb128 0x5
+ 792 04cc 04       		.byte	0x4
+ 793 04cd C0040000 		.4byte	0x4c0
+ 794 04d1 0D       		.uleb128 0xd
+ 795 04d2 E1040000 		.4byte	0x4e1
+ 796 04d6 0B       		.uleb128 0xb
+ 797 04d7 AD000000 		.4byte	0xad
+ 798 04db 0B       		.uleb128 0xb
+ 799 04dc 68000000 		.4byte	0x68
+ 800 04e0 00       		.byte	0
+ 801 04e1 05       		.uleb128 0x5
+ 802 04e2 04       		.byte	0x4
+ 803 04e3 D1040000 		.4byte	0x4d1
+ 804 04e7 0C       		.uleb128 0xc
+ 805 04e8 2C000000 		.4byte	0x2c
+ 806 04ec 05       		.uleb128 0x5
+ 807 04ed 04       		.byte	0x4
+ 808 04ee E7040000 		.4byte	0x4e7
+ 809 04f2 05       		.uleb128 0x5
+ 810 04f3 04       		.byte	0x4
+ 811 04f4 59030000 		.4byte	0x359
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 19
+
+
+ 812 04f8 0D       		.uleb128 0xd
+ 813 04f9 08050000 		.4byte	0x508
+ 814 04fd 0B       		.uleb128 0xb
+ 815 04fe 08050000 		.4byte	0x508
+ 816 0502 0B       		.uleb128 0xb
+ 817 0503 68000000 		.4byte	0x68
+ 818 0507 00       		.byte	0
+ 819 0508 05       		.uleb128 0x5
+ 820 0509 04       		.byte	0x4
+ 821 050a 3A000000 		.4byte	0x3a
+ 822 050e 05       		.uleb128 0x5
+ 823 050f 04       		.byte	0x4
+ 824 0510 F8040000 		.4byte	0x4f8
+ 825 0514 0C       		.uleb128 0xc
+ 826 0515 3A000000 		.4byte	0x3a
+ 827 0519 05       		.uleb128 0x5
+ 828 051a 04       		.byte	0x4
+ 829 051b 14050000 		.4byte	0x514
+ 830 051f 0D       		.uleb128 0xd
+ 831 0520 2F050000 		.4byte	0x52f
+ 832 0524 0B       		.uleb128 0xb
+ 833 0525 2F050000 		.4byte	0x52f
+ 834 0529 0B       		.uleb128 0xb
+ 835 052a 68000000 		.4byte	0x68
+ 836 052e 00       		.byte	0
+ 837 052f 05       		.uleb128 0x5
+ 838 0530 04       		.byte	0x4
+ 839 0531 53000000 		.4byte	0x53
+ 840 0535 05       		.uleb128 0x5
+ 841 0536 04       		.byte	0x4
+ 842 0537 1F050000 		.4byte	0x51f
+ 843 053b 05       		.uleb128 0x5
+ 844 053c 04       		.byte	0x4
+ 845 053d 3D010000 		.4byte	0x13d
+ 846 0541 0F       		.uleb128 0xf
+ 847 0542 33040000 		.4byte	.LASF77
+ 848 0546 06       		.byte	0x6
+ 849 0547 9B02     		.2byte	0x29b
+ 850 0549 64030000 		.4byte	0x364
+ 851 054d 0D       		.uleb128 0xd
+ 852 054e 85050000 		.4byte	0x585
+ 853 0552 0B       		.uleb128 0xb
+ 854 0553 85050000 		.4byte	0x585
+ 855 0557 0B       		.uleb128 0xb
+ 856 0558 68000000 		.4byte	0x68
+ 857 055c 0B       		.uleb128 0xb
+ 858 055d 68000000 		.4byte	0x68
+ 859 0561 0B       		.uleb128 0xb
+ 860 0562 68000000 		.4byte	0x68
+ 861 0566 0B       		.uleb128 0xb
+ 862 0567 68000000 		.4byte	0x68
+ 863 056b 0B       		.uleb128 0xb
+ 864 056c 68000000 		.4byte	0x68
+ 865 0570 0B       		.uleb128 0xb
+ 866 0571 68000000 		.4byte	0x68
+ 867 0575 0B       		.uleb128 0xb
+ 868 0576 32030000 		.4byte	0x332
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 20
+
+
+ 869 057a 0B       		.uleb128 0xb
+ 870 057b 68000000 		.4byte	0x68
+ 871 057f 0B       		.uleb128 0xb
+ 872 0580 8B050000 		.4byte	0x58b
+ 873 0584 00       		.byte	0
+ 874 0585 05       		.uleb128 0x5
+ 875 0586 04       		.byte	0x4
+ 876 0587 12020000 		.4byte	0x212
+ 877 058b 05       		.uleb128 0x5
+ 878 058c 04       		.byte	0x4
+ 879 058d 91050000 		.4byte	0x591
+ 880 0591 11       		.uleb128 0x11
+ 881 0592 53000000 		.4byte	0x53
+ 882 0596 05       		.uleb128 0x5
+ 883 0597 04       		.byte	0x4
+ 884 0598 4D050000 		.4byte	0x54d
+ 885 059c 0D       		.uleb128 0xd
+ 886 059d B6050000 		.4byte	0x5b6
+ 887 05a1 0B       		.uleb128 0xb
+ 888 05a2 85050000 		.4byte	0x585
+ 889 05a6 0B       		.uleb128 0xb
+ 890 05a7 68000000 		.4byte	0x68
+ 891 05ab 0B       		.uleb128 0xb
+ 892 05ac 68000000 		.4byte	0x68
+ 893 05b0 0B       		.uleb128 0xb
+ 894 05b1 68000000 		.4byte	0x68
+ 895 05b5 00       		.byte	0
+ 896 05b6 05       		.uleb128 0x5
+ 897 05b7 04       		.byte	0x4
+ 898 05b8 9C050000 		.4byte	0x59c
+ 899 05bc 0D       		.uleb128 0xd
+ 900 05bd DB050000 		.4byte	0x5db
+ 901 05c1 0B       		.uleb128 0xb
+ 902 05c2 85050000 		.4byte	0x585
+ 903 05c6 0B       		.uleb128 0xb
+ 904 05c7 68000000 		.4byte	0x68
+ 905 05cb 0B       		.uleb128 0xb
+ 906 05cc 68000000 		.4byte	0x68
+ 907 05d0 0B       		.uleb128 0xb
+ 908 05d1 68000000 		.4byte	0x68
+ 909 05d5 0B       		.uleb128 0xb
+ 910 05d6 68000000 		.4byte	0x68
+ 911 05da 00       		.byte	0
+ 912 05db 05       		.uleb128 0x5
+ 913 05dc 04       		.byte	0x4
+ 914 05dd BC050000 		.4byte	0x5bc
+ 915 05e1 0A       		.uleb128 0xa
+ 916 05e2 53000000 		.4byte	0x53
+ 917 05e6 FA050000 		.4byte	0x5fa
+ 918 05ea 0B       		.uleb128 0xb
+ 919 05eb 85050000 		.4byte	0x585
+ 920 05ef 0B       		.uleb128 0xb
+ 921 05f0 68000000 		.4byte	0x68
+ 922 05f4 0B       		.uleb128 0xb
+ 923 05f5 68000000 		.4byte	0x68
+ 924 05f9 00       		.byte	0
+ 925 05fa 05       		.uleb128 0x5
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 21
+
+
+ 926 05fb 04       		.byte	0x4
+ 927 05fc E1050000 		.4byte	0x5e1
+ 928 0600 0D       		.uleb128 0xd
+ 929 0601 1A060000 		.4byte	0x61a
+ 930 0605 0B       		.uleb128 0xb
+ 931 0606 85050000 		.4byte	0x585
+ 932 060a 0B       		.uleb128 0xb
+ 933 060b 68000000 		.4byte	0x68
+ 934 060f 0B       		.uleb128 0xb
+ 935 0610 68000000 		.4byte	0x68
+ 936 0614 0B       		.uleb128 0xb
+ 937 0615 53000000 		.4byte	0x53
+ 938 0619 00       		.byte	0
+ 939 061a 05       		.uleb128 0x5
+ 940 061b 04       		.byte	0x4
+ 941 061c 00060000 		.4byte	0x600
+ 942 0620 0D       		.uleb128 0xd
+ 943 0621 35060000 		.4byte	0x635
+ 944 0625 0B       		.uleb128 0xb
+ 945 0626 85050000 		.4byte	0x585
+ 946 062a 0B       		.uleb128 0xb
+ 947 062b 68000000 		.4byte	0x68
+ 948 062f 0B       		.uleb128 0xb
+ 949 0630 68000000 		.4byte	0x68
+ 950 0634 00       		.byte	0
+ 951 0635 05       		.uleb128 0x5
+ 952 0636 04       		.byte	0x4
+ 953 0637 20060000 		.4byte	0x620
+ 954 063b 0A       		.uleb128 0xa
+ 955 063c 96000000 		.4byte	0x96
+ 956 0640 4F060000 		.4byte	0x64f
+ 957 0644 0B       		.uleb128 0xb
+ 958 0645 4F060000 		.4byte	0x64f
+ 959 0649 0B       		.uleb128 0xb
+ 960 064a 68000000 		.4byte	0x68
+ 961 064e 00       		.byte	0
+ 962 064f 05       		.uleb128 0x5
+ 963 0650 04       		.byte	0x4
+ 964 0651 85050000 		.4byte	0x585
+ 965 0655 05       		.uleb128 0x5
+ 966 0656 04       		.byte	0x4
+ 967 0657 3B060000 		.4byte	0x63b
+ 968 065b 0A       		.uleb128 0xa
+ 969 065c 4C000000 		.4byte	0x4c
+ 970 0660 6F060000 		.4byte	0x66f
+ 971 0664 0B       		.uleb128 0xb
+ 972 0665 85050000 		.4byte	0x585
+ 973 0669 0B       		.uleb128 0xb
+ 974 066a 68000000 		.4byte	0x68
+ 975 066e 00       		.byte	0
+ 976 066f 05       		.uleb128 0x5
+ 977 0670 04       		.byte	0x4
+ 978 0671 5B060000 		.4byte	0x65b
+ 979 0675 0A       		.uleb128 0xa
+ 980 0676 AB000000 		.4byte	0xab
+ 981 067a 89060000 		.4byte	0x689
+ 982 067e 0B       		.uleb128 0xb
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 22
+
+
+ 983 067f 85050000 		.4byte	0x585
+ 984 0683 0B       		.uleb128 0xb
+ 985 0684 68000000 		.4byte	0x68
+ 986 0688 00       		.byte	0
+ 987 0689 05       		.uleb128 0x5
+ 988 068a 04       		.byte	0x4
+ 989 068b 75060000 		.4byte	0x675
+ 990 068f 0D       		.uleb128 0xd
+ 991 0690 9F060000 		.4byte	0x69f
+ 992 0694 0B       		.uleb128 0xb
+ 993 0695 85050000 		.4byte	0x585
+ 994 0699 0B       		.uleb128 0xb
+ 995 069a 0C020000 		.4byte	0x20c
+ 996 069e 00       		.byte	0
+ 997 069f 05       		.uleb128 0x5
+ 998 06a0 04       		.byte	0x4
+ 999 06a1 8F060000 		.4byte	0x68f
+ 1000 06a5 14       		.uleb128 0x14
+ 1001 06a6 04       		.byte	0x4
+ 1002 06a7 05       		.byte	0x5
+ 1003 06a8 B9       		.byte	0xb9
+ 1004 06a9 C4060000 		.4byte	0x6c4
+ 1005 06ad 15       		.uleb128 0x15
+ 1006 06ae 4D020000 		.4byte	.LASF78
+ 1007 06b2 05       		.byte	0x5
+ 1008 06b3 BA       		.byte	0xba
+ 1009 06b4 4C000000 		.4byte	0x4c
+ 1010 06b8 15       		.uleb128 0x15
+ 1011 06b9 FD030000 		.4byte	.LASF79
+ 1012 06bd 05       		.byte	0x5
+ 1013 06be BB       		.byte	0xbb
+ 1014 06bf AB000000 		.4byte	0xab
+ 1015 06c3 00       		.byte	0
+ 1016 06c4 05       		.uleb128 0x5
+ 1017 06c5 04       		.byte	0x4
+ 1018 06c6 CA060000 		.4byte	0x6ca
+ 1019 06ca 11       		.uleb128 0x11
+ 1020 06cb 7D020000 		.4byte	0x27d
+ 1021 06cf 08       		.uleb128 0x8
+ 1022 06d0 14       		.byte	0x14
+ 1023 06d1 07       		.byte	0x7
+ 1024 06d2 72       		.byte	0x72
+ 1025 06d3 14070000 		.4byte	0x714
+ 1026 06d7 0E       		.uleb128 0xe
+ 1027 06d8 2B020000 		.4byte	.LASF80
+ 1028 06dc 07       		.byte	0x7
+ 1029 06dd 76       		.byte	0x76
+ 1030 06de 68000000 		.4byte	0x68
+ 1031 06e2 00       		.byte	0
+ 1032 06e3 0E       		.uleb128 0xe
+ 1033 06e4 FC050000 		.4byte	.LASF81
+ 1034 06e8 07       		.byte	0x7
+ 1035 06e9 77       		.byte	0x77
+ 1036 06ea 68000000 		.4byte	0x68
+ 1037 06ee 04       		.byte	0x4
+ 1038 06ef 0E       		.uleb128 0xe
+ 1039 06f0 AE030000 		.4byte	.LASF82
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 23
+
+
+ 1040 06f4 07       		.byte	0x7
+ 1041 06f5 78       		.byte	0x78
+ 1042 06f6 68000000 		.4byte	0x68
+ 1043 06fa 08       		.byte	0x8
+ 1044 06fb 0E       		.uleb128 0xe
+ 1045 06fc F6000000 		.4byte	.LASF83
+ 1046 0700 07       		.byte	0x7
+ 1047 0701 79       		.byte	0x79
+ 1048 0702 3A000000 		.4byte	0x3a
+ 1049 0706 0C       		.byte	0xc
+ 1050 0707 0E       		.uleb128 0xe
+ 1051 0708 2F000000 		.4byte	.LASF84
+ 1052 070c 07       		.byte	0x7
+ 1053 070d 7A       		.byte	0x7a
+ 1054 070e 68000000 		.4byte	0x68
+ 1055 0712 10       		.byte	0x10
+ 1056 0713 00       		.byte	0
+ 1057 0714 03       		.uleb128 0x3
+ 1058 0715 05060000 		.4byte	.LASF85
+ 1059 0719 07       		.byte	0x7
+ 1060 071a 7B       		.byte	0x7b
+ 1061 071b CF060000 		.4byte	0x6cf
+ 1062 071f 16       		.uleb128 0x16
+ 1063 0720 4A010000 		.4byte	.LASF102
+ 1064 0724 01       		.byte	0x1
+ 1065 0725 73       		.byte	0x73
+ 1066 0726 00000000 		.4byte	.LFB63
+ 1067 072a 08000000 		.4byte	.LFE63-.LFB63
+ 1068 072e 01       		.uleb128 0x1
+ 1069 072f 9C       		.byte	0x9c
+ 1070 0730 3E070000 		.4byte	0x73e
+ 1071 0734 17       		.uleb128 0x17
+ 1072 0735 06000000 		.4byte	.LVL0
+ 1073 0739 AE080000 		.4byte	0x8ae
+ 1074 073d 00       		.byte	0
+ 1075 073e 18       		.uleb128 0x18
+ 1076 073f 1C000000 		.4byte	.LASF103
+ 1077 0743 01       		.byte	0x1
+ 1078 0744 89       		.byte	0x89
+ 1079 0745 00000000 		.4byte	.LFB64
+ 1080 0749 94000000 		.4byte	.LFE64-.LFB64
+ 1081 074d 01       		.uleb128 0x1
+ 1082 074e 9C       		.byte	0x9c
+ 1083 074f 2E080000 		.4byte	0x82e
+ 1084 0753 19       		.uleb128 0x19
+ 1085 0754 16060000 		.4byte	.LASF86
+ 1086 0758 01       		.byte	0x1
+ 1087 0759 8B       		.byte	0x8b
+ 1088 075a 85050000 		.4byte	0x585
+ 1089 075e 00000000 		.4byte	.LLST0
+ 1090 0762 1A       		.uleb128 0x1a
+ 1091 0763 3A020000 		.4byte	.LASF87
+ 1092 0767 01       		.byte	0x1
+ 1093 0768 8C       		.byte	0x8c
+ 1094 0769 14070000 		.4byte	0x714
+ 1095 076d 02       		.uleb128 0x2
+ 1096 076e 91       		.byte	0x91
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 24
+
+
+ 1097 076f 5C       		.sleb128 -36
+ 1098 0770 1A       		.uleb128 0x1a
+ 1099 0771 8C010000 		.4byte	.LASF88
+ 1100 0775 01       		.byte	0x1
+ 1101 0776 8D       		.byte	0x8d
+ 1102 0777 41050000 		.4byte	0x541
+ 1103 077b 03       		.uleb128 0x3
+ 1104 077c 91       		.byte	0x91
+ 1105 077d F47E     		.sleb128 -140
+ 1106 077f 1B       		.uleb128 0x1b
+ 1107 0780 1A000000 		.4byte	.LVL1
+ 1108 0784 B5080000 		.4byte	0x8b5
+ 1109 0788 A0070000 		.4byte	0x7a0
+ 1110 078c 1C       		.uleb128 0x1c
+ 1111 078d 01       		.uleb128 0x1
+ 1112 078e 52       		.byte	0x52
+ 1113 078f 02       		.uleb128 0x2
+ 1114 0790 08       		.byte	0x8
+ 1115 0791 68       		.byte	0x68
+ 1116 0792 1C       		.uleb128 0x1c
+ 1117 0793 01       		.uleb128 0x1
+ 1118 0794 51       		.byte	0x51
+ 1119 0795 02       		.uleb128 0x2
+ 1120 0796 74       		.byte	0x74
+ 1121 0797 00       		.sleb128 0
+ 1122 0798 1C       		.uleb128 0x1c
+ 1123 0799 01       		.uleb128 0x1
+ 1124 079a 50       		.byte	0x50
+ 1125 079b 03       		.uleb128 0x3
+ 1126 079c 91       		.byte	0x91
+ 1127 079d F47E     		.sleb128 -140
+ 1128 079f 00       		.byte	0
+ 1129 07a0 1B       		.uleb128 0x1b
+ 1130 07a1 26000000 		.4byte	.LVL2
+ 1131 07a5 D2080000 		.4byte	0x8d2
+ 1132 07a9 BA070000 		.4byte	0x7ba
+ 1133 07ad 1C       		.uleb128 0x1c
+ 1134 07ae 01       		.uleb128 0x1
+ 1135 07af 53       		.byte	0x53
+ 1136 07b0 02       		.uleb128 0x2
+ 1137 07b1 74       		.byte	0x74
+ 1138 07b2 00       		.sleb128 0
+ 1139 07b3 1C       		.uleb128 0x1c
+ 1140 07b4 01       		.uleb128 0x1
+ 1141 07b5 52       		.byte	0x52
+ 1142 07b6 02       		.uleb128 0x2
+ 1143 07b7 74       		.byte	0x74
+ 1144 07b8 00       		.sleb128 0
+ 1145 07b9 00       		.byte	0
+ 1146 07ba 1B       		.uleb128 0x1b
+ 1147 07bb 34000000 		.4byte	.LVL5
+ 1148 07bf F7080000 		.4byte	0x8f7
+ 1149 07c3 DB070000 		.4byte	0x7db
+ 1150 07c7 1C       		.uleb128 0x1c
+ 1151 07c8 01       		.uleb128 0x1
+ 1152 07c9 52       		.byte	0x52
+ 1153 07ca 03       		.uleb128 0x3
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 25
+
+
+ 1154 07cb 0A       		.byte	0xa
+ 1155 07cc 4001     		.2byte	0x140
+ 1156 07ce 1C       		.uleb128 0x1c
+ 1157 07cf 01       		.uleb128 0x1
+ 1158 07d0 51       		.byte	0x51
+ 1159 07d1 02       		.uleb128 0x2
+ 1160 07d2 08       		.byte	0x8
+ 1161 07d3 F0       		.byte	0xf0
+ 1162 07d4 1C       		.uleb128 0x1c
+ 1163 07d5 01       		.uleb128 0x1
+ 1164 07d6 50       		.byte	0x50
+ 1165 07d7 02       		.uleb128 0x2
+ 1166 07d8 74       		.byte	0x74
+ 1167 07d9 00       		.sleb128 0
+ 1168 07da 00       		.byte	0
+ 1169 07db 1B       		.uleb128 0x1b
+ 1170 07dc 40000000 		.4byte	.LVL6
+ 1171 07e0 17090000 		.4byte	0x917
+ 1172 07e4 FC070000 		.4byte	0x7fc
+ 1173 07e8 1C       		.uleb128 0x1c
+ 1174 07e9 01       		.uleb128 0x1
+ 1175 07ea 52       		.byte	0x52
+ 1176 07eb 03       		.uleb128 0x3
+ 1177 07ec 0A       		.byte	0xa
+ 1178 07ed 4001     		.2byte	0x140
+ 1179 07ef 1C       		.uleb128 0x1c
+ 1180 07f0 01       		.uleb128 0x1
+ 1181 07f1 51       		.byte	0x51
+ 1182 07f2 02       		.uleb128 0x2
+ 1183 07f3 08       		.byte	0x8
+ 1184 07f4 F0       		.byte	0xf0
+ 1185 07f5 1C       		.uleb128 0x1c
+ 1186 07f6 01       		.uleb128 0x1
+ 1187 07f7 50       		.byte	0x50
+ 1188 07f8 02       		.uleb128 0x2
+ 1189 07f9 74       		.byte	0x74
+ 1190 07fa 00       		.sleb128 0
+ 1191 07fb 00       		.byte	0
+ 1192 07fc 1B       		.uleb128 0x1b
+ 1193 07fd 4C000000 		.4byte	.LVL7
+ 1194 0801 37090000 		.4byte	0x937
+ 1195 0805 16080000 		.4byte	0x816
+ 1196 0809 1C       		.uleb128 0x1c
+ 1197 080a 01       		.uleb128 0x1
+ 1198 080b 51       		.byte	0x51
+ 1199 080c 02       		.uleb128 0x2
+ 1200 080d 91       		.byte	0x91
+ 1201 080e 5C       		.sleb128 -36
+ 1202 080f 1C       		.uleb128 0x1c
+ 1203 0810 01       		.uleb128 0x1
+ 1204 0811 50       		.byte	0x50
+ 1205 0812 02       		.uleb128 0x2
+ 1206 0813 75       		.byte	0x75
+ 1207 0814 00       		.sleb128 0
+ 1208 0815 00       		.byte	0
+ 1209 0816 1D       		.uleb128 0x1d
+ 1210 0817 6C000000 		.4byte	.LVL8
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 26
+
+
+ 1211 081b 53090000 		.4byte	0x953
+ 1212 081f 1C       		.uleb128 0x1c
+ 1213 0820 01       		.uleb128 0x1
+ 1214 0821 51       		.byte	0x51
+ 1215 0822 03       		.uleb128 0x3
+ 1216 0823 91       		.byte	0x91
+ 1217 0824 F47E     		.sleb128 -140
+ 1218 0826 1C       		.uleb128 0x1c
+ 1219 0827 01       		.uleb128 0x1
+ 1220 0828 50       		.byte	0x50
+ 1221 0829 02       		.uleb128 0x2
+ 1222 082a 75       		.byte	0x75
+ 1223 082b 00       		.sleb128 0
+ 1224 082c 00       		.byte	0
+ 1225 082d 00       		.byte	0
+ 1226 082e 1E       		.uleb128 0x1e
+ 1227 082f 56020000 		.4byte	.LASF104
+ 1228 0833 01       		.byte	0x1
+ 1229 0834 C1       		.byte	0xc1
+ 1230 0835 68000000 		.4byte	0x68
+ 1231 0839 00000000 		.4byte	.LFB65
+ 1232 083d 14000000 		.4byte	.LFE65-.LFB65
+ 1233 0841 01       		.uleb128 0x1
+ 1234 0842 9C       		.byte	0x9c
+ 1235 0843 87080000 		.4byte	0x887
+ 1236 0847 1F       		.uleb128 0x1f
+ 1237 0848 94010000 		.4byte	.LASF36
+ 1238 084c 01       		.byte	0x1
+ 1239 084d C1       		.byte	0xc1
+ 1240 084e 6F000000 		.4byte	0x6f
+ 1241 0852 1E000000 		.4byte	.LLST1
+ 1242 0856 20       		.uleb128 0x20
+ 1243 0857 436D6400 		.ascii	"Cmd\000"
+ 1244 085b 01       		.byte	0x1
+ 1245 085c C1       		.byte	0xc1
+ 1246 085d 6F000000 		.4byte	0x6f
+ 1247 0861 58000000 		.4byte	.LLST2
+ 1248 0865 1F       		.uleb128 0x1f
+ 1249 0866 29000000 		.4byte	.LASF89
+ 1250 086a 01       		.byte	0x1
+ 1251 086b C1       		.byte	0xc1
+ 1252 086c AB000000 		.4byte	0xab
+ 1253 0870 84000000 		.4byte	.LLST3
+ 1254 0874 21       		.uleb128 0x21
+ 1255 0875 7200     		.ascii	"r\000"
+ 1256 0877 01       		.byte	0x1
+ 1257 0878 C2       		.byte	0xc2
+ 1258 0879 68000000 		.4byte	0x68
+ 1259 087d 17       		.uleb128 0x17
+ 1260 087e 0A000000 		.4byte	.LVL11
+ 1261 0882 1F070000 		.4byte	0x71f
+ 1262 0886 00       		.byte	0
+ 1263 0887 22       		.uleb128 0x22
+ 1264 0888 EF050000 		.4byte	.LASF90
+ 1265 088c 08       		.byte	0x8
+ 1266 088d 9606     		.2byte	0x696
+ 1267 088f 93080000 		.4byte	0x893
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 27
+
+
+ 1268 0893 23       		.uleb128 0x23
+ 1269 0894 76000000 		.4byte	0x76
+ 1270 0898 24       		.uleb128 0x24
+ 1271 0899 E8040000 		.4byte	.LASF91
+ 1272 089d 04       		.byte	0x4
+ 1273 089e B4       		.byte	0xb4
+ 1274 089f 54030000 		.4byte	0x354
+ 1275 08a3 24       		.uleb128 0x24
+ 1276 08a4 39030000 		.4byte	.LASF92
+ 1277 08a8 07       		.byte	0x7
+ 1278 08a9 86       		.byte	0x86
+ 1279 08aa CA060000 		.4byte	0x6ca
+ 1280 08ae 25       		.uleb128 0x25
+ 1281 08af E6050000 		.4byte	.LASF105
+ 1282 08b3 09       		.byte	0x9
+ 1283 08b4 13       		.byte	0x13
+ 1284 08b5 26       		.uleb128 0x26
+ 1285 08b6 CA010000 		.4byte	.LASF96
+ 1286 08ba AB000000 		.4byte	0xab
+ 1287 08be D2080000 		.4byte	0x8d2
+ 1288 08c2 0B       		.uleb128 0xb
+ 1289 08c3 AB000000 		.4byte	0xab
+ 1290 08c7 0B       		.uleb128 0xb
+ 1291 08c8 68000000 		.4byte	0x68
+ 1292 08cc 0B       		.uleb128 0xb
+ 1293 08cd A4000000 		.4byte	0xa4
+ 1294 08d1 00       		.byte	0
+ 1295 08d2 27       		.uleb128 0x27
+ 1296 08d3 12020000 		.4byte	.LASF93
+ 1297 08d7 05       		.byte	0x5
+ 1298 08d8 2201     		.2byte	0x122
+ 1299 08da 85050000 		.4byte	0x585
+ 1300 08de F7080000 		.4byte	0x8f7
+ 1301 08e2 0B       		.uleb128 0xb
+ 1302 08e3 C4060000 		.4byte	0x6c4
+ 1303 08e7 0B       		.uleb128 0xb
+ 1304 08e8 4E030000 		.4byte	0x34e
+ 1305 08ec 0B       		.uleb128 0xb
+ 1306 08ed 3A000000 		.4byte	0x3a
+ 1307 08f1 0B       		.uleb128 0xb
+ 1308 08f2 68000000 		.4byte	0x68
+ 1309 08f6 00       		.byte	0
+ 1310 08f7 27       		.uleb128 0x27
+ 1311 08f8 0E000000 		.4byte	.LASF94
+ 1312 08fc 04       		.byte	0x4
+ 1313 08fd 4902     		.2byte	0x249
+ 1314 08ff 68000000 		.4byte	0x68
+ 1315 0903 17090000 		.4byte	0x917
+ 1316 0907 0B       		.uleb128 0xb
+ 1317 0908 68000000 		.4byte	0x68
+ 1318 090c 0B       		.uleb128 0xb
+ 1319 090d 68000000 		.4byte	0x68
+ 1320 0911 0B       		.uleb128 0xb
+ 1321 0912 68000000 		.4byte	0x68
+ 1322 0916 00       		.byte	0
+ 1323 0917 27       		.uleb128 0x27
+ 1324 0918 86030000 		.4byte	.LASF95
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 28
+
+
+ 1325 091c 04       		.byte	0x4
+ 1326 091d 4C02     		.2byte	0x24c
+ 1327 091f 68000000 		.4byte	0x68
+ 1328 0923 37090000 		.4byte	0x937
+ 1329 0927 0B       		.uleb128 0xb
+ 1330 0928 68000000 		.4byte	0x68
+ 1331 092c 0B       		.uleb128 0xb
+ 1332 092d 68000000 		.4byte	0x68
+ 1333 0931 0B       		.uleb128 0xb
+ 1334 0932 68000000 		.4byte	0x68
+ 1335 0936 00       		.byte	0
+ 1336 0937 28       		.uleb128 0x28
+ 1337 0938 7E040000 		.4byte	.LASF97
+ 1338 093c 07       		.byte	0x7
+ 1339 093d C6       		.byte	0xc6
+ 1340 093e 4D090000 		.4byte	0x94d
+ 1341 0942 0B       		.uleb128 0xb
+ 1342 0943 85050000 		.4byte	0x585
+ 1343 0947 0B       		.uleb128 0xb
+ 1344 0948 4D090000 		.4byte	0x94d
+ 1345 094c 00       		.byte	0
+ 1346 094d 05       		.uleb128 0x5
+ 1347 094e 04       		.byte	0x4
+ 1348 094f 14070000 		.4byte	0x714
+ 1349 0953 28       		.uleb128 0x28
+ 1350 0954 48000000 		.4byte	.LASF98
+ 1351 0958 07       		.byte	0x7
+ 1352 0959 C5       		.byte	0xc5
+ 1353 095a 73090000 		.4byte	0x973
+ 1354 095e 0B       		.uleb128 0xb
+ 1355 095f 85050000 		.4byte	0x585
+ 1356 0963 0B       		.uleb128 0xb
+ 1357 0964 73090000 		.4byte	0x973
+ 1358 0968 0B       		.uleb128 0xb
+ 1359 0969 79090000 		.4byte	0x979
+ 1360 096d 0B       		.uleb128 0xb
+ 1361 096e 79090000 		.4byte	0x979
+ 1362 0972 00       		.byte	0
+ 1363 0973 05       		.uleb128 0x5
+ 1364 0974 04       		.byte	0x4
+ 1365 0975 41050000 		.4byte	0x541
+ 1366 0979 05       		.uleb128 0x5
+ 1367 097a 04       		.byte	0x4
+ 1368 097b 7F090000 		.4byte	0x97f
+ 1369 097f 29       		.uleb128 0x29
+ 1370 0980 0B       		.uleb128 0xb
+ 1371 0981 85050000 		.4byte	0x585
+ 1372 0985 00       		.byte	0
+ 1373 0986 00       		.byte	0
+ 1374              		.section	.debug_abbrev,"",%progbits
+ 1375              	.Ldebug_abbrev0:
+ 1376 0000 01       		.uleb128 0x1
+ 1377 0001 11       		.uleb128 0x11
+ 1378 0002 01       		.byte	0x1
+ 1379 0003 25       		.uleb128 0x25
+ 1380 0004 0E       		.uleb128 0xe
+ 1381 0005 13       		.uleb128 0x13
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 29
+
+
+ 1382 0006 0B       		.uleb128 0xb
+ 1383 0007 03       		.uleb128 0x3
+ 1384 0008 0E       		.uleb128 0xe
+ 1385 0009 1B       		.uleb128 0x1b
+ 1386 000a 0E       		.uleb128 0xe
+ 1387 000b 55       		.uleb128 0x55
+ 1388 000c 17       		.uleb128 0x17
+ 1389 000d 11       		.uleb128 0x11
+ 1390 000e 01       		.uleb128 0x1
+ 1391 000f 10       		.uleb128 0x10
+ 1392 0010 17       		.uleb128 0x17
+ 1393 0011 00       		.byte	0
+ 1394 0012 00       		.byte	0
+ 1395 0013 02       		.uleb128 0x2
+ 1396 0014 24       		.uleb128 0x24
+ 1397 0015 00       		.byte	0
+ 1398 0016 0B       		.uleb128 0xb
+ 1399 0017 0B       		.uleb128 0xb
+ 1400 0018 3E       		.uleb128 0x3e
+ 1401 0019 0B       		.uleb128 0xb
+ 1402 001a 03       		.uleb128 0x3
+ 1403 001b 0E       		.uleb128 0xe
+ 1404 001c 00       		.byte	0
+ 1405 001d 00       		.byte	0
+ 1406 001e 03       		.uleb128 0x3
+ 1407 001f 16       		.uleb128 0x16
+ 1408 0020 00       		.byte	0
+ 1409 0021 03       		.uleb128 0x3
+ 1410 0022 0E       		.uleb128 0xe
+ 1411 0023 3A       		.uleb128 0x3a
+ 1412 0024 0B       		.uleb128 0xb
+ 1413 0025 3B       		.uleb128 0x3b
+ 1414 0026 0B       		.uleb128 0xb
+ 1415 0027 49       		.uleb128 0x49
+ 1416 0028 13       		.uleb128 0x13
+ 1417 0029 00       		.byte	0
+ 1418 002a 00       		.byte	0
+ 1419 002b 04       		.uleb128 0x4
+ 1420 002c 24       		.uleb128 0x24
+ 1421 002d 00       		.byte	0
+ 1422 002e 0B       		.uleb128 0xb
+ 1423 002f 0B       		.uleb128 0xb
+ 1424 0030 3E       		.uleb128 0x3e
+ 1425 0031 0B       		.uleb128 0xb
+ 1426 0032 03       		.uleb128 0x3
+ 1427 0033 08       		.uleb128 0x8
+ 1428 0034 00       		.byte	0
+ 1429 0035 00       		.byte	0
+ 1430 0036 05       		.uleb128 0x5
+ 1431 0037 0F       		.uleb128 0xf
+ 1432 0038 00       		.byte	0
+ 1433 0039 0B       		.uleb128 0xb
+ 1434 003a 0B       		.uleb128 0xb
+ 1435 003b 49       		.uleb128 0x49
+ 1436 003c 13       		.uleb128 0x13
+ 1437 003d 00       		.byte	0
+ 1438 003e 00       		.byte	0
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 30
+
+
+ 1439 003f 06       		.uleb128 0x6
+ 1440 0040 15       		.uleb128 0x15
+ 1441 0041 00       		.byte	0
+ 1442 0042 27       		.uleb128 0x27
+ 1443 0043 19       		.uleb128 0x19
+ 1444 0044 00       		.byte	0
+ 1445 0045 00       		.byte	0
+ 1446 0046 07       		.uleb128 0x7
+ 1447 0047 0F       		.uleb128 0xf
+ 1448 0048 00       		.byte	0
+ 1449 0049 0B       		.uleb128 0xb
+ 1450 004a 0B       		.uleb128 0xb
+ 1451 004b 00       		.byte	0
+ 1452 004c 00       		.byte	0
+ 1453 004d 08       		.uleb128 0x8
+ 1454 004e 13       		.uleb128 0x13
+ 1455 004f 01       		.byte	0x1
+ 1456 0050 0B       		.uleb128 0xb
+ 1457 0051 0B       		.uleb128 0xb
+ 1458 0052 3A       		.uleb128 0x3a
+ 1459 0053 0B       		.uleb128 0xb
+ 1460 0054 3B       		.uleb128 0x3b
+ 1461 0055 0B       		.uleb128 0xb
+ 1462 0056 01       		.uleb128 0x1
+ 1463 0057 13       		.uleb128 0x13
+ 1464 0058 00       		.byte	0
+ 1465 0059 00       		.byte	0
+ 1466 005a 09       		.uleb128 0x9
+ 1467 005b 0D       		.uleb128 0xd
+ 1468 005c 00       		.byte	0
+ 1469 005d 03       		.uleb128 0x3
+ 1470 005e 08       		.uleb128 0x8
+ 1471 005f 3A       		.uleb128 0x3a
+ 1472 0060 0B       		.uleb128 0xb
+ 1473 0061 3B       		.uleb128 0x3b
+ 1474 0062 0B       		.uleb128 0xb
+ 1475 0063 49       		.uleb128 0x49
+ 1476 0064 13       		.uleb128 0x13
+ 1477 0065 38       		.uleb128 0x38
+ 1478 0066 0B       		.uleb128 0xb
+ 1479 0067 00       		.byte	0
+ 1480 0068 00       		.byte	0
+ 1481 0069 0A       		.uleb128 0xa
+ 1482 006a 15       		.uleb128 0x15
+ 1483 006b 01       		.byte	0x1
+ 1484 006c 27       		.uleb128 0x27
+ 1485 006d 19       		.uleb128 0x19
+ 1486 006e 49       		.uleb128 0x49
+ 1487 006f 13       		.uleb128 0x13
+ 1488 0070 01       		.uleb128 0x1
+ 1489 0071 13       		.uleb128 0x13
+ 1490 0072 00       		.byte	0
+ 1491 0073 00       		.byte	0
+ 1492 0074 0B       		.uleb128 0xb
+ 1493 0075 05       		.uleb128 0x5
+ 1494 0076 00       		.byte	0
+ 1495 0077 49       		.uleb128 0x49
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 31
+
+
+ 1496 0078 13       		.uleb128 0x13
+ 1497 0079 00       		.byte	0
+ 1498 007a 00       		.byte	0
+ 1499 007b 0C       		.uleb128 0xc
+ 1500 007c 15       		.uleb128 0x15
+ 1501 007d 00       		.byte	0
+ 1502 007e 27       		.uleb128 0x27
+ 1503 007f 19       		.uleb128 0x19
+ 1504 0080 49       		.uleb128 0x49
+ 1505 0081 13       		.uleb128 0x13
+ 1506 0082 00       		.byte	0
+ 1507 0083 00       		.byte	0
+ 1508 0084 0D       		.uleb128 0xd
+ 1509 0085 15       		.uleb128 0x15
+ 1510 0086 01       		.byte	0x1
+ 1511 0087 27       		.uleb128 0x27
+ 1512 0088 19       		.uleb128 0x19
+ 1513 0089 01       		.uleb128 0x1
+ 1514 008a 13       		.uleb128 0x13
+ 1515 008b 00       		.byte	0
+ 1516 008c 00       		.byte	0
+ 1517 008d 0E       		.uleb128 0xe
+ 1518 008e 0D       		.uleb128 0xd
+ 1519 008f 00       		.byte	0
+ 1520 0090 03       		.uleb128 0x3
+ 1521 0091 0E       		.uleb128 0xe
+ 1522 0092 3A       		.uleb128 0x3a
+ 1523 0093 0B       		.uleb128 0xb
+ 1524 0094 3B       		.uleb128 0x3b
+ 1525 0095 0B       		.uleb128 0xb
+ 1526 0096 49       		.uleb128 0x49
+ 1527 0097 13       		.uleb128 0x13
+ 1528 0098 38       		.uleb128 0x38
+ 1529 0099 0B       		.uleb128 0xb
+ 1530 009a 00       		.byte	0
+ 1531 009b 00       		.byte	0
+ 1532 009c 0F       		.uleb128 0xf
+ 1533 009d 16       		.uleb128 0x16
+ 1534 009e 00       		.byte	0
+ 1535 009f 03       		.uleb128 0x3
+ 1536 00a0 0E       		.uleb128 0xe
+ 1537 00a1 3A       		.uleb128 0x3a
+ 1538 00a2 0B       		.uleb128 0xb
+ 1539 00a3 3B       		.uleb128 0x3b
+ 1540 00a4 05       		.uleb128 0x5
+ 1541 00a5 49       		.uleb128 0x49
+ 1542 00a6 13       		.uleb128 0x13
+ 1543 00a7 00       		.byte	0
+ 1544 00a8 00       		.byte	0
+ 1545 00a9 10       		.uleb128 0x10
+ 1546 00aa 13       		.uleb128 0x13
+ 1547 00ab 01       		.byte	0x1
+ 1548 00ac 03       		.uleb128 0x3
+ 1549 00ad 0E       		.uleb128 0xe
+ 1550 00ae 0B       		.uleb128 0xb
+ 1551 00af 0B       		.uleb128 0xb
+ 1552 00b0 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 32
+
+
+ 1553 00b1 0B       		.uleb128 0xb
+ 1554 00b2 3B       		.uleb128 0x3b
+ 1555 00b3 0B       		.uleb128 0xb
+ 1556 00b4 01       		.uleb128 0x1
+ 1557 00b5 13       		.uleb128 0x13
+ 1558 00b6 00       		.byte	0
+ 1559 00b7 00       		.byte	0
+ 1560 00b8 11       		.uleb128 0x11
+ 1561 00b9 26       		.uleb128 0x26
+ 1562 00ba 00       		.byte	0
+ 1563 00bb 49       		.uleb128 0x49
+ 1564 00bc 13       		.uleb128 0x13
+ 1565 00bd 00       		.byte	0
+ 1566 00be 00       		.byte	0
+ 1567 00bf 12       		.uleb128 0x12
+ 1568 00c0 13       		.uleb128 0x13
+ 1569 00c1 01       		.byte	0x1
+ 1570 00c2 0B       		.uleb128 0xb
+ 1571 00c3 0B       		.uleb128 0xb
+ 1572 00c4 3A       		.uleb128 0x3a
+ 1573 00c5 0B       		.uleb128 0xb
+ 1574 00c6 3B       		.uleb128 0x3b
+ 1575 00c7 05       		.uleb128 0x5
+ 1576 00c8 01       		.uleb128 0x1
+ 1577 00c9 13       		.uleb128 0x13
+ 1578 00ca 00       		.byte	0
+ 1579 00cb 00       		.byte	0
+ 1580 00cc 13       		.uleb128 0x13
+ 1581 00cd 0D       		.uleb128 0xd
+ 1582 00ce 00       		.byte	0
+ 1583 00cf 03       		.uleb128 0x3
+ 1584 00d0 0E       		.uleb128 0xe
+ 1585 00d1 3A       		.uleb128 0x3a
+ 1586 00d2 0B       		.uleb128 0xb
+ 1587 00d3 3B       		.uleb128 0x3b
+ 1588 00d4 05       		.uleb128 0x5
+ 1589 00d5 49       		.uleb128 0x49
+ 1590 00d6 13       		.uleb128 0x13
+ 1591 00d7 38       		.uleb128 0x38
+ 1592 00d8 0B       		.uleb128 0xb
+ 1593 00d9 00       		.byte	0
+ 1594 00da 00       		.byte	0
+ 1595 00db 14       		.uleb128 0x14
+ 1596 00dc 17       		.uleb128 0x17
+ 1597 00dd 01       		.byte	0x1
+ 1598 00de 0B       		.uleb128 0xb
+ 1599 00df 0B       		.uleb128 0xb
+ 1600 00e0 3A       		.uleb128 0x3a
+ 1601 00e1 0B       		.uleb128 0xb
+ 1602 00e2 3B       		.uleb128 0x3b
+ 1603 00e3 0B       		.uleb128 0xb
+ 1604 00e4 01       		.uleb128 0x1
+ 1605 00e5 13       		.uleb128 0x13
+ 1606 00e6 00       		.byte	0
+ 1607 00e7 00       		.byte	0
+ 1608 00e8 15       		.uleb128 0x15
+ 1609 00e9 0D       		.uleb128 0xd
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 33
+
+
+ 1610 00ea 00       		.byte	0
+ 1611 00eb 03       		.uleb128 0x3
+ 1612 00ec 0E       		.uleb128 0xe
+ 1613 00ed 3A       		.uleb128 0x3a
+ 1614 00ee 0B       		.uleb128 0xb
+ 1615 00ef 3B       		.uleb128 0x3b
+ 1616 00f0 0B       		.uleb128 0xb
+ 1617 00f1 49       		.uleb128 0x49
+ 1618 00f2 13       		.uleb128 0x13
+ 1619 00f3 00       		.byte	0
+ 1620 00f4 00       		.byte	0
+ 1621 00f5 16       		.uleb128 0x16
+ 1622 00f6 2E       		.uleb128 0x2e
+ 1623 00f7 01       		.byte	0x1
+ 1624 00f8 03       		.uleb128 0x3
+ 1625 00f9 0E       		.uleb128 0xe
+ 1626 00fa 3A       		.uleb128 0x3a
+ 1627 00fb 0B       		.uleb128 0xb
+ 1628 00fc 3B       		.uleb128 0x3b
+ 1629 00fd 0B       		.uleb128 0xb
+ 1630 00fe 27       		.uleb128 0x27
+ 1631 00ff 19       		.uleb128 0x19
+ 1632 0100 11       		.uleb128 0x11
+ 1633 0101 01       		.uleb128 0x1
+ 1634 0102 12       		.uleb128 0x12
+ 1635 0103 06       		.uleb128 0x6
+ 1636 0104 40       		.uleb128 0x40
+ 1637 0105 18       		.uleb128 0x18
+ 1638 0106 9742     		.uleb128 0x2117
+ 1639 0108 19       		.uleb128 0x19
+ 1640 0109 01       		.uleb128 0x1
+ 1641 010a 13       		.uleb128 0x13
+ 1642 010b 00       		.byte	0
+ 1643 010c 00       		.byte	0
+ 1644 010d 17       		.uleb128 0x17
+ 1645 010e 898201   		.uleb128 0x4109
+ 1646 0111 00       		.byte	0
+ 1647 0112 11       		.uleb128 0x11
+ 1648 0113 01       		.uleb128 0x1
+ 1649 0114 31       		.uleb128 0x31
+ 1650 0115 13       		.uleb128 0x13
+ 1651 0116 00       		.byte	0
+ 1652 0117 00       		.byte	0
+ 1653 0118 18       		.uleb128 0x18
+ 1654 0119 2E       		.uleb128 0x2e
+ 1655 011a 01       		.byte	0x1
+ 1656 011b 3F       		.uleb128 0x3f
+ 1657 011c 19       		.uleb128 0x19
+ 1658 011d 03       		.uleb128 0x3
+ 1659 011e 0E       		.uleb128 0xe
+ 1660 011f 3A       		.uleb128 0x3a
+ 1661 0120 0B       		.uleb128 0xb
+ 1662 0121 3B       		.uleb128 0x3b
+ 1663 0122 0B       		.uleb128 0xb
+ 1664 0123 27       		.uleb128 0x27
+ 1665 0124 19       		.uleb128 0x19
+ 1666 0125 11       		.uleb128 0x11
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 34
+
+
+ 1667 0126 01       		.uleb128 0x1
+ 1668 0127 12       		.uleb128 0x12
+ 1669 0128 06       		.uleb128 0x6
+ 1670 0129 40       		.uleb128 0x40
+ 1671 012a 18       		.uleb128 0x18
+ 1672 012b 9742     		.uleb128 0x2117
+ 1673 012d 19       		.uleb128 0x19
+ 1674 012e 01       		.uleb128 0x1
+ 1675 012f 13       		.uleb128 0x13
+ 1676 0130 00       		.byte	0
+ 1677 0131 00       		.byte	0
+ 1678 0132 19       		.uleb128 0x19
+ 1679 0133 34       		.uleb128 0x34
+ 1680 0134 00       		.byte	0
+ 1681 0135 03       		.uleb128 0x3
+ 1682 0136 0E       		.uleb128 0xe
+ 1683 0137 3A       		.uleb128 0x3a
+ 1684 0138 0B       		.uleb128 0xb
+ 1685 0139 3B       		.uleb128 0x3b
+ 1686 013a 0B       		.uleb128 0xb
+ 1687 013b 49       		.uleb128 0x49
+ 1688 013c 13       		.uleb128 0x13
+ 1689 013d 02       		.uleb128 0x2
+ 1690 013e 17       		.uleb128 0x17
+ 1691 013f 00       		.byte	0
+ 1692 0140 00       		.byte	0
+ 1693 0141 1A       		.uleb128 0x1a
+ 1694 0142 34       		.uleb128 0x34
+ 1695 0143 00       		.byte	0
+ 1696 0144 03       		.uleb128 0x3
+ 1697 0145 0E       		.uleb128 0xe
+ 1698 0146 3A       		.uleb128 0x3a
+ 1699 0147 0B       		.uleb128 0xb
+ 1700 0148 3B       		.uleb128 0x3b
+ 1701 0149 0B       		.uleb128 0xb
+ 1702 014a 49       		.uleb128 0x49
+ 1703 014b 13       		.uleb128 0x13
+ 1704 014c 02       		.uleb128 0x2
+ 1705 014d 18       		.uleb128 0x18
+ 1706 014e 00       		.byte	0
+ 1707 014f 00       		.byte	0
+ 1708 0150 1B       		.uleb128 0x1b
+ 1709 0151 898201   		.uleb128 0x4109
+ 1710 0154 01       		.byte	0x1
+ 1711 0155 11       		.uleb128 0x11
+ 1712 0156 01       		.uleb128 0x1
+ 1713 0157 31       		.uleb128 0x31
+ 1714 0158 13       		.uleb128 0x13
+ 1715 0159 01       		.uleb128 0x1
+ 1716 015a 13       		.uleb128 0x13
+ 1717 015b 00       		.byte	0
+ 1718 015c 00       		.byte	0
+ 1719 015d 1C       		.uleb128 0x1c
+ 1720 015e 8A8201   		.uleb128 0x410a
+ 1721 0161 00       		.byte	0
+ 1722 0162 02       		.uleb128 0x2
+ 1723 0163 18       		.uleb128 0x18
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 35
+
+
+ 1724 0164 9142     		.uleb128 0x2111
+ 1725 0166 18       		.uleb128 0x18
+ 1726 0167 00       		.byte	0
+ 1727 0168 00       		.byte	0
+ 1728 0169 1D       		.uleb128 0x1d
+ 1729 016a 898201   		.uleb128 0x4109
+ 1730 016d 01       		.byte	0x1
+ 1731 016e 11       		.uleb128 0x11
+ 1732 016f 01       		.uleb128 0x1
+ 1733 0170 31       		.uleb128 0x31
+ 1734 0171 13       		.uleb128 0x13
+ 1735 0172 00       		.byte	0
+ 1736 0173 00       		.byte	0
+ 1737 0174 1E       		.uleb128 0x1e
+ 1738 0175 2E       		.uleb128 0x2e
+ 1739 0176 01       		.byte	0x1
+ 1740 0177 3F       		.uleb128 0x3f
+ 1741 0178 19       		.uleb128 0x19
+ 1742 0179 03       		.uleb128 0x3
+ 1743 017a 0E       		.uleb128 0xe
+ 1744 017b 3A       		.uleb128 0x3a
+ 1745 017c 0B       		.uleb128 0xb
+ 1746 017d 3B       		.uleb128 0x3b
+ 1747 017e 0B       		.uleb128 0xb
+ 1748 017f 27       		.uleb128 0x27
+ 1749 0180 19       		.uleb128 0x19
+ 1750 0181 49       		.uleb128 0x49
+ 1751 0182 13       		.uleb128 0x13
+ 1752 0183 11       		.uleb128 0x11
+ 1753 0184 01       		.uleb128 0x1
+ 1754 0185 12       		.uleb128 0x12
+ 1755 0186 06       		.uleb128 0x6
+ 1756 0187 40       		.uleb128 0x40
+ 1757 0188 18       		.uleb128 0x18
+ 1758 0189 9742     		.uleb128 0x2117
+ 1759 018b 19       		.uleb128 0x19
+ 1760 018c 01       		.uleb128 0x1
+ 1761 018d 13       		.uleb128 0x13
+ 1762 018e 00       		.byte	0
+ 1763 018f 00       		.byte	0
+ 1764 0190 1F       		.uleb128 0x1f
+ 1765 0191 05       		.uleb128 0x5
+ 1766 0192 00       		.byte	0
+ 1767 0193 03       		.uleb128 0x3
+ 1768 0194 0E       		.uleb128 0xe
+ 1769 0195 3A       		.uleb128 0x3a
+ 1770 0196 0B       		.uleb128 0xb
+ 1771 0197 3B       		.uleb128 0x3b
+ 1772 0198 0B       		.uleb128 0xb
+ 1773 0199 49       		.uleb128 0x49
+ 1774 019a 13       		.uleb128 0x13
+ 1775 019b 02       		.uleb128 0x2
+ 1776 019c 17       		.uleb128 0x17
+ 1777 019d 00       		.byte	0
+ 1778 019e 00       		.byte	0
+ 1779 019f 20       		.uleb128 0x20
+ 1780 01a0 05       		.uleb128 0x5
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 36
+
+
+ 1781 01a1 00       		.byte	0
+ 1782 01a2 03       		.uleb128 0x3
+ 1783 01a3 08       		.uleb128 0x8
+ 1784 01a4 3A       		.uleb128 0x3a
+ 1785 01a5 0B       		.uleb128 0xb
+ 1786 01a6 3B       		.uleb128 0x3b
+ 1787 01a7 0B       		.uleb128 0xb
+ 1788 01a8 49       		.uleb128 0x49
+ 1789 01a9 13       		.uleb128 0x13
+ 1790 01aa 02       		.uleb128 0x2
+ 1791 01ab 17       		.uleb128 0x17
+ 1792 01ac 00       		.byte	0
+ 1793 01ad 00       		.byte	0
+ 1794 01ae 21       		.uleb128 0x21
+ 1795 01af 34       		.uleb128 0x34
+ 1796 01b0 00       		.byte	0
+ 1797 01b1 03       		.uleb128 0x3
+ 1798 01b2 08       		.uleb128 0x8
+ 1799 01b3 3A       		.uleb128 0x3a
+ 1800 01b4 0B       		.uleb128 0xb
+ 1801 01b5 3B       		.uleb128 0x3b
+ 1802 01b6 0B       		.uleb128 0xb
+ 1803 01b7 49       		.uleb128 0x49
+ 1804 01b8 13       		.uleb128 0x13
+ 1805 01b9 00       		.byte	0
+ 1806 01ba 00       		.byte	0
+ 1807 01bb 22       		.uleb128 0x22
+ 1808 01bc 34       		.uleb128 0x34
+ 1809 01bd 00       		.byte	0
+ 1810 01be 03       		.uleb128 0x3
+ 1811 01bf 0E       		.uleb128 0xe
+ 1812 01c0 3A       		.uleb128 0x3a
+ 1813 01c1 0B       		.uleb128 0xb
+ 1814 01c2 3B       		.uleb128 0x3b
+ 1815 01c3 05       		.uleb128 0x5
+ 1816 01c4 49       		.uleb128 0x49
+ 1817 01c5 13       		.uleb128 0x13
+ 1818 01c6 3F       		.uleb128 0x3f
+ 1819 01c7 19       		.uleb128 0x19
+ 1820 01c8 3C       		.uleb128 0x3c
+ 1821 01c9 19       		.uleb128 0x19
+ 1822 01ca 00       		.byte	0
+ 1823 01cb 00       		.byte	0
+ 1824 01cc 23       		.uleb128 0x23
+ 1825 01cd 35       		.uleb128 0x35
+ 1826 01ce 00       		.byte	0
+ 1827 01cf 49       		.uleb128 0x49
+ 1828 01d0 13       		.uleb128 0x13
+ 1829 01d1 00       		.byte	0
+ 1830 01d2 00       		.byte	0
+ 1831 01d3 24       		.uleb128 0x24
+ 1832 01d4 34       		.uleb128 0x34
+ 1833 01d5 00       		.byte	0
+ 1834 01d6 03       		.uleb128 0x3
+ 1835 01d7 0E       		.uleb128 0xe
+ 1836 01d8 3A       		.uleb128 0x3a
+ 1837 01d9 0B       		.uleb128 0xb
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 37
+
+
+ 1838 01da 3B       		.uleb128 0x3b
+ 1839 01db 0B       		.uleb128 0xb
+ 1840 01dc 49       		.uleb128 0x49
+ 1841 01dd 13       		.uleb128 0x13
+ 1842 01de 3F       		.uleb128 0x3f
+ 1843 01df 19       		.uleb128 0x19
+ 1844 01e0 3C       		.uleb128 0x3c
+ 1845 01e1 19       		.uleb128 0x19
+ 1846 01e2 00       		.byte	0
+ 1847 01e3 00       		.byte	0
+ 1848 01e4 25       		.uleb128 0x25
+ 1849 01e5 2E       		.uleb128 0x2e
+ 1850 01e6 00       		.byte	0
+ 1851 01e7 3F       		.uleb128 0x3f
+ 1852 01e8 19       		.uleb128 0x19
+ 1853 01e9 03       		.uleb128 0x3
+ 1854 01ea 0E       		.uleb128 0xe
+ 1855 01eb 3A       		.uleb128 0x3a
+ 1856 01ec 0B       		.uleb128 0xb
+ 1857 01ed 3B       		.uleb128 0x3b
+ 1858 01ee 0B       		.uleb128 0xb
+ 1859 01ef 27       		.uleb128 0x27
+ 1860 01f0 19       		.uleb128 0x19
+ 1861 01f1 3C       		.uleb128 0x3c
+ 1862 01f2 19       		.uleb128 0x19
+ 1863 01f3 00       		.byte	0
+ 1864 01f4 00       		.byte	0
+ 1865 01f5 26       		.uleb128 0x26
+ 1866 01f6 2E       		.uleb128 0x2e
+ 1867 01f7 01       		.byte	0x1
+ 1868 01f8 3F       		.uleb128 0x3f
+ 1869 01f9 19       		.uleb128 0x19
+ 1870 01fa 03       		.uleb128 0x3
+ 1871 01fb 0E       		.uleb128 0xe
+ 1872 01fc 27       		.uleb128 0x27
+ 1873 01fd 19       		.uleb128 0x19
+ 1874 01fe 49       		.uleb128 0x49
+ 1875 01ff 13       		.uleb128 0x13
+ 1876 0200 34       		.uleb128 0x34
+ 1877 0201 19       		.uleb128 0x19
+ 1878 0202 3C       		.uleb128 0x3c
+ 1879 0203 19       		.uleb128 0x19
+ 1880 0204 01       		.uleb128 0x1
+ 1881 0205 13       		.uleb128 0x13
+ 1882 0206 00       		.byte	0
+ 1883 0207 00       		.byte	0
+ 1884 0208 27       		.uleb128 0x27
+ 1885 0209 2E       		.uleb128 0x2e
+ 1886 020a 01       		.byte	0x1
+ 1887 020b 3F       		.uleb128 0x3f
+ 1888 020c 19       		.uleb128 0x19
+ 1889 020d 03       		.uleb128 0x3
+ 1890 020e 0E       		.uleb128 0xe
+ 1891 020f 3A       		.uleb128 0x3a
+ 1892 0210 0B       		.uleb128 0xb
+ 1893 0211 3B       		.uleb128 0x3b
+ 1894 0212 05       		.uleb128 0x5
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 38
+
+
+ 1895 0213 27       		.uleb128 0x27
+ 1896 0214 19       		.uleb128 0x19
+ 1897 0215 49       		.uleb128 0x49
+ 1898 0216 13       		.uleb128 0x13
+ 1899 0217 3C       		.uleb128 0x3c
+ 1900 0218 19       		.uleb128 0x19
+ 1901 0219 01       		.uleb128 0x1
+ 1902 021a 13       		.uleb128 0x13
+ 1903 021b 00       		.byte	0
+ 1904 021c 00       		.byte	0
+ 1905 021d 28       		.uleb128 0x28
+ 1906 021e 2E       		.uleb128 0x2e
+ 1907 021f 01       		.byte	0x1
+ 1908 0220 3F       		.uleb128 0x3f
+ 1909 0221 19       		.uleb128 0x19
+ 1910 0222 03       		.uleb128 0x3
+ 1911 0223 0E       		.uleb128 0xe
+ 1912 0224 3A       		.uleb128 0x3a
+ 1913 0225 0B       		.uleb128 0xb
+ 1914 0226 3B       		.uleb128 0x3b
+ 1915 0227 0B       		.uleb128 0xb
+ 1916 0228 27       		.uleb128 0x27
+ 1917 0229 19       		.uleb128 0x19
+ 1918 022a 3C       		.uleb128 0x3c
+ 1919 022b 19       		.uleb128 0x19
+ 1920 022c 01       		.uleb128 0x1
+ 1921 022d 13       		.uleb128 0x13
+ 1922 022e 00       		.byte	0
+ 1923 022f 00       		.byte	0
+ 1924 0230 29       		.uleb128 0x29
+ 1925 0231 15       		.uleb128 0x15
+ 1926 0232 01       		.byte	0x1
+ 1927 0233 27       		.uleb128 0x27
+ 1928 0234 19       		.uleb128 0x19
+ 1929 0235 00       		.byte	0
+ 1930 0236 00       		.byte	0
+ 1931 0237 00       		.byte	0
+ 1932              		.section	.debug_loc,"",%progbits
+ 1933              	.Ldebug_loc0:
+ 1934              	.LLST0:
+ 1935 0000 28000000 		.4byte	.LVL3
+ 1936 0004 2A000000 		.4byte	.LVL4
+ 1937 0008 0100     		.2byte	0x1
+ 1938 000a 50       		.byte	0x50
+ 1939 000b 2A000000 		.4byte	.LVL4
+ 1940 000f 70000000 		.4byte	.LVL9
+ 1941 0013 0100     		.2byte	0x1
+ 1942 0015 55       		.byte	0x55
+ 1943 0016 00000000 		.4byte	0
+ 1944 001a 00000000 		.4byte	0
+ 1945              	.LLST1:
+ 1946 001e 00000000 		.4byte	.LVL10
+ 1947 0022 09000000 		.4byte	.LVL11-1
+ 1948 0026 0100     		.2byte	0x1
+ 1949 0028 50       		.byte	0x50
+ 1950 0029 09000000 		.4byte	.LVL11-1
+ 1951 002d 0E000000 		.4byte	.LVL12
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 39
+
+
+ 1952 0031 0400     		.2byte	0x4
+ 1953 0033 F3       		.byte	0xf3
+ 1954 0034 01       		.uleb128 0x1
+ 1955 0035 50       		.byte	0x50
+ 1956 0036 9F       		.byte	0x9f
+ 1957 0037 0E000000 		.4byte	.LVL12
+ 1958 003b 12000000 		.4byte	.LVL13
+ 1959 003f 0100     		.2byte	0x1
+ 1960 0041 50       		.byte	0x50
+ 1961 0042 12000000 		.4byte	.LVL13
+ 1962 0046 14000000 		.4byte	.LFE65
+ 1963 004a 0400     		.2byte	0x4
+ 1964 004c F3       		.byte	0xf3
+ 1965 004d 01       		.uleb128 0x1
+ 1966 004e 50       		.byte	0x50
+ 1967 004f 9F       		.byte	0x9f
+ 1968 0050 00000000 		.4byte	0
+ 1969 0054 00000000 		.4byte	0
+ 1970              	.LLST2:
+ 1971 0058 00000000 		.4byte	.LVL10
+ 1972 005c 09000000 		.4byte	.LVL11-1
+ 1973 0060 0100     		.2byte	0x1
+ 1974 0062 51       		.byte	0x51
+ 1975 0063 09000000 		.4byte	.LVL11-1
+ 1976 0067 0E000000 		.4byte	.LVL12
+ 1977 006b 0400     		.2byte	0x4
+ 1978 006d F3       		.byte	0xf3
+ 1979 006e 01       		.uleb128 0x1
+ 1980 006f 51       		.byte	0x51
+ 1981 0070 9F       		.byte	0x9f
+ 1982 0071 0E000000 		.4byte	.LVL12
+ 1983 0075 14000000 		.4byte	.LFE65
+ 1984 0079 0100     		.2byte	0x1
+ 1985 007b 51       		.byte	0x51
+ 1986 007c 00000000 		.4byte	0
+ 1987 0080 00000000 		.4byte	0
+ 1988              	.LLST3:
+ 1989 0084 00000000 		.4byte	.LVL10
+ 1990 0088 09000000 		.4byte	.LVL11-1
+ 1991 008c 0100     		.2byte	0x1
+ 1992 008e 52       		.byte	0x52
+ 1993 008f 09000000 		.4byte	.LVL11-1
+ 1994 0093 0E000000 		.4byte	.LVL12
+ 1995 0097 0400     		.2byte	0x4
+ 1996 0099 F3       		.byte	0xf3
+ 1997 009a 01       		.uleb128 0x1
+ 1998 009b 52       		.byte	0x52
+ 1999 009c 9F       		.byte	0x9f
+ 2000 009d 0E000000 		.4byte	.LVL12
+ 2001 00a1 14000000 		.4byte	.LFE65
+ 2002 00a5 0100     		.2byte	0x1
+ 2003 00a7 52       		.byte	0x52
+ 2004 00a8 00000000 		.4byte	0
+ 2005 00ac 00000000 		.4byte	0
+ 2006              		.section	.debug_aranges,"",%progbits
+ 2007 0000 2C000000 		.4byte	0x2c
+ 2008 0004 0200     		.2byte	0x2
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 40
+
+
+ 2009 0006 00000000 		.4byte	.Ldebug_info0
+ 2010 000a 04       		.byte	0x4
+ 2011 000b 00       		.byte	0
+ 2012 000c 0000     		.2byte	0
+ 2013 000e 0000     		.2byte	0
+ 2014 0010 00000000 		.4byte	.LFB63
+ 2015 0014 08000000 		.4byte	.LFE63-.LFB63
+ 2016 0018 00000000 		.4byte	.LFB64
+ 2017 001c 94000000 		.4byte	.LFE64-.LFB64
+ 2018 0020 00000000 		.4byte	.LFB65
+ 2019 0024 14000000 		.4byte	.LFE65-.LFB65
+ 2020 0028 00000000 		.4byte	0
+ 2021 002c 00000000 		.4byte	0
+ 2022              		.section	.debug_ranges,"",%progbits
+ 2023              	.Ldebug_ranges0:
+ 2024 0000 00000000 		.4byte	.LFB63
+ 2025 0004 08000000 		.4byte	.LFE63
+ 2026 0008 00000000 		.4byte	.LFB64
+ 2027 000c 94000000 		.4byte	.LFE64
+ 2028 0010 00000000 		.4byte	.LFB65
+ 2029 0014 14000000 		.4byte	.LFE65
+ 2030 0018 00000000 		.4byte	0
+ 2031 001c 00000000 		.4byte	0
+ 2032              		.section	.debug_line,"",%progbits
+ 2033              	.Ldebug_line0:
+ 2034 0000 FC010000 		.section	.debug_str,"MS",%progbits,1
+ 2034      0200AE01 
+ 2034      00000201 
+ 2034      FB0E0D00 
+ 2034      01010101 
+ 2035              	.LASF34:
+ 2036 0000 70436F6C 		.ascii	"pColorConvAPI\000"
+ 2036      6F72436F 
+ 2036      6E764150 
+ 2036      4900
+ 2037              	.LASF94:
+ 2038 000e 4C43445F 		.ascii	"LCD_SetSizeEx\000"
+ 2038      53657453 
+ 2038      697A6545 
+ 2038      7800
+ 2039              	.LASF103:
+ 2040 001c 4C43445F 		.ascii	"LCD_X_Config\000"
+ 2040      585F436F 
+ 2040      6E666967 
+ 2040      00
+ 2041              	.LASF89:
+ 2042 0029 70446174 		.ascii	"pData\000"
+ 2042      6100
+ 2043              	.LASF84:
+ 2044 002f 4E756D44 		.ascii	"NumDummyReads\000"
+ 2044      756D6D79 
+ 2044      52656164 
+ 2044      7300
+ 2045              	.LASF42:
+ 2046 003d 70664669 		.ascii	"pfFillRect\000"
+ 2046      6C6C5265 
+ 2046      637400
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 41
+
+
+ 2047              	.LASF98:
+ 2048 0048 47554944 		.ascii	"GUIDRV_FlexColor_SetFunc\000"
+ 2048      52565F46 
+ 2048      6C657843 
+ 2048      6F6C6F72 
+ 2048      5F536574 
+ 2049              	.LASF69:
+ 2050 0061 70665772 		.ascii	"pfWriteM32_A0\000"
+ 2050      6974654D 
+ 2050      33325F41 
+ 2050      3000
+ 2051              	.LASF2:
+ 2052 006f 73686F72 		.ascii	"short int\000"
+ 2052      7420696E 
+ 2052      7400
+ 2053              	.LASF72:
+ 2054 0079 70665265 		.ascii	"pfRead32_A1\000"
+ 2054      61643332 
+ 2054      5F413100 
+ 2055              	.LASF15:
+ 2056 0085 73697A65 		.ascii	"sizetype\000"
+ 2056      74797065 
+ 2056      00
+ 2057              	.LASF49:
+ 2058 008e 70664765 		.ascii	"pfGetDevData\000"
+ 2058      74446576 
+ 2058      44617461 
+ 2058      00
+ 2059              	.LASF75:
+ 2060 009b 70665365 		.ascii	"pfSetCS\000"
+ 2060      74435300 
+ 2061              	.LASF63:
+ 2062 00a3 70665265 		.ascii	"pfRead16_A0\000"
+ 2062      61643136 
+ 2062      5F413000 
+ 2063              	.LASF64:
+ 2064 00af 70665265 		.ascii	"pfRead16_A1\000"
+ 2064      61643136 
+ 2064      5F413100 
+ 2065              	.LASF41:
+ 2066 00bb 70664472 		.ascii	"pfDrawVLine\000"
+ 2066      6177564C 
+ 2066      696E6500 
+ 2067              	.LASF70:
+ 2068 00c7 70665772 		.ascii	"pfWriteM32_A1\000"
+ 2068      6974654D 
+ 2068      33325F41 
+ 2068      3100
+ 2069              	.LASF14:
+ 2070 00d5 6C6F6E67 		.ascii	"long double\000"
+ 2070      20646F75 
+ 2070      626C6500 
+ 2071              	.LASF50:
+ 2072 00e1 70664765 		.ascii	"pfGetRect\000"
+ 2072      74526563 
+ 2072      7400
+ 2073              	.LASF33:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 42
+
+
+ 2074 00eb 70446576 		.ascii	"pDeviceAPI\000"
+ 2074      69636541 
+ 2074      504900
+ 2075              	.LASF83:
+ 2076 00f6 52656745 		.ascii	"RegEntryMode\000"
+ 2076      6E747279 
+ 2076      4D6F6465 
+ 2076      00
+ 2077              	.LASF37:
+ 2078 0103 4755495F 		.ascii	"GUI_DEVICE_API\000"
+ 2078      44455649 
+ 2078      43455F41 
+ 2078      504900
+ 2079              	.LASF16:
+ 2080 0112 4C43445F 		.ascii	"LCD_COLOR\000"
+ 2080      434F4C4F 
+ 2080      5200
+ 2081              	.LASF54:
+ 2082 011c 70665772 		.ascii	"pfWriteM8_A1\000"
+ 2082      6974654D 
+ 2082      385F4131 
+ 2082      00
+ 2083              	.LASF25:
+ 2084 0129 70664765 		.ascii	"pfGetIndexMask\000"
+ 2084      74496E64 
+ 2084      65784D61 
+ 2084      736B00
+ 2085              	.LASF27:
+ 2086 0138 7066436F 		.ascii	"pfColor2IndexBulk\000"
+ 2086      6C6F7232 
+ 2086      496E6465 
+ 2086      7842756C 
+ 2086      6B00
+ 2087              	.LASF102:
+ 2088 014a 5F496E69 		.ascii	"_InitController\000"
+ 2088      74436F6E 
+ 2088      74726F6C 
+ 2088      6C657200 
+ 2089              	.LASF73:
+ 2090 015a 70665265 		.ascii	"pfReadM32_A0\000"
+ 2090      61644D33 
+ 2090      325F4130 
+ 2090      00
+ 2091              	.LASF74:
+ 2092 0167 70665265 		.ascii	"pfReadM32_A1\000"
+ 2092      61644D33 
+ 2092      325F4131 
+ 2092      00
+ 2093              	.LASF40:
+ 2094 0174 70664472 		.ascii	"pfDrawHLine\000"
+ 2094      6177484C 
+ 2094      696E6500 
+ 2095              	.LASF35:
+ 2096 0180 466C6167 		.ascii	"Flags\000"
+ 2096      7300
+ 2097              	.LASF11:
+ 2098 0186 666C6F61 		.ascii	"float\000"
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 43
+
+
+ 2098      7400
+ 2099              	.LASF88:
+ 2100 018c 506F7274 		.ascii	"PortAPI\000"
+ 2100      41504900 
+ 2101              	.LASF36:
+ 2102 0194 4C617965 		.ascii	"LayerIndex\000"
+ 2102      72496E64 
+ 2102      657800
+ 2103              	.LASF6:
+ 2104 019f 6C6F6E67 		.ascii	"long long int\000"
+ 2104      206C6F6E 
+ 2104      6720696E 
+ 2104      7400
+ 2105              	.LASF7:
+ 2106 01ad 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2106      206C6F6E 
+ 2106      6720756E 
+ 2106      7369676E 
+ 2106      65642069 
+ 2107              	.LASF31:
+ 2108 01c4 704E6578 		.ascii	"pNext\000"
+ 2108      7400
+ 2109              	.LASF96:
+ 2110 01ca 6D656D73 		.ascii	"memset\000"
+ 2110      657400
+ 2111              	.LASF20:
+ 2112 01d1 744C4344 		.ascii	"tLCDDEV_GetIndexMask\000"
+ 2112      4445565F 
+ 2112      47657449 
+ 2112      6E646578 
+ 2112      4D61736B 
+ 2113              	.LASF4:
+ 2114 01e6 6C6F6E67 		.ascii	"long int\000"
+ 2114      20696E74 
+ 2114      00
+ 2115              	.LASF43:
+ 2116 01ef 70664765 		.ascii	"pfGetPixelIndex\000"
+ 2116      74506978 
+ 2116      656C496E 
+ 2116      64657800 
+ 2117              	.LASF29:
+ 2118 01ff 4C43445F 		.ascii	"LCD_API_COLOR_CONV\000"
+ 2118      4150495F 
+ 2118      434F4C4F 
+ 2118      525F434F 
+ 2118      4E5600
+ 2119              	.LASF93:
+ 2120 0212 4755495F 		.ascii	"GUI_DEVICE_CreateAndLink\000"
+ 2120      44455649 
+ 2120      43455F43 
+ 2120      72656174 
+ 2120      65416E64 
+ 2121              	.LASF80:
+ 2122 022b 46697273 		.ascii	"FirstSEG\000"
+ 2122      74534547 
+ 2122      00
+ 2123              	.LASF32:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 44
+
+
+ 2124 0234 70507265 		.ascii	"pPrev\000"
+ 2124      7600
+ 2125              	.LASF87:
+ 2126 023a 436F6E66 		.ascii	"Config\000"
+ 2126      696700
+ 2127              	.LASF71:
+ 2128 0241 70665265 		.ascii	"pfRead32_A0\000"
+ 2128      61643332 
+ 2128      5F413000 
+ 2129              	.LASF78:
+ 2130 024d 68436F6E 		.ascii	"hContext\000"
+ 2130      74657874 
+ 2130      00
+ 2131              	.LASF104:
+ 2132 0256 4C43445F 		.ascii	"LCD_X_DisplayDriver\000"
+ 2132      585F4469 
+ 2132      73706C61 
+ 2132      79447269 
+ 2132      76657200 
+ 2133              	.LASF58:
+ 2134 026a 70665265 		.ascii	"pfReadM8_A1\000"
+ 2134      61644D38 
+ 2134      5F413100 
+ 2135              	.LASF17:
+ 2136 0276 4C43445F 		.ascii	"LCD_RECT\000"
+ 2136      52454354 
+ 2136      00
+ 2137              	.LASF1:
+ 2138 027f 756E7369 		.ascii	"unsigned char\000"
+ 2138      676E6564 
+ 2138      20636861 
+ 2138      7200
+ 2139              	.LASF0:
+ 2140 028d 7369676E 		.ascii	"signed char\000"
+ 2140      65642063 
+ 2140      68617200 
+ 2141              	.LASF101:
+ 2142 0299 433A5C55 		.ascii	"C:\\Users\\student\\Documents\\PSoC Creator\\rbeatt"
+ 2142      73657273 
+ 2142      5C737475 
+ 2142      64656E74 
+ 2142      5C446F63 
+ 2143 02c7 69655F66 		.ascii	"ie_final_project\\ConnectFour.cydsn\000"
+ 2143      696E616C 
+ 2143      5F70726F 
+ 2143      6A656374 
+ 2143      5C436F6E 
+ 2144              	.LASF61:
+ 2145 02ea 70665772 		.ascii	"pfWriteM16_A0\000"
+ 2145      6974654D 
+ 2145      31365F41 
+ 2145      3000
+ 2146              	.LASF62:
+ 2147 02f8 70665772 		.ascii	"pfWriteM16_A1\000"
+ 2147      6974654D 
+ 2147      31365F41 
+ 2147      3100
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 45
+
+
+ 2148              	.LASF26:
+ 2149 0306 4E6F416C 		.ascii	"NoAlpha\000"
+ 2149      70686100 
+ 2150              	.LASF24:
+ 2151 030e 7066496E 		.ascii	"pfIndex2Color\000"
+ 2151      64657832 
+ 2151      436F6C6F 
+ 2151      7200
+ 2152              	.LASF8:
+ 2153 031c 756E7369 		.ascii	"unsigned int\000"
+ 2153      676E6564 
+ 2153      20696E74 
+ 2153      00
+ 2154              	.LASF44:
+ 2155 0329 70665365 		.ascii	"pfSetPixelIndex\000"
+ 2155      74506978 
+ 2155      656C496E 
+ 2155      64657800 
+ 2156              	.LASF92:
+ 2157 0339 47554944 		.ascii	"GUIDRV_FlexColor_API\000"
+ 2157      52565F46 
+ 2157      6C657843 
+ 2157      6F6C6F72 
+ 2157      5F415049 
+ 2158              	.LASF23:
+ 2159 034e 7066436F 		.ascii	"pfColor2Index\000"
+ 2159      6C6F7232 
+ 2159      496E6465 
+ 2159      7800
+ 2160              	.LASF65:
+ 2161 035c 70665265 		.ascii	"pfReadM16_A0\000"
+ 2161      61644D31 
+ 2161      365F4130 
+ 2161      00
+ 2162              	.LASF22:
+ 2163 0369 744C4344 		.ascii	"tLCDDEV_Color2IndexBulk\000"
+ 2163      4445565F 
+ 2163      436F6C6F 
+ 2163      7232496E 
+ 2163      64657842 
+ 2164              	.LASF13:
+ 2165 0381 63686172 		.ascii	"char\000"
+ 2165      00
+ 2166              	.LASF95:
+ 2167 0386 4C43445F 		.ascii	"LCD_SetVSizeEx\000"
+ 2167      53657456 
+ 2167      53697A65 
+ 2167      457800
+ 2168              	.LASF38:
+ 2169 0395 44657669 		.ascii	"DeviceClassIndex\000"
+ 2169      6365436C 
+ 2169      61737349 
+ 2169      6E646578 
+ 2169      00
+ 2170              	.LASF10:
+ 2171 03a6 696E7433 		.ascii	"int32_t\000"
+ 2171      325F7400 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 46
+
+
+ 2172              	.LASF82:
+ 2173 03ae 4F726965 		.ascii	"Orientation\000"
+ 2173      6E746174 
+ 2173      696F6E00 
+ 2174              	.LASF30:
+ 2175 03ba 4755495F 		.ascii	"GUI_DEVICE\000"
+ 2175      44455649 
+ 2175      434500
+ 2176              	.LASF28:
+ 2177 03c5 7066496E 		.ascii	"pfIndex2ColorBulk\000"
+ 2177      64657832 
+ 2177      436F6C6F 
+ 2177      7242756C 
+ 2177      6B00
+ 2178              	.LASF57:
+ 2179 03d7 70665265 		.ascii	"pfReadM8_A0\000"
+ 2179      61644D38 
+ 2179      5F413000 
+ 2180              	.LASF67:
+ 2181 03e3 70665772 		.ascii	"pfWrite32_A0\000"
+ 2181      69746533 
+ 2181      325F4130 
+ 2181      00
+ 2182              	.LASF53:
+ 2183 03f0 70665772 		.ascii	"pfWriteM8_A0\000"
+ 2183      6974654D 
+ 2183      385F4130 
+ 2183      00
+ 2184              	.LASF79:
+ 2185 03fd 70436F6E 		.ascii	"pContext\000"
+ 2185      74657874 
+ 2185      00
+ 2186              	.LASF39:
+ 2187 0406 70664472 		.ascii	"pfDrawBitmap\000"
+ 2187      61774269 
+ 2187      746D6170 
+ 2187      00
+ 2188              	.LASF3:
+ 2189 0413 73686F72 		.ascii	"short unsigned int\000"
+ 2189      7420756E 
+ 2189      7369676E 
+ 2189      65642069 
+ 2189      6E7400
+ 2190              	.LASF47:
+ 2191 0426 70664765 		.ascii	"pfGetDevFunc\000"
+ 2191      74446576 
+ 2191      46756E63 
+ 2191      00
+ 2192              	.LASF77:
+ 2193 0433 4755495F 		.ascii	"GUI_PORT_API\000"
+ 2193      504F5254 
+ 2193      5F415049 
+ 2193      00
+ 2194              	.LASF5:
+ 2195 0440 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2195      20756E73 
+ 2195      69676E65 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 47
+
+
+ 2195      6420696E 
+ 2195      7400
+ 2196              	.LASF12:
+ 2197 0452 646F7562 		.ascii	"double\000"
+ 2197      6C6500
+ 2198              	.LASF51:
+ 2199 0459 70665772 		.ascii	"pfWrite8_A0\000"
+ 2199      69746538 
+ 2199      5F413000 
+ 2200              	.LASF52:
+ 2201 0465 70665772 		.ascii	"pfWrite8_A1\000"
+ 2201      69746538 
+ 2201      5F413100 
+ 2202              	.LASF68:
+ 2203 0471 70665772 		.ascii	"pfWrite32_A1\000"
+ 2203      69746533 
+ 2203      325F4131 
+ 2203      00
+ 2204              	.LASF97:
+ 2205 047e 47554944 		.ascii	"GUIDRV_FlexColor_Config\000"
+ 2205      52565F46 
+ 2205      6C657843 
+ 2205      6F6C6F72 
+ 2205      5F436F6E 
+ 2206              	.LASF66:
+ 2207 0496 70665265 		.ascii	"pfReadM16_A1\000"
+ 2207      61644D31 
+ 2207      365F4131 
+ 2207      00
+ 2208              	.LASF100:
+ 2209 04a3 2E5C4C43 		.ascii	".\\LCDConf.c\000"
+ 2209      44436F6E 
+ 2209      662E6300 
+ 2210              	.LASF76:
+ 2211 04af 7066466C 		.ascii	"pfFlushBuffer\000"
+ 2211      75736842 
+ 2211      75666665 
+ 2211      7200
+ 2212              	.LASF9:
+ 2213 04bd 5F5F696E 		.ascii	"__int32_t\000"
+ 2213      7433325F 
+ 2213      7400
+ 2214              	.LASF55:
+ 2215 04c7 70665265 		.ascii	"pfRead8_A0\000"
+ 2215      6164385F 
+ 2215      413000
+ 2216              	.LASF56:
+ 2217 04d2 70665265 		.ascii	"pfRead8_A1\000"
+ 2217      6164385F 
+ 2217      413100
+ 2218              	.LASF45:
+ 2219 04dd 7066586F 		.ascii	"pfXorPixel\000"
+ 2219      72506978 
+ 2219      656C00
+ 2220              	.LASF91:
+ 2221 04e8 4C43445F 		.ascii	"LCD_API_ColorConv_565\000"
+ 2221      4150495F 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 48
+
+
+ 2221      436F6C6F 
+ 2221      72436F6E 
+ 2221      765F3536 
+ 2222              	.LASF46:
+ 2223 04fe 70665365 		.ascii	"pfSetOrg\000"
+ 2223      744F7267 
+ 2223      00
+ 2224              	.LASF59:
+ 2225 0507 70665772 		.ascii	"pfWrite16_A0\000"
+ 2225      69746531 
+ 2225      365F4130 
+ 2225      00
+ 2226              	.LASF60:
+ 2227 0514 70665772 		.ascii	"pfWrite16_A1\000"
+ 2227      69746531 
+ 2227      365F4131 
+ 2227      00
+ 2228              	.LASF21:
+ 2229 0521 744C4344 		.ascii	"tLCDDEV_Index2ColorBulk\000"
+ 2229      4445565F 
+ 2229      496E6465 
+ 2229      7832436F 
+ 2229      6C6F7242 
+ 2230              	.LASF99:
+ 2231 0539 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2231      4320342E 
+ 2231      392E3320 
+ 2231      32303135 
+ 2231      30333033 
+ 2232 056c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2232      20726576 
+ 2232      6973696F 
+ 2232      6E203232 
+ 2232      31323230 
+ 2233 059f 67202D73 		.ascii	"g -std=gnu11 -ffunction-sections -ffat-lto-objects\000"
+ 2233      74643D67 
+ 2233      6E753131 
+ 2233      202D6666 
+ 2233      756E6374 
+ 2234              	.LASF18:
+ 2235 05d2 744C4344 		.ascii	"tLCDDEV_Index2Color\000"
+ 2235      4445565F 
+ 2235      496E6465 
+ 2235      7832436F 
+ 2235      6C6F7200 
+ 2236              	.LASF105:
+ 2237 05e6 74667453 		.ascii	"tftStart\000"
+ 2237      74617274 
+ 2237      00
+ 2238              	.LASF90:
+ 2239 05ef 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2239      52784275 
+ 2239      66666572 
+ 2239      00
+ 2240              	.LASF81:
+ 2241 05fc 46697273 		.ascii	"FirstCOM\000"
+ 2241      74434F4D 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 49
+
+
+ 2241      00
+ 2242              	.LASF85:
+ 2243 0605 434F4E46 		.ascii	"CONFIG_FLEXCOLOR\000"
+ 2243      49475F46 
+ 2243      4C455843 
+ 2243      4F4C4F52 
+ 2243      00
+ 2244              	.LASF86:
+ 2245 0616 70446576 		.ascii	"pDevice\000"
+ 2245      69636500 
+ 2246              	.LASF48:
+ 2247 061e 70664765 		.ascii	"pfGetDevProp\000"
+ 2247      74446576 
+ 2247      50726F70 
+ 2247      00
+ 2248              	.LASF19:
+ 2249 062b 744C4344 		.ascii	"tLCDDEV_Color2Index\000"
+ 2249      4445565F 
+ 2249      436F6C6F 
+ 2249      7232496E 
+ 2249      64657800 
+ 2250              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

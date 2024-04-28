@@ -1,0 +1,5 @@
+C:\Users\student\Documents\PSoC Creator\rbeattie_final_project\ConnectFour.cydsn\ConnectFour.cyprj|d6cb4a0f-5178-46e4-9b1d-992adb7b32bb
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c102430b-9abf-4108-bc85-861f38fab2a5
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|f3d206d6-e1c5-4287-9bfb-121750b187bb
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|5f65be0a-6ed7-4462-a152-152c7c2f942d
+C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|f970ce84-5f3e-452a-8f2c-e569e63e360a
