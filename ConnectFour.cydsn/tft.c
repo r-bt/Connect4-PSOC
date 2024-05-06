@@ -95,7 +95,7 @@ void tftStart(void)
     write8_a1(0x55);
     write8_a0(0x11);         			// send Sleep Out command
     write8_a0(0x29);         			// send Display ON command
-    CyDelay(250);            			// delay to allow all changes to take effect	
+    CyDelay(250);            			// delay to allow all changes to take effect	      
 }
 
 /* [] END OF FILE */

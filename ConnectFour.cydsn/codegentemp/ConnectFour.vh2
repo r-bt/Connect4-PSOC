@@ -2,7 +2,7 @@
 --	Conversion of ConnectFour.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Apr 23 21:01:16 2024
+--	Sun May 05 17:09:36 2024
 --
 
 USE cypress.cypress.all;
@@ -24,7 +24,7 @@ SIGNAL \SPIM_1:Net_244\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_after_ld\ : bit;
 SIGNAL \SPIM_1:BSPIM:so_send\ : bit;
 SIGNAL \SPIM_1:BSPIM:so_send_reg\ : bit;
-SIGNAL Net_10 : bit;
+SIGNAL Net_1334 : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_reg\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_fin\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_cpha_0\ : bit;
@@ -32,7 +32,7 @@ SIGNAL \SPIM_1:BSPIM:state_2\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_1\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_0\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_from_dp\ : bit;
-SIGNAL Net_12 : bit;
+SIGNAL Net_1336 : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_hs_reg\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_cpha_1\ : bit;
 SIGNAL \SPIM_1:BSPIM:pre_mosi\ : bit;
@@ -76,13 +76,13 @@ SIGNAL \SPIM_1:Net_294\ : bit;
 SIGNAL \SPIM_1:Net_273\ : bit;
 SIGNAL \SPIM_1:BSPIM:ld_ident\ : bit;
 SIGNAL \SPIM_1:BSPIM:cnt_enable\ : bit;
-SIGNAL Net_11 : bit;
+SIGNAL Net_1335 : bit;
 SIGNAL zero : bit;
 SIGNAL \SPIM_1:BSPIM:count_6\ : bit;
 SIGNAL \SPIM_1:BSPIM:count_5\ : bit;
 SIGNAL \SPIM_1:BSPIM:cnt_tc\ : bit;
-SIGNAL Net_18 : bit;
-SIGNAL Net_16 : bit;
+SIGNAL Net_1341 : bit;
+SIGNAL Net_1339 : bit;
 SIGNAL \SPIM_1:BSPIM:sR8:Dp:ce0\ : bit;
 ATTRIBUTE port_state_att of \SPIM_1:BSPIM:sR8:Dp:ce0\:SIGNAL IS 2;
 SIGNAL \SPIM_1:BSPIM:sR8:Dp:cl0\ : bit;
@@ -137,7 +137,7 @@ SIGNAL \SPIM_1:BSPIM:sR8:Dp:f1_bus_stat_reg\ : bit;
 ATTRIBUTE port_state_att of \SPIM_1:BSPIM:sR8:Dp:f1_bus_stat_reg\:SIGNAL IS 2;
 SIGNAL \SPIM_1:BSPIM:sR8:Dp:f1_blk_stat_reg\ : bit;
 ATTRIBUTE port_state_att of \SPIM_1:BSPIM:sR8:Dp:f1_blk_stat_reg\:SIGNAL IS 2;
-SIGNAL Net_13 : bit;
+SIGNAL Net_1337 : bit;
 SIGNAL \SPIM_1:Net_289\ : bit;
 SIGNAL tmpOE__MOSI_net_0 : bit;
 SIGNAL tmpFB_0__MOSI_net_0 : bit;
@@ -175,56 +175,57 @@ SIGNAL tmpOE__MISO_net_0 : bit;
 SIGNAL tmpIO_0__MISO_net_0 : bit;
 TERMINAL tmpSIOVREF__MISO_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__MISO_net_0 : bit;
-SIGNAL \USBUART:Net_1010\ : bit;
-SIGNAL \USBUART:tmpOE__Dm_net_0\ : bit;
-SIGNAL \USBUART:tmpFB_0__Dm_net_0\ : bit;
-TERMINAL \USBUART:Net_597\ : bit;
-SIGNAL \USBUART:tmpIO_0__Dm_net_0\ : bit;
-TERMINAL \USBUART:tmpSIOVREF__Dm_net_0\ : bit;
-SIGNAL \USBUART:tmpINTERRUPT_0__Dm_net_0\ : bit;
-SIGNAL \USBUART:tmpOE__Dp_net_0\ : bit;
-SIGNAL \USBUART:tmpFB_0__Dp_net_0\ : bit;
-TERMINAL \USBUART:Net_1000\ : bit;
-SIGNAL \USBUART:tmpIO_0__Dp_net_0\ : bit;
-TERMINAL \USBUART:tmpSIOVREF__Dp_net_0\ : bit;
-SIGNAL Net_53 : bit;
-SIGNAL \USBUART:Net_1889\ : bit;
-SIGNAL \USBUART:Net_1876\ : bit;
-SIGNAL \USBUART:ep_int_8\ : bit;
-SIGNAL \USBUART:ep_int_7\ : bit;
-SIGNAL \USBUART:ep_int_6\ : bit;
-SIGNAL \USBUART:ep_int_5\ : bit;
-SIGNAL \USBUART:ep_int_4\ : bit;
-SIGNAL \USBUART:ep_int_3\ : bit;
-SIGNAL \USBUART:ep_int_2\ : bit;
-SIGNAL \USBUART:ep_int_1\ : bit;
-SIGNAL \USBUART:ep_int_0\ : bit;
-SIGNAL \USBUART:Net_95\ : bit;
-SIGNAL \USBUART:dma_request_7\ : bit;
-SIGNAL \USBUART:dma_request_6\ : bit;
-SIGNAL \USBUART:dma_request_5\ : bit;
-SIGNAL \USBUART:dma_request_4\ : bit;
-SIGNAL \USBUART:dma_request_3\ : bit;
-SIGNAL \USBUART:dma_request_2\ : bit;
-SIGNAL \USBUART:dma_request_1\ : bit;
-SIGNAL \USBUART:dma_request_0\ : bit;
-SIGNAL \USBUART:dma_terminate\ : bit;
-SIGNAL \USBUART:dma_complete_0\ : bit;
-SIGNAL \USBUART:Net_1922\ : bit;
-SIGNAL \USBUART:dma_complete_1\ : bit;
-SIGNAL \USBUART:Net_1921\ : bit;
-SIGNAL \USBUART:dma_complete_2\ : bit;
-SIGNAL \USBUART:Net_1920\ : bit;
-SIGNAL \USBUART:dma_complete_3\ : bit;
-SIGNAL \USBUART:Net_1919\ : bit;
-SIGNAL \USBUART:dma_complete_4\ : bit;
-SIGNAL \USBUART:Net_1918\ : bit;
-SIGNAL \USBUART:dma_complete_5\ : bit;
-SIGNAL \USBUART:Net_1917\ : bit;
-SIGNAL \USBUART:dma_complete_6\ : bit;
-SIGNAL \USBUART:Net_1916\ : bit;
-SIGNAL \USBUART:dma_complete_7\ : bit;
-SIGNAL \USBUART:Net_1915\ : bit;
+SIGNAL \USBFS:dma_request_1\ : bit;
+SIGNAL \USBFS:dma_terminate\ : bit;
+SIGNAL \USBFS:Net_1498\ : bit;
+SIGNAL \USBFS:Net_1010\ : bit;
+SIGNAL \USBFS:tmpOE__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpFB_0__Dm_net_0\ : bit;
+TERMINAL \USBFS:Net_597\ : bit;
+SIGNAL \USBFS:tmpIO_0__Dm_net_0\ : bit;
+TERMINAL \USBFS:tmpSIOVREF__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpINTERRUPT_0__Dm_net_0\ : bit;
+SIGNAL \USBFS:tmpOE__Dp_net_0\ : bit;
+SIGNAL \USBFS:tmpFB_0__Dp_net_0\ : bit;
+TERMINAL \USBFS:Net_1000\ : bit;
+SIGNAL \USBFS:tmpIO_0__Dp_net_0\ : bit;
+TERMINAL \USBFS:tmpSIOVREF__Dp_net_0\ : bit;
+SIGNAL Net_1397 : bit;
+SIGNAL \USBFS:Net_1889\ : bit;
+SIGNAL \USBFS:Net_1876\ : bit;
+SIGNAL \USBFS:ep_int_8\ : bit;
+SIGNAL \USBFS:ep_int_7\ : bit;
+SIGNAL \USBFS:ep_int_6\ : bit;
+SIGNAL \USBFS:ep_int_5\ : bit;
+SIGNAL \USBFS:ep_int_4\ : bit;
+SIGNAL \USBFS:ep_int_3\ : bit;
+SIGNAL \USBFS:ep_int_2\ : bit;
+SIGNAL \USBFS:ep_int_1\ : bit;
+SIGNAL \USBFS:ep_int_0\ : bit;
+SIGNAL \USBFS:Net_95\ : bit;
+SIGNAL \USBFS:dma_request_7\ : bit;
+SIGNAL \USBFS:dma_request_6\ : bit;
+SIGNAL \USBFS:dma_request_5\ : bit;
+SIGNAL \USBFS:dma_request_4\ : bit;
+SIGNAL \USBFS:dma_request_3\ : bit;
+SIGNAL \USBFS:dma_request_2\ : bit;
+SIGNAL \USBFS:dma_request_0\ : bit;
+SIGNAL \USBFS:dma_complete_0\ : bit;
+SIGNAL \USBFS:Net_1922\ : bit;
+SIGNAL \USBFS:dma_complete_1\ : bit;
+SIGNAL \USBFS:Net_1921\ : bit;
+SIGNAL \USBFS:dma_complete_2\ : bit;
+SIGNAL \USBFS:Net_1920\ : bit;
+SIGNAL \USBFS:dma_complete_3\ : bit;
+SIGNAL \USBFS:Net_1919\ : bit;
+SIGNAL \USBFS:dma_complete_4\ : bit;
+SIGNAL \USBFS:Net_1918\ : bit;
+SIGNAL \USBFS:dma_complete_5\ : bit;
+SIGNAL \USBFS:Net_1917\ : bit;
+SIGNAL \USBFS:dma_complete_6\ : bit;
+SIGNAL \USBFS:Net_1916\ : bit;
+SIGNAL \USBFS:dma_complete_7\ : bit;
+SIGNAL \USBFS:Net_1915\ : bit;
 SIGNAL tmpOE__T_DIN_net_0 : bit;
 SIGNAL tmpFB_0__T_DIN_net_0 : bit;
 SIGNAL tmpIO_0__T_DIN_net_0 : bit;
@@ -250,19 +251,1104 @@ SIGNAL tmpFB_0__T_IRQ_net_0 : bit;
 SIGNAL tmpIO_0__T_IRQ_net_0 : bit;
 TERMINAL tmpSIOVREF__T_IRQ_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__T_IRQ_net_0 : bit;
+SIGNAL \SELECT_PWM:PWMUDB:km_run\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:min_kill_reg\ : bit;
+SIGNAL Net_161 : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:control_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:prevCapture\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:capt_rising\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:capt_falling\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:hwCapture\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:hwEnable\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:trig_last\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:trig_rise\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:trig_fall\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:trig_out\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:runmode_enable\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_enable\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:tc_i\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sc_kill\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:min_kill\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_kill\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:km_tc\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:db_tc\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_sel\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:reset\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:status_0\ : bit;
+SIGNAL \SELECT_PWM:Net_55\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:prevCompare1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_status\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_status\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:fifo_full\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_capture\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:nc2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:nc3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:nc1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:nc4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:nc5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:so_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:nc6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:nc7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:carry\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:sh_right\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:sh_left\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:msb\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_eq_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_eq_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_lt_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_lt_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_zero_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_zero_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_ff_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_ff_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cap_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cap_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cfb\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_less\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_less\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:so_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \SELECT_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \SELECT_PWM:PWMUDB:compare1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:compare2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm_i\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm1_i\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm2_i\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \SELECT_PWM:Net_101\ : bit;
+SIGNAL \SELECT_PWM:Net_96\ : bit;
+SIGNAL Net_532 : bit;
+SIGNAL Net_533 : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm_temp\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_31\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_30\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_29\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_28\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_27\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_26\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_25\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_23\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_22\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_21\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_20\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_19\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_18\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_17\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_15\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_14\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_13\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_12\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_11\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_10\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_9\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:b_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_31\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_30\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_29\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_28\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_27\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_26\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_25\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_23\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_22\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_21\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_20\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_19\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_18\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_17\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_15\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_14\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_13\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_12\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_11\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_10\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_9\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODIN1_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:a_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODIN1_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_31\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_30\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_29\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_28\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_27\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_26\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_25\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_23\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_22\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_21\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_20\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_19\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_18\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_17\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_15\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_14\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_13\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_12\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_11\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_10\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_9\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:b_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_31\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_31\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_30\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_30\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_29\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_29\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_28\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_28\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_27\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_27\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_26\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_26\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_25\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_25\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_23\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_23\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_22\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_22\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_21\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_21\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_20\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_20\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_19\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_19\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_18\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_18\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_17\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_17\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_15\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_15\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_14\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_14\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_13\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_13\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_12\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_12\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_11\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_11\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_10\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_10\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_9\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_9\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:add_vi_vv_MODGEN_1_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:s_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_252 : bit;
+SIGNAL Net_534 : bit;
+SIGNAL Net_531 : bit;
+SIGNAL \SELECT_PWM:Net_113\ : bit;
+SIGNAL \SELECT_PWM:Net_107\ : bit;
+SIGNAL \SELECT_PWM:Net_114\ : bit;
+SIGNAL tmpOE__SELECTOR_SERVO_net_0 : bit;
+SIGNAL tmpFB_0__SELECTOR_SERVO_net_0 : bit;
+SIGNAL tmpIO_0__SELECTOR_SERVO_net_0 : bit;
+TERMINAL tmpSIOVREF__SELECTOR_SERVO_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__SELECTOR_SERVO_net_0 : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:km_run\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:min_kill_reg\ : bit;
+SIGNAL Net_543 : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:control_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_enable\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_cmpmode2_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_cmpmode2_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_cmpmode2_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_cmpmode1_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_cmpmode1_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ctrl_cmpmode1_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:prevCapture\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:capt_rising\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:capt_falling\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:hwCapture\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:hwEnable\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:trig_last\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:trig_rise\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:trig_fall\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:trig_out\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:runmode_enable\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:runmode_enable\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:runmode_enable\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_enable\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sc_kill_tmp\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:tc_i\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ltch_kill_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ltch_kill_reg\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ltch_kill_reg\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:min_kill_reg\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:min_kill_reg\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sc_kill\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:min_kill\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_kill\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:km_tc\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:db_tc\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_1\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_1\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_0\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_0\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_sel\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:reset\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:status_0\ : bit;
+SIGNAL \HAMMER_PWM:Net_55\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:prevCompare1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_status\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_status\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_status_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_status_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_kill_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_status_reg\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_status_reg\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_status_reg\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_status_reg\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_kill_reg\\R\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_kill_reg\\S\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:fifo_full\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cs_addr_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cs_addr_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cs_addr_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_capture\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:nc2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:nc3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:nc1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:nc4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:nc5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:nc6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:nc7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce0_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl0_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:z0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:z0_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce1_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl1_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_0\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:carry\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:sh_right\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:sh_left\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:msb\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_eq_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_eq_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_lt_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_lt_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_zero_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_zero_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_ff_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_ff_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cap_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cap_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cfb\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_eq\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_less\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_eq\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_less\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:fifo_nempty\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce0_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl0_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:z0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:z0_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff0_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ce1_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cl1_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:z1_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ff1_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:ov_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:co_msb_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmsb_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:so_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f0_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_bus_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\ : bit;
+ATTRIBUTE port_state_att of \HAMMER_PWM:PWMUDB:sP16:pwmdp:f1_blk_stat_reg_1\:SIGNAL IS 2;
+SIGNAL \HAMMER_PWM:PWMUDB:compare1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:compare2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm_i_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm_i\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm1_i_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm1_i\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm2_i_reg\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm2_i\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:tc_i_reg\ : bit;
+SIGNAL \HAMMER_PWM:Net_101\ : bit;
+SIGNAL \HAMMER_PWM:Net_96\ : bit;
+SIGNAL Net_1285 : bit;
+SIGNAL Net_1286 : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm_temp\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_31\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_30\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_29\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_28\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_27\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_26\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_25\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_23\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_22\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_21\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_20\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_19\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_18\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_17\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_15\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_14\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_13\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_12\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_11\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_10\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_9\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:b_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_31\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_30\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_29\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_28\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_27\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_26\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_25\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_23\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_22\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_21\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_20\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_19\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_18\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_17\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_15\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_14\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_13\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_12\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_11\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_10\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_9\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODIN2_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:a_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODIN2_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_31\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_30\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_29\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_28\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_27\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_26\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_25\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_23\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_22\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_21\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_20\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_19\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_18\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_17\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_15\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_14\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_13\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_12\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_11\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_10\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_9\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:b_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_31\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_31\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_30\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_30\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_29\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_29\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_28\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_28\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_27\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_27\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_26\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_26\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_25\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_25\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_23\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_23\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_22\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_22\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_21\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_21\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_20\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_20\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_19\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_19\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_18\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_18\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_17\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_17\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_15\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_15\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_14\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_14\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_13\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_13\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_12\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_12\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_11\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_11\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_10\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_10\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_9\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_9\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:add_vi_vv_MODGEN_2_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:s_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_31\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_30\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_29\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_28\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_27\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_26\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_25\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_24\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_23\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_22\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_21\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_20\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_19\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_18\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_17\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_16\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_15\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_14\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_13\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_12\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_11\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_10\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_9\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_8\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_7\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_6\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_5\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_4\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_3\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_2\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_1\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_0\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:b_0\ : bit;
+SIGNAL Net_553 : bit;
+SIGNAL Net_1287 : bit;
+SIGNAL Net_1284 : bit;
+SIGNAL \HAMMER_PWM:Net_113\ : bit;
+SIGNAL \HAMMER_PWM:Net_107\ : bit;
+SIGNAL \HAMMER_PWM:Net_114\ : bit;
+SIGNAL tmpOE__HAMMER_SERVO_net_0 : bit;
+SIGNAL tmpFB_0__HAMMER_SERVO_net_0 : bit;
+SIGNAL tmpIO_0__HAMMER_SERVO_net_0 : bit;
+TERMINAL tmpSIOVREF__HAMMER_SERVO_net_0 : bit;
+SIGNAL tmpINTERRUPT_0__HAMMER_SERVO_net_0 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_6 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_5 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_4 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_3 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_2 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_1 : bit;
+SIGNAL tmpOE__PHOTO_INTERRUPTER_PINS_net_0 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_6 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_5 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_4 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_3 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_2 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_1 : bit;
+SIGNAL tmpFB_6__PHOTO_INTERRUPTER_PINS_net_0 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_6 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_5 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_4 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_3 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_2 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_1 : bit;
+SIGNAL tmpIO_6__PHOTO_INTERRUPTER_PINS_net_0 : bit;
+TERMINAL tmpSIOVREF__PHOTO_INTERRUPTER_PINS_net_0 : bit;
+SIGNAL Net_1065 : bit;
+SIGNAL tmpOE__Speaker_net_0 : bit;
+SIGNAL tmpFB_0__Speaker_net_0 : bit;
+TERMINAL Net_1373 : bit;
+SIGNAL tmpIO_0__Speaker_net_0 : bit;
+TERMINAL tmpSIOVREF__Speaker_net_0 : bit;
+TERMINAL Net_1352 : bit;
+SIGNAL tmpINTERRUPT_0__Speaker_net_0 : bit;
+SIGNAL \emFile_1:SPI0:Net_276\ : bit;
+SIGNAL \emFile_1:Net_19\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:clk_fin\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:load_rx_data\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpcounter_one\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:pol_supprt\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:miso_to_dp\ : bit;
+SIGNAL \emFile_1:SPI0:Net_244\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_after_ld\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:so_send\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:so_send_reg\ : bit;
+SIGNAL \emFile_1:Net_10\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_fin\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_cpha_0\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:state_2\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:state_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:state_0\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_from_dp\ : bit;
+SIGNAL \emFile_1:Net_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_hs_reg\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_cpha_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:pre_mosi\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_4\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_3\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_2\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_0\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_pre_reg\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_reg\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpcounter_zero\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:load_cond\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpcounter_one_reg\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_from_dp_reg\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_0\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpMOSI_fifo_empty\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_2\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpMOSI_fifo_not_full\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_3\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_4\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_4\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpMISO_fifo_full\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_5\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpMISO_fifo_not_empty\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_6\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_6\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:tx_status_5\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_3\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_2\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:rx_status_0\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_7\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_6\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_5\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_4\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_3\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_2\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_1\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:control_0\ : bit;
+SIGNAL \emFile_1:SPI0:Net_253\ : bit;
+SIGNAL \emFile_1:SPI0:Net_273\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:ld_ident\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:cnt_enable\ : bit;
+SIGNAL \emFile_1:Net_22\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_6\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:count_5\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:cnt_tc\ : bit;
+SIGNAL \emFile_1:Net_5\ : bit;
+SIGNAL \emFile_1:Net_3\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ce0\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ce0\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:cl0\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:cl0\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:z0\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:z0\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ff0\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ff0\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ce1\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ce1\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:cl1\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:cl1\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:z1\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:z1\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ff1\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ff1\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ov_msb\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ov_msb\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:co_msb\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:co_msb\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:cmsb\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:cmsb\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ce0_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ce0_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:cl0_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:cl0_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:z0_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:z0_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ff0_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ff0_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ce1_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ce1_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:cl1_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:cl1_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:z1_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:z1_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ff1_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ff1_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:ov_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:ov_msb_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:co_msb_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:co_msb_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:cmsb_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:cmsb_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:so_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:so_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:f0_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:f0_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:f0_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:f0_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:f1_bus_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:f1_bus_stat_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:SPI0:BSPIM:sR8:Dp:f1_blk_stat_reg\ : bit;
+ATTRIBUTE port_state_att of \emFile_1:SPI0:BSPIM:sR8:Dp:f1_blk_stat_reg\:SIGNAL IS 2;
+SIGNAL \emFile_1:Net_16\ : bit;
+SIGNAL \emFile_1:SPI0:Net_274\ : bit;
+SIGNAL \emFile_1:tmpOE__mosi0_net_0\ : bit;
+SIGNAL \emFile_1:tmpFB_0__mosi0_net_0\ : bit;
+SIGNAL \emFile_1:tmpIO_0__mosi0_net_0\ : bit;
+TERMINAL \emFile_1:tmpSIOVREF__mosi0_net_0\ : bit;
+SIGNAL \emFile_1:tmpINTERRUPT_0__mosi0_net_0\ : bit;
+SIGNAL \emFile_1:tmpOE__miso0_net_0\ : bit;
+SIGNAL \emFile_1:tmpIO_0__miso0_net_0\ : bit;
+TERMINAL \emFile_1:tmpSIOVREF__miso0_net_0\ : bit;
+SIGNAL \emFile_1:tmpINTERRUPT_0__miso0_net_0\ : bit;
+SIGNAL \emFile_1:Net_2\ : bit;
+SIGNAL \emFile_1:tmpOE__sclk0_net_0\ : bit;
+SIGNAL \emFile_1:tmpFB_0__sclk0_net_0\ : bit;
+SIGNAL \emFile_1:tmpIO_0__sclk0_net_0\ : bit;
+TERMINAL \emFile_1:tmpSIOVREF__sclk0_net_0\ : bit;
+SIGNAL \emFile_1:tmpINTERRUPT_0__sclk0_net_0\ : bit;
+SIGNAL \emFile_1:tmpOE__SPI0_CS_net_0\ : bit;
+SIGNAL \emFile_1:tmpFB_0__SPI0_CS_net_0\ : bit;
+SIGNAL \emFile_1:tmpIO_0__SPI0_CS_net_0\ : bit;
+TERMINAL \emFile_1:tmpSIOVREF__SPI0_CS_net_0\ : bit;
+SIGNAL \emFile_1:tmpINTERRUPT_0__SPI0_CS_net_0\ : bit;
+SIGNAL \VDAC8:Net_83\ : bit;
+SIGNAL \VDAC8:Net_81\ : bit;
+SIGNAL \VDAC8:Net_82\ : bit;
+TERMINAL \VDAC8:Net_77\ : bit;
+SIGNAL Net_1375 : bit;
+SIGNAL Net_1382 : bit;
 SIGNAL \SPIM_1:BSPIM:so_send_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_2\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_1\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:state_0\\D\ : bit;
-SIGNAL Net_12D : bit;
+SIGNAL Net_1336D : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_pre_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:load_cond\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:dpcounter_one_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:mosi_from_dp_reg\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:ld_ident\\D\ : bit;
 SIGNAL \SPIM_1:BSPIM:cnt_enable\\D\ : bit;
-SIGNAL Net_11D : bit;
+SIGNAL Net_1335D : bit;
+SIGNAL \SELECT_PWM:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \SELECT_PWM:PWMUDB:tc_i_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:min_kill_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:prevCapture\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:trig_last\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:runmode_enable\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:sc_kill_tmp\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:ltch_kill_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_1\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:dith_count_0\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:prevCompare1\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp1_status_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:cmp2_status_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:final_kill_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm_i_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm1_i_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:pwm2_i_reg\\D\ : bit;
+SIGNAL \HAMMER_PWM:PWMUDB:tc_i_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:so_send_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:state_2\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:state_1\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:state_0\\D\ : bit;
+SIGNAL \emFile_1:Net_1\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_hs_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_pre_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:load_cond\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:dpcounter_one_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:mosi_from_dp_reg\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:ld_ident\\D\ : bit;
+SIGNAL \emFile_1:SPI0:BSPIM:cnt_enable\\D\ : bit;
+SIGNAL \emFile_1:Net_22\\D\ : bit;
 BEGIN
 
 one <=  ('1') ;
@@ -304,11 +1390,11 @@ one <=  ('1') ;
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_1\));
 
-Net_12D <= ((not \SPIM_1:BSPIM:state_0\ and Net_12)
+Net_1336D <= ((not \SPIM_1:BSPIM:state_0\ and Net_1336)
 	OR (not \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_0\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_1\ and not \SPIM_1:BSPIM:state_0\)
 	OR (not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_1\)
-	OR (\SPIM_1:BSPIM:state_1\ and Net_12));
+	OR (\SPIM_1:BSPIM:state_1\ and Net_1336));
 
 \SPIM_1:BSPIM:cnt_enable\\D\ <= ((not \SPIM_1:BSPIM:state_1\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:cnt_enable\)
 	OR (not \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\)
@@ -318,7 +1404,7 @@ Net_12D <= ((not \SPIM_1:BSPIM:state_0\ and Net_12)
 
 \SPIM_1:BSPIM:mosi_reg\\D\ <= ((not \SPIM_1:BSPIM:state_1\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:mosi_from_dp\)
 	OR (\SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:mosi_from_dp\)
-	OR (not \SPIM_1:BSPIM:state_2\ and Net_10 and \SPIM_1:BSPIM:state_0\)
+	OR (not \SPIM_1:BSPIM:state_2\ and Net_1334 and \SPIM_1:BSPIM:state_0\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:mosi_from_dp\ and \SPIM_1:BSPIM:ld_ident\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:mosi_from_dp\ and \SPIM_1:BSPIM:count_0\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_0\ and not \SPIM_1:BSPIM:count_1\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:mosi_from_dp\)
@@ -326,7 +1412,7 @@ Net_12D <= ((not \SPIM_1:BSPIM:state_0\ and Net_12)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:mosi_from_dp\ and \SPIM_1:BSPIM:count_3\)
 	OR (not \SPIM_1:BSPIM:state_2\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:mosi_from_dp\ and \SPIM_1:BSPIM:count_4\));
 
-Net_11D <= ((\SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\ and Net_11)
+Net_1335D <= ((\SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\ and Net_1335)
 	OR (not \SPIM_1:BSPIM:state_2\ and \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\));
 
 \SPIM_1:BSPIM:ld_ident\\D\ <= ((not \SPIM_1:BSPIM:state_1\ and not \SPIM_1:BSPIM:state_0\ and \SPIM_1:BSPIM:state_2\)
@@ -339,6 +1425,123 @@ Net_11D <= ((\SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:state_0\ and Net_11)
 	OR (not \SPIM_1:BSPIM:state_1\ and \SPIM_1:BSPIM:ld_ident\));
 
 zero <=  ('0') ;
+
+\SELECT_PWM:PWMUDB:sc_kill_tmp\\D\ <= (not \SELECT_PWM:PWMUDB:tc_i\);
+
+\SELECT_PWM:PWMUDB:dith_count_1\\D\ <= ((not \SELECT_PWM:PWMUDB:dith_count_1\ and \SELECT_PWM:PWMUDB:tc_i\ and \SELECT_PWM:PWMUDB:dith_count_0\)
+	OR (not \SELECT_PWM:PWMUDB:dith_count_0\ and \SELECT_PWM:PWMUDB:dith_count_1\)
+	OR (not \SELECT_PWM:PWMUDB:tc_i\ and \SELECT_PWM:PWMUDB:dith_count_1\));
+
+\SELECT_PWM:PWMUDB:dith_count_0\\D\ <= ((not \SELECT_PWM:PWMUDB:dith_count_0\ and \SELECT_PWM:PWMUDB:tc_i\)
+	OR (not \SELECT_PWM:PWMUDB:tc_i\ and \SELECT_PWM:PWMUDB:dith_count_0\));
+
+\SELECT_PWM:PWMUDB:cmp1_status\ <= ((not \SELECT_PWM:PWMUDB:prevCompare1\ and \SELECT_PWM:PWMUDB:cmp1_less\));
+
+\SELECT_PWM:PWMUDB:status_2\ <= ((\SELECT_PWM:PWMUDB:runmode_enable\ and \SELECT_PWM:PWMUDB:tc_i\));
+
+\SELECT_PWM:PWMUDB:pwm_i\ <= ((\SELECT_PWM:PWMUDB:runmode_enable\ and \SELECT_PWM:PWMUDB:cmp1_less\));
+
+\HAMMER_PWM:PWMUDB:sc_kill_tmp\\D\ <= (not \HAMMER_PWM:PWMUDB:tc_i\);
+
+\HAMMER_PWM:PWMUDB:dith_count_1\\D\ <= ((not \HAMMER_PWM:PWMUDB:dith_count_1\ and \HAMMER_PWM:PWMUDB:tc_i\ and \HAMMER_PWM:PWMUDB:dith_count_0\)
+	OR (not \HAMMER_PWM:PWMUDB:dith_count_0\ and \HAMMER_PWM:PWMUDB:dith_count_1\)
+	OR (not \HAMMER_PWM:PWMUDB:tc_i\ and \HAMMER_PWM:PWMUDB:dith_count_1\));
+
+\HAMMER_PWM:PWMUDB:dith_count_0\\D\ <= ((not \HAMMER_PWM:PWMUDB:dith_count_0\ and \HAMMER_PWM:PWMUDB:tc_i\)
+	OR (not \HAMMER_PWM:PWMUDB:tc_i\ and \HAMMER_PWM:PWMUDB:dith_count_0\));
+
+\HAMMER_PWM:PWMUDB:cmp1_status\ <= ((not \HAMMER_PWM:PWMUDB:prevCompare1\ and \HAMMER_PWM:PWMUDB:cmp1_less\));
+
+\HAMMER_PWM:PWMUDB:status_2\ <= ((\HAMMER_PWM:PWMUDB:runmode_enable\ and \HAMMER_PWM:PWMUDB:tc_i\));
+
+\HAMMER_PWM:PWMUDB:pwm_i\ <= ((\HAMMER_PWM:PWMUDB:runmode_enable\ and \HAMMER_PWM:PWMUDB:cmp1_less\));
+
+\emFile_1:SPI0:BSPIM:load_rx_data\ <= ((not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_2\ and not \emFile_1:SPI0:BSPIM:count_1\ and \emFile_1:SPI0:BSPIM:count_0\));
+
+\emFile_1:Net_10\ <= ((not \emFile_1:SPI0:BSPIM:state_0\ and not \emFile_1:Net_1\ and \emFile_1:SPI0:BSPIM:mosi_hs_reg\)
+	OR (not \emFile_1:Net_1\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_hs_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:Net_1\ and \emFile_1:SPI0:BSPIM:mosi_hs_reg\));
+
+\emFile_1:SPI0:BSPIM:load_cond\\D\ <= ((not \emFile_1:SPI0:BSPIM:state_1\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\)
+	OR (\emFile_1:SPI0:BSPIM:count_0\ and \emFile_1:SPI0:BSPIM:load_cond\)
+	OR (\emFile_1:SPI0:BSPIM:count_1\ and \emFile_1:SPI0:BSPIM:load_cond\)
+	OR (\emFile_1:SPI0:BSPIM:count_2\ and \emFile_1:SPI0:BSPIM:load_cond\)
+	OR (\emFile_1:SPI0:BSPIM:count_3\ and \emFile_1:SPI0:BSPIM:load_cond\)
+	OR (\emFile_1:SPI0:BSPIM:count_4\ and \emFile_1:SPI0:BSPIM:load_cond\));
+
+\emFile_1:SPI0:BSPIM:tx_status_0\ <= ((not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\));
+
+\emFile_1:SPI0:BSPIM:tx_status_4\ <= ((not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_1\ and not \emFile_1:SPI0:BSPIM:state_0\));
+
+\emFile_1:SPI0:BSPIM:rx_status_6\ <= ((not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_2\ and not \emFile_1:SPI0:BSPIM:count_1\ and \emFile_1:SPI0:BSPIM:count_0\ and \emFile_1:SPI0:BSPIM:rx_status_4\));
+
+\emFile_1:SPI0:BSPIM:state_2\\D\ <= ((not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_2\ and not \emFile_1:SPI0:BSPIM:count_0\ and not \emFile_1:SPI0:BSPIM:ld_ident\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_1\)
+	OR (not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_0\ and not \emFile_1:SPI0:BSPIM:tx_status_1\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_2\ and \emFile_1:SPI0:BSPIM:count_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\)
+	OR (\emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\));
+
+\emFile_1:SPI0:BSPIM:state_1\\D\ <= ((not \emFile_1:SPI0:BSPIM:count_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:count_2\ and \emFile_1:SPI0:BSPIM:tx_status_1\)
+	OR (\emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:count_4\)
+	OR (\emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:count_3\)
+	OR (not \emFile_1:SPI0:BSPIM:count_1\ and \emFile_1:SPI0:BSPIM:state_1\)
+	OR (\emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:count_0\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\)
+	OR (\emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\));
+
+\emFile_1:SPI0:BSPIM:state_0\\D\ <= ((not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_2\ and not \emFile_1:SPI0:BSPIM:count_0\ and not \emFile_1:SPI0:BSPIM:ld_ident\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and not \emFile_1:SPI0:BSPIM:tx_status_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\));
+
+\emFile_1:Net_1\\D\ <= ((not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:Net_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_1\ and not \emFile_1:SPI0:BSPIM:state_0\)
+	OR (not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\)
+	OR (\emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:Net_1\));
+
+\emFile_1:SPI0:BSPIM:cnt_enable\\D\ <= ((not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:cnt_enable\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:cnt_enable\)
+	OR (\emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:cnt_enable\));
+
+\emFile_1:SPI0:BSPIM:mosi_pre_reg\\D\ <= ((not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_2\ and not \emFile_1:SPI0:BSPIM:count_1\ and not \emFile_1:SPI0:BSPIM:count_0\ and not \emFile_1:SPI0:BSPIM:ld_ident\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and not \emFile_1:SPI0:BSPIM:count_4\ and not \emFile_1:SPI0:BSPIM:count_3\ and not \emFile_1:SPI0:BSPIM:count_2\ and not \emFile_1:SPI0:BSPIM:count_1\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:count_0\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\ and \emFile_1:SPI0:BSPIM:count_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_1\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_0\ and not \emFile_1:SPI0:BSPIM:count_0\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\ and \emFile_1:SPI0:BSPIM:count_2\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\ and \emFile_1:SPI0:BSPIM:count_3\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\ and \emFile_1:SPI0:BSPIM:count_4\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\)
+	OR (\emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_0\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_2\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_3\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:count_4\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_2\ and not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_pre_reg\));
+
+\emFile_1:Net_22\\D\ <= ((\emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:Net_22\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_1\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\));
+
+\emFile_1:SPI0:BSPIM:mosi_hs_reg\\D\ <= ((not \emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_from_dp_reg\)
+	OR (\emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_from_dp\)
+	OR (not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:mosi_hs_reg\)
+	OR (not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:mosi_hs_reg\));
+
+\emFile_1:SPI0:BSPIM:ld_ident\\D\ <= ((not \emFile_1:SPI0:BSPIM:state_1\ and not \emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:state_2\)
+	OR (not \emFile_1:SPI0:BSPIM:count_0\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:count_1\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:count_2\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:count_3\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:count_4\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:state_0\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (not \emFile_1:SPI0:BSPIM:state_1\ and \emFile_1:SPI0:BSPIM:ld_ident\)
+	OR (\emFile_1:SPI0:BSPIM:state_2\ and \emFile_1:SPI0:BSPIM:ld_ident\));
 
 \SPIM_1:BSPIM:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
 	GENERIC MAP(sync_mode=>'1')
@@ -366,7 +1569,7 @@ zero <=  ('0') ;
 		clock=>\SPIM_1:BSPIM:clk_fin\,
 		status=>(zero, zero, \SPIM_1:BSPIM:tx_status_4\, \SPIM_1:BSPIM:load_rx_data\,
 			\SPIM_1:BSPIM:tx_status_2\, \SPIM_1:BSPIM:tx_status_1\, \SPIM_1:BSPIM:tx_status_0\),
-		interrupt=>Net_18);
+		interrupt=>Net_1341);
 \SPIM_1:BSPIM:RxStsReg\:cy_psoc3_statusi
 	GENERIC MAP(cy_force_order=>'1',
 		cy_md_select=>"1000000",
@@ -375,7 +1578,7 @@ zero <=  ('0') ;
 		clock=>\SPIM_1:BSPIM:clk_fin\,
 		status=>(\SPIM_1:BSPIM:rx_status_6\, \SPIM_1:BSPIM:rx_status_5\, \SPIM_1:BSPIM:rx_status_4\, zero,
 			zero, zero, zero),
-		interrupt=>Net_16);
+		interrupt=>Net_1339);
 \SPIM_1:BSPIM:sR8:Dp:u0\:cy_psoc3_dp
 	GENERIC MAP(cy_dpconfig=>"0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100",
 		d0_init=>"00000000",
@@ -401,7 +1604,7 @@ zero <=  ('0') ;
 	PORT MAP(reset=>zero,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
 		cs_addr=>(\SPIM_1:BSPIM:state_2\, \SPIM_1:BSPIM:state_1\, \SPIM_1:BSPIM:state_0\),
-		route_si=>Net_13,
+		route_si=>Net_1337,
 		route_ci=>zero,
 		f0_load=>zero,
 		f1_load=>\SPIM_1:BSPIM:load_rx_data\,
@@ -519,7 +1722,7 @@ MOSI:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_10,
+		y=>Net_1334,
 		fb=>(tmpFB_0__MOSI_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__MOSI_net_0),
@@ -589,7 +1792,7 @@ SCLK:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_11,
+		y=>Net_1335,
 		fb=>(tmpFB_0__SCLK_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__SCLK_net_0),
@@ -659,7 +1862,7 @@ SS:cy_psoc3_pins_v1_10
 		ovt_hyst_trim=>"0",
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
-		y=>Net_12,
+		y=>Net_1336,
 		fb=>(tmpFB_0__SS_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__SS_net_0),
@@ -940,7 +2143,7 @@ MISO:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>Net_13,
+		fb=>Net_1337,
 		analog=>(open),
 		io=>(tmpIO_0__MISO_net_0),
 		siovref=>(tmpSIOVREF__MISO_net_0),
@@ -952,11 +2155,17 @@ MISO:cy_psoc3_pins_v1_10
 		out_clock_en=>one,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__MISO_net_0);
-\USBUART:dp_int\:cy_isr_v1_0
+\USBFS:ep2\:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"10",
+		num_tds=>0)
+	PORT MAP(drq=>\USBFS:dma_request_1\,
+		trq=>\USBFS:dma_terminate\,
+		nrq=>\USBFS:Net_1498\);
+\USBFS:dp_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:Net_1010\);
-\USBUART:Dm\:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"beca5e2d-f70f-4900-a4db-7eca1ed3126e/8b77a6c4-10a0-4390-971c-672353e2a49c",
+	PORT MAP(int_signal=>\USBFS:Net_1010\);
+\USBFS:Dm\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"daf0cbac-a956-4495-8070-9154b8abe93c/8b77a6c4-10a0-4390-971c-672353e2a49c",
 		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"0",
@@ -1013,10 +2222,10 @@ MISO:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(\USBUART:tmpFB_0__Dm_net_0\),
-		analog=>\USBUART:Net_597\,
-		io=>(\USBUART:tmpIO_0__Dm_net_0\),
-		siovref=>(\USBUART:tmpSIOVREF__Dm_net_0\),
+		fb=>(\USBFS:tmpFB_0__Dm_net_0\),
+		analog=>\USBFS:Net_597\,
+		io=>(\USBFS:tmpIO_0__Dm_net_0\),
+		siovref=>(\USBFS:tmpSIOVREF__Dm_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -1024,9 +2233,9 @@ MISO:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>\USBUART:tmpINTERRUPT_0__Dm_net_0\);
-\USBUART:Dp\:cy_psoc3_pins_v1_10
-	GENERIC MAP(id=>"beca5e2d-f70f-4900-a4db-7eca1ed3126e/618a72fc-5ddd-4df5-958f-a3d55102db42",
+		interrupt=>\USBFS:tmpINTERRUPT_0__Dm_net_0\);
+\USBFS:Dp\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"daf0cbac-a956-4495-8070-9154b8abe93c/618a72fc-5ddd-4df5-958f-a3d55102db42",
 		drive_mode=>"000",
 		ibuf_enabled=>"0",
 		init_dr_st=>"1",
@@ -1083,10 +2292,10 @@ MISO:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(one),
 		y=>(zero),
-		fb=>(\USBUART:tmpFB_0__Dp_net_0\),
-		analog=>\USBUART:Net_1000\,
-		io=>(\USBUART:tmpIO_0__Dp_net_0\),
-		siovref=>(\USBUART:tmpSIOVREF__Dp_net_0\),
+		fb=>(\USBFS:tmpFB_0__Dp_net_0\),
+		analog=>\USBFS:Net_1000\,
+		io=>(\USBFS:tmpIO_0__Dp_net_0\),
+		siovref=>(\USBFS:tmpSIOVREF__Dp_net_0\),
 		annotation=>(open),
 		in_clock=>zero,
 		in_clock_en=>one,
@@ -1094,42 +2303,39 @@ MISO:cy_psoc3_pins_v1_10
 		out_clock=>zero,
 		out_clock_en=>one,
 		out_reset=>zero,
-		interrupt=>\USBUART:Net_1010\);
-\USBUART:USB\:cy_psoc3_usb_v1_0
+		interrupt=>\USBFS:Net_1010\);
+\USBFS:USB\:cy_psoc3_usb_v1_0
 	GENERIC MAP(cy_registers=>"")
-	PORT MAP(dp=>\USBUART:Net_1000\,
-		dm=>\USBUART:Net_597\,
-		sof_int=>Net_53,
-		arb_int=>\USBUART:Net_1889\,
-		usb_int=>\USBUART:Net_1876\,
-		ept_int=>(\USBUART:ep_int_8\, \USBUART:ep_int_7\, \USBUART:ep_int_6\, \USBUART:ep_int_5\,
-			\USBUART:ep_int_4\, \USBUART:ep_int_3\, \USBUART:ep_int_2\, \USBUART:ep_int_1\,
-			\USBUART:ep_int_0\),
-		ord_int=>\USBUART:Net_95\,
-		dma_req=>(\USBUART:dma_request_7\, \USBUART:dma_request_6\, \USBUART:dma_request_5\, \USBUART:dma_request_4\,
-			\USBUART:dma_request_3\, \USBUART:dma_request_2\, \USBUART:dma_request_1\, \USBUART:dma_request_0\),
-		dma_termin=>\USBUART:dma_terminate\);
-\USBUART:ep_3\:cy_isr_v1_0
+	PORT MAP(dp=>\USBFS:Net_1000\,
+		dm=>\USBFS:Net_597\,
+		sof_int=>Net_1397,
+		arb_int=>\USBFS:Net_1889\,
+		usb_int=>\USBFS:Net_1876\,
+		ept_int=>(\USBFS:ep_int_8\, \USBFS:ep_int_7\, \USBFS:ep_int_6\, \USBFS:ep_int_5\,
+			\USBFS:ep_int_4\, \USBFS:ep_int_3\, \USBFS:ep_int_2\, \USBFS:ep_int_1\,
+			\USBFS:ep_int_0\),
+		ord_int=>\USBFS:Net_95\,
+		dma_req=>(\USBFS:dma_request_7\, \USBFS:dma_request_6\, \USBFS:dma_request_5\, \USBFS:dma_request_4\,
+			\USBFS:dma_request_3\, \USBFS:dma_request_2\, \USBFS:dma_request_1\, \USBFS:dma_request_0\),
+		dma_termin=>\USBFS:dma_terminate\);
+\USBFS:ord_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:ep_int_3\);
-\USBUART:ep_2\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:Net_95\);
+\USBFS:ep_2\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:ep_int_2\);
-\USBUART:ep_1\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:ep_int_2\);
+\USBFS:ep_0\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:ep_int_1\);
-\USBUART:ep_0\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:ep_int_0\);
+\USBFS:bus_reset\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:ep_int_0\);
-\USBUART:bus_reset\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:Net_1876\);
+\USBFS:arb_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:Net_1876\);
-\USBUART:arb_int\:cy_isr_v1_0
+	PORT MAP(int_signal=>\USBFS:Net_1889\);
+\USBFS:sof_int\:cy_isr_v1_0
 	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>\USBUART:Net_1889\);
-\USBUART:sof_int\:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10")
-	PORT MAP(int_signal=>Net_53);
+	PORT MAP(int_signal=>Net_1397);
 T_DIN:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"364d1196-ada7-44a4-af40-71bbf9151f2b",
 		drive_mode=>"110",
@@ -1490,6 +2696,1171 @@ Clock_1:cy_clock_v1_0
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_14,
 		dig_domain_out=>open);
+\SELECT_PWM:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_161,
+		enable=>one,
+		clock_out=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\);
+\SELECT_PWM:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\SELECT_PWM:PWMUDB:control_7\, \SELECT_PWM:PWMUDB:control_6\, \SELECT_PWM:PWMUDB:control_5\, \SELECT_PWM:PWMUDB:control_4\,
+			\SELECT_PWM:PWMUDB:control_3\, \SELECT_PWM:PWMUDB:control_2\, \SELECT_PWM:PWMUDB:control_1\, \SELECT_PWM:PWMUDB:control_0\));
+\SELECT_PWM:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \SELECT_PWM:PWMUDB:status_5\, zero, \SELECT_PWM:PWMUDB:status_3\,
+			\SELECT_PWM:PWMUDB:status_2\, \SELECT_PWM:PWMUDB:status_1\, \SELECT_PWM:PWMUDB:status_0\),
+		interrupt=>\SELECT_PWM:Net_55\);
+\SELECT_PWM:PWMUDB:sP16:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\SELECT_PWM:PWMUDB:tc_i\, \SELECT_PWM:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\SELECT_PWM:PWMUDB:nc2\,
+		cl0=>\SELECT_PWM:PWMUDB:nc3\,
+		z0=>\SELECT_PWM:PWMUDB:nc1\,
+		ff0=>open,
+		ce1=>\SELECT_PWM:PWMUDB:nc4\,
+		cl1=>\SELECT_PWM:PWMUDB:nc5\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\SELECT_PWM:PWMUDB:nc6\,
+		f1_blk_stat=>\SELECT_PWM:PWMUDB:nc7\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\SELECT_PWM:PWMUDB:sP16:pwmdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\SELECT_PWM:PWMUDB:sP16:pwmdp:sh_right\,
+		sol=>\SELECT_PWM:PWMUDB:sP16:pwmdp:sh_left\,
+		msbi=>\SELECT_PWM:PWMUDB:sP16:pwmdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_eq_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_lt_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_zero_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_ff_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cap_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\SELECT_PWM:PWMUDB:sP16:pwmdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\SELECT_PWM:PWMUDB:sP16:pwmdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101011110000000000000100000011110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\SELECT_PWM:PWMUDB:tc_i\, \SELECT_PWM:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\SELECT_PWM:PWMUDB:cmp1_eq\,
+		cl0=>\SELECT_PWM:PWMUDB:cmp1_less\,
+		z0=>\SELECT_PWM:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\SELECT_PWM:PWMUDB:cmp2_eq\,
+		cl1=>\SELECT_PWM:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\SELECT_PWM:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\SELECT_PWM:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\SELECT_PWM:PWMUDB:sP16:pwmdp:carry\,
+		co=>open,
+		sir=>\SELECT_PWM:PWMUDB:sP16:pwmdp:sh_left\,
+		sor=>\SELECT_PWM:PWMUDB:sP16:pwmdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\SELECT_PWM:PWMUDB:sP16:pwmdp:msb\,
+		cei=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_eq_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_lt_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_zero_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_ff_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\SELECT_PWM:PWMUDB:sP16:pwmdp:cap_1\, \SELECT_PWM:PWMUDB:sP16:pwmdp:cap_0\),
+		capo=>open,
+		cfbi=>\SELECT_PWM:PWMUDB:sP16:pwmdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\SELECT_PWM:PWMUDB:MODULE_1:g2:a0:g1:z1:s0:g1:u0:c_8\);
+Clock_2:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"561a8337-7eda-4357-9c09-c06108a40a62",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_161,
+		dig_domain_out=>open);
+SELECTOR_SERVO:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"3b411673-9a61-4866-84f9-1b258c711f91",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>Net_252,
+		fb=>(tmpFB_0__SELECTOR_SERVO_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__SELECTOR_SERVO_net_0),
+		siovref=>(tmpSIOVREF__SELECTOR_SERVO_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__SELECTOR_SERVO_net_0);
+\HAMMER_PWM:PWMUDB:clock_enable_block\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>Net_543,
+		enable=>one,
+		clock_out=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\);
+\HAMMER_PWM:PWMUDB:genblk1:ctrlreg\:cy_psoc3_control
+	GENERIC MAP(cy_init_value=>"00000000",
+		cy_force_order=>'1',
+		cy_ctrl_mode_1=>"00000000",
+		cy_ctrl_mode_0=>"11111111",
+		cy_ext_reset=>'0')
+	PORT MAP(reset=>zero,
+		clock=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		control=>(\HAMMER_PWM:PWMUDB:control_7\, \HAMMER_PWM:PWMUDB:control_6\, \HAMMER_PWM:PWMUDB:control_5\, \HAMMER_PWM:PWMUDB:control_4\,
+			\HAMMER_PWM:PWMUDB:control_3\, \HAMMER_PWM:PWMUDB:control_2\, \HAMMER_PWM:PWMUDB:control_1\, \HAMMER_PWM:PWMUDB:control_0\));
+\HAMMER_PWM:PWMUDB:genblk8:stsreg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0100111",
+		cy_int_mask=>"1111111")
+	PORT MAP(reset=>zero,
+		clock=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		status=>(zero, \HAMMER_PWM:PWMUDB:status_5\, zero, \HAMMER_PWM:PWMUDB:status_3\,
+			\HAMMER_PWM:PWMUDB:status_2\, \HAMMER_PWM:PWMUDB:status_1\, \HAMMER_PWM:PWMUDB:status_0\),
+		interrupt=>\HAMMER_PWM:Net_55\);
+\HAMMER_PWM:PWMUDB:sP16:pwmdp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101000000000000000000100000000000000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\HAMMER_PWM:PWMUDB:tc_i\, \HAMMER_PWM:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\HAMMER_PWM:PWMUDB:nc2\,
+		cl0=>\HAMMER_PWM:PWMUDB:nc3\,
+		z0=>\HAMMER_PWM:PWMUDB:nc1\,
+		ff0=>open,
+		ce1=>\HAMMER_PWM:PWMUDB:nc4\,
+		cl1=>\HAMMER_PWM:PWMUDB:nc5\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\HAMMER_PWM:PWMUDB:nc6\,
+		f1_blk_stat=>\HAMMER_PWM:PWMUDB:nc7\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:carry\,
+		sir=>zero,
+		sor=>open,
+		sil=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:sh_right\,
+		sol=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:sh_left\,
+		msbi=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:msb\,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_eq_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		cli=>(zero, zero),
+		clo=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_lt_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		zi=>(zero, zero),
+		zo=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_zero_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		fi=>(zero, zero),
+		fo=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_ff_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		capi=>(zero, zero),
+		capo=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cap_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cap_0\),
+		cfbi=>zero,
+		cfbo=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:cfb\,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\HAMMER_PWM:PWMUDB:sP16:pwmdp:u1\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000001000000000000001100000001000000010000000000000011000000000000001100000000000000110000000000000011000000000000001100000011111111000000001111111111111111101011110000000000000100000011110000000000011000",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		cs_addr=>(\HAMMER_PWM:PWMUDB:tc_i\, \HAMMER_PWM:PWMUDB:runmode_enable\, zero),
+		route_si=>zero,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>zero,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>\HAMMER_PWM:PWMUDB:cmp1_eq\,
+		cl0=>\HAMMER_PWM:PWMUDB:cmp1_less\,
+		z0=>\HAMMER_PWM:PWMUDB:tc_i\,
+		ff0=>open,
+		ce1=>\HAMMER_PWM:PWMUDB:cmp2_eq\,
+		cl1=>\HAMMER_PWM:PWMUDB:cmp2_less\,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>open,
+		f0_bus_stat=>open,
+		f0_blk_stat=>open,
+		f1_bus_stat=>\HAMMER_PWM:PWMUDB:fifo_nempty\,
+		f1_blk_stat=>\HAMMER_PWM:PWMUDB:status_3\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:carry\,
+		co=>open,
+		sir=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:sh_left\,
+		sor=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:sh_right\,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:msb\,
+		cei=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_eq_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_eq_0\),
+		ceo=>open,
+		cli=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_lt_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_lt_0\),
+		clo=>open,
+		zi=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_zero_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_zero_0\),
+		zo=>open,
+		fi=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_ff_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cmp_ff_0\),
+		fo=>open,
+		capi=>(\HAMMER_PWM:PWMUDB:sP16:pwmdp:cap_1\, \HAMMER_PWM:PWMUDB:sP16:pwmdp:cap_0\),
+		capo=>open,
+		cfbi=>\HAMMER_PWM:PWMUDB:sP16:pwmdp:cfb\,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(24):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_24\);
+\HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(16):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_16\);
+\HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:gs(8):g2:g3:ub\:cy_buf
+	PORT MAP(x=>zero,
+		y=>\HAMMER_PWM:PWMUDB:MODULE_2:g2:a0:g1:z1:s0:g1:u0:c_8\);
+Clock_3:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"ae113019-c492-48cd-82a5-7c854a3565d6",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"1000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_543,
+		dig_domain_out=>open);
+HAMMER_SERVO:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"ea32f2ce-5644-4a99-aed9-81cdceb8d7b4",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>Net_553,
+		fb=>(tmpFB_0__HAMMER_SERVO_net_0),
+		analog=>(open),
+		io=>(tmpIO_0__HAMMER_SERVO_net_0),
+		siovref=>(tmpSIOVREF__HAMMER_SERVO_net_0),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__HAMMER_SERVO_net_0);
+PHOTO_INTERRUPTER_PINS:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"e9f7232e-221c-4985-9617-00d36f939481",
+		drive_mode=>"001001001001001001001",
+		ibuf_enabled=>"1111111",
+		init_dr_st=>"0000000",
+		input_sync=>"0000000",
+		input_clk_en=>'0',
+		input_sync_mode=>"0000000",
+		intr_mode=>"10101010101010",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>",,,,,,",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0000000",
+		output_sync=>"0000000",
+		output_clk_en=>'0',
+		output_mode=>"0000000",
+		output_reset=>'0',
+		output_clock_mode=>"0000000",
+		oe_sync=>"0000000",
+		oe_conn=>"0000000",
+		oe_reset=>'0',
+		pin_aliases=>",,,,,,",
+		pin_mode=>"IIIIIII",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1111111",
+		sio_ibuf=>"00000000",
+		sio_info=>"00000000000000",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0000000",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00000000000000",
+		width=>7,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0000000",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0000000",
+		ovt_slew_control=>"00000000000000",
+		ovt_hyst_trim=>"0000000",
+		input_buffer_sel=>"00000000000000")
+	PORT MAP(oe=>(one, one, one, one,
+			one, one, one),
+		y=>(zero, zero, zero, zero,
+			zero, zero, zero),
+		fb=>(tmpFB_6__PHOTO_INTERRUPTER_PINS_net_6, tmpFB_6__PHOTO_INTERRUPTER_PINS_net_5, tmpFB_6__PHOTO_INTERRUPTER_PINS_net_4, tmpFB_6__PHOTO_INTERRUPTER_PINS_net_3,
+			tmpFB_6__PHOTO_INTERRUPTER_PINS_net_2, tmpFB_6__PHOTO_INTERRUPTER_PINS_net_1, tmpFB_6__PHOTO_INTERRUPTER_PINS_net_0),
+		analog=>(open, open, open, open,
+			open, open, open),
+		io=>(tmpIO_6__PHOTO_INTERRUPTER_PINS_net_6, tmpIO_6__PHOTO_INTERRUPTER_PINS_net_5, tmpIO_6__PHOTO_INTERRUPTER_PINS_net_4, tmpIO_6__PHOTO_INTERRUPTER_PINS_net_3,
+			tmpIO_6__PHOTO_INTERRUPTER_PINS_net_2, tmpIO_6__PHOTO_INTERRUPTER_PINS_net_1, tmpIO_6__PHOTO_INTERRUPTER_PINS_net_0),
+		siovref=>(tmpSIOVREF__PHOTO_INTERRUPTER_PINS_net_0),
+		annotation=>(open, open, open, open,
+			open, open, open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>Net_1065);
+PHOTO_INTERRUPTER_ISR:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10")
+	PORT MAP(int_signal=>Net_1065);
+Speaker:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"cc3bcd7e-5dc0-48ea-9bf6-6aa082be1ada",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"NONCONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'1',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"1",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(tmpFB_0__Speaker_net_0),
+		analog=>Net_1373,
+		io=>(tmpIO_0__Speaker_net_0),
+		siovref=>(tmpSIOVREF__Speaker_net_0),
+		annotation=>Net_1352,
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>tmpINTERRUPT_0__Speaker_net_0);
+\emFile_1:SPI0:BSPIM:ClkEn\:cy_psoc3_udb_clock_enable_v1_0
+	GENERIC MAP(sync_mode=>'1')
+	PORT MAP(clock_in=>\emFile_1:Net_19\,
+		enable=>one,
+		clock_out=>\emFile_1:SPI0:BSPIM:clk_fin\);
+\emFile_1:SPI0:BSPIM:BitCounter\:cy_psoc3_count7
+	GENERIC MAP(cy_period=>"0001111",
+		cy_init_value=>"0000000",
+		cy_route_ld=>'0',
+		cy_route_en=>'1',
+		cy_alt_mode=>'0')
+	PORT MAP(clock=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		reset=>zero,
+		load=>zero,
+		enable=>\emFile_1:SPI0:BSPIM:cnt_enable\,
+		count=>(\emFile_1:SPI0:BSPIM:count_6\, \emFile_1:SPI0:BSPIM:count_5\, \emFile_1:SPI0:BSPIM:count_4\, \emFile_1:SPI0:BSPIM:count_3\,
+			\emFile_1:SPI0:BSPIM:count_2\, \emFile_1:SPI0:BSPIM:count_1\, \emFile_1:SPI0:BSPIM:count_0\),
+		tc=>\emFile_1:SPI0:BSPIM:cnt_tc\);
+\emFile_1:SPI0:BSPIM:TxStsReg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"0001001",
+		cy_int_mask=>"0000000")
+	PORT MAP(reset=>zero,
+		clock=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		status=>(zero, zero, \emFile_1:SPI0:BSPIM:tx_status_4\, \emFile_1:SPI0:BSPIM:load_rx_data\,
+			\emFile_1:SPI0:BSPIM:tx_status_2\, \emFile_1:SPI0:BSPIM:tx_status_1\, \emFile_1:SPI0:BSPIM:tx_status_0\),
+		interrupt=>\emFile_1:Net_5\);
+\emFile_1:SPI0:BSPIM:RxStsReg\:cy_psoc3_statusi
+	GENERIC MAP(cy_force_order=>'1',
+		cy_md_select=>"1000000",
+		cy_int_mask=>"0000000")
+	PORT MAP(reset=>zero,
+		clock=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		status=>(\emFile_1:SPI0:BSPIM:rx_status_6\, \emFile_1:SPI0:BSPIM:rx_status_5\, \emFile_1:SPI0:BSPIM:rx_status_4\, zero,
+			zero, zero, zero),
+		interrupt=>\emFile_1:Net_3\);
+\emFile_1:SPI0:BSPIM:sR8:Dp:u0\:cy_psoc3_dp
+	GENERIC MAP(cy_dpconfig=>"0000000000000000000000001100000000000001010000000001000100010000000000011100000000010001000000000000000101000000000000010100000011111111000000001111111111111111000000000010001000001000111100000000000000000100",
+		d0_init=>"00000000",
+		d1_init=>"00000000",
+		a0_init=>"00000000",
+		a1_init=>"00000000",
+		ce0_sync=>'1',
+		cl0_sync=>'1',
+		z0_sync=>'1',
+		ff0_sync=>'1',
+		ce1_sync=>'1',
+		cl1_sync=>'1',
+		z1_sync=>'1',
+		ff1_sync=>'1',
+		ov_msb_sync=>'1',
+		co_msb_sync=>'1',
+		cmsb_sync=>'1',
+		so_sync=>'1',
+		f0_bus_sync=>'1',
+		f0_blk_sync=>'1',
+		f1_bus_sync=>'1',
+		f1_blk_sync=>'1')
+	PORT MAP(reset=>zero,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		cs_addr=>(\emFile_1:SPI0:BSPIM:state_2\, \emFile_1:SPI0:BSPIM:state_1\, \emFile_1:SPI0:BSPIM:state_0\),
+		route_si=>\emFile_1:Net_16\,
+		route_ci=>zero,
+		f0_load=>zero,
+		f1_load=>\emFile_1:SPI0:BSPIM:load_rx_data\,
+		d0_load=>zero,
+		d1_load=>zero,
+		ce0=>open,
+		cl0=>open,
+		z0=>open,
+		ff0=>open,
+		ce1=>open,
+		cl1=>open,
+		z1=>open,
+		ff1=>open,
+		ov_msb=>open,
+		co_msb=>open,
+		cmsb=>open,
+		so=>\emFile_1:SPI0:BSPIM:mosi_from_dp\,
+		f0_bus_stat=>\emFile_1:SPI0:BSPIM:tx_status_2\,
+		f0_blk_stat=>\emFile_1:SPI0:BSPIM:tx_status_1\,
+		f1_bus_stat=>\emFile_1:SPI0:BSPIM:rx_status_5\,
+		f1_blk_stat=>\emFile_1:SPI0:BSPIM:rx_status_4\,
+		ce0_reg=>open,
+		cl0_reg=>open,
+		z0_reg=>open,
+		ff0_reg=>open,
+		ce1_reg=>open,
+		cl1_reg=>open,
+		z1_reg=>open,
+		ff1_reg=>open,
+		ov_msb_reg=>open,
+		co_msb_reg=>open,
+		cmsb_reg=>open,
+		so_reg=>open,
+		f0_bus_stat_reg=>open,
+		f0_blk_stat_reg=>open,
+		f1_bus_stat_reg=>open,
+		f1_blk_stat_reg=>open,
+		ci=>zero,
+		co=>open,
+		sir=>zero,
+		sor=>open,
+		sil=>zero,
+		sol=>open,
+		msbi=>zero,
+		msbo=>open,
+		cei=>(zero, zero),
+		ceo=>open,
+		cli=>(zero, zero),
+		clo=>open,
+		zi=>(zero, zero),
+		zo=>open,
+		fi=>(zero, zero),
+		fo=>open,
+		capi=>(zero, zero),
+		capo=>open,
+		cfbi=>zero,
+		cfbo=>open,
+		pi=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		po=>open);
+\emFile_1:mosi0\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"430d4a4d-2298-48f9-8100-f28698dbe3da/ed092b9b-d398-4703-be89-cebf998501f6",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"",
+		ovt_slew_control=>"",
+		ovt_hyst_trim=>"",
+		input_buffer_sel=>"")
+	PORT MAP(oe=>(one),
+		y=>\emFile_1:Net_10\,
+		fb=>(\emFile_1:tmpFB_0__mosi0_net_0\),
+		analog=>(open),
+		io=>(\emFile_1:tmpIO_0__mosi0_net_0\),
+		siovref=>(\emFile_1:tmpSIOVREF__mosi0_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>\emFile_1:tmpINTERRUPT_0__mosi0_net_0\);
+\emFile_1:Clock_1\:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"430d4a4d-2298-48f9-8100-f28698dbe3da/5ed615c6-e1f0-40ed-8816-f906ef67d531",
+		source_clock_id=>"61737EF6-3B74-48f9-8B91-F7473A442AE7",
+		divisor=>1,
+		period=>"0",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>\emFile_1:Net_19\,
+		dig_domain_out=>open);
+\emFile_1:miso0\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"430d4a4d-2298-48f9-8100-f28698dbe3da/1425177d-0d0e-4468-8bcc-e638e5509a9b",
+		drive_mode=>"001",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"0",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"I",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"00",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"",
+		ovt_slew_control=>"",
+		ovt_hyst_trim=>"",
+		input_buffer_sel=>"")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>\emFile_1:Net_16\,
+		analog=>(open),
+		io=>(\emFile_1:tmpIO_0__miso0_net_0\),
+		siovref=>(\emFile_1:tmpSIOVREF__miso0_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>\emFile_1:tmpINTERRUPT_0__miso0_net_0\);
+\emFile_1:sclk0\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"430d4a4d-2298-48f9-8100-f28698dbe3da/ae249072-87dc-41aa-9405-888517aefa28",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"1",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"",
+		ovt_slew_control=>"",
+		ovt_hyst_trim=>"",
+		input_buffer_sel=>"")
+	PORT MAP(oe=>(one),
+		y=>\emFile_1:Net_22\,
+		fb=>(\emFile_1:tmpFB_0__sclk0_net_0\),
+		analog=>(open),
+		io=>(\emFile_1:tmpIO_0__sclk0_net_0\),
+		siovref=>(\emFile_1:tmpSIOVREF__sclk0_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>\emFile_1:tmpINTERRUPT_0__sclk0_net_0\);
+\emFile_1:SPI0_CS\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"430d4a4d-2298-48f9-8100-f28698dbe3da/6df85302-e45f-45fb-97de-4bdf3128e07b",
+		drive_mode=>"110",
+		ibuf_enabled=>"1",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"O",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"",
+		sio_hyst=>"0",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"",
+		ovt_slew_control=>"",
+		ovt_hyst_trim=>"",
+		input_buffer_sel=>"")
+	PORT MAP(oe=>(one),
+		y=>(zero),
+		fb=>(\emFile_1:tmpFB_0__SPI0_CS_net_0\),
+		analog=>(open),
+		io=>(\emFile_1:tmpIO_0__SPI0_CS_net_0\),
+		siovref=>(\emFile_1:tmpSIOVREF__SPI0_CS_net_0\),
+		annotation=>(open),
+		in_clock=>zero,
+		in_clock_en=>one,
+		in_reset=>zero,
+		out_clock=>zero,
+		out_clock_en=>one,
+		out_reset=>zero,
+		interrupt=>\emFile_1:tmpINTERRUPT_0__SPI0_CS_net_0\);
+\VDAC8:viDAC8\:cy_psoc3_vidac8_v1_0
+	GENERIC MAP(cy_registers=>"",
+		reg_data=>'0',
+		is_all_if_any=>'0')
+	PORT MAP(reset=>zero,
+		idir=>zero,
+		ioff=>zero,
+		data=>(zero, zero, zero, zero,
+			zero, zero, zero, zero),
+		strobe=>zero,
+		strobe_udb=>zero,
+		vout=>Net_1373,
+		iout=>\VDAC8:Net_77\);
+\VDAC8:cy_analog_noconnect_1\:cy_analog_noconnect_v1_0
+	PORT MAP(noconnect=>\VDAC8:Net_77\);
+VDAC_DMA:cy_dma_v1_0
+	GENERIC MAP(drq_type=>"00",
+		num_tds=>0)
+	PORT MAP(drq=>Net_1375,
+		trq=>zero,
+		nrq=>Net_1382);
+SampleClk:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"effaa1a9-0db1-4e7a-b18f-49bd2e1a9e67",
+		source_clock_id=>"",
+		divisor=>0,
+		period=>"22675736961.4512",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_1375,
+		dig_domain_out=>open);
+DmaDone:cy_isr_v1_0
+	GENERIC MAP(int_type=>"00")
+	PORT MAP(int_signal=>Net_1382);
 \SPIM_1:BSPIM:so_send_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
@@ -1497,7 +3868,7 @@ Clock_1:cy_clock_v1_0
 \SPIM_1:BSPIM:mosi_reg\:cy_dff
 	PORT MAP(d=>\SPIM_1:BSPIM:mosi_reg\\D\,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
-		q=>Net_10);
+		q=>Net_1334);
 \SPIM_1:BSPIM:state_2\:cy_dff
 	PORT MAP(d=>\SPIM_1:BSPIM:state_2\\D\,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
@@ -1510,10 +3881,10 @@ Clock_1:cy_clock_v1_0
 	PORT MAP(d=>\SPIM_1:BSPIM:state_0\\D\,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
 		q=>\SPIM_1:BSPIM:state_0\);
-Net_12:cy_dff
-	PORT MAP(d=>Net_12D,
+Net_1336:cy_dff
+	PORT MAP(d=>Net_1336D,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
-		q=>Net_12);
+		q=>Net_1336);
 \SPIM_1:BSPIM:mosi_pre_reg\:cy_dff
 	PORT MAP(d=>zero,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
@@ -1538,9 +3909,225 @@ Net_12:cy_dff
 	PORT MAP(d=>\SPIM_1:BSPIM:cnt_enable\\D\,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
 		q=>\SPIM_1:BSPIM:cnt_enable\);
-Net_11:cy_dff
-	PORT MAP(d=>Net_11D,
+Net_1335:cy_dff
+	PORT MAP(d=>Net_1335D,
 		clk=>\SPIM_1:BSPIM:clk_fin\,
-		q=>Net_11);
+		q=>Net_1335);
+\SELECT_PWM:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>one,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:min_kill_reg\);
+\SELECT_PWM:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:prevCapture\);
+\SELECT_PWM:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:trig_last\);
+\SELECT_PWM:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:runmode_enable\);
+\SELECT_PWM:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:sc_kill_tmp\);
+\SELECT_PWM:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>one,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:ltch_kill_reg\);
+\SELECT_PWM:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:dith_count_1\);
+\SELECT_PWM:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:dith_count_0\);
+\SELECT_PWM:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:cmp1_less\,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:prevCompare1\);
+\SELECT_PWM:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:status_0\);
+\SELECT_PWM:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:status_1\);
+\SELECT_PWM:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:status_5\);
+\SELECT_PWM:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:pwm_i\,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_252);
+\SELECT_PWM:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:pwm1_i_reg\);
+\SELECT_PWM:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:pwm2_i_reg\);
+\SELECT_PWM:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\SELECT_PWM:PWMUDB:status_2\,
+		clk=>\SELECT_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\SELECT_PWM:PWMUDB:tc_i_reg\);
+\HAMMER_PWM:PWMUDB:min_kill_reg\:cy_dsrff
+	PORT MAP(d=>one,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:min_kill_reg\);
+\HAMMER_PWM:PWMUDB:prevCapture\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:prevCapture\);
+\HAMMER_PWM:PWMUDB:trig_last\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:trig_last\);
+\HAMMER_PWM:PWMUDB:runmode_enable\:cy_dsrff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:control_7\,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:runmode_enable\);
+\HAMMER_PWM:PWMUDB:sc_kill_tmp\:cy_dff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:sc_kill_tmp\\D\,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:sc_kill_tmp\);
+\HAMMER_PWM:PWMUDB:ltch_kill_reg\:cy_dsrff
+	PORT MAP(d=>one,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:ltch_kill_reg\);
+\HAMMER_PWM:PWMUDB:dith_count_1\:cy_dsrff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:dith_count_1\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:dith_count_1\);
+\HAMMER_PWM:PWMUDB:dith_count_0\:cy_dsrff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:dith_count_0\\D\,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:dith_count_0\);
+\HAMMER_PWM:PWMUDB:prevCompare1\:cy_dff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:cmp1_less\,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:prevCompare1\);
+\HAMMER_PWM:PWMUDB:cmp1_status_reg\:cy_dsrff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:cmp1_status\,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:status_0\);
+\HAMMER_PWM:PWMUDB:cmp2_status_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:status_1\);
+\HAMMER_PWM:PWMUDB:final_kill_reg\:cy_dsrff
+	PORT MAP(d=>zero,
+		s=>zero,
+		r=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:status_5\);
+\HAMMER_PWM:PWMUDB:pwm_i_reg\:cy_dff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:pwm_i\,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>Net_553);
+\HAMMER_PWM:PWMUDB:pwm1_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:pwm1_i_reg\);
+\HAMMER_PWM:PWMUDB:pwm2_i_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:pwm2_i_reg\);
+\HAMMER_PWM:PWMUDB:tc_i_reg\:cy_dff
+	PORT MAP(d=>\HAMMER_PWM:PWMUDB:status_2\,
+		clk=>\HAMMER_PWM:PWMUDB:ClockOutFromEnBlock\,
+		q=>\HAMMER_PWM:PWMUDB:tc_i_reg\);
+\emFile_1:SPI0:BSPIM:so_send_reg\:cy_dff
+	PORT MAP(d=>zero,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:so_send_reg\);
+\emFile_1:SPI0:BSPIM:state_2\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:state_2\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:state_2\);
+\emFile_1:SPI0:BSPIM:state_1\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:state_1\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:state_1\);
+\emFile_1:SPI0:BSPIM:state_0\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:state_0\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:state_0\);
+\emFile_1:Net_1\:cy_dff
+	PORT MAP(d=>\emFile_1:Net_1\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:Net_1\);
+\emFile_1:SPI0:BSPIM:mosi_hs_reg\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:mosi_hs_reg\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:mosi_hs_reg\);
+\emFile_1:SPI0:BSPIM:mosi_pre_reg\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:mosi_pre_reg\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:mosi_pre_reg\);
+\emFile_1:SPI0:BSPIM:mosi_reg\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:mosi_pre_reg\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:mosi_reg\);
+\emFile_1:SPI0:BSPIM:load_cond\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:load_cond\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:load_cond\);
+\emFile_1:SPI0:BSPIM:dpcounter_one_reg\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:load_rx_data\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:dpcounter_one_reg\);
+\emFile_1:SPI0:BSPIM:mosi_from_dp_reg\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:mosi_from_dp\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:mosi_from_dp_reg\);
+\emFile_1:SPI0:BSPIM:ld_ident\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:ld_ident\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:ld_ident\);
+\emFile_1:SPI0:BSPIM:cnt_enable\:cy_dff
+	PORT MAP(d=>\emFile_1:SPI0:BSPIM:cnt_enable\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:SPI0:BSPIM:cnt_enable\);
+\emFile_1:Net_22\:cy_dff
+	PORT MAP(d=>\emFile_1:Net_22\\D\,
+		clk=>\emFile_1:SPI0:BSPIM:clk_fin\,
+		q=>\emFile_1:Net_22\);
 
 END R_T_L;

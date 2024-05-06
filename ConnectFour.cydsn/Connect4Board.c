@@ -24,6 +24,8 @@ int row_height;
 int num_columns;
 int num_rows;
 
+int placed_heights[] = {0,0,0,0,0,0,0};
+
 uint16 WIDTH;
 uint16 HEIGHT;
 
@@ -56,6 +58,10 @@ void Connect4Board_Init(uint16 columns, uint16 rows) {
     num_columns = columns;
     num_rows = rows;
     
+    for (int i = 0; i < columns; i++) {
+        placed_heights[i] = 0;
+    }
+    
     // Clear the screen before we draw   
     GUI_SetBkColor(GUI_WHITE);
     GUI_Clear();
@@ -71,31 +77,51 @@ int Connect4Board_GetRowPosY(int row) {
     return row_height * (row) + WALL_THICKNESS * row;
 }
 
+void Connect4Board_ClearHighlight() {
+    int prev_column_pos_x = Connect4Board_GetColumnPosX(prev_selected);
+    int prev_offset_x = (prev_column_pos_x == 0) ? 0 : 1;
+    
+    int row_index = 5 - (placed_heights[prev_selected]);
+    
+    int pos_y = Connect4Board_GetRowPosY(row_index);
+    int offset_y = (row_index == num_rows - 1) ? 0 : 1;
+    
+    // Clear the previous highlight
+    GUI_SetColor(GUI_WHITE);
+    GUI_FillRect(prev_column_pos_x + prev_offset_x, pos_y + 1, prev_column_pos_x + column_width - 1, pos_y + row_height - offset_y); // -1 to ensure we don't collide with walls
+}
+
 void Connect4Board_HighlightColumn(uint16 column) {
     
-    if (prev_selected == column) return;
+    Connect4Board_ClearHighlight();
     
-    int prev_column_pos_x = Connect4Board_GetColumnPosX(prev_selected);
     int column_pos_x = Connect4Board_GetColumnPosX(column);
     
     // To ensure highlights don't collide with walls we need offsets
-    int prev_offset_x = (prev_column_pos_x == 0) ? 0 : 1;
     int offset_x = (column_pos_x == 0) ? 0 : 1;
     
-    for (int i = 0; i < num_rows; i++) {
-        int pos_y = Connect4Board_GetRowPosY(i);
-        int offset_y = (i == num_rows - 1) ? 0 : 1;
-        
-        // Clear the previous highlight
-        GUI_SetColor(GUI_WHITE);
-        GUI_FillRect(prev_column_pos_x + prev_offset_x, pos_y + 1, prev_column_pos_x + column_width - 1, pos_y + row_height - offset_y); // -1 to ensure we don't collide with walls
-    
-        // Draw the new highlight
-        GUI_SetColor(GUI_HIGHLIGHT);
-        GUI_FillRect(column_pos_x + offset_x, pos_y + 1, column_pos_x + column_width - 1, pos_y + row_height - offset_y);
-    }
+    int row_index = 5 - placed_heights[column];
+    int pos_y = Connect4Board_GetRowPosY(row_index);
+    int offset_y = (row_index == num_rows - 1) ? 0 : 1;
+
+    // Draw the new highlight
+    GUI_SetColor(GUI_HIGHLIGHT);
+    GUI_FillRect(column_pos_x + offset_x, pos_y + 1, column_pos_x + column_width - 1, pos_y + row_height - offset_y);
    
     prev_selected = column;
+}
+
+void Connect4Board_Place(uint16 column, uint16 player) {
+    int center_pos_x = Connect4Board_GetColumnPosX(column) + column_width / 2;
+    int center_pos_y = Connect4Board_GetRowPosY(5 - placed_heights[column]) + row_height / 2;
+    
+    uint16 radius = column_width > row_height ? row_height / 2 : column_width / 2;
+    
+    GUI_SetColor(player ? GUI_RED : GUI_YELLOW);
+    
+    GUI_FillCircle(center_pos_x, center_pos_y, radius);
+    
+    placed_heights[column]++;
 }
 
 

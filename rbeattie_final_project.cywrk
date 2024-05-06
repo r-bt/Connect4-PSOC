@@ -8,6 +8,7 @@
 <files />
 <projects>
 <v>.\ConnectFour.cydsn\ConnectFour.cyprj</v>
+<v>.\WaveDAC8_Example01.cydsn\WaveDAC8_Example01.cyprj</v>
 </projects>
 <workspace_id v="71224d10-2c87-4cd7-a7a2-c8c0eef4cebe" />
 <WriteAppVersionLastSavedWith v="3.3.0.9604" />

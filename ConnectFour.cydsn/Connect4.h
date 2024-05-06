@@ -1,15 +1,30 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
+#ifndef Connect4_H
+#define Connect4_H
 
-void Connect4Board_Init();
+#define INF 10000
 
-/* [] END OF FILE */
+struct Move {
+    int column;
+    int score;
+    int depth;
+};
+
+void Connect4_Init();
+
+struct Move Connect4_NegaMax(int depth, int alpha, int beta);
+
+void Connect4_PrintBoard();
+
+int Connect4_Move(int column);
+
+int Connect4_IsWon(int player);
+
+void Connect4_RawMove(int column);
+
+void Connect4_RawUndoMove();
+
+void Connect4_PrintBoardDebug(long bitboard0, long bitboard1);
+
+int Connect4_GetCurrentPlayer();
+
+#endif

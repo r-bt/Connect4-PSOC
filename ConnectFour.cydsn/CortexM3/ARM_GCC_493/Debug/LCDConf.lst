@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
   30:.\LCDConf.c   **** Licensed to:              Cypress Semiconductor Corp, 198 Champion Ct., San Jose, CA 95134, USA
   31:.\LCDConf.c   **** Licensed SEGGER software: emWin
   32:.\LCDConf.c   **** License number:           GUI-00319
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 2
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 2
 
 
   33:.\LCDConf.c   **** License model:            Services and License Agreement, signed June 10th, 2009
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
   87:.\LCDConf.c   **** */
   88:.\LCDConf.c   **** #ifndef   VXSIZE_PHYS
   89:.\LCDConf.c   ****   #define VXSIZE_PHYS XSIZE_PHYS
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 3
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 3
 
 
   90:.\LCDConf.c   **** #endif
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  121:.\LCDConf.c   **** }
  122:.\LCDConf.c   **** 
  123:.\LCDConf.c   **** /*********************************************************************
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 4
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 4
 
 
  124:.\LCDConf.c   **** *
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
   80 0026 0546     		mov	r5, r0
   81              	.LVL3:
  147:.\LCDConf.c   ****   //
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 5
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 5
 
 
  148:.\LCDConf.c   ****   // Display driver configuration
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  117 005e 0893     		str	r3, [sp, #32]
  167:.\LCDConf.c   **** 
  168:.\LCDConf.c   ****   GUIDRV_FlexColor_SetFunc(pDevice, &PortAPI, LCD_CONTROLLER, GUIDRV_FLEXCOLOR_M16C0B8);
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 6
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 6
 
 
  118              		.loc 1 168 0
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  187:.\LCDConf.c   **** * 
  188:.\LCDConf.c   **** * Return Value:
  189:.\LCDConf.c   **** *   < -1 - Error
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 7
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 7
 
 
  190:.\LCDConf.c   **** *     -1 - The command is not handled.
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  182              		.cfi_endproc
  183              	.LFE65:
  184              		.size	LCD_X_DisplayDriver, .-LCD_X_DisplayDriver
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 8
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 8
 
 
  185              		.text
@@ -438,21 +438,21 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  199 0006 00000000 		.4byte	.Ldebug_abbrev0
  200 000a 04       		.byte	0x4
  201 000b 01       		.uleb128 0x1
- 202 000c 39050000 		.4byte	.LASF99
+ 202 000c 14050000 		.4byte	.LASF99
  203 0010 01       		.byte	0x1
- 204 0011 A3040000 		.4byte	.LASF100
- 205 0015 99020000 		.4byte	.LASF101
+ 204 0011 7E040000 		.4byte	.LASF100
+ 205 0015 F6000000 		.4byte	.LASF101
  206 0019 00000000 		.4byte	.Ldebug_ranges0+0
  207 001d 00000000 		.4byte	0
  208 0021 00000000 		.4byte	.Ldebug_line0
  209 0025 02       		.uleb128 0x2
  210 0026 01       		.byte	0x1
  211 0027 06       		.byte	0x6
- 212 0028 8D020000 		.4byte	.LASF0
+ 212 0028 A2020000 		.4byte	.LASF0
  213 002c 02       		.uleb128 0x2
  214 002d 01       		.byte	0x1
  215 002e 08       		.byte	0x8
- 216 002f 7F020000 		.4byte	.LASF1
+ 216 002f 94020000 		.4byte	.LASF1
  217 0033 02       		.uleb128 0x2
  218 0034 02       		.byte	0x2
  219 0035 05       		.byte	0x5
@@ -460,31 +460,31 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  221 003a 02       		.uleb128 0x2
  222 003b 02       		.byte	0x2
  223 003c 07       		.byte	0x7
- 224 003d 13040000 		.4byte	.LASF3
+ 224 003d EE030000 		.4byte	.LASF3
  225 0041 03       		.uleb128 0x3
- 226 0042 BD040000 		.4byte	.LASF9
+ 226 0042 98040000 		.4byte	.LASF9
  227 0046 02       		.byte	0x2
  228 0047 3F       		.byte	0x3f
  229 0048 4C000000 		.4byte	0x4c
  230 004c 02       		.uleb128 0x2
  231 004d 04       		.byte	0x4
  232 004e 05       		.byte	0x5
- 233 004f E6010000 		.4byte	.LASF4
+ 233 004f FB010000 		.4byte	.LASF4
  234 0053 02       		.uleb128 0x2
  235 0054 04       		.byte	0x4
  236 0055 07       		.byte	0x7
- 237 0056 40040000 		.4byte	.LASF5
+ 237 0056 1B040000 		.4byte	.LASF5
  238 005a 02       		.uleb128 0x2
  239 005b 08       		.byte	0x8
  240 005c 05       		.byte	0x5
- 241 005d 9F010000 		.4byte	.LASF6
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 9
+ 241 005d CB010000 		.4byte	.LASF6
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 9
 
 
  242 0061 02       		.uleb128 0x2
  243 0062 08       		.byte	0x8
  244 0063 07       		.byte	0x7
- 245 0064 AD010000 		.4byte	.LASF7
+ 245 0064 AE020000 		.4byte	.LASF7
  246 0068 04       		.uleb128 0x4
  247 0069 04       		.byte	0x4
  248 006a 05       		.byte	0x5
@@ -492,24 +492,24 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  250 006f 02       		.uleb128 0x2
  251 0070 04       		.byte	0x4
  252 0071 07       		.byte	0x7
- 253 0072 1C030000 		.4byte	.LASF8
+ 253 0072 F7020000 		.4byte	.LASF8
  254 0076 03       		.uleb128 0x3
- 255 0077 A6030000 		.4byte	.LASF10
+ 255 0077 81030000 		.4byte	.LASF10
  256 007b 03       		.byte	0x3
  257 007c 2C       		.byte	0x2c
  258 007d 41000000 		.4byte	0x41
  259 0081 02       		.uleb128 0x2
  260 0082 04       		.byte	0x4
  261 0083 04       		.byte	0x4
- 262 0084 86010000 		.4byte	.LASF11
+ 262 0084 B2010000 		.4byte	.LASF11
  263 0088 02       		.uleb128 0x2
  264 0089 08       		.byte	0x8
  265 008a 04       		.byte	0x4
- 266 008b 52040000 		.4byte	.LASF12
+ 266 008b 2D040000 		.4byte	.LASF12
  267 008f 02       		.uleb128 0x2
  268 0090 01       		.byte	0x1
  269 0091 08       		.byte	0x8
- 270 0092 81030000 		.4byte	.LASF13
+ 270 0092 5C030000 		.4byte	.LASF13
  271 0096 05       		.uleb128 0x5
  272 0097 04       		.byte	0x4
  273 0098 9C000000 		.4byte	0x9c
@@ -528,7 +528,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  286 00ae 04       		.byte	0x4
  287 00af 2C000000 		.4byte	0x2c
  288 00b3 03       		.uleb128 0x3
- 289 00b4 12010000 		.4byte	.LASF16
+ 289 00b4 3E010000 		.4byte	.LASF16
  290 00b8 04       		.byte	0x4
  291 00b9 6A       		.byte	0x6a
  292 00ba 53000000 		.4byte	0x53
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  296 00c1 71       		.byte	0x71
  297 00c2 F3000000 		.4byte	0xf3
  298 00c6 09       		.uleb128 0x9
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 10
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 10
 
 
  299 00c7 783000   		.ascii	"x0\000"
@@ -566,12 +566,12 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  321 00f1 06       		.byte	0x6
  322 00f2 00       		.byte	0
  323 00f3 03       		.uleb128 0x3
- 324 00f4 76020000 		.4byte	.LASF17
+ 324 00f4 8B020000 		.4byte	.LASF17
  325 00f8 04       		.byte	0x4
  326 00f9 71       		.byte	0x71
  327 00fa BE000000 		.4byte	0xbe
  328 00fe 03       		.uleb128 0x3
- 329 00ff D2050000 		.4byte	.LASF18
+ 329 00ff AD050000 		.4byte	.LASF18
  330 0103 04       		.byte	0x4
  331 0104 88       		.byte	0x88
  332 0105 09010000 		.4byte	0x109
@@ -582,7 +582,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  337 0113 53000000 		.4byte	0x53
  338 0117 00       		.byte	0
  339 0118 03       		.uleb128 0x3
- 340 0119 2B060000 		.4byte	.LASF19
+ 340 0119 06060000 		.4byte	.LASF19
  341 011d 04       		.byte	0x4
  342 011e 89       		.byte	0x89
  343 011f 23010000 		.4byte	0x123
@@ -593,17 +593,17 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  348 012d B3000000 		.4byte	0xb3
  349 0131 00       		.byte	0
  350 0132 03       		.uleb128 0x3
- 351 0133 D1010000 		.4byte	.LASF20
+ 351 0133 E6010000 		.4byte	.LASF20
  352 0137 04       		.byte	0x4
  353 0138 8A       		.byte	0x8a
  354 0139 3D010000 		.4byte	0x13d
  355 013d 0C       		.uleb128 0xc
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 11
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 11
 
 
  356 013e 53000000 		.4byte	0x53
  357 0142 03       		.uleb128 0x3
- 358 0143 21050000 		.4byte	.LASF21
+ 358 0143 FC040000 		.4byte	.LASF21
  359 0147 04       		.byte	0x4
  360 0148 8C       		.byte	0x8c
  361 0149 4D010000 		.4byte	0x14d
@@ -622,7 +622,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  374 0168 04       		.byte	0x4
  375 0169 B3000000 		.4byte	0xb3
  376 016d 03       		.uleb128 0x3
- 377 016e 69030000 		.4byte	.LASF22
+ 377 016e 44030000 		.4byte	.LASF22
  378 0172 04       		.byte	0x4
  379 0173 8D       		.byte	0x8d
  380 0174 78010000 		.4byte	0x178
@@ -643,40 +643,40 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  395 0195 93       		.byte	0x93
  396 0196 E3010000 		.4byte	0x1e3
  397 019a 0E       		.uleb128 0xe
- 398 019b 4E030000 		.4byte	.LASF23
+ 398 019b 29030000 		.4byte	.LASF23
  399 019f 04       		.byte	0x4
  400 01a0 94       		.byte	0x94
  401 01a1 E3010000 		.4byte	0x1e3
  402 01a5 00       		.byte	0
  403 01a6 0E       		.uleb128 0xe
- 404 01a7 0E030000 		.4byte	.LASF24
+ 404 01a7 E9020000 		.4byte	.LASF24
  405 01ab 04       		.byte	0x4
  406 01ac 95       		.byte	0x95
  407 01ad E9010000 		.4byte	0x1e9
  408 01b1 04       		.byte	0x4
  409 01b2 0E       		.uleb128 0xe
- 410 01b3 29010000 		.4byte	.LASF25
+ 410 01b3 55010000 		.4byte	.LASF25
  411 01b7 04       		.byte	0x4
  412 01b8 96       		.byte	0x96
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 12
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 12
 
 
  413 01b9 EF010000 		.4byte	0x1ef
  414 01bd 08       		.byte	0x8
  415 01be 0E       		.uleb128 0xe
- 416 01bf 06030000 		.4byte	.LASF26
+ 416 01bf E1020000 		.4byte	.LASF26
  417 01c3 04       		.byte	0x4
  418 01c4 97       		.byte	0x97
  419 01c5 68000000 		.4byte	0x68
  420 01c9 0C       		.byte	0xc
  421 01ca 0E       		.uleb128 0xe
- 422 01cb 38010000 		.4byte	.LASF27
+ 422 01cb 64010000 		.4byte	.LASF27
  423 01cf 04       		.byte	0x4
  424 01d0 98       		.byte	0x98
  425 01d1 F5010000 		.4byte	0x1f5
  426 01d5 10       		.byte	0x10
  427 01d6 0E       		.uleb128 0xe
- 428 01d7 C5030000 		.4byte	.LASF28
+ 428 01d7 A0030000 		.4byte	.LASF28
  429 01db 04       		.byte	0x4
  430 01dc 99       		.byte	0x99
  431 01dd FB010000 		.4byte	0x1fb
@@ -698,7 +698,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  447 01fc 04       		.byte	0x4
  448 01fd 42010000 		.4byte	0x142
  449 0201 03       		.uleb128 0x3
- 450 0202 FF010000 		.4byte	.LASF29
+ 450 0202 14020000 		.4byte	.LASF29
  451 0206 04       		.byte	0x4
  452 0207 9A       		.byte	0x9a
  453 0208 92010000 		.4byte	0x192
@@ -706,19 +706,19 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  455 020d 04       		.byte	0x4
  456 020e F3000000 		.4byte	0xf3
  457 0212 0F       		.uleb128 0xf
- 458 0213 BA030000 		.4byte	.LASF30
+ 458 0213 95030000 		.4byte	.LASF30
  459 0217 04       		.byte	0x4
  460 0218 4301     		.2byte	0x143
  461 021a 1E020000 		.4byte	0x21e
  462 021e 10       		.uleb128 0x10
- 463 021f BA030000 		.4byte	.LASF30
+ 463 021f 95030000 		.4byte	.LASF30
  464 0223 1C       		.byte	0x1c
  465 0224 05       		.byte	0x5
  466 0225 B0       		.byte	0xb0
  467 0226 7D020000 		.4byte	0x27d
  468 022a 0E       		.uleb128 0xe
- 469 022b C4010000 		.4byte	.LASF31
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 13
+ 469 022b D9010000 		.4byte	.LASF31
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 13
 
 
  470 022f 05       		.byte	0x5
@@ -726,7 +726,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  472 0231 85050000 		.4byte	0x585
  473 0235 00       		.byte	0
  474 0236 0E       		.uleb128 0xe
- 475 0237 34020000 		.4byte	.LASF32
+ 475 0237 49020000 		.4byte	.LASF32
  476 023b 05       		.byte	0x5
  477 023c B5       		.byte	0xb5
  478 023d 85050000 		.4byte	0x585
@@ -750,46 +750,46 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  496 025f 4E030000 		.4byte	0x34e
  497 0263 10       		.byte	0x10
  498 0264 0E       		.uleb128 0xe
- 499 0265 80010000 		.4byte	.LASF35
+ 499 0265 AC010000 		.4byte	.LASF35
  500 0269 05       		.byte	0x5
  501 026a C2       		.byte	0xc2
  502 026b 3A000000 		.4byte	0x3a
  503 026f 14       		.byte	0x14
  504 0270 0E       		.uleb128 0xe
- 505 0271 94010000 		.4byte	.LASF36
+ 505 0271 C0010000 		.4byte	.LASF36
  506 0275 05       		.byte	0x5
  507 0276 C3       		.byte	0xc3
  508 0277 68000000 		.4byte	0x68
  509 027b 18       		.byte	0x18
  510 027c 00       		.byte	0
  511 027d 0F       		.uleb128 0xf
- 512 027e 03010000 		.4byte	.LASF37
+ 512 027e 2F010000 		.4byte	.LASF37
  513 0282 04       		.byte	0x4
  514 0283 4401     		.2byte	0x144
  515 0285 89020000 		.4byte	0x289
  516 0289 10       		.uleb128 0x10
- 517 028a 03010000 		.4byte	.LASF37
+ 517 028a 2F010000 		.4byte	.LASF37
  518 028e 34       		.byte	0x34
  519 028f 05       		.byte	0x5
  520 0290 6A       		.byte	0x6a
  521 0291 32030000 		.4byte	0x332
  522 0295 0E       		.uleb128 0xe
- 523 0296 95030000 		.4byte	.LASF38
+ 523 0296 70030000 		.4byte	.LASF38
  524 029a 05       		.byte	0x5
  525 029b 6E       		.byte	0x6e
  526 029c 68000000 		.4byte	0x68
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 14
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 14
 
 
  527 02a0 00       		.byte	0
  528 02a1 0E       		.uleb128 0xe
- 529 02a2 06040000 		.4byte	.LASF39
+ 529 02a2 E1030000 		.4byte	.LASF39
  530 02a6 05       		.byte	0x5
  531 02a7 72       		.byte	0x72
  532 02a8 96050000 		.4byte	0x596
  533 02ac 04       		.byte	0x4
  534 02ad 0E       		.uleb128 0xe
- 535 02ae 74010000 		.4byte	.LASF40
+ 535 02ae A0010000 		.4byte	.LASF40
  536 02b2 05       		.byte	0x5
  537 02b3 73       		.byte	0x73
  538 02b4 B6050000 		.4byte	0x5b6
@@ -807,38 +807,38 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  550 02cc DB050000 		.4byte	0x5db
  551 02d0 10       		.byte	0x10
  552 02d1 0E       		.uleb128 0xe
- 553 02d2 EF010000 		.4byte	.LASF43
+ 553 02d2 04020000 		.4byte	.LASF43
  554 02d6 05       		.byte	0x5
  555 02d7 76       		.byte	0x76
  556 02d8 FA050000 		.4byte	0x5fa
  557 02dc 14       		.byte	0x14
  558 02dd 0E       		.uleb128 0xe
- 559 02de 29030000 		.4byte	.LASF44
+ 559 02de 04030000 		.4byte	.LASF44
  560 02e2 05       		.byte	0x5
  561 02e3 77       		.byte	0x77
  562 02e4 1A060000 		.4byte	0x61a
  563 02e8 18       		.byte	0x18
  564 02e9 0E       		.uleb128 0xe
- 565 02ea DD040000 		.4byte	.LASF45
+ 565 02ea B8040000 		.4byte	.LASF45
  566 02ee 05       		.byte	0x5
  567 02ef 78       		.byte	0x78
  568 02f0 35060000 		.4byte	0x635
  569 02f4 1C       		.byte	0x1c
  570 02f5 0E       		.uleb128 0xe
- 571 02f6 FE040000 		.4byte	.LASF46
+ 571 02f6 D9040000 		.4byte	.LASF46
  572 02fa 05       		.byte	0x5
  573 02fb 7C       		.byte	0x7c
  574 02fc 35060000 		.4byte	0x635
  575 0300 20       		.byte	0x20
  576 0301 0E       		.uleb128 0xe
- 577 0302 26040000 		.4byte	.LASF47
+ 577 0302 01040000 		.4byte	.LASF47
  578 0306 05       		.byte	0x5
  579 0307 80       		.byte	0x80
  580 0308 55060000 		.4byte	0x655
  581 030c 24       		.byte	0x24
  582 030d 0E       		.uleb128 0xe
- 583 030e 1E060000 		.4byte	.LASF48
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 15
+ 583 030e F9050000 		.4byte	.LASF48
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 15
 
 
  584 0312 05       		.byte	0x5
@@ -887,78 +887,78 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  627 0367 7102     		.2byte	0x271
  628 0369 C0040000 		.4byte	0x4c0
  629 036d 13       		.uleb128 0x13
- 630 036e 59040000 		.4byte	.LASF51
+ 630 036e 34040000 		.4byte	.LASF51
  631 0372 06       		.byte	0x6
  632 0373 7502     		.2byte	0x275
  633 0375 CB040000 		.4byte	0x4cb
  634 0379 00       		.byte	0
  635 037a 13       		.uleb128 0x13
- 636 037b 65040000 		.4byte	.LASF52
+ 636 037b 40040000 		.4byte	.LASF52
  637 037f 06       		.byte	0x6
  638 0380 7602     		.2byte	0x276
  639 0382 CB040000 		.4byte	0x4cb
  640 0386 04       		.byte	0x4
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 16
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 16
 
 
  641 0387 13       		.uleb128 0x13
- 642 0388 F0030000 		.4byte	.LASF53
+ 642 0388 CB030000 		.4byte	.LASF53
  643 038c 06       		.byte	0x6
  644 038d 7702     		.2byte	0x277
  645 038f E1040000 		.4byte	0x4e1
  646 0393 08       		.byte	0x8
  647 0394 13       		.uleb128 0x13
- 648 0395 1C010000 		.4byte	.LASF54
+ 648 0395 48010000 		.4byte	.LASF54
  649 0399 06       		.byte	0x6
  650 039a 7802     		.2byte	0x278
  651 039c E1040000 		.4byte	0x4e1
  652 03a0 0C       		.byte	0xc
  653 03a1 13       		.uleb128 0x13
- 654 03a2 C7040000 		.4byte	.LASF55
+ 654 03a2 A2040000 		.4byte	.LASF55
  655 03a6 06       		.byte	0x6
  656 03a7 7902     		.2byte	0x279
  657 03a9 EC040000 		.4byte	0x4ec
  658 03ad 10       		.byte	0x10
  659 03ae 13       		.uleb128 0x13
- 660 03af D2040000 		.4byte	.LASF56
+ 660 03af AD040000 		.4byte	.LASF56
  661 03b3 06       		.byte	0x6
  662 03b4 7A02     		.2byte	0x27a
  663 03b6 EC040000 		.4byte	0x4ec
  664 03ba 14       		.byte	0x14
  665 03bb 13       		.uleb128 0x13
- 666 03bc D7030000 		.4byte	.LASF57
+ 666 03bc B2030000 		.4byte	.LASF57
  667 03c0 06       		.byte	0x6
  668 03c1 7B02     		.2byte	0x27b
  669 03c3 E1040000 		.4byte	0x4e1
  670 03c7 18       		.byte	0x18
  671 03c8 13       		.uleb128 0x13
- 672 03c9 6A020000 		.4byte	.LASF58
+ 672 03c9 7F020000 		.4byte	.LASF58
  673 03cd 06       		.byte	0x6
  674 03ce 7C02     		.2byte	0x27c
  675 03d0 E1040000 		.4byte	0x4e1
  676 03d4 1C       		.byte	0x1c
  677 03d5 13       		.uleb128 0x13
- 678 03d6 07050000 		.4byte	.LASF59
+ 678 03d6 E2040000 		.4byte	.LASF59
  679 03da 06       		.byte	0x6
  680 03db 8002     		.2byte	0x280
  681 03dd F2040000 		.4byte	0x4f2
  682 03e1 20       		.byte	0x20
  683 03e2 13       		.uleb128 0x13
- 684 03e3 14050000 		.4byte	.LASF60
+ 684 03e3 EF040000 		.4byte	.LASF60
  685 03e7 06       		.byte	0x6
  686 03e8 8102     		.2byte	0x281
  687 03ea F2040000 		.4byte	0x4f2
  688 03ee 24       		.byte	0x24
  689 03ef 13       		.uleb128 0x13
- 690 03f0 EA020000 		.4byte	.LASF61
+ 690 03f0 C5020000 		.4byte	.LASF61
  691 03f4 06       		.byte	0x6
  692 03f5 8202     		.2byte	0x282
  693 03f7 0E050000 		.4byte	0x50e
  694 03fb 28       		.byte	0x28
  695 03fc 13       		.uleb128 0x13
- 696 03fd F8020000 		.4byte	.LASF62
+ 696 03fd D3020000 		.4byte	.LASF62
  697 0401 06       		.byte	0x6
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 17
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 17
 
 
  698 0402 8302     		.2byte	0x283
@@ -977,25 +977,25 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  711 041e 19050000 		.4byte	0x519
  712 0422 34       		.byte	0x34
  713 0423 13       		.uleb128 0x13
- 714 0424 5C030000 		.4byte	.LASF65
+ 714 0424 37030000 		.4byte	.LASF65
  715 0428 06       		.byte	0x6
  716 0429 8602     		.2byte	0x286
  717 042b 0E050000 		.4byte	0x50e
  718 042f 38       		.byte	0x38
  719 0430 13       		.uleb128 0x13
- 720 0431 96040000 		.4byte	.LASF66
+ 720 0431 71040000 		.4byte	.LASF66
  721 0435 06       		.byte	0x6
  722 0436 8702     		.2byte	0x287
  723 0438 0E050000 		.4byte	0x50e
  724 043c 3C       		.byte	0x3c
  725 043d 13       		.uleb128 0x13
- 726 043e E3030000 		.4byte	.LASF67
+ 726 043e BE030000 		.4byte	.LASF67
  727 0442 06       		.byte	0x6
  728 0443 8B02     		.2byte	0x28b
  729 0445 48030000 		.4byte	0x348
  730 0449 40       		.byte	0x40
  731 044a 13       		.uleb128 0x13
- 732 044b 71040000 		.4byte	.LASF68
+ 732 044b 4C040000 		.4byte	.LASF68
  733 044f 06       		.byte	0x6
  734 0450 8C02     		.2byte	0x28c
  735 0452 48030000 		.4byte	0x348
@@ -1013,12 +1013,12 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  747 046c 35050000 		.4byte	0x535
  748 0470 4C       		.byte	0x4c
  749 0471 13       		.uleb128 0x13
- 750 0472 41020000 		.4byte	.LASF71
+ 750 0472 56020000 		.4byte	.LASF71
  751 0476 06       		.byte	0x6
  752 0477 8F02     		.2byte	0x28f
  753 0479 3B050000 		.4byte	0x53b
  754 047d 50       		.byte	0x50
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 18
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 18
 
 
  755 047e 13       		.uleb128 0x13
@@ -1028,13 +1028,13 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  759 0486 3B050000 		.4byte	0x53b
  760 048a 54       		.byte	0x54
  761 048b 13       		.uleb128 0x13
- 762 048c 5A010000 		.4byte	.LASF73
+ 762 048c 86010000 		.4byte	.LASF73
  763 0490 06       		.byte	0x6
  764 0491 9102     		.2byte	0x291
  765 0493 35050000 		.4byte	0x535
  766 0497 58       		.byte	0x58
  767 0498 13       		.uleb128 0x13
- 768 0499 67010000 		.4byte	.LASF74
+ 768 0499 93010000 		.4byte	.LASF74
  769 049d 06       		.byte	0x6
  770 049e 9202     		.2byte	0x292
  771 04a0 35050000 		.4byte	0x535
@@ -1046,7 +1046,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  777 04ad CB040000 		.4byte	0x4cb
  778 04b1 60       		.byte	0x60
  779 04b2 13       		.uleb128 0x13
- 780 04b3 AF040000 		.4byte	.LASF76
+ 780 04b3 8A040000 		.4byte	.LASF76
  781 04b7 06       		.byte	0x6
  782 04b8 9A02     		.2byte	0x29a
  783 04ba 96000000 		.4byte	0x96
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  809 04f2 05       		.uleb128 0x5
  810 04f3 04       		.byte	0x4
  811 04f4 59030000 		.4byte	0x359
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 19
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 19
 
 
  812 04f8 0D       		.uleb128 0xd
@@ -1116,7 +1116,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  844 053c 04       		.byte	0x4
  845 053d 3D010000 		.4byte	0x13d
  846 0541 0F       		.uleb128 0xf
- 847 0542 33040000 		.4byte	.LASF77
+ 847 0542 0E040000 		.4byte	.LASF77
  848 0546 06       		.byte	0x6
  849 0547 9B02     		.2byte	0x29b
  850 0549 64030000 		.4byte	0x364
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  866 0571 68000000 		.4byte	0x68
  867 0575 0B       		.uleb128 0xb
  868 0576 32030000 		.4byte	0x332
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 20
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 20
 
 
  869 057a 0B       		.uleb128 0xb
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  923 05f5 68000000 		.4byte	0x68
  924 05f9 00       		.byte	0
  925 05fa 05       		.uleb128 0x5
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 21
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 21
 
 
  926 05fb 04       		.byte	0x4
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  980 0676 AB000000 		.4byte	0xab
  981 067a 89060000 		.4byte	0x689
  982 067e 0B       		.uleb128 0xb
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 22
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 22
 
 
  983 067f 85050000 		.4byte	0x585
@@ -1284,12 +1284,12 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1003 06a8 B9       		.byte	0xb9
  1004 06a9 C4060000 		.4byte	0x6c4
  1005 06ad 15       		.uleb128 0x15
- 1006 06ae 4D020000 		.4byte	.LASF78
+ 1006 06ae 62020000 		.4byte	.LASF78
  1007 06b2 05       		.byte	0x5
  1008 06b3 BA       		.byte	0xba
  1009 06b4 4C000000 		.4byte	0x4c
  1010 06b8 15       		.uleb128 0x15
- 1011 06b9 FD030000 		.4byte	.LASF79
+ 1011 06b9 D8030000 		.4byte	.LASF79
  1012 06bd 05       		.byte	0x5
  1013 06be BB       		.byte	0xbb
  1014 06bf AB000000 		.4byte	0xab
@@ -1305,20 +1305,20 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1024 06d2 72       		.byte	0x72
  1025 06d3 14070000 		.4byte	0x714
  1026 06d7 0E       		.uleb128 0xe
- 1027 06d8 2B020000 		.4byte	.LASF80
+ 1027 06d8 40020000 		.4byte	.LASF80
  1028 06dc 07       		.byte	0x7
  1029 06dd 76       		.byte	0x76
  1030 06de 68000000 		.4byte	0x68
  1031 06e2 00       		.byte	0
  1032 06e3 0E       		.uleb128 0xe
- 1033 06e4 FC050000 		.4byte	.LASF81
+ 1033 06e4 D7050000 		.4byte	.LASF81
  1034 06e8 07       		.byte	0x7
  1035 06e9 77       		.byte	0x77
  1036 06ea 68000000 		.4byte	0x68
  1037 06ee 04       		.byte	0x4
  1038 06ef 0E       		.uleb128 0xe
- 1039 06f0 AE030000 		.4byte	.LASF82
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 23
+ 1039 06f0 89030000 		.4byte	.LASF82
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 23
 
 
  1040 06f4 07       		.byte	0x7
@@ -1326,7 +1326,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1042 06f6 68000000 		.4byte	0x68
  1043 06fa 08       		.byte	0x8
  1044 06fb 0E       		.uleb128 0xe
- 1045 06fc F6000000 		.4byte	.LASF83
+ 1045 06fc 22010000 		.4byte	.LASF83
  1046 0700 07       		.byte	0x7
  1047 0701 79       		.byte	0x79
  1048 0702 3A000000 		.4byte	0x3a
@@ -1339,12 +1339,12 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1055 0712 10       		.byte	0x10
  1056 0713 00       		.byte	0
  1057 0714 03       		.uleb128 0x3
- 1058 0715 05060000 		.4byte	.LASF85
+ 1058 0715 E0050000 		.4byte	.LASF85
  1059 0719 07       		.byte	0x7
  1060 071a 7B       		.byte	0x7b
  1061 071b CF060000 		.4byte	0x6cf
  1062 071f 16       		.uleb128 0x16
- 1063 0720 4A010000 		.4byte	.LASF102
+ 1063 0720 76010000 		.4byte	.LASF102
  1064 0724 01       		.byte	0x1
  1065 0725 73       		.byte	0x73
  1066 0726 00000000 		.4byte	.LFB63
@@ -1366,24 +1366,24 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1082 074e 9C       		.byte	0x9c
  1083 074f 2E080000 		.4byte	0x82e
  1084 0753 19       		.uleb128 0x19
- 1085 0754 16060000 		.4byte	.LASF86
+ 1085 0754 F1050000 		.4byte	.LASF86
  1086 0758 01       		.byte	0x1
  1087 0759 8B       		.byte	0x8b
  1088 075a 85050000 		.4byte	0x585
  1089 075e 00000000 		.4byte	.LLST0
  1090 0762 1A       		.uleb128 0x1a
- 1091 0763 3A020000 		.4byte	.LASF87
+ 1091 0763 4F020000 		.4byte	.LASF87
  1092 0767 01       		.byte	0x1
  1093 0768 8C       		.byte	0x8c
  1094 0769 14070000 		.4byte	0x714
  1095 076d 02       		.uleb128 0x2
  1096 076e 91       		.byte	0x91
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 24
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 24
 
 
  1097 076f 5C       		.sleb128 -36
  1098 0770 1A       		.uleb128 0x1a
- 1099 0771 8C010000 		.4byte	.LASF88
+ 1099 0771 B8010000 		.4byte	.LASF88
  1100 0775 01       		.byte	0x1
  1101 0776 8D       		.byte	0x8d
  1102 0777 41050000 		.4byte	0x541
@@ -1438,7 +1438,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1151 07c8 01       		.uleb128 0x1
  1152 07c9 52       		.byte	0x52
  1153 07ca 03       		.uleb128 0x3
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 25
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 25
 
 
  1154 07cb 0A       		.byte	0xa
@@ -1498,7 +1498,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1208 0815 00       		.byte	0
  1209 0816 1D       		.uleb128 0x1d
  1210 0817 6C000000 		.4byte	.LVL8
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 26
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 26
 
 
  1211 081b 53090000 		.4byte	0x953
@@ -1517,7 +1517,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1224 082c 00       		.byte	0
  1225 082d 00       		.byte	0
  1226 082e 1E       		.uleb128 0x1e
- 1227 082f 56020000 		.4byte	.LASF104
+ 1227 082f 6B020000 		.4byte	.LASF104
  1228 0833 01       		.byte	0x1
  1229 0834 C1       		.byte	0xc1
  1230 0835 68000000 		.4byte	0x68
@@ -1527,7 +1527,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1234 0842 9C       		.byte	0x9c
  1235 0843 87080000 		.4byte	0x887
  1236 0847 1F       		.uleb128 0x1f
- 1237 0848 94010000 		.4byte	.LASF36
+ 1237 0848 C0010000 		.4byte	.LASF36
  1238 084c 01       		.byte	0x1
  1239 084d C1       		.byte	0xc1
  1240 084e 6F000000 		.4byte	0x6f
@@ -1554,31 +1554,31 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1261 0882 1F070000 		.4byte	0x71f
  1262 0886 00       		.byte	0
  1263 0887 22       		.uleb128 0x22
- 1264 0888 EF050000 		.4byte	.LASF90
+ 1264 0888 CA050000 		.4byte	.LASF90
  1265 088c 08       		.byte	0x8
  1266 088d 9606     		.2byte	0x696
  1267 088f 93080000 		.4byte	0x893
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 27
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 27
 
 
  1268 0893 23       		.uleb128 0x23
  1269 0894 76000000 		.4byte	0x76
  1270 0898 24       		.uleb128 0x24
- 1271 0899 E8040000 		.4byte	.LASF91
+ 1271 0899 C3040000 		.4byte	.LASF91
  1272 089d 04       		.byte	0x4
  1273 089e B4       		.byte	0xb4
  1274 089f 54030000 		.4byte	0x354
  1275 08a3 24       		.uleb128 0x24
- 1276 08a4 39030000 		.4byte	.LASF92
+ 1276 08a4 14030000 		.4byte	.LASF92
  1277 08a8 07       		.byte	0x7
  1278 08a9 86       		.byte	0x86
  1279 08aa CA060000 		.4byte	0x6ca
  1280 08ae 25       		.uleb128 0x25
- 1281 08af E6050000 		.4byte	.LASF105
+ 1281 08af C1050000 		.4byte	.LASF105
  1282 08b3 09       		.byte	0x9
  1283 08b4 13       		.byte	0x13
  1284 08b5 26       		.uleb128 0x26
- 1285 08b6 CA010000 		.4byte	.LASF96
+ 1285 08b6 DF010000 		.4byte	.LASF96
  1286 08ba AB000000 		.4byte	0xab
  1287 08be D2080000 		.4byte	0x8d2
  1288 08c2 0B       		.uleb128 0xb
@@ -1589,7 +1589,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1293 08cd A4000000 		.4byte	0xa4
  1294 08d1 00       		.byte	0
  1295 08d2 27       		.uleb128 0x27
- 1296 08d3 12020000 		.4byte	.LASF93
+ 1296 08d3 27020000 		.4byte	.LASF93
  1297 08d7 05       		.byte	0x5
  1298 08d8 2201     		.2byte	0x122
  1299 08da 85050000 		.4byte	0x585
@@ -1617,8 +1617,8 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1321 0912 68000000 		.4byte	0x68
  1322 0916 00       		.byte	0
  1323 0917 27       		.uleb128 0x27
- 1324 0918 86030000 		.4byte	.LASF95
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 28
+ 1324 0918 61030000 		.4byte	.LASF95
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 28
 
 
  1325 091c 04       		.byte	0x4
@@ -1633,7 +1633,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1334 0932 68000000 		.4byte	0x68
  1335 0936 00       		.byte	0
  1336 0937 28       		.uleb128 0x28
- 1337 0938 7E040000 		.4byte	.LASF97
+ 1337 0938 59040000 		.4byte	.LASF97
  1338 093c 07       		.byte	0x7
  1339 093d C6       		.byte	0xc6
  1340 093e 4D090000 		.4byte	0x94d
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1379 0003 25       		.uleb128 0x25
  1380 0004 0E       		.uleb128 0xe
  1381 0005 13       		.uleb128 0x13
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 29
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 29
 
 
  1382 0006 0B       		.uleb128 0xb
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1436 003c 13       		.uleb128 0x13
  1437 003d 00       		.byte	0
  1438 003e 00       		.byte	0
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 30
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 30
 
 
  1439 003f 06       		.uleb128 0x6
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1493 0075 05       		.uleb128 0x5
  1494 0076 00       		.byte	0
  1495 0077 49       		.uleb128 0x49
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 31
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 31
 
 
  1496 0078 13       		.uleb128 0x13
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1550 00ae 0B       		.uleb128 0xb
  1551 00af 0B       		.uleb128 0xb
  1552 00b0 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 32
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 32
 
 
  1553 00b1 0B       		.uleb128 0xb
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1607 00e7 00       		.byte	0
  1608 00e8 15       		.uleb128 0x15
  1609 00e9 0D       		.uleb128 0xd
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 33
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 33
 
 
  1610 00ea 00       		.byte	0
@@ -1978,7 +1978,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1664 0123 27       		.uleb128 0x27
  1665 0124 19       		.uleb128 0x19
  1666 0125 11       		.uleb128 0x11
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 34
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 34
 
 
  1667 0126 01       		.uleb128 0x1
@@ -2038,7 +2038,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1721 0161 00       		.byte	0
  1722 0162 02       		.uleb128 0x2
  1723 0163 18       		.uleb128 0x18
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 35
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 35
 
 
  1724 0164 9142     		.uleb128 0x2111
@@ -2098,7 +2098,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1778 019e 00       		.byte	0
  1779 019f 20       		.uleb128 0x20
  1780 01a0 05       		.uleb128 0x5
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 36
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 36
 
 
  1781 01a1 00       		.byte	0
@@ -2158,7 +2158,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1835 01d7 0E       		.uleb128 0xe
  1836 01d8 3A       		.uleb128 0x3a
  1837 01d9 0B       		.uleb128 0xb
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 37
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 37
 
 
  1838 01da 3B       		.uleb128 0x3b
@@ -2218,7 +2218,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1892 0210 0B       		.uleb128 0xb
  1893 0211 3B       		.uleb128 0x3b
  1894 0212 05       		.uleb128 0x5
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 38
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 38
 
 
  1895 0213 27       		.uleb128 0x27
@@ -2278,7 +2278,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  1949 0028 50       		.byte	0x50
  1950 0029 09000000 		.4byte	.LVL11-1
  1951 002d 0E000000 		.4byte	.LVL12
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 39
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 39
 
 
  1952 0031 0400     		.2byte	0x4
@@ -2338,7 +2338,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  2006              		.section	.debug_aranges,"",%progbits
  2007 0000 2C000000 		.4byte	0x2c
  2008 0004 0200     		.2byte	0x2
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 40
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 40
 
 
  2009 0006 00000000 		.4byte	.Ldebug_info0
@@ -2398,7 +2398,7 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  2046 003d 70664669 		.ascii	"pfFillRect\000"
  2046      6C6C5265 
  2046      637400
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 41
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 41
 
 
  2047              	.LASF98:
@@ -2458,448 +2458,443 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 1
  2072      74526563 
  2072      7400
  2073              	.LASF33:
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 42
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 42
 
 
  2074 00eb 70446576 		.ascii	"pDeviceAPI\000"
  2074      69636541 
  2074      504900
- 2075              	.LASF83:
- 2076 00f6 52656745 		.ascii	"RegEntryMode\000"
- 2076      6E747279 
- 2076      4D6F6465 
- 2076      00
- 2077              	.LASF37:
- 2078 0103 4755495F 		.ascii	"GUI_DEVICE_API\000"
- 2078      44455649 
- 2078      43455F41 
- 2078      504900
- 2079              	.LASF16:
- 2080 0112 4C43445F 		.ascii	"LCD_COLOR\000"
- 2080      434F4C4F 
- 2080      5200
- 2081              	.LASF54:
- 2082 011c 70665772 		.ascii	"pfWriteM8_A1\000"
- 2082      6974654D 
- 2082      385F4131 
- 2082      00
- 2083              	.LASF25:
- 2084 0129 70664765 		.ascii	"pfGetIndexMask\000"
- 2084      74496E64 
- 2084      65784D61 
- 2084      736B00
- 2085              	.LASF27:
- 2086 0138 7066436F 		.ascii	"pfColor2IndexBulk\000"
- 2086      6C6F7232 
- 2086      496E6465 
- 2086      7842756C 
- 2086      6B00
- 2087              	.LASF102:
- 2088 014a 5F496E69 		.ascii	"_InitController\000"
- 2088      74436F6E 
- 2088      74726F6C 
- 2088      6C657200 
- 2089              	.LASF73:
- 2090 015a 70665265 		.ascii	"pfReadM32_A0\000"
- 2090      61644D33 
- 2090      325F4130 
- 2090      00
- 2091              	.LASF74:
- 2092 0167 70665265 		.ascii	"pfReadM32_A1\000"
+ 2075              	.LASF101:
+ 2076 00f6 443A5C72 		.ascii	"D:\\rbeattie_final_project\\ConnectFour.cydsn\000"
+ 2076      62656174 
+ 2076      7469655F 
+ 2076      66696E61 
+ 2076      6C5F7072 
+ 2077              	.LASF83:
+ 2078 0122 52656745 		.ascii	"RegEntryMode\000"
+ 2078      6E747279 
+ 2078      4D6F6465 
+ 2078      00
+ 2079              	.LASF37:
+ 2080 012f 4755495F 		.ascii	"GUI_DEVICE_API\000"
+ 2080      44455649 
+ 2080      43455F41 
+ 2080      504900
+ 2081              	.LASF16:
+ 2082 013e 4C43445F 		.ascii	"LCD_COLOR\000"
+ 2082      434F4C4F 
+ 2082      5200
+ 2083              	.LASF54:
+ 2084 0148 70665772 		.ascii	"pfWriteM8_A1\000"
+ 2084      6974654D 
+ 2084      385F4131 
+ 2084      00
+ 2085              	.LASF25:
+ 2086 0155 70664765 		.ascii	"pfGetIndexMask\000"
+ 2086      74496E64 
+ 2086      65784D61 
+ 2086      736B00
+ 2087              	.LASF27:
+ 2088 0164 7066436F 		.ascii	"pfColor2IndexBulk\000"
+ 2088      6C6F7232 
+ 2088      496E6465 
+ 2088      7842756C 
+ 2088      6B00
+ 2089              	.LASF102:
+ 2090 0176 5F496E69 		.ascii	"_InitController\000"
+ 2090      74436F6E 
+ 2090      74726F6C 
+ 2090      6C657200 
+ 2091              	.LASF73:
+ 2092 0186 70665265 		.ascii	"pfReadM32_A0\000"
  2092      61644D33 
- 2092      325F4131 
+ 2092      325F4130 
  2092      00
- 2093              	.LASF40:
- 2094 0174 70664472 		.ascii	"pfDrawHLine\000"
- 2094      6177484C 
- 2094      696E6500 
- 2095              	.LASF35:
- 2096 0180 466C6167 		.ascii	"Flags\000"
- 2096      7300
- 2097              	.LASF11:
- 2098 0186 666C6F61 		.ascii	"float\000"
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 43
+ 2093              	.LASF74:
+ 2094 0193 70665265 		.ascii	"pfReadM32_A1\000"
+ 2094      61644D33 
+ 2094      325F4131 
+ 2094      00
+ 2095              	.LASF40:
+ 2096 01a0 70664472 		.ascii	"pfDrawHLine\000"
+ 2096      6177484C 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 43
 
 
- 2098      7400
- 2099              	.LASF88:
- 2100 018c 506F7274 		.ascii	"PortAPI\000"
- 2100      41504900 
- 2101              	.LASF36:
- 2102 0194 4C617965 		.ascii	"LayerIndex\000"
- 2102      72496E64 
- 2102      657800
- 2103              	.LASF6:
- 2104 019f 6C6F6E67 		.ascii	"long long int\000"
- 2104      206C6F6E 
- 2104      6720696E 
- 2104      7400
- 2105              	.LASF7:
- 2106 01ad 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2096      696E6500 
+ 2097              	.LASF35:
+ 2098 01ac 466C6167 		.ascii	"Flags\000"
+ 2098      7300
+ 2099              	.LASF11:
+ 2100 01b2 666C6F61 		.ascii	"float\000"
+ 2100      7400
+ 2101              	.LASF88:
+ 2102 01b8 506F7274 		.ascii	"PortAPI\000"
+ 2102      41504900 
+ 2103              	.LASF36:
+ 2104 01c0 4C617965 		.ascii	"LayerIndex\000"
+ 2104      72496E64 
+ 2104      657800
+ 2105              	.LASF6:
+ 2106 01cb 6C6F6E67 		.ascii	"long long int\000"
  2106      206C6F6E 
- 2106      6720756E 
- 2106      7369676E 
- 2106      65642069 
+ 2106      6720696E 
+ 2106      7400
  2107              	.LASF31:
- 2108 01c4 704E6578 		.ascii	"pNext\000"
+ 2108 01d9 704E6578 		.ascii	"pNext\000"
  2108      7400
  2109              	.LASF96:
- 2110 01ca 6D656D73 		.ascii	"memset\000"
+ 2110 01df 6D656D73 		.ascii	"memset\000"
  2110      657400
  2111              	.LASF20:
- 2112 01d1 744C4344 		.ascii	"tLCDDEV_GetIndexMask\000"
+ 2112 01e6 744C4344 		.ascii	"tLCDDEV_GetIndexMask\000"
  2112      4445565F 
  2112      47657449 
  2112      6E646578 
  2112      4D61736B 
  2113              	.LASF4:
- 2114 01e6 6C6F6E67 		.ascii	"long int\000"
+ 2114 01fb 6C6F6E67 		.ascii	"long int\000"
  2114      20696E74 
  2114      00
  2115              	.LASF43:
- 2116 01ef 70664765 		.ascii	"pfGetPixelIndex\000"
+ 2116 0204 70664765 		.ascii	"pfGetPixelIndex\000"
  2116      74506978 
  2116      656C496E 
  2116      64657800 
  2117              	.LASF29:
- 2118 01ff 4C43445F 		.ascii	"LCD_API_COLOR_CONV\000"
+ 2118 0214 4C43445F 		.ascii	"LCD_API_COLOR_CONV\000"
  2118      4150495F 
  2118      434F4C4F 
  2118      525F434F 
  2118      4E5600
  2119              	.LASF93:
- 2120 0212 4755495F 		.ascii	"GUI_DEVICE_CreateAndLink\000"
+ 2120 0227 4755495F 		.ascii	"GUI_DEVICE_CreateAndLink\000"
  2120      44455649 
  2120      43455F43 
  2120      72656174 
  2120      65416E64 
  2121              	.LASF80:
- 2122 022b 46697273 		.ascii	"FirstSEG\000"
+ 2122 0240 46697273 		.ascii	"FirstSEG\000"
  2122      74534547 
  2122      00
  2123              	.LASF32:
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 44
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 44
 
 
- 2124 0234 70507265 		.ascii	"pPrev\000"
+ 2124 0249 70507265 		.ascii	"pPrev\000"
  2124      7600
  2125              	.LASF87:
- 2126 023a 436F6E66 		.ascii	"Config\000"
+ 2126 024f 436F6E66 		.ascii	"Config\000"
  2126      696700
  2127              	.LASF71:
- 2128 0241 70665265 		.ascii	"pfRead32_A0\000"
+ 2128 0256 70665265 		.ascii	"pfRead32_A0\000"
  2128      61643332 
  2128      5F413000 
  2129              	.LASF78:
- 2130 024d 68436F6E 		.ascii	"hContext\000"
+ 2130 0262 68436F6E 		.ascii	"hContext\000"
  2130      74657874 
  2130      00
  2131              	.LASF104:
- 2132 0256 4C43445F 		.ascii	"LCD_X_DisplayDriver\000"
+ 2132 026b 4C43445F 		.ascii	"LCD_X_DisplayDriver\000"
  2132      585F4469 
  2132      73706C61 
  2132      79447269 
  2132      76657200 
  2133              	.LASF58:
- 2134 026a 70665265 		.ascii	"pfReadM8_A1\000"
+ 2134 027f 70665265 		.ascii	"pfReadM8_A1\000"
  2134      61644D38 
  2134      5F413100 
  2135              	.LASF17:
- 2136 0276 4C43445F 		.ascii	"LCD_RECT\000"
+ 2136 028b 4C43445F 		.ascii	"LCD_RECT\000"
  2136      52454354 
  2136      00
  2137              	.LASF1:
- 2138 027f 756E7369 		.ascii	"unsigned char\000"
+ 2138 0294 756E7369 		.ascii	"unsigned char\000"
  2138      676E6564 
  2138      20636861 
  2138      7200
  2139              	.LASF0:
- 2140 028d 7369676E 		.ascii	"signed char\000"
+ 2140 02a2 7369676E 		.ascii	"signed char\000"
  2140      65642063 
  2140      68617200 
- 2141              	.LASF101:
- 2142 0299 433A5C55 		.ascii	"C:\\Users\\student\\Documents\\PSoC Creator\\rbeatt"
- 2142      73657273 
- 2142      5C737475 
- 2142      64656E74 
- 2142      5C446F63 
- 2143 02c7 69655F66 		.ascii	"ie_final_project\\ConnectFour.cydsn\000"
- 2143      696E616C 
- 2143      5F70726F 
- 2143      6A656374 
- 2143      5C436F6E 
- 2144              	.LASF61:
- 2145 02ea 70665772 		.ascii	"pfWriteM16_A0\000"
- 2145      6974654D 
- 2145      31365F41 
- 2145      3000
- 2146              	.LASF62:
- 2147 02f8 70665772 		.ascii	"pfWriteM16_A1\000"
- 2147      6974654D 
- 2147      31365F41 
- 2147      3100
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 45
+ 2141              	.LASF7:
+ 2142 02ae 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2142      206C6F6E 
+ 2142      6720756E 
+ 2142      7369676E 
+ 2142      65642069 
+ 2143              	.LASF61:
+ 2144 02c5 70665772 		.ascii	"pfWriteM16_A0\000"
+ 2144      6974654D 
+ 2144      31365F41 
+ 2144      3000
+ 2145              	.LASF62:
+ 2146 02d3 70665772 		.ascii	"pfWriteM16_A1\000"
+ 2146      6974654D 
+ 2146      31365F41 
+ 2146      3100
+ 2147              	.LASF26:
+ 2148 02e1 4E6F416C 		.ascii	"NoAlpha\000"
+ 2148      70686100 
+ 2149              	.LASF24:
+ 2150 02e9 7066496E 		.ascii	"pfIndex2Color\000"
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 45
 
 
- 2148              	.LASF26:
- 2149 0306 4E6F416C 		.ascii	"NoAlpha\000"
- 2149      70686100 
- 2150              	.LASF24:
- 2151 030e 7066496E 		.ascii	"pfIndex2Color\000"
- 2151      64657832 
- 2151      436F6C6F 
- 2151      7200
- 2152              	.LASF8:
- 2153 031c 756E7369 		.ascii	"unsigned int\000"
- 2153      676E6564 
- 2153      20696E74 
- 2153      00
- 2154              	.LASF44:
- 2155 0329 70665365 		.ascii	"pfSetPixelIndex\000"
- 2155      74506978 
- 2155      656C496E 
- 2155      64657800 
- 2156              	.LASF92:
- 2157 0339 47554944 		.ascii	"GUIDRV_FlexColor_API\000"
- 2157      52565F46 
- 2157      6C657843 
- 2157      6F6C6F72 
- 2157      5F415049 
- 2158              	.LASF23:
- 2159 034e 7066436F 		.ascii	"pfColor2Index\000"
- 2159      6C6F7232 
- 2159      496E6465 
- 2159      7800
- 2160              	.LASF65:
- 2161 035c 70665265 		.ascii	"pfReadM16_A0\000"
- 2161      61644D31 
- 2161      365F4130 
- 2161      00
- 2162              	.LASF22:
- 2163 0369 744C4344 		.ascii	"tLCDDEV_Color2IndexBulk\000"
- 2163      4445565F 
- 2163      436F6C6F 
- 2163      7232496E 
- 2163      64657842 
- 2164              	.LASF13:
- 2165 0381 63686172 		.ascii	"char\000"
- 2165      00
- 2166              	.LASF95:
- 2167 0386 4C43445F 		.ascii	"LCD_SetVSizeEx\000"
- 2167      53657456 
- 2167      53697A65 
- 2167      457800
- 2168              	.LASF38:
- 2169 0395 44657669 		.ascii	"DeviceClassIndex\000"
- 2169      6365436C 
- 2169      61737349 
- 2169      6E646578 
- 2169      00
- 2170              	.LASF10:
- 2171 03a6 696E7433 		.ascii	"int32_t\000"
- 2171      325F7400 
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 46
+ 2150      64657832 
+ 2150      436F6C6F 
+ 2150      7200
+ 2151              	.LASF8:
+ 2152 02f7 756E7369 		.ascii	"unsigned int\000"
+ 2152      676E6564 
+ 2152      20696E74 
+ 2152      00
+ 2153              	.LASF44:
+ 2154 0304 70665365 		.ascii	"pfSetPixelIndex\000"
+ 2154      74506978 
+ 2154      656C496E 
+ 2154      64657800 
+ 2155              	.LASF92:
+ 2156 0314 47554944 		.ascii	"GUIDRV_FlexColor_API\000"
+ 2156      52565F46 
+ 2156      6C657843 
+ 2156      6F6C6F72 
+ 2156      5F415049 
+ 2157              	.LASF23:
+ 2158 0329 7066436F 		.ascii	"pfColor2Index\000"
+ 2158      6C6F7232 
+ 2158      496E6465 
+ 2158      7800
+ 2159              	.LASF65:
+ 2160 0337 70665265 		.ascii	"pfReadM16_A0\000"
+ 2160      61644D31 
+ 2160      365F4130 
+ 2160      00
+ 2161              	.LASF22:
+ 2162 0344 744C4344 		.ascii	"tLCDDEV_Color2IndexBulk\000"
+ 2162      4445565F 
+ 2162      436F6C6F 
+ 2162      7232496E 
+ 2162      64657842 
+ 2163              	.LASF13:
+ 2164 035c 63686172 		.ascii	"char\000"
+ 2164      00
+ 2165              	.LASF95:
+ 2166 0361 4C43445F 		.ascii	"LCD_SetVSizeEx\000"
+ 2166      53657456 
+ 2166      53697A65 
+ 2166      457800
+ 2167              	.LASF38:
+ 2168 0370 44657669 		.ascii	"DeviceClassIndex\000"
+ 2168      6365436C 
+ 2168      61737349 
+ 2168      6E646578 
+ 2168      00
+ 2169              	.LASF10:
+ 2170 0381 696E7433 		.ascii	"int32_t\000"
+ 2170      325F7400 
+ 2171              	.LASF82:
+ 2172 0389 4F726965 		.ascii	"Orientation\000"
+ 2172      6E746174 
+ 2172      696F6E00 
+ 2173              	.LASF30:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 46
 
 
- 2172              	.LASF82:
- 2173 03ae 4F726965 		.ascii	"Orientation\000"
- 2173      6E746174 
- 2173      696F6E00 
- 2174              	.LASF30:
- 2175 03ba 4755495F 		.ascii	"GUI_DEVICE\000"
- 2175      44455649 
- 2175      434500
- 2176              	.LASF28:
- 2177 03c5 7066496E 		.ascii	"pfIndex2ColorBulk\000"
- 2177      64657832 
- 2177      436F6C6F 
- 2177      7242756C 
- 2177      6B00
- 2178              	.LASF57:
- 2179 03d7 70665265 		.ascii	"pfReadM8_A0\000"
- 2179      61644D38 
- 2179      5F413000 
- 2180              	.LASF67:
- 2181 03e3 70665772 		.ascii	"pfWrite32_A0\000"
- 2181      69746533 
- 2181      325F4130 
- 2181      00
- 2182              	.LASF53:
- 2183 03f0 70665772 		.ascii	"pfWriteM8_A0\000"
- 2183      6974654D 
- 2183      385F4130 
- 2183      00
- 2184              	.LASF79:
- 2185 03fd 70436F6E 		.ascii	"pContext\000"
- 2185      74657874 
- 2185      00
- 2186              	.LASF39:
- 2187 0406 70664472 		.ascii	"pfDrawBitmap\000"
- 2187      61774269 
- 2187      746D6170 
- 2187      00
- 2188              	.LASF3:
- 2189 0413 73686F72 		.ascii	"short unsigned int\000"
- 2189      7420756E 
- 2189      7369676E 
- 2189      65642069 
- 2189      6E7400
- 2190              	.LASF47:
- 2191 0426 70664765 		.ascii	"pfGetDevFunc\000"
- 2191      74446576 
- 2191      46756E63 
- 2191      00
- 2192              	.LASF77:
- 2193 0433 4755495F 		.ascii	"GUI_PORT_API\000"
- 2193      504F5254 
- 2193      5F415049 
- 2193      00
- 2194              	.LASF5:
- 2195 0440 6C6F6E67 		.ascii	"long unsigned int\000"
- 2195      20756E73 
- 2195      69676E65 
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 47
+ 2174 0395 4755495F 		.ascii	"GUI_DEVICE\000"
+ 2174      44455649 
+ 2174      434500
+ 2175              	.LASF28:
+ 2176 03a0 7066496E 		.ascii	"pfIndex2ColorBulk\000"
+ 2176      64657832 
+ 2176      436F6C6F 
+ 2176      7242756C 
+ 2176      6B00
+ 2177              	.LASF57:
+ 2178 03b2 70665265 		.ascii	"pfReadM8_A0\000"
+ 2178      61644D38 
+ 2178      5F413000 
+ 2179              	.LASF67:
+ 2180 03be 70665772 		.ascii	"pfWrite32_A0\000"
+ 2180      69746533 
+ 2180      325F4130 
+ 2180      00
+ 2181              	.LASF53:
+ 2182 03cb 70665772 		.ascii	"pfWriteM8_A0\000"
+ 2182      6974654D 
+ 2182      385F4130 
+ 2182      00
+ 2183              	.LASF79:
+ 2184 03d8 70436F6E 		.ascii	"pContext\000"
+ 2184      74657874 
+ 2184      00
+ 2185              	.LASF39:
+ 2186 03e1 70664472 		.ascii	"pfDrawBitmap\000"
+ 2186      61774269 
+ 2186      746D6170 
+ 2186      00
+ 2187              	.LASF3:
+ 2188 03ee 73686F72 		.ascii	"short unsigned int\000"
+ 2188      7420756E 
+ 2188      7369676E 
+ 2188      65642069 
+ 2188      6E7400
+ 2189              	.LASF47:
+ 2190 0401 70664765 		.ascii	"pfGetDevFunc\000"
+ 2190      74446576 
+ 2190      46756E63 
+ 2190      00
+ 2191              	.LASF77:
+ 2192 040e 4755495F 		.ascii	"GUI_PORT_API\000"
+ 2192      504F5254 
+ 2192      5F415049 
+ 2192      00
+ 2193              	.LASF5:
+ 2194 041b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2194      20756E73 
+ 2194      69676E65 
+ 2194      6420696E 
+ 2194      7400
+ 2195              	.LASF12:
+ 2196 042d 646F7562 		.ascii	"double\000"
+ 2196      6C6500
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 47
 
 
- 2195      6420696E 
- 2195      7400
- 2196              	.LASF12:
- 2197 0452 646F7562 		.ascii	"double\000"
- 2197      6C6500
- 2198              	.LASF51:
- 2199 0459 70665772 		.ascii	"pfWrite8_A0\000"
- 2199      69746538 
- 2199      5F413000 
- 2200              	.LASF52:
- 2201 0465 70665772 		.ascii	"pfWrite8_A1\000"
- 2201      69746538 
- 2201      5F413100 
- 2202              	.LASF68:
- 2203 0471 70665772 		.ascii	"pfWrite32_A1\000"
- 2203      69746533 
- 2203      325F4131 
- 2203      00
- 2204              	.LASF97:
- 2205 047e 47554944 		.ascii	"GUIDRV_FlexColor_Config\000"
- 2205      52565F46 
- 2205      6C657843 
- 2205      6F6C6F72 
- 2205      5F436F6E 
- 2206              	.LASF66:
- 2207 0496 70665265 		.ascii	"pfReadM16_A1\000"
- 2207      61644D31 
- 2207      365F4131 
- 2207      00
- 2208              	.LASF100:
- 2209 04a3 2E5C4C43 		.ascii	".\\LCDConf.c\000"
- 2209      44436F6E 
- 2209      662E6300 
- 2210              	.LASF76:
- 2211 04af 7066466C 		.ascii	"pfFlushBuffer\000"
- 2211      75736842 
- 2211      75666665 
- 2211      7200
- 2212              	.LASF9:
- 2213 04bd 5F5F696E 		.ascii	"__int32_t\000"
- 2213      7433325F 
- 2213      7400
- 2214              	.LASF55:
- 2215 04c7 70665265 		.ascii	"pfRead8_A0\000"
- 2215      6164385F 
- 2215      413000
- 2216              	.LASF56:
- 2217 04d2 70665265 		.ascii	"pfRead8_A1\000"
- 2217      6164385F 
- 2217      413100
- 2218              	.LASF45:
- 2219 04dd 7066586F 		.ascii	"pfXorPixel\000"
- 2219      72506978 
- 2219      656C00
- 2220              	.LASF91:
- 2221 04e8 4C43445F 		.ascii	"LCD_API_ColorConv_565\000"
- 2221      4150495F 
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 48
+ 2197              	.LASF51:
+ 2198 0434 70665772 		.ascii	"pfWrite8_A0\000"
+ 2198      69746538 
+ 2198      5F413000 
+ 2199              	.LASF52:
+ 2200 0440 70665772 		.ascii	"pfWrite8_A1\000"
+ 2200      69746538 
+ 2200      5F413100 
+ 2201              	.LASF68:
+ 2202 044c 70665772 		.ascii	"pfWrite32_A1\000"
+ 2202      69746533 
+ 2202      325F4131 
+ 2202      00
+ 2203              	.LASF97:
+ 2204 0459 47554944 		.ascii	"GUIDRV_FlexColor_Config\000"
+ 2204      52565F46 
+ 2204      6C657843 
+ 2204      6F6C6F72 
+ 2204      5F436F6E 
+ 2205              	.LASF66:
+ 2206 0471 70665265 		.ascii	"pfReadM16_A1\000"
+ 2206      61644D31 
+ 2206      365F4131 
+ 2206      00
+ 2207              	.LASF100:
+ 2208 047e 2E5C4C43 		.ascii	".\\LCDConf.c\000"
+ 2208      44436F6E 
+ 2208      662E6300 
+ 2209              	.LASF76:
+ 2210 048a 7066466C 		.ascii	"pfFlushBuffer\000"
+ 2210      75736842 
+ 2210      75666665 
+ 2210      7200
+ 2211              	.LASF9:
+ 2212 0498 5F5F696E 		.ascii	"__int32_t\000"
+ 2212      7433325F 
+ 2212      7400
+ 2213              	.LASF55:
+ 2214 04a2 70665265 		.ascii	"pfRead8_A0\000"
+ 2214      6164385F 
+ 2214      413000
+ 2215              	.LASF56:
+ 2216 04ad 70665265 		.ascii	"pfRead8_A1\000"
+ 2216      6164385F 
+ 2216      413100
+ 2217              	.LASF45:
+ 2218 04b8 7066586F 		.ascii	"pfXorPixel\000"
+ 2218      72506978 
+ 2218      656C00
+ 2219              	.LASF91:
+ 2220 04c3 4C43445F 		.ascii	"LCD_API_ColorConv_565\000"
+ 2220      4150495F 
+ 2220      436F6C6F 
+ 2220      72436F6E 
+ 2220      765F3536 
+ 2221              	.LASF46:
+ 2222 04d9 70665365 		.ascii	"pfSetOrg\000"
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 48
 
 
- 2221      436F6C6F 
- 2221      72436F6E 
- 2221      765F3536 
- 2222              	.LASF46:
- 2223 04fe 70665365 		.ascii	"pfSetOrg\000"
- 2223      744F7267 
- 2223      00
- 2224              	.LASF59:
- 2225 0507 70665772 		.ascii	"pfWrite16_A0\000"
- 2225      69746531 
- 2225      365F4130 
- 2225      00
- 2226              	.LASF60:
- 2227 0514 70665772 		.ascii	"pfWrite16_A1\000"
- 2227      69746531 
- 2227      365F4131 
- 2227      00
- 2228              	.LASF21:
- 2229 0521 744C4344 		.ascii	"tLCDDEV_Index2ColorBulk\000"
- 2229      4445565F 
- 2229      496E6465 
- 2229      7832436F 
- 2229      6C6F7242 
- 2230              	.LASF99:
- 2231 0539 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 2231      4320342E 
- 2231      392E3320 
- 2231      32303135 
- 2231      30333033 
- 2232 056c 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 2232      20726576 
- 2232      6973696F 
- 2232      6E203232 
- 2232      31323230 
- 2233 059f 67202D73 		.ascii	"g -std=gnu11 -ffunction-sections -ffat-lto-objects\000"
- 2233      74643D67 
- 2233      6E753131 
- 2233      202D6666 
- 2233      756E6374 
- 2234              	.LASF18:
- 2235 05d2 744C4344 		.ascii	"tLCDDEV_Index2Color\000"
- 2235      4445565F 
- 2235      496E6465 
- 2235      7832436F 
- 2235      6C6F7200 
- 2236              	.LASF105:
- 2237 05e6 74667453 		.ascii	"tftStart\000"
- 2237      74617274 
- 2237      00
- 2238              	.LASF90:
- 2239 05ef 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 2239      52784275 
- 2239      66666572 
- 2239      00
- 2240              	.LASF81:
- 2241 05fc 46697273 		.ascii	"FirstCOM\000"
- 2241      74434F4D 
-ARM GAS  C:\Users\student\AppData\Local\Temp\ccBPIHO8.s 			page 49
+ 2222      744F7267 
+ 2222      00
+ 2223              	.LASF59:
+ 2224 04e2 70665772 		.ascii	"pfWrite16_A0\000"
+ 2224      69746531 
+ 2224      365F4130 
+ 2224      00
+ 2225              	.LASF60:
+ 2226 04ef 70665772 		.ascii	"pfWrite16_A1\000"
+ 2226      69746531 
+ 2226      365F4131 
+ 2226      00
+ 2227              	.LASF21:
+ 2228 04fc 744C4344 		.ascii	"tLCDDEV_Index2ColorBulk\000"
+ 2228      4445565F 
+ 2228      496E6465 
+ 2228      7832436F 
+ 2228      6C6F7242 
+ 2229              	.LASF99:
+ 2230 0514 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2230      4320342E 
+ 2230      392E3320 
+ 2230      32303135 
+ 2230      30333033 
+ 2231 0547 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2231      20726576 
+ 2231      6973696F 
+ 2231      6E203232 
+ 2231      31323230 
+ 2232 057a 67202D73 		.ascii	"g -std=gnu11 -ffunction-sections -ffat-lto-objects\000"
+ 2232      74643D67 
+ 2232      6E753131 
+ 2232      202D6666 
+ 2232      756E6374 
+ 2233              	.LASF18:
+ 2234 05ad 744C4344 		.ascii	"tLCDDEV_Index2Color\000"
+ 2234      4445565F 
+ 2234      496E6465 
+ 2234      7832436F 
+ 2234      6C6F7200 
+ 2235              	.LASF105:
+ 2236 05c1 74667453 		.ascii	"tftStart\000"
+ 2236      74617274 
+ 2236      00
+ 2237              	.LASF90:
+ 2238 05ca 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2238      52784275 
+ 2238      66666572 
+ 2238      00
+ 2239              	.LASF81:
+ 2240 05d7 46697273 		.ascii	"FirstCOM\000"
+ 2240      74434F4D 
+ 2240      00
+ 2241              	.LASF85:
+ 2242 05e0 434F4E46 		.ascii	"CONFIG_FLEXCOLOR\000"
+ 2242      49475F46 
+ 2242      4C455843 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccqZlBkQ.s 			page 49
 
 
- 2241      00
- 2242              	.LASF85:
- 2243 0605 434F4E46 		.ascii	"CONFIG_FLEXCOLOR\000"
- 2243      49475F46 
- 2243      4C455843 
- 2243      4F4C4F52 
- 2243      00
- 2244              	.LASF86:
- 2245 0616 70446576 		.ascii	"pDevice\000"
- 2245      69636500 
- 2246              	.LASF48:
- 2247 061e 70664765 		.ascii	"pfGetDevProp\000"
- 2247      74446576 
- 2247      50726F70 
- 2247      00
- 2248              	.LASF19:
- 2249 062b 744C4344 		.ascii	"tLCDDEV_Color2Index\000"
- 2249      4445565F 
- 2249      436F6C6F 
- 2249      7232496E 
- 2249      64657800 
- 2250              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 2242      4F4C4F52 
+ 2242      00
+ 2243              	.LASF86:
+ 2244 05f1 70446576 		.ascii	"pDevice\000"
+ 2244      69636500 
+ 2245              	.LASF48:
+ 2246 05f9 70664765 		.ascii	"pfGetDevProp\000"
+ 2246      74446576 
+ 2246      50726F70 
+ 2246      00
+ 2247              	.LASF19:
+ 2248 0606 744C4344 		.ascii	"tLCDDEV_Color2Index\000"
+ 2248      4445565F 
+ 2248      436F6C6F 
+ 2248      7232496E 
+ 2248      64657800 
+ 2249              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

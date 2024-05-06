@@ -20,4 +20,8 @@ int Connect4Board_GetColumnPos(int column);
 
 void Connect4Board_DrawGrid(uint16 columns, uint16 rows);
 
+void Connect4Board_Place(uint16 column, uint16 player);
+
+void Connect4Board_ClearHighlight();
+
 /* [] END OF FILE */

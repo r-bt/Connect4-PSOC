@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 1
 
 
    1              		.syntax unified
@@ -53,18 +53,20 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
   24:.\Connect4Board.c **** int num_columns;
   25:.\Connect4Board.c **** int num_rows;
   26:.\Connect4Board.c **** 
-  27:.\Connect4Board.c **** uint16 WIDTH;
-  28:.\Connect4Board.c **** uint16 HEIGHT;
-  29:.\Connect4Board.c **** 
-  30:.\Connect4Board.c **** int prev_selected = 7;               
+  27:.\Connect4Board.c **** int placed_heights[] = {0,0,0,0,0,0,0};
+  28:.\Connect4Board.c **** 
+  29:.\Connect4Board.c **** uint16 WIDTH;
+  30:.\Connect4Board.c **** uint16 HEIGHT;
   31:.\Connect4Board.c **** 
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 2
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 2
 
 
-  32:.\Connect4Board.c **** #define GUI_HIGHLIGHT GUI_MAKE_COLOR(0xFCF7DE)
+  32:.\Connect4Board.c **** int prev_selected = 7;               
   33:.\Connect4Board.c **** 
-  34:.\Connect4Board.c **** void Connect4Board_DrawGrid(uint16 columns, uint16 rows) {
-  27              		.loc 1 34 0
+  34:.\Connect4Board.c **** #define GUI_HIGHLIGHT GUI_MAKE_COLOR(0xFCF7DE)
+  35:.\Connect4Board.c **** 
+  36:.\Connect4Board.c **** void Connect4Board_DrawGrid(uint16 columns, uint16 rows) {
+  27              		.loc 1 36 0
   28              		.cfi_startproc
   29              		@ args = 0, pretend = 0, frame = 0
   30              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -77,16 +79,16 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
   37              		.cfi_offset 14, -4
   38 0002 0446     		mov	r4, r0
   39 0004 0D46     		mov	r5, r1
-  35:.\Connect4Board.c ****     // Draw the Connect 4 Board
-  36:.\Connect4Board.c ****     GUI_SetColor(GUI_BLUE);
-  40              		.loc 1 36 0
+  37:.\Connect4Board.c ****     // Draw the Connect 4 Board
+  38:.\Connect4Board.c ****     GUI_SetColor(GUI_BLUE);
+  40              		.loc 1 38 0
   41 0006 4FF47F00 		mov	r0, #16711680
   42              	.LVL1:
   43 000a FFF7FEFF 		bl	GUI_SetColor
   44              	.LVL2:
-  37:.\Connect4Board.c ****     
-  38:.\Connect4Board.c ****     column_width = (WIDTH - WALL_THICKNESS * (columns - 1)) / columns;
-  45              		.loc 1 38 0
+  39:.\Connect4Board.c ****     
+  40:.\Connect4Board.c ****     column_width = (WIDTH - WALL_THICKNESS * (columns - 1)) / columns;
+  45              		.loc 1 40 0
   46 000e 2646     		mov	r6, r4
   47 0010 C4F10100 		rsb	r0, r4, #1
   48 0014 1C4B     		ldr	r3, .L7
@@ -95,8 +97,8 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
   51 001c 90FBF4F0 		sdiv	r0, r0, r4
   52 0020 1A4B     		ldr	r3, .L7+4
   53 0022 1860     		str	r0, [r3]
-  39:.\Connect4Board.c ****     row_height = (HEIGHT - WALL_THICKNESS * (rows - 1)) / rows;
-  54              		.loc 1 39 0
+  41:.\Connect4Board.c ****     row_height = (HEIGHT - WALL_THICKNESS * (rows - 1)) / rows;
+  54              		.loc 1 41 0
   55 0024 2C46     		mov	r4, r5
   56 0026 C5F10101 		rsb	r1, r5, #1
   57 002a 194B     		ldr	r3, .L7+8
@@ -107,28 +109,28 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
   62 0038 1960     		str	r1, [r3]
   63              	.LVL3:
   64              	.LBB2:
-  40:.\Connect4Board.c ****     
-  41:.\Connect4Board.c ****     for (int i = 0; i < columns - 1; i++) {
-  65              		.loc 1 41 0
+  42:.\Connect4Board.c ****     
+  43:.\Connect4Board.c ****     for (int i = 0; i < columns - 1; i++) {
+  65              		.loc 1 43 0
   66 003a 0023     		movs	r3, #0
   67 003c 0DE0     		b	.L2
   68              	.LVL4:
   69              	.L3:
   70              	.LBB3:
-  42:.\Connect4Board.c ****         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
-  71              		.loc 1 42 0 discriminator 3
+  44:.\Connect4Board.c ****         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 3
+
+
+  71              		.loc 1 44 0 discriminator 3
   72 003e 5D1C     		adds	r5, r3, #1
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 3
-
-
   73 0040 124A     		ldr	r2, .L7+4
   74 0042 1268     		ldr	r2, [r2]
   75 0044 5B00     		lsls	r3, r3, #1
   76              	.LVL5:
   77 0046 02FB0532 		mla	r2, r2, r5, r3
   78              	.LVL6:
-  43:.\Connect4Board.c ****         GUI_FillRect(wall_pos_x, 0, wall_pos_x + WALL_THICKNESS, HEIGHT);
-  79              		.loc 1 43 0 discriminator 3
+  45:.\Connect4Board.c ****         GUI_FillRect(wall_pos_x, 0, wall_pos_x + WALL_THICKNESS, HEIGHT);
+  79              		.loc 1 45 0 discriminator 3
   80 004a 1046     		mov	r0, r2
   81 004c 0021     		movs	r1, #0
   82 004e 0232     		adds	r2, r2, #2
@@ -138,13 +140,13 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
   86 0054 FFF7FEFF 		bl	GUI_FillRect
   87              	.LVL8:
   88              	.LBE3:
-  41:.\Connect4Board.c ****         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
-  89              		.loc 1 41 0 discriminator 3
+  43:.\Connect4Board.c ****         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
+  89              		.loc 1 43 0 discriminator 3
   90 0058 2B46     		mov	r3, r5
   91              	.LVL9:
   92              	.L2:
-  41:.\Connect4Board.c ****         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
-  93              		.loc 1 41 0 is_stmt 0 discriminator 1
+  43:.\Connect4Board.c ****         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
+  93              		.loc 1 43 0 is_stmt 0 discriminator 1
   94 005a 721E     		subs	r2, r6, #1
   95 005c 9A42     		cmp	r2, r3
   96 005e EEDC     		bgt	.L3
@@ -155,11 +157,11 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
  101              	.LBE2:
  102              	.LBB4:
  103              	.LBB5:
-  44:.\Connect4Board.c ****     }
-  45:.\Connect4Board.c ****     
-  46:.\Connect4Board.c ****     for (int j = 0; j < rows - 1; j++){
-  47:.\Connect4Board.c ****         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
- 104              		.loc 1 47 0 is_stmt 1 discriminator 3
+  46:.\Connect4Board.c ****     }
+  47:.\Connect4Board.c ****     
+  48:.\Connect4Board.c ****     for (int j = 0; j < rows - 1; j++){
+  49:.\Connect4Board.c ****         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
+ 104              		.loc 1 49 0 is_stmt 1 discriminator 3
  105 0064 551C     		adds	r5, r2, #1
  106 0066 0B4B     		ldr	r3, .L7+12
  107 0068 1B68     		ldr	r3, [r3]
@@ -167,8 +169,8 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
  109              	.LVL11:
  110 006c 03FB0523 		mla	r3, r3, r5, r2
  111              	.LVL12:
-  48:.\Connect4Board.c ****         GUI_FillRect(0, wall_pos_y, WIDTH, wall_pos_y + WALL_THICKNESS);
- 112              		.loc 1 48 0 discriminator 3
+  50:.\Connect4Board.c ****         GUI_FillRect(0, wall_pos_y, WIDTH, wall_pos_y + WALL_THICKNESS);
+ 112              		.loc 1 50 0 discriminator 3
  113 0070 0020     		movs	r0, #0
  114 0072 1946     		mov	r1, r3
  115 0074 044A     		ldr	r2, .L7
@@ -176,25 +178,25 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
  117 0078 0233     		adds	r3, r3, #2
  118              	.LVL13:
  119 007a FFF7FEFF 		bl	GUI_FillRect
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 4
+
+
  120              	.LVL14:
  121              	.LBE5:
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 4
-
-
-  46:.\Connect4Board.c ****         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
- 122              		.loc 1 46 0 discriminator 3
+  48:.\Connect4Board.c ****         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
+ 122              		.loc 1 48 0 discriminator 3
  123 007e 2A46     		mov	r2, r5
  124              	.LVL15:
  125              	.L4:
-  46:.\Connect4Board.c ****         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
- 126              		.loc 1 46 0 is_stmt 0 discriminator 1
+  48:.\Connect4Board.c ****         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
+ 126              		.loc 1 48 0 is_stmt 0 discriminator 1
  127 0080 631E     		subs	r3, r4, #1
  128 0082 9342     		cmp	r3, r2
  129 0084 EEDC     		bgt	.L5
  130              	.LBE4:
-  49:.\Connect4Board.c ****     }
-  50:.\Connect4Board.c **** }
- 131              		.loc 1 50 0 is_stmt 1
+  51:.\Connect4Board.c ****     }
+  52:.\Connect4Board.c **** }
+ 131              		.loc 1 52 0 is_stmt 1
  132 0086 70BD     		pop	{r4, r5, r6, pc}
  133              	.L8:
  134              		.align	2
@@ -214,9 +216,9 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
  148              		.type	Connect4Board_Init, %function
  149              	Connect4Board_Init:
  150              	.LFB64:
-  51:.\Connect4Board.c **** 
-  52:.\Connect4Board.c **** void Connect4Board_Init(uint16 columns, uint16 rows) {
- 151              		.loc 1 52 0
+  53:.\Connect4Board.c **** 
+  54:.\Connect4Board.c **** void Connect4Board_Init(uint16 columns, uint16 rows) {
+ 151              		.loc 1 54 0
  152              		.cfi_startproc
  153              		@ args = 0, pretend = 0, frame = 0
  154              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -227,1836 +229,2346 @@ ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 1
  159              		.cfi_offset 4, -12
  160              		.cfi_offset 5, -8
  161              		.cfi_offset 14, -4
- 162 0002 0546     		mov	r5, r0
- 163 0004 0C46     		mov	r4, r1
-  53:.\Connect4Board.c ****     WIDTH = YSIZE_PHYS;
- 164              		.loc 1 53 0
+ 162 0002 0446     		mov	r4, r0
+ 163 0004 0D46     		mov	r5, r1
+  55:.\Connect4Board.c ****     WIDTH = YSIZE_PHYS;
+ 164              		.loc 1 55 0
  165 0006 4FF4A072 		mov	r2, #320
- 166 000a 0A4B     		ldr	r3, .L11
+ 166 000a 0E4B     		ldr	r3, .L13
  167 000c 1A80     		strh	r2, [r3]	@ movhi
-  54:.\Connect4Board.c ****     HEIGHT = XSIZE_PHYS;
- 168              		.loc 1 54 0
+  56:.\Connect4Board.c ****     HEIGHT = XSIZE_PHYS;
+ 168              		.loc 1 56 0
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 5
+
+
  169 000e F022     		movs	r2, #240
- 170 0010 094B     		ldr	r3, .L11+4
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 5
-
-
+ 170 0010 0D4B     		ldr	r3, .L13+4
  171 0012 1A80     		strh	r2, [r3]	@ movhi
-  55:.\Connect4Board.c ****     
-  56:.\Connect4Board.c ****     num_columns = columns;
- 172              		.loc 1 56 0
- 173 0014 094B     		ldr	r3, .L11+8
- 174 0016 1860     		str	r0, [r3]
-  57:.\Connect4Board.c ****     num_rows = rows;
- 175              		.loc 1 57 0
- 176 0018 094B     		ldr	r3, .L11+12
+  57:.\Connect4Board.c ****     
+  58:.\Connect4Board.c ****     num_columns = columns;
+ 172              		.loc 1 58 0
+ 173 0014 0D4B     		ldr	r3, .L13+8
+ 174 0016 1C60     		str	r4, [r3]
+  59:.\Connect4Board.c ****     num_rows = rows;
+ 175              		.loc 1 59 0
+ 176 0018 0D4B     		ldr	r3, .L13+12
  177 001a 1960     		str	r1, [r3]
-  58:.\Connect4Board.c ****     
-  59:.\Connect4Board.c ****     // Clear the screen before we draw   
-  60:.\Connect4Board.c ****     GUI_SetBkColor(GUI_WHITE);
- 178              		.loc 1 60 0
- 179 001c 6FF07F40 		mvn	r0, #-16777216
- 180              	.LVL17:
- 181 0020 FFF7FEFF 		bl	GUI_SetBkColor
- 182              	.LVL18:
-  61:.\Connect4Board.c ****     GUI_Clear();
- 183              		.loc 1 61 0
- 184 0024 FFF7FEFF 		bl	GUI_Clear
- 185              	.LVL19:
-  62:.\Connect4Board.c ****     
-  63:.\Connect4Board.c ****     Connect4Board_DrawGrid(columns, rows);
- 186              		.loc 1 63 0
- 187 0028 2846     		mov	r0, r5
- 188 002a 2146     		mov	r1, r4
- 189 002c FFF7FEFF 		bl	Connect4Board_DrawGrid
- 190              	.LVL20:
- 191 0030 38BD     		pop	{r3, r4, r5, pc}
- 192              	.L12:
- 193 0032 00BF     		.align	2
- 194              	.L11:
- 195 0034 00000000 		.word	WIDTH
- 196 0038 00000000 		.word	HEIGHT
- 197 003c 00000000 		.word	num_columns
- 198 0040 00000000 		.word	num_rows
- 199              		.cfi_endproc
- 200              	.LFE64:
- 201              		.size	Connect4Board_Init, .-Connect4Board_Init
- 202              		.section	.text.Connect4Board_GetColumnPosX,"ax",%progbits
- 203              		.align	2
- 204              		.global	Connect4Board_GetColumnPosX
- 205              		.thumb
- 206              		.thumb_func
- 207              		.type	Connect4Board_GetColumnPosX, %function
- 208              	Connect4Board_GetColumnPosX:
- 209              	.LFB65:
-  64:.\Connect4Board.c **** }
-  65:.\Connect4Board.c **** 
-  66:.\Connect4Board.c **** int Connect4Board_GetColumnPosX(int column) {
- 210              		.loc 1 66 0
- 211              		.cfi_startproc
- 212              		@ args = 0, pretend = 0, frame = 0
- 213              		@ frame_needed = 0, uses_anonymous_args = 0
- 214              		@ link register save eliminated.
- 215              	.LVL21:
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 6
+ 178              	.LVL17:
+ 179              	.LBB6:
+  60:.\Connect4Board.c ****     
+  61:.\Connect4Board.c ****     for (int i = 0; i < columns; i++) {
+ 180              		.loc 1 61 0
+ 181 001c 0023     		movs	r3, #0
+ 182 001e 04E0     		b	.L10
+ 183              	.LVL18:
+ 184              	.L11:
+  62:.\Connect4Board.c ****         placed_heights[i] = 0;
+ 185              		.loc 1 62 0 discriminator 3
+ 186 0020 0021     		movs	r1, #0
+ 187 0022 0C4A     		ldr	r2, .L13+16
+ 188 0024 42F82310 		str	r1, [r2, r3, lsl #2]
+  61:.\Connect4Board.c ****         placed_heights[i] = 0;
+ 189              		.loc 1 61 0 discriminator 3
+ 190 0028 0133     		adds	r3, r3, #1
+ 191              	.LVL19:
+ 192              	.L10:
+  61:.\Connect4Board.c ****         placed_heights[i] = 0;
+ 193              		.loc 1 61 0 is_stmt 0 discriminator 1
+ 194 002a 8342     		cmp	r3, r0
+ 195 002c F8DB     		blt	.L11
+ 196              	.LBE6:
+  63:.\Connect4Board.c ****     }
+  64:.\Connect4Board.c ****     
+  65:.\Connect4Board.c ****     // Clear the screen before we draw   
+  66:.\Connect4Board.c ****     GUI_SetBkColor(GUI_WHITE);
+ 197              		.loc 1 66 0 is_stmt 1
+ 198 002e 6FF07F40 		mvn	r0, #-16777216
+ 199              	.LVL20:
+ 200 0032 FFF7FEFF 		bl	GUI_SetBkColor
+ 201              	.LVL21:
+  67:.\Connect4Board.c ****     GUI_Clear();
+ 202              		.loc 1 67 0
+ 203 0036 FFF7FEFF 		bl	GUI_Clear
+ 204              	.LVL22:
+  68:.\Connect4Board.c ****     
+  69:.\Connect4Board.c ****     Connect4Board_DrawGrid(columns, rows);
+ 205              		.loc 1 69 0
+ 206 003a 2046     		mov	r0, r4
+ 207 003c 2946     		mov	r1, r5
+ 208 003e FFF7FEFF 		bl	Connect4Board_DrawGrid
+ 209              	.LVL23:
+ 210 0042 38BD     		pop	{r3, r4, r5, pc}
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 6
 
 
-  67:.\Connect4Board.c ****     return column_width * (column) + WALL_THICKNESS * column;
- 216              		.loc 1 67 0
- 217 0000 024B     		ldr	r3, .L14
- 218 0002 1B68     		ldr	r3, [r3]
- 219 0004 0233     		adds	r3, r3, #2
-  68:.\Connect4Board.c **** }
- 220              		.loc 1 68 0
- 221 0006 00FB03F0 		mul	r0, r0, r3
- 222              	.LVL22:
- 223 000a 7047     		bx	lr
- 224              	.L15:
- 225              		.align	2
- 226              	.L14:
- 227 000c 00000000 		.word	column_width
- 228              		.cfi_endproc
- 229              	.LFE65:
- 230              		.size	Connect4Board_GetColumnPosX, .-Connect4Board_GetColumnPosX
- 231              		.section	.text.Connect4Board_GetRowPosY,"ax",%progbits
- 232              		.align	2
- 233              		.global	Connect4Board_GetRowPosY
- 234              		.thumb
- 235              		.thumb_func
- 236              		.type	Connect4Board_GetRowPosY, %function
- 237              	Connect4Board_GetRowPosY:
- 238              	.LFB66:
-  69:.\Connect4Board.c **** 
-  70:.\Connect4Board.c **** int Connect4Board_GetRowPosY(int row) {
- 239              		.loc 1 70 0
- 240              		.cfi_startproc
- 241              		@ args = 0, pretend = 0, frame = 0
- 242              		@ frame_needed = 0, uses_anonymous_args = 0
- 243              		@ link register save eliminated.
- 244              	.LVL23:
-  71:.\Connect4Board.c ****     return row_height * (row) + WALL_THICKNESS * row;
- 245              		.loc 1 71 0
- 246 0000 024B     		ldr	r3, .L17
- 247 0002 1B68     		ldr	r3, [r3]
- 248 0004 0233     		adds	r3, r3, #2
-  72:.\Connect4Board.c **** }
- 249              		.loc 1 72 0
- 250 0006 00FB03F0 		mul	r0, r0, r3
- 251              	.LVL24:
- 252 000a 7047     		bx	lr
- 253              	.L18:
- 254              		.align	2
- 255              	.L17:
- 256 000c 00000000 		.word	row_height
- 257              		.cfi_endproc
- 258              	.LFE66:
- 259              		.size	Connect4Board_GetRowPosY, .-Connect4Board_GetRowPosY
- 260              		.section	.text.Connect4Board_HighlightColumn,"ax",%progbits
- 261              		.align	2
- 262              		.global	Connect4Board_HighlightColumn
- 263              		.thumb
- 264              		.thumb_func
- 265              		.type	Connect4Board_HighlightColumn, %function
- 266              	Connect4Board_HighlightColumn:
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 7
+ 211              	.L14:
+ 212              		.align	2
+ 213              	.L13:
+ 214 0044 00000000 		.word	WIDTH
+ 215 0048 00000000 		.word	HEIGHT
+ 216 004c 00000000 		.word	num_columns
+ 217 0050 00000000 		.word	num_rows
+ 218 0054 00000000 		.word	.LANCHOR0
+ 219              		.cfi_endproc
+ 220              	.LFE64:
+ 221              		.size	Connect4Board_Init, .-Connect4Board_Init
+ 222              		.section	.text.Connect4Board_GetColumnPosX,"ax",%progbits
+ 223              		.align	2
+ 224              		.global	Connect4Board_GetColumnPosX
+ 225              		.thumb
+ 226              		.thumb_func
+ 227              		.type	Connect4Board_GetColumnPosX, %function
+ 228              	Connect4Board_GetColumnPosX:
+ 229              	.LFB65:
+  70:.\Connect4Board.c **** }
+  71:.\Connect4Board.c **** 
+  72:.\Connect4Board.c **** int Connect4Board_GetColumnPosX(int column) {
+ 230              		.loc 1 72 0
+ 231              		.cfi_startproc
+ 232              		@ args = 0, pretend = 0, frame = 0
+ 233              		@ frame_needed = 0, uses_anonymous_args = 0
+ 234              		@ link register save eliminated.
+ 235              	.LVL24:
+  73:.\Connect4Board.c ****     return column_width * (column) + WALL_THICKNESS * column;
+ 236              		.loc 1 73 0
+ 237 0000 024B     		ldr	r3, .L16
+ 238 0002 1B68     		ldr	r3, [r3]
+ 239 0004 0233     		adds	r3, r3, #2
+  74:.\Connect4Board.c **** }
+ 240              		.loc 1 74 0
+ 241 0006 00FB03F0 		mul	r0, r0, r3
+ 242              	.LVL25:
+ 243 000a 7047     		bx	lr
+ 244              	.L17:
+ 245              		.align	2
+ 246              	.L16:
+ 247 000c 00000000 		.word	column_width
+ 248              		.cfi_endproc
+ 249              	.LFE65:
+ 250              		.size	Connect4Board_GetColumnPosX, .-Connect4Board_GetColumnPosX
+ 251              		.section	.text.Connect4Board_GetRowPosY,"ax",%progbits
+ 252              		.align	2
+ 253              		.global	Connect4Board_GetRowPosY
+ 254              		.thumb
+ 255              		.thumb_func
+ 256              		.type	Connect4Board_GetRowPosY, %function
+ 257              	Connect4Board_GetRowPosY:
+ 258              	.LFB66:
+  75:.\Connect4Board.c **** 
+  76:.\Connect4Board.c **** int Connect4Board_GetRowPosY(int row) {
+ 259              		.loc 1 76 0
+ 260              		.cfi_startproc
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 7
 
 
- 267              	.LFB67:
-  73:.\Connect4Board.c **** 
-  74:.\Connect4Board.c **** void Connect4Board_HighlightColumn(uint16 column) {
- 268              		.loc 1 74 0
- 269              		.cfi_startproc
- 270              		@ args = 0, pretend = 0, frame = 16
- 271              		@ frame_needed = 0, uses_anonymous_args = 0
- 272              	.LVL25:
-  75:.\Connect4Board.c ****     
-  76:.\Connect4Board.c ****     if (prev_selected == column) return;
- 273              		.loc 1 76 0
- 274 0000 2B4B     		ldr	r3, .L25
- 275 0002 1B68     		ldr	r3, [r3]
- 276 0004 9842     		cmp	r0, r3
- 277 0006 52D0     		beq	.L24
-  74:.\Connect4Board.c ****     
- 278              		.loc 1 74 0
- 279 0008 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 280              		.cfi_def_cfa_offset 36
- 281              		.cfi_offset 4, -36
- 282              		.cfi_offset 5, -32
- 283              		.cfi_offset 6, -28
- 284              		.cfi_offset 7, -24
- 285              		.cfi_offset 8, -20
- 286              		.cfi_offset 9, -16
- 287              		.cfi_offset 10, -12
- 288              		.cfi_offset 11, -8
- 289              		.cfi_offset 14, -4
- 290 000c 85B0     		sub	sp, sp, #20
- 291              		.cfi_def_cfa_offset 56
- 292 000e 0446     		mov	r4, r0
- 293 0010 0390     		str	r0, [sp, #12]
-  77:.\Connect4Board.c ****     
-  78:.\Connect4Board.c ****     int prev_column_pos_x = Connect4Board_GetColumnPosX(prev_selected);
- 294              		.loc 1 78 0
- 295 0012 1846     		mov	r0, r3
- 296              	.LVL26:
- 297 0014 FFF7FEFF 		bl	Connect4Board_GetColumnPosX
- 298              	.LVL27:
- 299 0018 8246     		mov	r10, r0
- 300              	.LVL28:
-  79:.\Connect4Board.c ****     int column_pos_x = Connect4Board_GetColumnPosX(column);
- 301              		.loc 1 79 0
- 302 001a 2046     		mov	r0, r4
- 303              	.LVL29:
- 304 001c FFF7FEFF 		bl	Connect4Board_GetColumnPosX
- 305              	.LVL30:
-  80:.\Connect4Board.c ****     
-  81:.\Connect4Board.c ****     // To ensure highlights don't collide with walls we need offsets
+ 261              		@ args = 0, pretend = 0, frame = 0
+ 262              		@ frame_needed = 0, uses_anonymous_args = 0
+ 263              		@ link register save eliminated.
+ 264              	.LVL26:
+  77:.\Connect4Board.c ****     return row_height * (row) + WALL_THICKNESS * row;
+ 265              		.loc 1 77 0
+ 266 0000 024B     		ldr	r3, .L19
+ 267 0002 1B68     		ldr	r3, [r3]
+ 268 0004 0233     		adds	r3, r3, #2
+  78:.\Connect4Board.c **** }
+ 269              		.loc 1 78 0
+ 270 0006 00FB03F0 		mul	r0, r0, r3
+ 271              	.LVL27:
+ 272 000a 7047     		bx	lr
+ 273              	.L20:
+ 274              		.align	2
+ 275              	.L19:
+ 276 000c 00000000 		.word	row_height
+ 277              		.cfi_endproc
+ 278              	.LFE66:
+ 279              		.size	Connect4Board_GetRowPosY, .-Connect4Board_GetRowPosY
+ 280              		.section	.text.Connect4Board_ClearHighlight,"ax",%progbits
+ 281              		.align	2
+ 282              		.global	Connect4Board_ClearHighlight
+ 283              		.thumb
+ 284              		.thumb_func
+ 285              		.type	Connect4Board_ClearHighlight, %function
+ 286              	Connect4Board_ClearHighlight:
+ 287              	.LFB67:
+  79:.\Connect4Board.c **** 
+  80:.\Connect4Board.c **** void Connect4Board_ClearHighlight() {
+ 288              		.loc 1 80 0
+ 289              		.cfi_startproc
+ 290              		@ args = 0, pretend = 0, frame = 0
+ 291              		@ frame_needed = 0, uses_anonymous_args = 0
+ 292 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 293              		.cfi_def_cfa_offset 24
+ 294              		.cfi_offset 4, -24
+ 295              		.cfi_offset 5, -20
+ 296              		.cfi_offset 6, -16
+ 297              		.cfi_offset 7, -12
+ 298              		.cfi_offset 8, -8
+ 299              		.cfi_offset 14, -4
+  81:.\Connect4Board.c ****     int prev_column_pos_x = Connect4Board_GetColumnPosX(prev_selected);
+ 300              		.loc 1 81 0
+ 301 0004 154B     		ldr	r3, .L23
+ 302 0006 1C68     		ldr	r4, [r3]
+ 303 0008 2046     		mov	r0, r4
+ 304 000a FFF7FEFF 		bl	Connect4Board_GetColumnPosX
+ 305              	.LVL28:
   82:.\Connect4Board.c ****     int prev_offset_x = (prev_column_pos_x == 0) ? 0 : 1;
  306              		.loc 1 82 0
- 307 0020 1AF10003 		adds	r3, r10, #0
- 308 0024 18BF     		it	ne
- 309 0026 0123     		movne	r3, #1
- 310 0028 0193     		str	r3, [sp, #4]
- 311              	.LVL31:
-  83:.\Connect4Board.c ****     int offset_x = (column_pos_x == 0) ? 0 : 1;
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 8
+ 307 000e 0646     		mov	r6, r0
+ 308 0010 071C     		adds	r7, r0, #0
+ 309 0012 18BF     		it	ne
+ 310 0014 0127     		movne	r7, #1
+ 311              	.LVL29:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 8
 
 
- 312              		.loc 1 83 0
- 313 002a 8346     		mov	fp, r0
- 314 002c 031C     		adds	r3, r0, #0
- 315              	.LVL32:
- 316 002e 18BF     		it	ne
- 317 0030 0123     		movne	r3, #1
- 318 0032 0293     		str	r3, [sp, #8]
- 319              	.LVL33:
- 320              	.LBB6:
-  84:.\Connect4Board.c ****     
-  85:.\Connect4Board.c ****     for (int i = 0; i < num_rows; i++) {
- 321              		.loc 1 85 0
- 322 0034 0026     		movs	r6, #0
- 323 0036 30E0     		b	.L21
- 324              	.LVL34:
- 325              	.L22:
- 326              	.LBB7:
-  86:.\Connect4Board.c ****         int pos_y = Connect4Board_GetRowPosY(i);
- 327              		.loc 1 86 0 discriminator 3
- 328 0038 3046     		mov	r0, r6
- 329 003a FFF7FEFF 		bl	Connect4Board_GetRowPosY
- 330              	.LVL35:
- 331 003e 0546     		mov	r5, r0
- 332              	.LVL36:
-  87:.\Connect4Board.c ****         int offset_y = (i == num_rows - 1) ? 0 : 1;
- 333              		.loc 1 87 0 discriminator 3
- 334 0040 013C     		subs	r4, r4, #1
- 335 0042 A41B     		subs	r4, r4, r6
- 336 0044 18BF     		it	ne
- 337 0046 0124     		movne	r4, #1
- 338              	.LVL37:
-  88:.\Connect4Board.c ****         
-  89:.\Connect4Board.c ****         // Clear the previous highlight
-  90:.\Connect4Board.c ****         GUI_SetColor(GUI_WHITE);
- 339              		.loc 1 90 0 discriminator 3
- 340 0048 6FF07F40 		mvn	r0, #-16777216
- 341              	.LVL38:
- 342 004c FFF7FEFF 		bl	GUI_SetColor
- 343              	.LVL39:
-  91:.\Connect4Board.c ****         GUI_FillRect(prev_column_pos_x + prev_offset_x, pos_y + 1, prev_column_pos_x + column_width
- 344              		.loc 1 91 0 discriminator 3
- 345 0050 6F1C     		adds	r7, r5, #1
- 346 0052 DFF86890 		ldr	r9, .L25+12
- 347 0056 D9F80020 		ldr	r2, [r9]
- 348 005a 5244     		add	r2, r2, r10
- 349 005c DFF86080 		ldr	r8, .L25+16
- 350 0060 D8F80030 		ldr	r3, [r8]
- 351 0064 2B44     		add	r3, r3, r5
- 352 0066 0199     		ldr	r1, [sp, #4]
- 353 0068 0AEB0100 		add	r0, r10, r1
- 354 006c 3946     		mov	r1, r7
- 355 006e 013A     		subs	r2, r2, #1
- 356 0070 1B1B     		subs	r3, r3, r4
- 357 0072 FFF7FEFF 		bl	GUI_FillRect
- 358              	.LVL40:
-  92:.\Connect4Board.c ****     
-  93:.\Connect4Board.c ****         // Draw the new highlight
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 9
+  83:.\Connect4Board.c ****     
+  84:.\Connect4Board.c ****     int row_index = 5 - (placed_heights[prev_selected]);
+ 312              		.loc 1 84 0
+ 313 0016 124B     		ldr	r3, .L23+4
+ 314 0018 53F82440 		ldr	r4, [r3, r4, lsl #2]
+ 315 001c C4F10505 		rsb	r5, r4, #5
+ 316              	.LVL30:
+  85:.\Connect4Board.c ****     
+  86:.\Connect4Board.c ****     int pos_y = Connect4Board_GetRowPosY(row_index);
+ 317              		.loc 1 86 0
+ 318 0020 2846     		mov	r0, r5
+ 319              	.LVL31:
+ 320 0022 FFF7FEFF 		bl	Connect4Board_GetRowPosY
+ 321              	.LVL32:
+ 322 0026 8046     		mov	r8, r0
+ 323              	.LVL33:
+  87:.\Connect4Board.c ****     int offset_y = (row_index == num_rows - 1) ? 0 : 1;
+ 324              		.loc 1 87 0
+ 325 0028 0E4B     		ldr	r3, .L23+8
+ 326 002a 1C68     		ldr	r4, [r3]
+ 327 002c 013C     		subs	r4, r4, #1
+ 328 002e 641B     		subs	r4, r4, r5
+ 329 0030 18BF     		it	ne
+ 330 0032 0124     		movne	r4, #1
+ 331              	.LVL34:
+  88:.\Connect4Board.c ****     
+  89:.\Connect4Board.c ****     // Clear the previous highlight
+  90:.\Connect4Board.c ****     GUI_SetColor(GUI_WHITE);
+ 332              		.loc 1 90 0
+ 333 0034 6FF07F40 		mvn	r0, #-16777216
+ 334              	.LVL35:
+ 335 0038 FFF7FEFF 		bl	GUI_SetColor
+ 336              	.LVL36:
+  91:.\Connect4Board.c ****     GUI_FillRect(prev_column_pos_x + prev_offset_x, pos_y + 1, prev_column_pos_x + column_width - 1
+ 337              		.loc 1 91 0
+ 338 003c 0A4B     		ldr	r3, .L23+12
+ 339 003e 1A68     		ldr	r2, [r3]
+ 340 0040 3244     		add	r2, r2, r6
+ 341 0042 0A4B     		ldr	r3, .L23+16
+ 342 0044 1B68     		ldr	r3, [r3]
+ 343 0046 4344     		add	r3, r3, r8
+ 344 0048 F019     		adds	r0, r6, r7
+ 345 004a 08F10101 		add	r1, r8, #1
+ 346 004e 013A     		subs	r2, r2, #1
+ 347 0050 1B1B     		subs	r3, r3, r4
+ 348 0052 FFF7FEFF 		bl	GUI_FillRect
+ 349              	.LVL37:
+ 350 0056 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 351              	.LVL38:
+ 352              	.L24:
+ 353 005a 00BF     		.align	2
+ 354              	.L23:
+ 355 005c 00000000 		.word	.LANCHOR1
+ 356 0060 00000000 		.word	.LANCHOR0
+ 357 0064 00000000 		.word	num_rows
+ 358 0068 00000000 		.word	column_width
+ 359 006c 00000000 		.word	row_height
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 9
 
 
-  94:.\Connect4Board.c ****         GUI_SetColor(GUI_HIGHLIGHT);
- 359              		.loc 1 94 0 discriminator 3
- 360 0076 0F48     		ldr	r0, .L25+4
- 361 0078 FFF7FEFF 		bl	GUI_SetColor
- 362              	.LVL41:
-  95:.\Connect4Board.c ****         GUI_FillRect(column_pos_x + offset_x, pos_y + 1, column_pos_x + column_width - 1, pos_y + r
- 363              		.loc 1 95 0 discriminator 3
- 364 007c D9F80020 		ldr	r2, [r9]
- 365 0080 5A44     		add	r2, r2, fp
- 366 0082 D8F80030 		ldr	r3, [r8]
- 367 0086 2B44     		add	r3, r3, r5
- 368 0088 0299     		ldr	r1, [sp, #8]
- 369 008a 0BEB0100 		add	r0, fp, r1
- 370 008e 3946     		mov	r1, r7
- 371 0090 013A     		subs	r2, r2, #1
- 372 0092 1B1B     		subs	r3, r3, r4
- 373 0094 FFF7FEFF 		bl	GUI_FillRect
- 374              	.LVL42:
- 375              	.LBE7:
-  85:.\Connect4Board.c ****         int pos_y = Connect4Board_GetRowPosY(i);
- 376              		.loc 1 85 0 discriminator 3
- 377 0098 0136     		adds	r6, r6, #1
- 378              	.LVL43:
- 379              	.L21:
-  85:.\Connect4Board.c ****         int pos_y = Connect4Board_GetRowPosY(i);
- 380              		.loc 1 85 0 is_stmt 0 discriminator 1
- 381 009a 074B     		ldr	r3, .L25+8
- 382 009c 1C68     		ldr	r4, [r3]
- 383 009e A642     		cmp	r6, r4
- 384 00a0 CADB     		blt	.L22
- 385              	.LBE6:
-  96:.\Connect4Board.c ****     }
-  97:.\Connect4Board.c ****    
-  98:.\Connect4Board.c ****     prev_selected = column;
- 386              		.loc 1 98 0 is_stmt 1
- 387 00a2 034B     		ldr	r3, .L25
- 388 00a4 039A     		ldr	r2, [sp, #12]
- 389 00a6 1A60     		str	r2, [r3]
-  99:.\Connect4Board.c **** }
- 390              		.loc 1 99 0
- 391 00a8 05B0     		add	sp, sp, #20
- 392              		.cfi_def_cfa_offset 36
- 393              		@ sp needed
- 394 00aa BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 395              	.LVL44:
- 396              	.L24:
- 397              		.cfi_def_cfa_offset 0
- 398              		.cfi_restore 4
- 399              		.cfi_restore 5
- 400              		.cfi_restore 6
- 401              		.cfi_restore 7
- 402              		.cfi_restore 8
- 403              		.cfi_restore 9
- 404              		.cfi_restore 10
- 405              		.cfi_restore 11
- 406              		.cfi_restore 14
- 407 00ae 7047     		bx	lr
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 10
+ 360              		.cfi_endproc
+ 361              	.LFE67:
+ 362              		.size	Connect4Board_ClearHighlight, .-Connect4Board_ClearHighlight
+ 363              		.section	.text.Connect4Board_HighlightColumn,"ax",%progbits
+ 364              		.align	2
+ 365              		.global	Connect4Board_HighlightColumn
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.type	Connect4Board_HighlightColumn, %function
+ 369              	Connect4Board_HighlightColumn:
+ 370              	.LFB68:
+  92:.\Connect4Board.c **** }
+  93:.\Connect4Board.c **** 
+  94:.\Connect4Board.c **** void Connect4Board_HighlightColumn(uint16 column) {
+ 371              		.loc 1 94 0
+ 372              		.cfi_startproc
+ 373              		@ args = 0, pretend = 0, frame = 0
+ 374              		@ frame_needed = 0, uses_anonymous_args = 0
+ 375              	.LVL39:
+ 376 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 377              		.cfi_def_cfa_offset 32
+ 378              		.cfi_offset 3, -32
+ 379              		.cfi_offset 4, -28
+ 380              		.cfi_offset 5, -24
+ 381              		.cfi_offset 6, -20
+ 382              		.cfi_offset 7, -16
+ 383              		.cfi_offset 8, -12
+ 384              		.cfi_offset 9, -8
+ 385              		.cfi_offset 14, -4
+ 386 0004 0646     		mov	r6, r0
+  95:.\Connect4Board.c ****     
+  96:.\Connect4Board.c ****     Connect4Board_ClearHighlight();
+ 387              		.loc 1 96 0
+ 388 0006 FFF7FEFF 		bl	Connect4Board_ClearHighlight
+ 389              	.LVL40:
+  97:.\Connect4Board.c ****     
+  98:.\Connect4Board.c ****     int column_pos_x = Connect4Board_GetColumnPosX(column);
+ 390              		.loc 1 98 0
+ 391 000a 3046     		mov	r0, r6
+ 392 000c FFF7FEFF 		bl	Connect4Board_GetColumnPosX
+ 393              	.LVL41:
+  99:.\Connect4Board.c ****     
+ 100:.\Connect4Board.c ****     // To ensure highlights don't collide with walls we need offsets
+ 101:.\Connect4Board.c ****     int offset_x = (column_pos_x == 0) ? 0 : 1;
+ 394              		.loc 1 101 0
+ 395 0010 0746     		mov	r7, r0
+ 396 0012 10F10008 		adds	r8, r0, #0
+ 397 0016 18BF     		it	ne
+ 398 0018 4FF00108 		movne	r8, #1
+ 399              	.LVL42:
+ 102:.\Connect4Board.c ****     
+ 103:.\Connect4Board.c ****     int row_index = 5 - placed_heights[column];
+ 400              		.loc 1 103 0
+ 401 001c 114B     		ldr	r3, .L27
+ 402 001e 53F82640 		ldr	r4, [r3, r6, lsl #2]
+ 403 0022 C4F10505 		rsb	r5, r4, #5
+ 404              	.LVL43:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 10
 
 
- 408              	.L26:
- 409              		.align	2
- 410              	.L25:
- 411 00b0 00000000 		.word	.LANCHOR0
- 412 00b4 DEF7FC00 		.word	16578526
- 413 00b8 00000000 		.word	num_rows
- 414 00bc 00000000 		.word	column_width
- 415 00c0 00000000 		.word	row_height
- 416              		.cfi_endproc
- 417              	.LFE67:
- 418              		.size	Connect4Board_HighlightColumn, .-Connect4Board_HighlightColumn
- 419              		.global	prev_selected
- 420              		.comm	HEIGHT,2,2
- 421              		.comm	WIDTH,2,2
- 422              		.comm	num_rows,4,4
- 423              		.comm	num_columns,4,4
- 424              		.comm	row_height,4,4
- 425              		.comm	column_width,4,4
- 426              		.comm	PosY,2,2
- 427              		.comm	PosX,2,2
- 428              		.data
- 429              		.align	2
- 430              		.set	.LANCHOR0,. + 0
- 431              		.type	prev_selected, %object
- 432              		.size	prev_selected, 4
- 433              	prev_selected:
- 434 0000 07000000 		.word	7
- 435              		.text
- 436              	.Letext0:
- 437              		.file 2 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/LCD.h"
- 438              		.file 3 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI_Type.h"
- 439              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
- 440              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
- 441              		.file 6 "Generated_Source\\PSoC5/cytypes.h"
- 442              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
- 443              		.file 8 ".\\XPT2046.h"
- 444              		.file 9 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI.h"
- 445              		.section	.debug_info,"",%progbits
- 446              	.Ldebug_info0:
- 447 0000 79040000 		.4byte	0x479
- 448 0004 0400     		.2byte	0x4
- 449 0006 00000000 		.4byte	.Ldebug_abbrev0
- 450 000a 04       		.byte	0x4
- 451 000b 01       		.uleb128 0x1
- 452 000c 81000000 		.4byte	.LASF48
- 453 0010 01       		.byte	0x1
- 454 0011 6F000000 		.4byte	.LASF49
- 455 0015 4E010000 		.4byte	.LASF50
- 456 0019 00000000 		.4byte	.Ldebug_ranges0+0
- 457 001d 00000000 		.4byte	0
- 458 0021 00000000 		.4byte	.Ldebug_line0
- 459 0025 02       		.uleb128 0x2
- 460 0026 04       		.byte	0x4
- 461 0027 05       		.byte	0x5
- 462 0028 696E7400 		.ascii	"int\000"
- 463 002c 03       		.uleb128 0x3
- 464 002d 04       		.byte	0x4
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 11
+ 104:.\Connect4Board.c ****     int pos_y = Connect4Board_GetRowPosY(row_index);
+ 405              		.loc 1 104 0
+ 406 0026 2846     		mov	r0, r5
+ 407              	.LVL44:
+ 408 0028 FFF7FEFF 		bl	Connect4Board_GetRowPosY
+ 409              	.LVL45:
+ 410 002c 8146     		mov	r9, r0
+ 411              	.LVL46:
+ 105:.\Connect4Board.c ****     int offset_y = (row_index == num_rows - 1) ? 0 : 1;
+ 412              		.loc 1 105 0
+ 413 002e 0E4B     		ldr	r3, .L27+4
+ 414 0030 1C68     		ldr	r4, [r3]
+ 415 0032 013C     		subs	r4, r4, #1
+ 416 0034 641B     		subs	r4, r4, r5
+ 417 0036 18BF     		it	ne
+ 418 0038 0124     		movne	r4, #1
+ 419              	.LVL47:
+ 106:.\Connect4Board.c **** 
+ 107:.\Connect4Board.c ****     // Draw the new highlight
+ 108:.\Connect4Board.c ****     GUI_SetColor(GUI_HIGHLIGHT);
+ 420              		.loc 1 108 0
+ 421 003a 0C48     		ldr	r0, .L27+8
+ 422              	.LVL48:
+ 423 003c FFF7FEFF 		bl	GUI_SetColor
+ 424              	.LVL49:
+ 109:.\Connect4Board.c ****     GUI_FillRect(column_pos_x + offset_x, pos_y + 1, column_pos_x + column_width - 1, pos_y + row_h
+ 425              		.loc 1 109 0
+ 426 0040 0B4B     		ldr	r3, .L27+12
+ 427 0042 1A68     		ldr	r2, [r3]
+ 428 0044 3A44     		add	r2, r2, r7
+ 429 0046 0B4B     		ldr	r3, .L27+16
+ 430 0048 1B68     		ldr	r3, [r3]
+ 431 004a 4B44     		add	r3, r3, r9
+ 432 004c 07EB0800 		add	r0, r7, r8
+ 433 0050 09F10101 		add	r1, r9, #1
+ 434 0054 013A     		subs	r2, r2, #1
+ 435 0056 1B1B     		subs	r3, r3, r4
+ 436 0058 FFF7FEFF 		bl	GUI_FillRect
+ 437              	.LVL50:
+ 110:.\Connect4Board.c ****    
+ 111:.\Connect4Board.c ****     prev_selected = column;
+ 438              		.loc 1 111 0
+ 439 005c 064B     		ldr	r3, .L27+20
+ 440 005e 1E60     		str	r6, [r3]
+ 441 0060 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 442              	.LVL51:
+ 443              	.L28:
+ 444              		.align	2
+ 445              	.L27:
+ 446 0064 00000000 		.word	.LANCHOR0
+ 447 0068 00000000 		.word	num_rows
+ 448 006c DEF7FC00 		.word	16578526
+ 449 0070 00000000 		.word	column_width
+ 450 0074 00000000 		.word	row_height
+ 451 0078 00000000 		.word	.LANCHOR1
+ 452              		.cfi_endproc
+ 453              	.LFE68:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 11
 
 
- 465 002e 07       		.byte	0x7
- 466 002f 6B020000 		.4byte	.LASF0
- 467 0033 03       		.uleb128 0x3
- 468 0034 08       		.byte	0x8
- 469 0035 05       		.byte	0x5
- 470 0036 A3020000 		.4byte	.LASF1
- 471 003a 03       		.uleb128 0x3
- 472 003b 08       		.byte	0x8
- 473 003c 04       		.byte	0x4
- 474 003d 38020000 		.4byte	.LASF2
- 475 0041 04       		.uleb128 0x4
- 476 0042 44020000 		.4byte	.LASF8
- 477 0046 02       		.byte	0x2
- 478 0047 6A       		.byte	0x6a
- 479 0048 4C000000 		.4byte	0x4c
- 480 004c 03       		.uleb128 0x3
- 481 004d 04       		.byte	0x4
- 482 004e 07       		.byte	0x7
- 483 004f D4010000 		.4byte	.LASF3
- 484 0053 03       		.uleb128 0x3
- 485 0054 02       		.byte	0x2
- 486 0055 05       		.byte	0x5
- 487 0056 BE020000 		.4byte	.LASF4
- 488 005a 03       		.uleb128 0x3
- 489 005b 01       		.byte	0x1
- 490 005c 08       		.byte	0x8
- 491 005d 88020000 		.4byte	.LASF5
- 492 0061 03       		.uleb128 0x3
- 493 0062 01       		.byte	0x1
- 494 0063 08       		.byte	0x8
- 495 0064 BC010000 		.4byte	.LASF6
- 496 0068 03       		.uleb128 0x3
- 497 0069 04       		.byte	0x4
- 498 006a 05       		.byte	0x5
- 499 006b EF020000 		.4byte	.LASF7
- 500 006f 04       		.uleb128 0x4
- 501 0070 12000000 		.4byte	.LASF9
- 502 0074 03       		.byte	0x3
- 503 0075 3D       		.byte	0x3d
- 504 0076 41000000 		.4byte	0x41
- 505 007a 03       		.uleb128 0x3
- 506 007b 02       		.byte	0x2
- 507 007c 07       		.byte	0x7
- 508 007d 0C030000 		.4byte	.LASF10
- 509 0081 03       		.uleb128 0x3
- 510 0082 01       		.byte	0x1
- 511 0083 06       		.byte	0x6
- 512 0084 00030000 		.4byte	.LASF11
- 513 0088 03       		.uleb128 0x3
- 514 0089 04       		.byte	0x4
- 515 008a 07       		.byte	0x7
- 516 008b 95020000 		.4byte	.LASF12
- 517 008f 04       		.uleb128 0x4
- 518 0090 65000000 		.4byte	.LASF13
- 519 0094 04       		.byte	0x4
- 520 0095 3F       		.byte	0x3f
- 521 0096 68000000 		.4byte	0x68
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 12
+ 454              		.size	Connect4Board_HighlightColumn, .-Connect4Board_HighlightColumn
+ 455              		.section	.text.Connect4Board_Place,"ax",%progbits
+ 456              		.align	2
+ 457              		.global	Connect4Board_Place
+ 458              		.thumb
+ 459              		.thumb_func
+ 460              		.type	Connect4Board_Place, %function
+ 461              	Connect4Board_Place:
+ 462              	.LFB69:
+ 112:.\Connect4Board.c **** }
+ 113:.\Connect4Board.c **** 
+ 114:.\Connect4Board.c **** void Connect4Board_Place(uint16 column, uint16 player) {
+ 463              		.loc 1 114 0
+ 464              		.cfi_startproc
+ 465              		@ args = 0, pretend = 0, frame = 0
+ 466              		@ frame_needed = 0, uses_anonymous_args = 0
+ 467              	.LVL52:
+ 468 0000 2DE9F843 		push	{r3, r4, r5, r6, r7, r8, r9, lr}
+ 469              		.cfi_def_cfa_offset 32
+ 470              		.cfi_offset 3, -32
+ 471              		.cfi_offset 4, -28
+ 472              		.cfi_offset 5, -24
+ 473              		.cfi_offset 6, -20
+ 474              		.cfi_offset 7, -16
+ 475              		.cfi_offset 8, -12
+ 476              		.cfi_offset 9, -8
+ 477              		.cfi_offset 14, -4
+ 478 0004 0546     		mov	r5, r0
+ 479 0006 8846     		mov	r8, r1
+ 115:.\Connect4Board.c ****     int center_pos_x = Connect4Board_GetColumnPosX(column) + column_width / 2;
+ 480              		.loc 1 115 0
+ 481 0008 FFF7FEFF 		bl	Connect4Board_GetColumnPosX
+ 482              	.LVL53:
+ 483 000c 174B     		ldr	r3, .L35
+ 484 000e 1E68     		ldr	r6, [r3]
+ 485 0010 06EBD674 		add	r4, r6, r6, lsr #31
+ 486 0014 6410     		asrs	r4, r4, #1
+ 487 0016 0719     		adds	r7, r0, r4
+ 488              	.LVL54:
+ 116:.\Connect4Board.c ****     int center_pos_y = Connect4Board_GetRowPosY(5 - placed_heights[column]) + row_height / 2;
+ 489              		.loc 1 116 0
+ 490 0018 154B     		ldr	r3, .L35+4
+ 491 001a 53F82500 		ldr	r0, [r3, r5, lsl #2]
+ 492 001e C0F10500 		rsb	r0, r0, #5
+ 493 0022 FFF7FEFF 		bl	Connect4Board_GetRowPosY
+ 494              	.LVL55:
+ 495 0026 134B     		ldr	r3, .L35+8
+ 496 0028 1A68     		ldr	r2, [r3]
+ 497 002a 02EBD273 		add	r3, r2, r2, lsr #31
+ 498 002e 5B10     		asrs	r3, r3, #1
+ 499 0030 00EB0309 		add	r9, r0, r3
+ 500              	.LVL56:
+ 117:.\Connect4Board.c ****     
+ 118:.\Connect4Board.c ****     uint16 radius = column_width > row_height ? row_height / 2 : column_width / 2;
+ 501              		.loc 1 118 0
+ 502 0034 9642     		cmp	r6, r2
+ 503 0036 01DD     		ble	.L30
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 12
 
 
- 522 009a 03       		.uleb128 0x3
- 523 009b 08       		.byte	0x8
- 524 009c 07       		.byte	0x7
- 525 009d 1F030000 		.4byte	.LASF14
- 526 00a1 04       		.uleb128 0x4
- 527 00a2 8D020000 		.4byte	.LASF15
- 528 00a6 05       		.byte	0x5
- 529 00a7 2C       		.byte	0x2c
- 530 00a8 8F000000 		.4byte	0x8f
- 531 00ac 05       		.uleb128 0x5
- 532 00ad 4E020000 		.4byte	.LASF16
- 533 00b1 06       		.byte	0x6
- 534 00b2 9301     		.2byte	0x193
- 535 00b4 7A000000 		.4byte	0x7a
- 536 00b8 03       		.uleb128 0x3
- 537 00b9 04       		.byte	0x4
- 538 00ba 04       		.byte	0x4
- 539 00bb 9F010000 		.4byte	.LASF17
- 540 00bf 03       		.uleb128 0x3
- 541 00c0 08       		.byte	0x8
- 542 00c1 04       		.byte	0x4
- 543 00c2 1F020000 		.4byte	.LASF18
- 544 00c6 06       		.uleb128 0x6
- 545 00c7 08020000 		.4byte	.LASF23
- 546 00cb 01       		.byte	0x1
- 547 00cc 22       		.byte	0x22
- 548 00cd 00000000 		.4byte	.LFB63
- 549 00d1 98000000 		.4byte	.LFE63-.LFB63
- 550 00d5 01       		.uleb128 0x1
- 551 00d6 9C       		.byte	0x9c
- 552 00d7 92010000 		.4byte	0x192
- 553 00db 07       		.uleb128 0x7
- 554 00dc F8020000 		.4byte	.LASF19
- 555 00e0 01       		.byte	0x1
- 556 00e1 22       		.byte	0x22
- 557 00e2 AC000000 		.4byte	0xac
- 558 00e6 00000000 		.4byte	.LLST0
- 559 00ea 07       		.uleb128 0x7
- 560 00eb 9E020000 		.4byte	.LASF20
- 561 00ef 01       		.byte	0x1
- 562 00f0 22       		.byte	0x22
- 563 00f1 AC000000 		.4byte	0xac
- 564 00f5 21000000 		.4byte	.LLST1
- 565 00f9 08       		.uleb128 0x8
- 566 00fa 3A000000 		.4byte	.LBB2
- 567 00fe 2A000000 		.4byte	.LBE2-.LBB2
- 568 0102 3C010000 		.4byte	0x13c
- 569 0106 09       		.uleb128 0x9
- 570 0107 6900     		.ascii	"i\000"
- 571 0109 01       		.byte	0x1
- 572 010a 29       		.byte	0x29
- 573 010b 25000000 		.4byte	0x25
- 574 010f 42000000 		.4byte	.LLST2
- 575 0113 0A       		.uleb128 0xa
- 576 0114 3E000000 		.4byte	.LBB3
- 577 0118 1A000000 		.4byte	.LBE3-.LBB3
- 578 011c 0B       		.uleb128 0xb
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 13
+ 504              		.loc 1 118 0 is_stmt 0 discriminator 1
+ 505 0038 9CB2     		uxth	r4, r3
+ 506 003a 00E0     		b	.L31
+ 507              	.L30:
+ 508              		.loc 1 118 0 discriminator 2
+ 509 003c A4B2     		uxth	r4, r4
+ 510              	.L31:
+ 511              	.LVL57:
+ 119:.\Connect4Board.c ****     
+ 120:.\Connect4Board.c ****     GUI_SetColor(player ? GUI_RED : GUI_YELLOW);
+ 512              		.loc 1 120 0 is_stmt 1 discriminator 4
+ 513 003e B8F1000F 		cmp	r8, #0
+ 514 0042 01D0     		beq	.L33
+ 515              		.loc 1 120 0 is_stmt 0
+ 516 0044 FF20     		movs	r0, #255
+ 517 0046 01E0     		b	.L32
+ 518              	.L33:
+ 519 0048 4FF6FF70 		movw	r0, #65535
+ 520              	.L32:
+ 521              		.loc 1 120 0 discriminator 4
+ 522 004c FFF7FEFF 		bl	GUI_SetColor
+ 523              	.LVL58:
+ 121:.\Connect4Board.c ****     
+ 122:.\Connect4Board.c ****     GUI_FillCircle(center_pos_x, center_pos_y, radius);
+ 524              		.loc 1 122 0 is_stmt 1 discriminator 4
+ 525 0050 3846     		mov	r0, r7
+ 526 0052 4946     		mov	r1, r9
+ 527 0054 2246     		mov	r2, r4
+ 528 0056 FFF7FEFF 		bl	GUI_FillCircle
+ 529              	.LVL59:
+ 123:.\Connect4Board.c ****     
+ 124:.\Connect4Board.c ****     placed_heights[column]++;
+ 530              		.loc 1 124 0 discriminator 4
+ 531 005a 054A     		ldr	r2, .L35+4
+ 532 005c 52F82530 		ldr	r3, [r2, r5, lsl #2]
+ 533 0060 0133     		adds	r3, r3, #1
+ 534 0062 42F82530 		str	r3, [r2, r5, lsl #2]
+ 535 0066 BDE8F883 		pop	{r3, r4, r5, r6, r7, r8, r9, pc}
+ 536              	.LVL60:
+ 537              	.L36:
+ 538 006a 00BF     		.align	2
+ 539              	.L35:
+ 540 006c 00000000 		.word	column_width
+ 541 0070 00000000 		.word	.LANCHOR0
+ 542 0074 00000000 		.word	row_height
+ 543              		.cfi_endproc
+ 544              	.LFE69:
+ 545              		.size	Connect4Board_Place, .-Connect4Board_Place
+ 546              		.global	prev_selected
+ 547              		.comm	HEIGHT,2,2
+ 548              		.comm	WIDTH,2,2
+ 549              		.global	placed_heights
+ 550              		.comm	num_rows,4,4
+ 551              		.comm	num_columns,4,4
+ 552              		.comm	row_height,4,4
+ 553              		.comm	column_width,4,4
+ 554              		.comm	PosY,2,2
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 13
 
 
- 579 011d 55020000 		.4byte	.LASF21
- 580 0121 01       		.byte	0x1
- 581 0122 2A       		.byte	0x2a
- 582 0123 25000000 		.4byte	0x25
- 583 0127 84000000 		.4byte	.LLST3
- 584 012b 0C       		.uleb128 0xc
- 585 012c 58000000 		.4byte	.LVL8
- 586 0130 2F040000 		.4byte	0x42f
- 587 0134 0D       		.uleb128 0xd
- 588 0135 01       		.uleb128 0x1
- 589 0136 51       		.byte	0x51
- 590 0137 01       		.uleb128 0x1
- 591 0138 30       		.byte	0x30
- 592 0139 00       		.byte	0
- 593 013a 00       		.byte	0
- 594 013b 00       		.byte	0
- 595 013c 08       		.uleb128 0x8
- 596 013d 64000000 		.4byte	.LBB4
- 597 0141 22000000 		.4byte	.LBE4-.LBB4
- 598 0145 7F010000 		.4byte	0x17f
- 599 0149 09       		.uleb128 0x9
- 600 014a 6A00     		.ascii	"j\000"
- 601 014c 01       		.byte	0x1
- 602 014d 2E       		.byte	0x2e
- 603 014e 25000000 		.4byte	0x25
- 604 0152 A2000000 		.4byte	.LLST4
- 605 0156 0A       		.uleb128 0xa
- 606 0157 64000000 		.4byte	.LBB5
- 607 015b 1A000000 		.4byte	.LBE5-.LBB5
- 608 015f 0B       		.uleb128 0xb
- 609 0160 60020000 		.4byte	.LASF22
- 610 0164 01       		.byte	0x1
- 611 0165 2F       		.byte	0x2f
- 612 0166 25000000 		.4byte	0x25
- 613 016a D8000000 		.4byte	.LLST5
- 614 016e 0C       		.uleb128 0xc
- 615 016f 7E000000 		.4byte	.LVL14
- 616 0173 2F040000 		.4byte	0x42f
- 617 0177 0D       		.uleb128 0xd
- 618 0178 01       		.uleb128 0x1
- 619 0179 50       		.byte	0x50
- 620 017a 01       		.uleb128 0x1
- 621 017b 30       		.byte	0x30
- 622 017c 00       		.byte	0
- 623 017d 00       		.byte	0
- 624 017e 00       		.byte	0
- 625 017f 0C       		.uleb128 0xc
- 626 0180 0E000000 		.4byte	.LVL2
- 627 0184 50040000 		.4byte	0x450
- 628 0188 0D       		.uleb128 0xd
- 629 0189 01       		.uleb128 0x1
- 630 018a 50       		.byte	0x50
- 631 018b 04       		.uleb128 0x4
- 632 018c 08       		.byte	0x8
- 633 018d FF       		.byte	0xff
- 634 018e 40       		.byte	0x40
- 635 018f 24       		.byte	0x24
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 14
+ 555              		.comm	PosX,2,2
+ 556              		.data
+ 557              		.align	2
+ 558              		.set	.LANCHOR1,. + 0
+ 559              		.type	prev_selected, %object
+ 560              		.size	prev_selected, 4
+ 561              	prev_selected:
+ 562 0000 07000000 		.word	7
+ 563              		.bss
+ 564              		.align	2
+ 565              		.set	.LANCHOR0,. + 0
+ 566              		.type	placed_heights, %object
+ 567              		.size	placed_heights, 28
+ 568              	placed_heights:
+ 569 0000 00000000 		.space	28
+ 569      00000000 
+ 569      00000000 
+ 569      00000000 
+ 569      00000000 
+ 570              		.text
+ 571              	.Letext0:
+ 572              		.file 2 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/LCD.h"
+ 573              		.file 3 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI_Type.h"
+ 574              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 575              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\3.3\\psoc creator\\import\\gnu\\arm\\4.9.
+ 576              		.file 6 "Generated_Source\\PSoC5/cytypes.h"
+ 577              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 578              		.file 8 ".\\XPT2046.h"
+ 579              		.file 9 "..\\emWinGraphics_v5_46\\Code\\Include\\PSoC4_5/GUI.h"
+ 580              		.section	.debug_info,"",%progbits
+ 581              	.Ldebug_info0:
+ 582 0000 C3050000 		.4byte	0x5c3
+ 583 0004 0400     		.2byte	0x4
+ 584 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 585 000a 04       		.byte	0x4
+ 586 000b 01       		.uleb128 0x1
+ 587 000c BE020000 		.4byte	.LASF55
+ 588 0010 01       		.byte	0x1
+ 589 0011 BA000000 		.4byte	.LASF56
+ 590 0015 7A000000 		.4byte	.LASF57
+ 591 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 592 001d 00000000 		.4byte	0
+ 593 0021 00000000 		.4byte	.Ldebug_line0
+ 594 0025 02       		.uleb128 0x2
+ 595 0026 04       		.byte	0x4
+ 596 0027 05       		.byte	0x5
+ 597 0028 696E7400 		.ascii	"int\000"
+ 598 002c 03       		.uleb128 0x3
+ 599 002d 04       		.byte	0x4
+ 600 002e 07       		.byte	0x7
+ 601 002f D6010000 		.4byte	.LASF0
+ 602 0033 03       		.uleb128 0x3
+ 603 0034 08       		.byte	0x8
+ 604 0035 05       		.byte	0x5
+ 605 0036 28010000 		.4byte	.LASF1
+ 606 003a 03       		.uleb128 0x3
+ 607 003b 08       		.byte	0x8
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 14
 
 
- 636 0190 00       		.byte	0
- 637 0191 00       		.byte	0
- 638 0192 06       		.uleb128 0x6
- 639 0193 20010000 		.4byte	.LASF24
- 640 0197 01       		.byte	0x1
- 641 0198 34       		.byte	0x34
- 642 0199 00000000 		.4byte	.LFB64
- 643 019d 44000000 		.4byte	.LFE64-.LFB64
- 644 01a1 01       		.uleb128 0x1
- 645 01a2 9C       		.byte	0x9c
- 646 01a3 FC010000 		.4byte	0x1fc
- 647 01a7 07       		.uleb128 0x7
- 648 01a8 F8020000 		.4byte	.LASF19
- 649 01ac 01       		.byte	0x1
- 650 01ad 34       		.byte	0x34
- 651 01ae AC000000 		.4byte	0xac
- 652 01b2 F6000000 		.4byte	.LLST6
- 653 01b6 07       		.uleb128 0x7
- 654 01b7 9E020000 		.4byte	.LASF20
- 655 01bb 01       		.byte	0x1
- 656 01bc 34       		.byte	0x34
- 657 01bd AC000000 		.4byte	0xac
- 658 01c1 17010000 		.4byte	.LLST7
- 659 01c5 0E       		.uleb128 0xe
- 660 01c6 24000000 		.4byte	.LVL18
- 661 01ca 62040000 		.4byte	0x462
- 662 01ce DC010000 		.4byte	0x1dc
- 663 01d2 0D       		.uleb128 0xd
- 664 01d3 01       		.uleb128 0x1
- 665 01d4 50       		.byte	0x50
- 666 01d5 05       		.uleb128 0x5
- 667 01d6 0C       		.byte	0xc
- 668 01d7 FFFFFF00 		.4byte	0xffffff
- 669 01db 00       		.byte	0
- 670 01dc 0F       		.uleb128 0xf
- 671 01dd 28000000 		.4byte	.LVL19
- 672 01e1 74040000 		.4byte	0x474
- 673 01e5 0C       		.uleb128 0xc
- 674 01e6 30000000 		.4byte	.LVL20
- 675 01ea C6000000 		.4byte	0xc6
- 676 01ee 0D       		.uleb128 0xd
- 677 01ef 01       		.uleb128 0x1
- 678 01f0 51       		.byte	0x51
- 679 01f1 02       		.uleb128 0x2
- 680 01f2 74       		.byte	0x74
- 681 01f3 00       		.sleb128 0
- 682 01f4 0D       		.uleb128 0xd
- 683 01f5 01       		.uleb128 0x1
- 684 01f6 50       		.byte	0x50
- 685 01f7 02       		.uleb128 0x2
- 686 01f8 75       		.byte	0x75
- 687 01f9 00       		.sleb128 0
- 688 01fa 00       		.byte	0
- 689 01fb 00       		.byte	0
- 690 01fc 10       		.uleb128 0x10
- 691 01fd 36030000 		.4byte	.LASF26
- 692 0201 01       		.byte	0x1
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 15
+ 608 003c 04       		.byte	0x4
+ 609 003d 83010000 		.4byte	.LASF2
+ 610 0041 04       		.uleb128 0x4
+ 611 0042 B0000000 		.4byte	.LASF8
+ 612 0046 02       		.byte	0x2
+ 613 0047 6A       		.byte	0x6a
+ 614 0048 4C000000 		.4byte	0x4c
+ 615 004c 03       		.uleb128 0x3
+ 616 004d 04       		.byte	0x4
+ 617 004e 07       		.byte	0x7
+ 618 004f 75020000 		.4byte	.LASF3
+ 619 0053 03       		.uleb128 0x3
+ 620 0054 02       		.byte	0x2
+ 621 0055 05       		.byte	0x5
+ 622 0056 A6000000 		.4byte	.LASF4
+ 623 005a 03       		.uleb128 0x3
+ 624 005b 01       		.byte	0x1
+ 625 005c 08       		.byte	0x8
+ 626 005d 1A020000 		.4byte	.LASF5
+ 627 0061 03       		.uleb128 0x3
+ 628 0062 01       		.byte	0x1
+ 629 0063 08       		.byte	0x8
+ 630 0064 8F010000 		.4byte	.LASF6
+ 631 0068 03       		.uleb128 0x3
+ 632 0069 04       		.byte	0x4
+ 633 006a 05       		.byte	0x5
+ 634 006b 36010000 		.4byte	.LASF7
+ 635 006f 04       		.uleb128 0x4
+ 636 0070 6D010000 		.4byte	.LASF9
+ 637 0074 03       		.byte	0x3
+ 638 0075 3D       		.byte	0x3d
+ 639 0076 41000000 		.4byte	0x41
+ 640 007a 03       		.uleb128 0x3
+ 641 007b 02       		.byte	0x2
+ 642 007c 07       		.byte	0x7
+ 643 007d 62020000 		.4byte	.LASF10
+ 644 0081 03       		.uleb128 0x3
+ 645 0082 01       		.byte	0x1
+ 646 0083 06       		.byte	0x6
+ 647 0084 A4010000 		.4byte	.LASF11
+ 648 0088 03       		.uleb128 0x3
+ 649 0089 04       		.byte	0x4
+ 650 008a 07       		.byte	0x7
+ 651 008b 46000000 		.4byte	.LASF12
+ 652 008f 04       		.uleb128 0x4
+ 653 0090 95020000 		.4byte	.LASF13
+ 654 0094 04       		.byte	0x4
+ 655 0095 3F       		.byte	0x3f
+ 656 0096 68000000 		.4byte	0x68
+ 657 009a 03       		.uleb128 0x3
+ 658 009b 08       		.byte	0x8
+ 659 009c 07       		.byte	0x7
+ 660 009d B0010000 		.4byte	.LASF14
+ 661 00a1 04       		.uleb128 0x4
+ 662 00a2 35020000 		.4byte	.LASF15
+ 663 00a6 05       		.byte	0x5
+ 664 00a7 2C       		.byte	0x2c
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 15
 
 
- 693 0202 42       		.byte	0x42
- 694 0203 25000000 		.4byte	0x25
- 695 0207 00000000 		.4byte	.LFB65
- 696 020b 10000000 		.4byte	.LFE65-.LFB65
- 697 020f 01       		.uleb128 0x1
- 698 0210 9C       		.byte	0x9c
- 699 0211 25020000 		.4byte	0x225
- 700 0215 07       		.uleb128 0x7
- 701 0216 E6010000 		.4byte	.LASF25
- 702 021a 01       		.byte	0x1
- 703 021b 42       		.byte	0x42
- 704 021c 25000000 		.4byte	0x25
- 705 0220 38010000 		.4byte	.LLST8
- 706 0224 00       		.byte	0
- 707 0225 10       		.uleb128 0x10
- 708 0226 2E000000 		.4byte	.LASF27
- 709 022a 01       		.byte	0x1
- 710 022b 46       		.byte	0x46
- 711 022c 25000000 		.4byte	0x25
- 712 0230 00000000 		.4byte	.LFB66
- 713 0234 10000000 		.4byte	.LFE66-.LFB66
- 714 0238 01       		.uleb128 0x1
- 715 0239 9C       		.byte	0x9c
- 716 023a 4E020000 		.4byte	0x24e
- 717 023e 11       		.uleb128 0x11
- 718 023f 726F7700 		.ascii	"row\000"
- 719 0243 01       		.byte	0x1
- 720 0244 46       		.byte	0x46
- 721 0245 25000000 		.4byte	0x25
- 722 0249 59010000 		.4byte	.LLST9
- 723 024d 00       		.byte	0
- 724 024e 06       		.uleb128 0x6
- 725 024f 47000000 		.4byte	.LASF28
- 726 0253 01       		.byte	0x1
- 727 0254 4A       		.byte	0x4a
- 728 0255 00000000 		.4byte	.LFB67
- 729 0259 C4000000 		.4byte	.LFE67-.LFB67
- 730 025d 01       		.uleb128 0x1
- 731 025e 9C       		.byte	0x9c
- 732 025f 85030000 		.4byte	0x385
- 733 0263 07       		.uleb128 0x7
- 734 0264 E6010000 		.4byte	.LASF25
- 735 0268 01       		.byte	0x1
- 736 0269 4A       		.byte	0x4a
- 737 026a AC000000 		.4byte	0xac
- 738 026e 7A010000 		.4byte	.LLST10
- 739 0272 0B       		.uleb128 0xb
- 740 0273 26020000 		.4byte	.LASF29
- 741 0277 01       		.byte	0x1
- 742 0278 4E       		.byte	0x4e
- 743 0279 25000000 		.4byte	0x25
- 744 027d A6010000 		.4byte	.LLST11
- 745 0281 0B       		.uleb128 0xb
- 746 0282 B1020000 		.4byte	.LASF30
- 747 0286 01       		.byte	0x1
- 748 0287 4F       		.byte	0x4f
- 749 0288 25000000 		.4byte	0x25
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 16
+ 665 00a8 8F000000 		.4byte	0x8f
+ 666 00ac 05       		.uleb128 0x5
+ 667 00ad CC000000 		.4byte	.LASF16
+ 668 00b1 06       		.byte	0x6
+ 669 00b2 9301     		.2byte	0x193
+ 670 00b4 7A000000 		.4byte	0x7a
+ 671 00b8 03       		.uleb128 0x3
+ 672 00b9 04       		.byte	0x4
+ 673 00ba 04       		.byte	0x4
+ 674 00bb 00000000 		.4byte	.LASF17
+ 675 00bf 03       		.uleb128 0x3
+ 676 00c0 08       		.byte	0x8
+ 677 00c1 04       		.byte	0x4
+ 678 00c2 87020000 		.4byte	.LASF18
+ 679 00c6 06       		.uleb128 0x6
+ 680 00c7 4B020000 		.4byte	.LASF23
+ 681 00cb 01       		.byte	0x1
+ 682 00cc 24       		.byte	0x24
+ 683 00cd 00000000 		.4byte	.LFB63
+ 684 00d1 98000000 		.4byte	.LFE63-.LFB63
+ 685 00d5 01       		.uleb128 0x1
+ 686 00d6 9C       		.byte	0x9c
+ 687 00d7 92010000 		.4byte	0x192
+ 688 00db 07       		.uleb128 0x7
+ 689 00dc E3010000 		.4byte	.LASF19
+ 690 00e0 01       		.byte	0x1
+ 691 00e1 24       		.byte	0x24
+ 692 00e2 AC000000 		.4byte	0xac
+ 693 00e6 00000000 		.4byte	.LLST0
+ 694 00ea 07       		.uleb128 0x7
+ 695 00eb 41000000 		.4byte	.LASF20
+ 696 00ef 01       		.byte	0x1
+ 697 00f0 24       		.byte	0x24
+ 698 00f1 AC000000 		.4byte	0xac
+ 699 00f5 21000000 		.4byte	.LLST1
+ 700 00f9 08       		.uleb128 0x8
+ 701 00fa 3A000000 		.4byte	.LBB2
+ 702 00fe 2A000000 		.4byte	.LBE2-.LBB2
+ 703 0102 3C010000 		.4byte	0x13c
+ 704 0106 09       		.uleb128 0x9
+ 705 0107 6900     		.ascii	"i\000"
+ 706 0109 01       		.byte	0x1
+ 707 010a 2B       		.byte	0x2b
+ 708 010b 25000000 		.4byte	0x25
+ 709 010f 42000000 		.4byte	.LLST2
+ 710 0113 0A       		.uleb128 0xa
+ 711 0114 3E000000 		.4byte	.LBB3
+ 712 0118 1A000000 		.4byte	.LBE3-.LBB3
+ 713 011c 0B       		.uleb128 0xb
+ 714 011d 1F020000 		.4byte	.LASF21
+ 715 0121 01       		.byte	0x1
+ 716 0122 2C       		.byte	0x2c
+ 717 0123 25000000 		.4byte	0x25
+ 718 0127 84000000 		.4byte	.LLST3
+ 719 012b 0C       		.uleb128 0xc
+ 720 012c 58000000 		.4byte	.LVL8
+ 721 0130 61050000 		.4byte	0x561
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 16
 
 
- 750 028c C4010000 		.4byte	.LLST12
- 751 0290 0B       		.uleb128 0xb
- 752 0291 FA010000 		.4byte	.LASF31
- 753 0295 01       		.byte	0x1
- 754 0296 52       		.byte	0x52
- 755 0297 25000000 		.4byte	0x25
- 756 029b E2010000 		.4byte	.LLST13
- 757 029f 0B       		.uleb128 0xb
- 758 02a0 78020000 		.4byte	.LASF32
- 759 02a4 01       		.byte	0x1
- 760 02a5 53       		.byte	0x53
- 761 02a6 25000000 		.4byte	0x25
- 762 02aa 01020000 		.4byte	.LLST14
- 763 02ae 08       		.uleb128 0x8
- 764 02af 34000000 		.4byte	.LBB6
- 765 02b3 6E000000 		.4byte	.LBE6-.LBB6
- 766 02b7 6B030000 		.4byte	0x36b
- 767 02bb 09       		.uleb128 0x9
- 768 02bc 6900     		.ascii	"i\000"
- 769 02be 01       		.byte	0x1
- 770 02bf 55       		.byte	0x55
- 771 02c0 25000000 		.4byte	0x25
- 772 02c4 20020000 		.4byte	.LLST15
- 773 02c8 0A       		.uleb128 0xa
- 774 02c9 38000000 		.4byte	.LBB7
- 775 02cd 60000000 		.4byte	.LBE7-.LBB7
- 776 02d1 0B       		.uleb128 0xb
- 777 02d2 1A010000 		.4byte	.LASF33
- 778 02d6 01       		.byte	0x1
- 779 02d7 56       		.byte	0x56
- 780 02d8 25000000 		.4byte	0x25
- 781 02dc 3F020000 		.4byte	.LLST16
- 782 02e0 0B       		.uleb128 0xb
- 783 02e1 00000000 		.4byte	.LASF34
- 784 02e5 01       		.byte	0x1
- 785 02e6 57       		.byte	0x57
- 786 02e7 25000000 		.4byte	0x25
- 787 02eb 5D020000 		.4byte	.LLST17
- 788 02ef 0E       		.uleb128 0xe
- 789 02f0 3E000000 		.4byte	.LVL35
- 790 02f4 25020000 		.4byte	0x225
- 791 02f8 03030000 		.4byte	0x303
- 792 02fc 0D       		.uleb128 0xd
- 793 02fd 01       		.uleb128 0x1
- 794 02fe 50       		.byte	0x50
- 795 02ff 02       		.uleb128 0x2
- 796 0300 76       		.byte	0x76
- 797 0301 00       		.sleb128 0
- 798 0302 00       		.byte	0
- 799 0303 0E       		.uleb128 0xe
- 800 0304 50000000 		.4byte	.LVL39
- 801 0308 50040000 		.4byte	0x450
- 802 030c 1A030000 		.4byte	0x31a
- 803 0310 0D       		.uleb128 0xd
- 804 0311 01       		.uleb128 0x1
- 805 0312 50       		.byte	0x50
- 806 0313 05       		.uleb128 0x5
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 17
+ 722 0134 0D       		.uleb128 0xd
+ 723 0135 01       		.uleb128 0x1
+ 724 0136 51       		.byte	0x51
+ 725 0137 01       		.uleb128 0x1
+ 726 0138 30       		.byte	0x30
+ 727 0139 00       		.byte	0
+ 728 013a 00       		.byte	0
+ 729 013b 00       		.byte	0
+ 730 013c 08       		.uleb128 0x8
+ 731 013d 64000000 		.4byte	.LBB4
+ 732 0141 22000000 		.4byte	.LBE4-.LBB4
+ 733 0145 7F010000 		.4byte	0x17f
+ 734 0149 09       		.uleb128 0x9
+ 735 014a 6A00     		.ascii	"j\000"
+ 736 014c 01       		.byte	0x1
+ 737 014d 30       		.byte	0x30
+ 738 014e 25000000 		.4byte	0x25
+ 739 0152 A2000000 		.4byte	.LLST4
+ 740 0156 0A       		.uleb128 0xa
+ 741 0157 64000000 		.4byte	.LBB5
+ 742 015b 1A000000 		.4byte	.LBE5-.LBB5
+ 743 015f 0B       		.uleb128 0xb
+ 744 0160 2A020000 		.4byte	.LASF22
+ 745 0164 01       		.byte	0x1
+ 746 0165 31       		.byte	0x31
+ 747 0166 25000000 		.4byte	0x25
+ 748 016a D8000000 		.4byte	.LLST5
+ 749 016e 0C       		.uleb128 0xc
+ 750 016f 7E000000 		.4byte	.LVL14
+ 751 0173 61050000 		.4byte	0x561
+ 752 0177 0D       		.uleb128 0xd
+ 753 0178 01       		.uleb128 0x1
+ 754 0179 50       		.byte	0x50
+ 755 017a 01       		.uleb128 0x1
+ 756 017b 30       		.byte	0x30
+ 757 017c 00       		.byte	0
+ 758 017d 00       		.byte	0
+ 759 017e 00       		.byte	0
+ 760 017f 0C       		.uleb128 0xc
+ 761 0180 0E000000 		.4byte	.LVL2
+ 762 0184 82050000 		.4byte	0x582
+ 763 0188 0D       		.uleb128 0xd
+ 764 0189 01       		.uleb128 0x1
+ 765 018a 50       		.byte	0x50
+ 766 018b 04       		.uleb128 0x4
+ 767 018c 08       		.byte	0x8
+ 768 018d FF       		.byte	0xff
+ 769 018e 40       		.byte	0x40
+ 770 018f 24       		.byte	0x24
+ 771 0190 00       		.byte	0
+ 772 0191 00       		.byte	0
+ 773 0192 06       		.uleb128 0x6
+ 774 0193 64030000 		.4byte	.LASF24
+ 775 0197 01       		.byte	0x1
+ 776 0198 36       		.byte	0x36
+ 777 0199 00000000 		.4byte	.LFB64
+ 778 019d 58000000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 17
 
 
- 807 0314 0C       		.byte	0xc
- 808 0315 FFFFFF00 		.4byte	0xffffff
- 809 0319 00       		.byte	0
- 810 031a 0E       		.uleb128 0xe
- 811 031b 76000000 		.4byte	.LVL40
- 812 031f 2F040000 		.4byte	0x42f
- 813 0323 38030000 		.4byte	0x338
- 814 0327 0D       		.uleb128 0xd
- 815 0328 01       		.uleb128 0x1
- 816 0329 51       		.byte	0x51
- 817 032a 02       		.uleb128 0x2
- 818 032b 77       		.byte	0x77
- 819 032c 00       		.sleb128 0
- 820 032d 0D       		.uleb128 0xd
- 821 032e 01       		.uleb128 0x1
- 822 032f 50       		.byte	0x50
- 823 0330 06       		.uleb128 0x6
- 824 0331 7A       		.byte	0x7a
- 825 0332 00       		.sleb128 0
- 826 0333 91       		.byte	0x91
- 827 0334 4C       		.sleb128 -52
- 828 0335 06       		.byte	0x6
- 829 0336 22       		.byte	0x22
- 830 0337 00       		.byte	0
- 831 0338 0E       		.uleb128 0xe
- 832 0339 7C000000 		.4byte	.LVL41
- 833 033d 50040000 		.4byte	0x450
- 834 0341 4F030000 		.4byte	0x34f
- 835 0345 0D       		.uleb128 0xd
- 836 0346 01       		.uleb128 0x1
- 837 0347 50       		.byte	0x50
- 838 0348 05       		.uleb128 0x5
- 839 0349 0C       		.byte	0xc
- 840 034a DEF7FC00 		.4byte	0xfcf7de
- 841 034e 00       		.byte	0
- 842 034f 0C       		.uleb128 0xc
- 843 0350 98000000 		.4byte	.LVL42
- 844 0354 2F040000 		.4byte	0x42f
- 845 0358 0D       		.uleb128 0xd
- 846 0359 01       		.uleb128 0x1
- 847 035a 51       		.byte	0x51
- 848 035b 02       		.uleb128 0x2
- 849 035c 77       		.byte	0x77
- 850 035d 00       		.sleb128 0
- 851 035e 0D       		.uleb128 0xd
- 852 035f 01       		.uleb128 0x1
- 853 0360 50       		.byte	0x50
- 854 0361 06       		.uleb128 0x6
- 855 0362 7B       		.byte	0x7b
- 856 0363 00       		.sleb128 0
- 857 0364 91       		.byte	0x91
- 858 0365 50       		.sleb128 -48
- 859 0366 06       		.byte	0x6
- 860 0367 22       		.byte	0x22
- 861 0368 00       		.byte	0
- 862 0369 00       		.byte	0
- 863 036a 00       		.byte	0
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 18
+ 779 01a1 01       		.uleb128 0x1
+ 780 01a2 9C       		.byte	0x9c
+ 781 01a3 17020000 		.4byte	0x217
+ 782 01a7 07       		.uleb128 0x7
+ 783 01a8 E3010000 		.4byte	.LASF19
+ 784 01ac 01       		.byte	0x1
+ 785 01ad 36       		.byte	0x36
+ 786 01ae AC000000 		.4byte	0xac
+ 787 01b2 F6000000 		.4byte	.LLST6
+ 788 01b6 07       		.uleb128 0x7
+ 789 01b7 41000000 		.4byte	.LASF20
+ 790 01bb 01       		.byte	0x1
+ 791 01bc 36       		.byte	0x36
+ 792 01bd AC000000 		.4byte	0xac
+ 793 01c1 17010000 		.4byte	.LLST7
+ 794 01c5 08       		.uleb128 0x8
+ 795 01c6 1C000000 		.4byte	.LBB6
+ 796 01ca 12000000 		.4byte	.LBE6-.LBB6
+ 797 01ce E0010000 		.4byte	0x1e0
+ 798 01d2 09       		.uleb128 0x9
+ 799 01d3 6900     		.ascii	"i\000"
+ 800 01d5 01       		.byte	0x1
+ 801 01d6 3D       		.byte	0x3d
+ 802 01d7 25000000 		.4byte	0x25
+ 803 01db 38010000 		.4byte	.LLST8
+ 804 01df 00       		.byte	0
+ 805 01e0 0E       		.uleb128 0xe
+ 806 01e1 36000000 		.4byte	.LVL21
+ 807 01e5 94050000 		.4byte	0x594
+ 808 01e9 F7010000 		.4byte	0x1f7
+ 809 01ed 0D       		.uleb128 0xd
+ 810 01ee 01       		.uleb128 0x1
+ 811 01ef 50       		.byte	0x50
+ 812 01f0 05       		.uleb128 0x5
+ 813 01f1 0C       		.byte	0xc
+ 814 01f2 FFFFFF00 		.4byte	0xffffff
+ 815 01f6 00       		.byte	0
+ 816 01f7 0F       		.uleb128 0xf
+ 817 01f8 3A000000 		.4byte	.LVL22
+ 818 01fc A6050000 		.4byte	0x5a6
+ 819 0200 0C       		.uleb128 0xc
+ 820 0201 42000000 		.4byte	.LVL23
+ 821 0205 C6000000 		.4byte	0xc6
+ 822 0209 0D       		.uleb128 0xd
+ 823 020a 01       		.uleb128 0x1
+ 824 020b 51       		.byte	0x51
+ 825 020c 02       		.uleb128 0x2
+ 826 020d 75       		.byte	0x75
+ 827 020e 00       		.sleb128 0
+ 828 020f 0D       		.uleb128 0xd
+ 829 0210 01       		.uleb128 0x1
+ 830 0211 50       		.byte	0x50
+ 831 0212 02       		.uleb128 0x2
+ 832 0213 74       		.byte	0x74
+ 833 0214 00       		.sleb128 0
+ 834 0215 00       		.byte	0
+ 835 0216 00       		.byte	0
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 18
 
 
- 864 036b 0F       		.uleb128 0xf
- 865 036c 18000000 		.4byte	.LVL27
- 866 0370 FC010000 		.4byte	0x1fc
- 867 0374 0C       		.uleb128 0xc
- 868 0375 20000000 		.4byte	.LVL30
- 869 0379 FC010000 		.4byte	0x1fc
- 870 037d 0D       		.uleb128 0xd
- 871 037e 01       		.uleb128 0x1
- 872 037f 50       		.byte	0x50
- 873 0380 02       		.uleb128 0x2
- 874 0381 74       		.byte	0x74
- 875 0382 00       		.sleb128 0
- 876 0383 00       		.byte	0
- 877 0384 00       		.byte	0
- 878 0385 12       		.uleb128 0x12
- 879 0386 ED010000 		.4byte	.LASF35
- 880 038a 07       		.byte	0x7
- 881 038b 9606     		.2byte	0x696
- 882 038d 91030000 		.4byte	0x391
- 883 0391 13       		.uleb128 0x13
- 884 0392 A1000000 		.4byte	0xa1
- 885 0396 14       		.uleb128 0x14
- 886 0397 A5010000 		.4byte	.LASF36
- 887 039b 08       		.byte	0x8
- 888 039c 11       		.byte	0x11
- 889 039d AC000000 		.4byte	0xac
- 890 03a1 05       		.uleb128 0x5
- 891 03a2 03       		.byte	0x3
- 892 03a3 00000000 		.4byte	PosX
- 893 03a7 14       		.uleb128 0x14
- 894 03a8 AA010000 		.4byte	.LASF37
- 895 03ac 08       		.byte	0x8
- 896 03ad 12       		.byte	0x12
- 897 03ae AC000000 		.4byte	0xac
- 898 03b2 05       		.uleb128 0x5
- 899 03b3 03       		.byte	0x3
- 900 03b4 00000000 		.4byte	PosY
- 901 03b8 14       		.uleb128 0x14
- 902 03b9 AF010000 		.4byte	.LASF38
- 903 03bd 01       		.byte	0x1
- 904 03be 16       		.byte	0x16
- 905 03bf 25000000 		.4byte	0x25
- 906 03c3 05       		.uleb128 0x5
- 907 03c4 03       		.byte	0x3
- 908 03c5 00000000 		.4byte	column_width
- 909 03c9 14       		.uleb128 0x14
- 910 03ca E4020000 		.4byte	.LASF39
- 911 03ce 01       		.byte	0x1
- 912 03cf 17       		.byte	0x17
- 913 03d0 25000000 		.4byte	0x25
- 914 03d4 05       		.uleb128 0x5
- 915 03d5 03       		.byte	0x3
- 916 03d6 00000000 		.4byte	row_height
- 917 03da 14       		.uleb128 0x14
- 918 03db 1C000000 		.4byte	.LASF40
- 919 03df 01       		.byte	0x1
- 920 03e0 18       		.byte	0x18
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 19
+ 836 0217 10       		.uleb128 0x10
+ 837 0218 3F010000 		.4byte	.LASF26
+ 838 021c 01       		.byte	0x1
+ 839 021d 48       		.byte	0x48
+ 840 021e 25000000 		.4byte	0x25
+ 841 0222 00000000 		.4byte	.LFB65
+ 842 0226 10000000 		.4byte	.LFE65-.LFB65
+ 843 022a 01       		.uleb128 0x1
+ 844 022b 9C       		.byte	0x9c
+ 845 022c 40020000 		.4byte	0x240
+ 846 0230 07       		.uleb128 0x7
+ 847 0231 15000000 		.4byte	.LASF25
+ 848 0235 01       		.byte	0x1
+ 849 0236 48       		.byte	0x48
+ 850 0237 25000000 		.4byte	0x25
+ 851 023b 57010000 		.4byte	.LLST9
+ 852 023f 00       		.byte	0
+ 853 0240 10       		.uleb128 0x10
+ 854 0241 D3000000 		.4byte	.LASF27
+ 855 0245 01       		.byte	0x1
+ 856 0246 4C       		.byte	0x4c
+ 857 0247 25000000 		.4byte	0x25
+ 858 024b 00000000 		.4byte	.LFB66
+ 859 024f 10000000 		.4byte	.LFE66-.LFB66
+ 860 0253 01       		.uleb128 0x1
+ 861 0254 9C       		.byte	0x9c
+ 862 0255 69020000 		.4byte	0x269
+ 863 0259 11       		.uleb128 0x11
+ 864 025a 726F7700 		.ascii	"row\000"
+ 865 025e 01       		.byte	0x1
+ 866 025f 4C       		.byte	0x4c
+ 867 0260 25000000 		.4byte	0x25
+ 868 0264 78010000 		.4byte	.LLST10
+ 869 0268 00       		.byte	0
+ 870 0269 12       		.uleb128 0x12
+ 871 026a 91030000 		.4byte	.LASF58
+ 872 026e 01       		.byte	0x1
+ 873 026f 50       		.byte	0x50
+ 874 0270 00000000 		.4byte	.LFB67
+ 875 0274 70000000 		.4byte	.LFE67-.LFB67
+ 876 0278 01       		.uleb128 0x1
+ 877 0279 9C       		.byte	0x9c
+ 878 027a 22030000 		.4byte	0x322
+ 879 027e 0B       		.uleb128 0xb
+ 880 027f 5B010000 		.4byte	.LASF28
+ 881 0283 01       		.byte	0x1
+ 882 0284 51       		.byte	0x51
+ 883 0285 25000000 		.4byte	0x25
+ 884 0289 99010000 		.4byte	.LLST11
+ 885 028d 0B       		.uleb128 0xb
+ 886 028e 3D020000 		.4byte	.LASF29
+ 887 0292 01       		.byte	0x1
+ 888 0293 52       		.byte	0x52
+ 889 0294 25000000 		.4byte	0x25
+ 890 0298 B7010000 		.4byte	.LLST12
+ 891 029c 0B       		.uleb128 0xb
+ 892 029d 2A000000 		.4byte	.LASF30
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 19
 
 
- 921 03e1 25000000 		.4byte	0x25
- 922 03e5 05       		.uleb128 0x5
- 923 03e6 03       		.byte	0x3
- 924 03e7 00000000 		.4byte	num_columns
- 925 03eb 14       		.uleb128 0x14
- 926 03ec 09000000 		.4byte	.LASF41
- 927 03f0 01       		.byte	0x1
- 928 03f1 19       		.byte	0x19
- 929 03f2 25000000 		.4byte	0x25
- 930 03f6 05       		.uleb128 0x5
- 931 03f7 03       		.byte	0x3
- 932 03f8 00000000 		.4byte	num_rows
- 933 03fc 14       		.uleb128 0x14
- 934 03fd 28000000 		.4byte	.LASF42
- 935 0401 01       		.byte	0x1
- 936 0402 1B       		.byte	0x1b
- 937 0403 AC000000 		.4byte	0xac
- 938 0407 05       		.uleb128 0x5
- 939 0408 03       		.byte	0x3
- 940 0409 00000000 		.4byte	WIDTH
- 941 040d 14       		.uleb128 0x14
- 942 040e 81020000 		.4byte	.LASF43
- 943 0412 01       		.byte	0x1
- 944 0413 1C       		.byte	0x1c
- 945 0414 AC000000 		.4byte	0xac
- 946 0418 05       		.uleb128 0x5
- 947 0419 03       		.byte	0x3
- 948 041a 00000000 		.4byte	HEIGHT
- 949 041e 14       		.uleb128 0x14
- 950 041f 40010000 		.4byte	.LASF44
- 951 0423 01       		.byte	0x1
- 952 0424 1E       		.byte	0x1e
- 953 0425 25000000 		.4byte	0x25
- 954 0429 05       		.uleb128 0x5
- 955 042a 03       		.byte	0x3
- 956 042b 00000000 		.4byte	prev_selected
- 957 042f 15       		.uleb128 0x15
- 958 0430 33010000 		.4byte	.LASF45
- 959 0434 09       		.byte	0x9
- 960 0435 1A02     		.2byte	0x21a
- 961 0437 50040000 		.4byte	0x450
- 962 043b 16       		.uleb128 0x16
- 963 043c 25000000 		.4byte	0x25
- 964 0440 16       		.uleb128 0x16
- 965 0441 25000000 		.4byte	0x25
- 966 0445 16       		.uleb128 0x16
- 967 0446 25000000 		.4byte	0x25
- 968 044a 16       		.uleb128 0x16
- 969 044b 25000000 		.4byte	0x25
- 970 044f 00       		.byte	0
- 971 0450 15       		.uleb128 0x15
- 972 0451 D7020000 		.4byte	.LASF46
- 973 0455 09       		.byte	0x9
- 974 0456 C101     		.2byte	0x1c1
- 975 0458 62040000 		.4byte	0x462
- 976 045c 16       		.uleb128 0x16
- 977 045d 6F000000 		.4byte	0x6f
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 20
+ 893 02a1 01       		.byte	0x1
+ 894 02a2 54       		.byte	0x54
+ 895 02a3 25000000 		.4byte	0x25
+ 896 02a7 CA010000 		.4byte	.LLST13
+ 897 02ab 0B       		.uleb128 0xb
+ 898 02ac 14020000 		.4byte	.LASF31
+ 899 02b0 01       		.byte	0x1
+ 900 02b1 56       		.byte	0x56
+ 901 02b2 25000000 		.4byte	0x25
+ 902 02b6 DD010000 		.4byte	.LLST14
+ 903 02ba 0B       		.uleb128 0xb
+ 904 02bb B5020000 		.4byte	.LASF32
+ 905 02bf 01       		.byte	0x1
+ 906 02c0 57       		.byte	0x57
+ 907 02c1 25000000 		.4byte	0x25
+ 908 02c5 FB010000 		.4byte	.LLST15
+ 909 02c9 0E       		.uleb128 0xe
+ 910 02ca 0E000000 		.4byte	.LVL28
+ 911 02ce 17020000 		.4byte	0x217
+ 912 02d2 DD020000 		.4byte	0x2dd
+ 913 02d6 0D       		.uleb128 0xd
+ 914 02d7 01       		.uleb128 0x1
+ 915 02d8 50       		.byte	0x50
+ 916 02d9 02       		.uleb128 0x2
+ 917 02da 74       		.byte	0x74
+ 918 02db 00       		.sleb128 0
+ 919 02dc 00       		.byte	0
+ 920 02dd 0E       		.uleb128 0xe
+ 921 02de 26000000 		.4byte	.LVL32
+ 922 02e2 40020000 		.4byte	0x240
+ 923 02e6 F1020000 		.4byte	0x2f1
+ 924 02ea 0D       		.uleb128 0xd
+ 925 02eb 01       		.uleb128 0x1
+ 926 02ec 50       		.byte	0x50
+ 927 02ed 02       		.uleb128 0x2
+ 928 02ee 75       		.byte	0x75
+ 929 02ef 00       		.sleb128 0
+ 930 02f0 00       		.byte	0
+ 931 02f1 0E       		.uleb128 0xe
+ 932 02f2 3C000000 		.4byte	.LVL36
+ 933 02f6 82050000 		.4byte	0x582
+ 934 02fa 08030000 		.4byte	0x308
+ 935 02fe 0D       		.uleb128 0xd
+ 936 02ff 01       		.uleb128 0x1
+ 937 0300 50       		.byte	0x50
+ 938 0301 05       		.uleb128 0x5
+ 939 0302 0C       		.byte	0xc
+ 940 0303 FFFFFF00 		.4byte	0xffffff
+ 941 0307 00       		.byte	0
+ 942 0308 0C       		.uleb128 0xc
+ 943 0309 56000000 		.4byte	.LVL37
+ 944 030d 61050000 		.4byte	0x561
+ 945 0311 0D       		.uleb128 0xd
+ 946 0312 01       		.uleb128 0x1
+ 947 0313 51       		.byte	0x51
+ 948 0314 02       		.uleb128 0x2
+ 949 0315 78       		.byte	0x78
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 20
 
 
- 978 0461 00       		.byte	0
- 979 0462 15       		.uleb128 0x15
- 980 0463 C8020000 		.4byte	.LASF47
- 981 0467 09       		.byte	0x9
- 982 0468 C001     		.2byte	0x1c0
- 983 046a 74040000 		.4byte	0x474
- 984 046e 16       		.uleb128 0x16
- 985 046f 6F000000 		.4byte	0x6f
- 986 0473 00       		.byte	0
- 987 0474 17       		.uleb128 0x17
- 988 0475 CA010000 		.4byte	.LASF51
- 989 0479 09       		.byte	0x9
- 990 047a F601     		.2byte	0x1f6
- 991 047c 00       		.byte	0
- 992              		.section	.debug_abbrev,"",%progbits
- 993              	.Ldebug_abbrev0:
- 994 0000 01       		.uleb128 0x1
- 995 0001 11       		.uleb128 0x11
- 996 0002 01       		.byte	0x1
- 997 0003 25       		.uleb128 0x25
- 998 0004 0E       		.uleb128 0xe
- 999 0005 13       		.uleb128 0x13
- 1000 0006 0B       		.uleb128 0xb
- 1001 0007 03       		.uleb128 0x3
- 1002 0008 0E       		.uleb128 0xe
- 1003 0009 1B       		.uleb128 0x1b
- 1004 000a 0E       		.uleb128 0xe
- 1005 000b 55       		.uleb128 0x55
- 1006 000c 17       		.uleb128 0x17
- 1007 000d 11       		.uleb128 0x11
- 1008 000e 01       		.uleb128 0x1
- 1009 000f 10       		.uleb128 0x10
- 1010 0010 17       		.uleb128 0x17
- 1011 0011 00       		.byte	0
- 1012 0012 00       		.byte	0
- 1013 0013 02       		.uleb128 0x2
- 1014 0014 24       		.uleb128 0x24
- 1015 0015 00       		.byte	0
- 1016 0016 0B       		.uleb128 0xb
- 1017 0017 0B       		.uleb128 0xb
- 1018 0018 3E       		.uleb128 0x3e
- 1019 0019 0B       		.uleb128 0xb
- 1020 001a 03       		.uleb128 0x3
- 1021 001b 08       		.uleb128 0x8
- 1022 001c 00       		.byte	0
- 1023 001d 00       		.byte	0
- 1024 001e 03       		.uleb128 0x3
- 1025 001f 24       		.uleb128 0x24
- 1026 0020 00       		.byte	0
- 1027 0021 0B       		.uleb128 0xb
- 1028 0022 0B       		.uleb128 0xb
- 1029 0023 3E       		.uleb128 0x3e
- 1030 0024 0B       		.uleb128 0xb
- 1031 0025 03       		.uleb128 0x3
- 1032 0026 0E       		.uleb128 0xe
- 1033 0027 00       		.byte	0
- 1034 0028 00       		.byte	0
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 21
+ 950 0316 01       		.sleb128 1
+ 951 0317 0D       		.uleb128 0xd
+ 952 0318 01       		.uleb128 0x1
+ 953 0319 50       		.byte	0x50
+ 954 031a 05       		.uleb128 0x5
+ 955 031b 76       		.byte	0x76
+ 956 031c 00       		.sleb128 0
+ 957 031d 77       		.byte	0x77
+ 958 031e 00       		.sleb128 0
+ 959 031f 22       		.byte	0x22
+ 960 0320 00       		.byte	0
+ 961 0321 00       		.byte	0
+ 962 0322 06       		.uleb128 0x6
+ 963 0323 5C000000 		.4byte	.LASF33
+ 964 0327 01       		.byte	0x1
+ 965 0328 5E       		.byte	0x5e
+ 966 0329 00000000 		.4byte	.LFB68
+ 967 032d 7C000000 		.4byte	.LFE68-.LFB68
+ 968 0331 01       		.uleb128 0x1
+ 969 0332 9C       		.byte	0x9c
+ 970 0333 F3030000 		.4byte	0x3f3
+ 971 0337 07       		.uleb128 0x7
+ 972 0338 15000000 		.4byte	.LASF25
+ 973 033c 01       		.byte	0x1
+ 974 033d 5E       		.byte	0x5e
+ 975 033e AC000000 		.4byte	0xac
+ 976 0342 0E020000 		.4byte	.LLST16
+ 977 0346 0B       		.uleb128 0xb
+ 978 0347 34000000 		.4byte	.LASF34
+ 979 034b 01       		.byte	0x1
+ 980 034c 62       		.byte	0x62
+ 981 034d 25000000 		.4byte	0x25
+ 982 0351 2F020000 		.4byte	.LLST17
+ 983 0355 0B       		.uleb128 0xb
+ 984 0356 AC020000 		.4byte	.LASF35
+ 985 035a 01       		.byte	0x1
+ 986 035b 65       		.byte	0x65
+ 987 035c 25000000 		.4byte	0x25
+ 988 0360 4D020000 		.4byte	.LLST18
+ 989 0364 0B       		.uleb128 0xb
+ 990 0365 2A000000 		.4byte	.LASF30
+ 991 0369 01       		.byte	0x1
+ 992 036a 67       		.byte	0x67
+ 993 036b 25000000 		.4byte	0x25
+ 994 036f 60020000 		.4byte	.LLST19
+ 995 0373 0B       		.uleb128 0xb
+ 996 0374 14020000 		.4byte	.LASF31
+ 997 0378 01       		.byte	0x1
+ 998 0379 68       		.byte	0x68
+ 999 037a 25000000 		.4byte	0x25
+ 1000 037e 73020000 		.4byte	.LLST20
+ 1001 0382 0B       		.uleb128 0xb
+ 1002 0383 B5020000 		.4byte	.LASF32
+ 1003 0387 01       		.byte	0x1
+ 1004 0388 69       		.byte	0x69
+ 1005 0389 25000000 		.4byte	0x25
+ 1006 038d 91020000 		.4byte	.LLST21
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 21
 
 
- 1035 0029 04       		.uleb128 0x4
- 1036 002a 16       		.uleb128 0x16
- 1037 002b 00       		.byte	0
- 1038 002c 03       		.uleb128 0x3
- 1039 002d 0E       		.uleb128 0xe
- 1040 002e 3A       		.uleb128 0x3a
- 1041 002f 0B       		.uleb128 0xb
- 1042 0030 3B       		.uleb128 0x3b
- 1043 0031 0B       		.uleb128 0xb
- 1044 0032 49       		.uleb128 0x49
- 1045 0033 13       		.uleb128 0x13
- 1046 0034 00       		.byte	0
- 1047 0035 00       		.byte	0
- 1048 0036 05       		.uleb128 0x5
- 1049 0037 16       		.uleb128 0x16
- 1050 0038 00       		.byte	0
- 1051 0039 03       		.uleb128 0x3
- 1052 003a 0E       		.uleb128 0xe
- 1053 003b 3A       		.uleb128 0x3a
- 1054 003c 0B       		.uleb128 0xb
- 1055 003d 3B       		.uleb128 0x3b
- 1056 003e 05       		.uleb128 0x5
- 1057 003f 49       		.uleb128 0x49
- 1058 0040 13       		.uleb128 0x13
- 1059 0041 00       		.byte	0
- 1060 0042 00       		.byte	0
- 1061 0043 06       		.uleb128 0x6
- 1062 0044 2E       		.uleb128 0x2e
- 1063 0045 01       		.byte	0x1
- 1064 0046 3F       		.uleb128 0x3f
- 1065 0047 19       		.uleb128 0x19
- 1066 0048 03       		.uleb128 0x3
- 1067 0049 0E       		.uleb128 0xe
- 1068 004a 3A       		.uleb128 0x3a
- 1069 004b 0B       		.uleb128 0xb
- 1070 004c 3B       		.uleb128 0x3b
- 1071 004d 0B       		.uleb128 0xb
- 1072 004e 27       		.uleb128 0x27
- 1073 004f 19       		.uleb128 0x19
- 1074 0050 11       		.uleb128 0x11
- 1075 0051 01       		.uleb128 0x1
- 1076 0052 12       		.uleb128 0x12
- 1077 0053 06       		.uleb128 0x6
- 1078 0054 40       		.uleb128 0x40
- 1079 0055 18       		.uleb128 0x18
- 1080 0056 9742     		.uleb128 0x2117
- 1081 0058 19       		.uleb128 0x19
- 1082 0059 01       		.uleb128 0x1
- 1083 005a 13       		.uleb128 0x13
- 1084 005b 00       		.byte	0
- 1085 005c 00       		.byte	0
- 1086 005d 07       		.uleb128 0x7
- 1087 005e 05       		.uleb128 0x5
- 1088 005f 00       		.byte	0
- 1089 0060 03       		.uleb128 0x3
- 1090 0061 0E       		.uleb128 0xe
- 1091 0062 3A       		.uleb128 0x3a
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 22
+ 1007 0391 0F       		.uleb128 0xf
+ 1008 0392 0A000000 		.4byte	.LVL40
+ 1009 0396 69020000 		.4byte	0x269
+ 1010 039a 0E       		.uleb128 0xe
+ 1011 039b 10000000 		.4byte	.LVL41
+ 1012 039f 17020000 		.4byte	0x217
+ 1013 03a3 AE030000 		.4byte	0x3ae
+ 1014 03a7 0D       		.uleb128 0xd
+ 1015 03a8 01       		.uleb128 0x1
+ 1016 03a9 50       		.byte	0x50
+ 1017 03aa 02       		.uleb128 0x2
+ 1018 03ab 76       		.byte	0x76
+ 1019 03ac 00       		.sleb128 0
+ 1020 03ad 00       		.byte	0
+ 1021 03ae 0E       		.uleb128 0xe
+ 1022 03af 2C000000 		.4byte	.LVL45
+ 1023 03b3 40020000 		.4byte	0x240
+ 1024 03b7 C2030000 		.4byte	0x3c2
+ 1025 03bb 0D       		.uleb128 0xd
+ 1026 03bc 01       		.uleb128 0x1
+ 1027 03bd 50       		.byte	0x50
+ 1028 03be 02       		.uleb128 0x2
+ 1029 03bf 75       		.byte	0x75
+ 1030 03c0 00       		.sleb128 0
+ 1031 03c1 00       		.byte	0
+ 1032 03c2 0E       		.uleb128 0xe
+ 1033 03c3 40000000 		.4byte	.LVL49
+ 1034 03c7 82050000 		.4byte	0x582
+ 1035 03cb D9030000 		.4byte	0x3d9
+ 1036 03cf 0D       		.uleb128 0xd
+ 1037 03d0 01       		.uleb128 0x1
+ 1038 03d1 50       		.byte	0x50
+ 1039 03d2 05       		.uleb128 0x5
+ 1040 03d3 0C       		.byte	0xc
+ 1041 03d4 DEF7FC00 		.4byte	0xfcf7de
+ 1042 03d8 00       		.byte	0
+ 1043 03d9 0C       		.uleb128 0xc
+ 1044 03da 5C000000 		.4byte	.LVL50
+ 1045 03de 61050000 		.4byte	0x561
+ 1046 03e2 0D       		.uleb128 0xd
+ 1047 03e3 01       		.uleb128 0x1
+ 1048 03e4 51       		.byte	0x51
+ 1049 03e5 02       		.uleb128 0x2
+ 1050 03e6 79       		.byte	0x79
+ 1051 03e7 01       		.sleb128 1
+ 1052 03e8 0D       		.uleb128 0xd
+ 1053 03e9 01       		.uleb128 0x1
+ 1054 03ea 50       		.byte	0x50
+ 1055 03eb 05       		.uleb128 0x5
+ 1056 03ec 77       		.byte	0x77
+ 1057 03ed 00       		.sleb128 0
+ 1058 03ee 78       		.byte	0x78
+ 1059 03ef 00       		.sleb128 0
+ 1060 03f0 22       		.byte	0x22
+ 1061 03f1 00       		.byte	0
+ 1062 03f2 00       		.byte	0
+ 1063 03f3 06       		.uleb128 0x6
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 22
 
 
- 1092 0063 0B       		.uleb128 0xb
- 1093 0064 3B       		.uleb128 0x3b
- 1094 0065 0B       		.uleb128 0xb
- 1095 0066 49       		.uleb128 0x49
- 1096 0067 13       		.uleb128 0x13
- 1097 0068 02       		.uleb128 0x2
- 1098 0069 17       		.uleb128 0x17
- 1099 006a 00       		.byte	0
- 1100 006b 00       		.byte	0
- 1101 006c 08       		.uleb128 0x8
- 1102 006d 0B       		.uleb128 0xb
- 1103 006e 01       		.byte	0x1
- 1104 006f 11       		.uleb128 0x11
- 1105 0070 01       		.uleb128 0x1
- 1106 0071 12       		.uleb128 0x12
- 1107 0072 06       		.uleb128 0x6
- 1108 0073 01       		.uleb128 0x1
- 1109 0074 13       		.uleb128 0x13
- 1110 0075 00       		.byte	0
- 1111 0076 00       		.byte	0
- 1112 0077 09       		.uleb128 0x9
- 1113 0078 34       		.uleb128 0x34
- 1114 0079 00       		.byte	0
- 1115 007a 03       		.uleb128 0x3
- 1116 007b 08       		.uleb128 0x8
- 1117 007c 3A       		.uleb128 0x3a
- 1118 007d 0B       		.uleb128 0xb
- 1119 007e 3B       		.uleb128 0x3b
- 1120 007f 0B       		.uleb128 0xb
- 1121 0080 49       		.uleb128 0x49
- 1122 0081 13       		.uleb128 0x13
- 1123 0082 02       		.uleb128 0x2
- 1124 0083 17       		.uleb128 0x17
- 1125 0084 00       		.byte	0
- 1126 0085 00       		.byte	0
- 1127 0086 0A       		.uleb128 0xa
- 1128 0087 0B       		.uleb128 0xb
- 1129 0088 01       		.byte	0x1
- 1130 0089 11       		.uleb128 0x11
- 1131 008a 01       		.uleb128 0x1
- 1132 008b 12       		.uleb128 0x12
- 1133 008c 06       		.uleb128 0x6
- 1134 008d 00       		.byte	0
- 1135 008e 00       		.byte	0
- 1136 008f 0B       		.uleb128 0xb
- 1137 0090 34       		.uleb128 0x34
- 1138 0091 00       		.byte	0
- 1139 0092 03       		.uleb128 0x3
- 1140 0093 0E       		.uleb128 0xe
- 1141 0094 3A       		.uleb128 0x3a
- 1142 0095 0B       		.uleb128 0xb
- 1143 0096 3B       		.uleb128 0x3b
- 1144 0097 0B       		.uleb128 0xb
- 1145 0098 49       		.uleb128 0x49
- 1146 0099 13       		.uleb128 0x13
- 1147 009a 02       		.uleb128 0x2
- 1148 009b 17       		.uleb128 0x17
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 23
+ 1064 03f4 EB010000 		.4byte	.LASF36
+ 1065 03f8 01       		.byte	0x1
+ 1066 03f9 72       		.byte	0x72
+ 1067 03fa 00000000 		.4byte	.LFB69
+ 1068 03fe 78000000 		.4byte	.LFE69-.LFB69
+ 1069 0402 01       		.uleb128 0x1
+ 1070 0403 9C       		.byte	0x9c
+ 1071 0404 96040000 		.4byte	0x496
+ 1072 0408 07       		.uleb128 0x7
+ 1073 0409 15000000 		.4byte	.LASF25
+ 1074 040d 01       		.byte	0x1
+ 1075 040e 72       		.byte	0x72
+ 1076 040f AC000000 		.4byte	0xac
+ 1077 0413 A4020000 		.4byte	.LLST22
+ 1078 0417 07       		.uleb128 0x7
+ 1079 0418 80030000 		.4byte	.LASF37
+ 1080 041c 01       		.byte	0x1
+ 1081 041d 72       		.byte	0x72
+ 1082 041e AC000000 		.4byte	0xac
+ 1083 0422 C5020000 		.4byte	.LLST23
+ 1084 0426 0B       		.uleb128 0xb
+ 1085 0427 EC000000 		.4byte	.LASF38
+ 1086 042b 01       		.byte	0x1
+ 1087 042c 73       		.byte	0x73
+ 1088 042d 25000000 		.4byte	0x25
+ 1089 0431 E6020000 		.4byte	.LLST24
+ 1090 0435 0B       		.uleb128 0xb
+ 1091 0436 F9000000 		.4byte	.LASF39
+ 1092 043a 01       		.byte	0x1
+ 1093 043b 74       		.byte	0x74
+ 1094 043c 25000000 		.4byte	0x25
+ 1095 0440 F9020000 		.4byte	.LLST25
+ 1096 0444 0B       		.uleb128 0xb
+ 1097 0445 9D010000 		.4byte	.LASF40
+ 1098 0449 01       		.byte	0x1
+ 1099 044a 76       		.byte	0x76
+ 1100 044b AC000000 		.4byte	0xac
+ 1101 044f 0C030000 		.4byte	.LLST26
+ 1102 0453 0E       		.uleb128 0xe
+ 1103 0454 0C000000 		.4byte	.LVL53
+ 1104 0458 17020000 		.4byte	0x217
+ 1105 045c 67040000 		.4byte	0x467
+ 1106 0460 0D       		.uleb128 0xd
+ 1107 0461 01       		.uleb128 0x1
+ 1108 0462 50       		.byte	0x50
+ 1109 0463 02       		.uleb128 0x2
+ 1110 0464 75       		.byte	0x75
+ 1111 0465 00       		.sleb128 0
+ 1112 0466 00       		.byte	0
+ 1113 0467 0F       		.uleb128 0xf
+ 1114 0468 26000000 		.4byte	.LVL55
+ 1115 046c 40020000 		.4byte	0x240
+ 1116 0470 0F       		.uleb128 0xf
+ 1117 0471 50000000 		.4byte	.LVL58
+ 1118 0475 82050000 		.4byte	0x582
+ 1119 0479 0C       		.uleb128 0xc
+ 1120 047a 5A000000 		.4byte	.LVL59
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 23
 
 
- 1149 009c 00       		.byte	0
- 1150 009d 00       		.byte	0
- 1151 009e 0C       		.uleb128 0xc
- 1152 009f 898201   		.uleb128 0x4109
- 1153 00a2 01       		.byte	0x1
- 1154 00a3 11       		.uleb128 0x11
- 1155 00a4 01       		.uleb128 0x1
- 1156 00a5 31       		.uleb128 0x31
- 1157 00a6 13       		.uleb128 0x13
- 1158 00a7 00       		.byte	0
- 1159 00a8 00       		.byte	0
- 1160 00a9 0D       		.uleb128 0xd
- 1161 00aa 8A8201   		.uleb128 0x410a
- 1162 00ad 00       		.byte	0
- 1163 00ae 02       		.uleb128 0x2
- 1164 00af 18       		.uleb128 0x18
- 1165 00b0 9142     		.uleb128 0x2111
- 1166 00b2 18       		.uleb128 0x18
- 1167 00b3 00       		.byte	0
- 1168 00b4 00       		.byte	0
- 1169 00b5 0E       		.uleb128 0xe
- 1170 00b6 898201   		.uleb128 0x4109
- 1171 00b9 01       		.byte	0x1
- 1172 00ba 11       		.uleb128 0x11
- 1173 00bb 01       		.uleb128 0x1
- 1174 00bc 31       		.uleb128 0x31
- 1175 00bd 13       		.uleb128 0x13
- 1176 00be 01       		.uleb128 0x1
- 1177 00bf 13       		.uleb128 0x13
- 1178 00c0 00       		.byte	0
- 1179 00c1 00       		.byte	0
- 1180 00c2 0F       		.uleb128 0xf
- 1181 00c3 898201   		.uleb128 0x4109
- 1182 00c6 00       		.byte	0
- 1183 00c7 11       		.uleb128 0x11
- 1184 00c8 01       		.uleb128 0x1
- 1185 00c9 31       		.uleb128 0x31
- 1186 00ca 13       		.uleb128 0x13
- 1187 00cb 00       		.byte	0
- 1188 00cc 00       		.byte	0
- 1189 00cd 10       		.uleb128 0x10
- 1190 00ce 2E       		.uleb128 0x2e
- 1191 00cf 01       		.byte	0x1
- 1192 00d0 3F       		.uleb128 0x3f
- 1193 00d1 19       		.uleb128 0x19
- 1194 00d2 03       		.uleb128 0x3
- 1195 00d3 0E       		.uleb128 0xe
- 1196 00d4 3A       		.uleb128 0x3a
- 1197 00d5 0B       		.uleb128 0xb
- 1198 00d6 3B       		.uleb128 0x3b
- 1199 00d7 0B       		.uleb128 0xb
- 1200 00d8 27       		.uleb128 0x27
- 1201 00d9 19       		.uleb128 0x19
- 1202 00da 49       		.uleb128 0x49
- 1203 00db 13       		.uleb128 0x13
- 1204 00dc 11       		.uleb128 0x11
- 1205 00dd 01       		.uleb128 0x1
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 24
+ 1121 047e AE050000 		.4byte	0x5ae
+ 1122 0482 0D       		.uleb128 0xd
+ 1123 0483 01       		.uleb128 0x1
+ 1124 0484 52       		.byte	0x52
+ 1125 0485 02       		.uleb128 0x2
+ 1126 0486 74       		.byte	0x74
+ 1127 0487 00       		.sleb128 0
+ 1128 0488 0D       		.uleb128 0xd
+ 1129 0489 01       		.uleb128 0x1
+ 1130 048a 51       		.byte	0x51
+ 1131 048b 02       		.uleb128 0x2
+ 1132 048c 79       		.byte	0x79
+ 1133 048d 00       		.sleb128 0
+ 1134 048e 0D       		.uleb128 0xd
+ 1135 048f 01       		.uleb128 0x1
+ 1136 0490 50       		.byte	0x50
+ 1137 0491 02       		.uleb128 0x2
+ 1138 0492 77       		.byte	0x77
+ 1139 0493 00       		.sleb128 0
+ 1140 0494 00       		.byte	0
+ 1141 0495 00       		.byte	0
+ 1142 0496 13       		.uleb128 0x13
+ 1143 0497 57030000 		.4byte	.LASF41
+ 1144 049b 07       		.byte	0x7
+ 1145 049c 9606     		.2byte	0x696
+ 1146 049e A2040000 		.4byte	0x4a2
+ 1147 04a2 14       		.uleb128 0x14
+ 1148 04a3 A1000000 		.4byte	0xa1
+ 1149 04a7 15       		.uleb128 0x15
+ 1150 04a8 0A020000 		.4byte	.LASF42
+ 1151 04ac 08       		.byte	0x8
+ 1152 04ad 11       		.byte	0x11
+ 1153 04ae AC000000 		.4byte	0xac
+ 1154 04b2 05       		.uleb128 0x5
+ 1155 04b3 03       		.byte	0x3
+ 1156 04b4 00000000 		.4byte	PosX
+ 1157 04b8 15       		.uleb128 0x15
+ 1158 04b9 0F020000 		.4byte	.LASF43
+ 1159 04bd 08       		.byte	0x8
+ 1160 04be 12       		.byte	0x12
+ 1161 04bf AC000000 		.4byte	0xac
+ 1162 04c3 05       		.uleb128 0x5
+ 1163 04c4 03       		.byte	0x3
+ 1164 04c5 00000000 		.4byte	PosY
+ 1165 04c9 15       		.uleb128 0x15
+ 1166 04ca 06010000 		.4byte	.LASF44
+ 1167 04ce 01       		.byte	0x1
+ 1168 04cf 16       		.byte	0x16
+ 1169 04d0 25000000 		.4byte	0x25
+ 1170 04d4 05       		.uleb128 0x5
+ 1171 04d5 03       		.byte	0x3
+ 1172 04d6 00000000 		.4byte	column_width
+ 1173 04da 15       		.uleb128 0x15
+ 1174 04db FF010000 		.4byte	.LASF45
+ 1175 04df 01       		.byte	0x1
+ 1176 04e0 17       		.byte	0x17
+ 1177 04e1 25000000 		.4byte	0x25
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 24
 
 
- 1206 00de 12       		.uleb128 0x12
- 1207 00df 06       		.uleb128 0x6
- 1208 00e0 40       		.uleb128 0x40
- 1209 00e1 18       		.uleb128 0x18
- 1210 00e2 9742     		.uleb128 0x2117
- 1211 00e4 19       		.uleb128 0x19
- 1212 00e5 01       		.uleb128 0x1
- 1213 00e6 13       		.uleb128 0x13
- 1214 00e7 00       		.byte	0
- 1215 00e8 00       		.byte	0
- 1216 00e9 11       		.uleb128 0x11
- 1217 00ea 05       		.uleb128 0x5
- 1218 00eb 00       		.byte	0
- 1219 00ec 03       		.uleb128 0x3
- 1220 00ed 08       		.uleb128 0x8
- 1221 00ee 3A       		.uleb128 0x3a
- 1222 00ef 0B       		.uleb128 0xb
- 1223 00f0 3B       		.uleb128 0x3b
- 1224 00f1 0B       		.uleb128 0xb
- 1225 00f2 49       		.uleb128 0x49
- 1226 00f3 13       		.uleb128 0x13
- 1227 00f4 02       		.uleb128 0x2
- 1228 00f5 17       		.uleb128 0x17
- 1229 00f6 00       		.byte	0
- 1230 00f7 00       		.byte	0
- 1231 00f8 12       		.uleb128 0x12
- 1232 00f9 34       		.uleb128 0x34
- 1233 00fa 00       		.byte	0
- 1234 00fb 03       		.uleb128 0x3
- 1235 00fc 0E       		.uleb128 0xe
- 1236 00fd 3A       		.uleb128 0x3a
- 1237 00fe 0B       		.uleb128 0xb
- 1238 00ff 3B       		.uleb128 0x3b
- 1239 0100 05       		.uleb128 0x5
- 1240 0101 49       		.uleb128 0x49
- 1241 0102 13       		.uleb128 0x13
- 1242 0103 3F       		.uleb128 0x3f
- 1243 0104 19       		.uleb128 0x19
- 1244 0105 3C       		.uleb128 0x3c
- 1245 0106 19       		.uleb128 0x19
- 1246 0107 00       		.byte	0
- 1247 0108 00       		.byte	0
- 1248 0109 13       		.uleb128 0x13
- 1249 010a 35       		.uleb128 0x35
- 1250 010b 00       		.byte	0
- 1251 010c 49       		.uleb128 0x49
- 1252 010d 13       		.uleb128 0x13
- 1253 010e 00       		.byte	0
- 1254 010f 00       		.byte	0
- 1255 0110 14       		.uleb128 0x14
- 1256 0111 34       		.uleb128 0x34
- 1257 0112 00       		.byte	0
- 1258 0113 03       		.uleb128 0x3
- 1259 0114 0E       		.uleb128 0xe
- 1260 0115 3A       		.uleb128 0x3a
- 1261 0116 0B       		.uleb128 0xb
- 1262 0117 3B       		.uleb128 0x3b
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 25
+ 1178 04e5 05       		.uleb128 0x5
+ 1179 04e6 03       		.byte	0x3
+ 1180 04e7 00000000 		.4byte	row_height
+ 1181 04eb 15       		.uleb128 0x15
+ 1182 04ec 77010000 		.4byte	.LASF46
+ 1183 04f0 01       		.byte	0x1
+ 1184 04f1 18       		.byte	0x18
+ 1185 04f2 25000000 		.4byte	0x25
+ 1186 04f6 05       		.uleb128 0x5
+ 1187 04f7 03       		.byte	0x3
+ 1188 04f8 00000000 		.4byte	num_columns
+ 1189 04fc 15       		.uleb128 0x15
+ 1190 04fd 77030000 		.4byte	.LASF47
+ 1191 0501 01       		.byte	0x1
+ 1192 0502 19       		.byte	0x19
+ 1193 0503 25000000 		.4byte	0x25
+ 1194 0507 05       		.uleb128 0x5
+ 1195 0508 03       		.byte	0x3
+ 1196 0509 00000000 		.4byte	num_rows
+ 1197 050d 16       		.uleb128 0x16
+ 1198 050e 25000000 		.4byte	0x25
+ 1199 0512 1D050000 		.4byte	0x51d
+ 1200 0516 17       		.uleb128 0x17
+ 1201 0517 88000000 		.4byte	0x88
+ 1202 051b 06       		.byte	0x6
+ 1203 051c 00       		.byte	0
+ 1204 051d 15       		.uleb128 0x15
+ 1205 051e 13010000 		.4byte	.LASF48
+ 1206 0522 01       		.byte	0x1
+ 1207 0523 1B       		.byte	0x1b
+ 1208 0524 0D050000 		.4byte	0x50d
+ 1209 0528 05       		.uleb128 0x5
+ 1210 0529 03       		.byte	0x3
+ 1211 052a 00000000 		.4byte	placed_heights
+ 1212 052e 15       		.uleb128 0x15
+ 1213 052f 22010000 		.4byte	.LASF49
+ 1214 0533 01       		.byte	0x1
+ 1215 0534 1D       		.byte	0x1d
+ 1216 0535 AC000000 		.4byte	0xac
+ 1217 0539 05       		.uleb128 0x5
+ 1218 053a 03       		.byte	0x3
+ 1219 053b 00000000 		.4byte	WIDTH
+ 1220 053f 15       		.uleb128 0x15
+ 1221 0540 8E020000 		.4byte	.LASF50
+ 1222 0544 01       		.byte	0x1
+ 1223 0545 1E       		.byte	0x1e
+ 1224 0546 AC000000 		.4byte	0xac
+ 1225 054a 05       		.uleb128 0x5
+ 1226 054b 03       		.byte	0x3
+ 1227 054c 00000000 		.4byte	HEIGHT
+ 1228 0550 15       		.uleb128 0x15
+ 1229 0551 1C000000 		.4byte	.LASF51
+ 1230 0555 01       		.byte	0x1
+ 1231 0556 20       		.byte	0x20
+ 1232 0557 25000000 		.4byte	0x25
+ 1233 055b 05       		.uleb128 0x5
+ 1234 055c 03       		.byte	0x3
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 25
 
 
- 1263 0118 0B       		.uleb128 0xb
- 1264 0119 49       		.uleb128 0x49
- 1265 011a 13       		.uleb128 0x13
- 1266 011b 3F       		.uleb128 0x3f
- 1267 011c 19       		.uleb128 0x19
- 1268 011d 02       		.uleb128 0x2
- 1269 011e 18       		.uleb128 0x18
- 1270 011f 00       		.byte	0
- 1271 0120 00       		.byte	0
- 1272 0121 15       		.uleb128 0x15
- 1273 0122 2E       		.uleb128 0x2e
- 1274 0123 01       		.byte	0x1
- 1275 0124 3F       		.uleb128 0x3f
- 1276 0125 19       		.uleb128 0x19
- 1277 0126 03       		.uleb128 0x3
- 1278 0127 0E       		.uleb128 0xe
- 1279 0128 3A       		.uleb128 0x3a
- 1280 0129 0B       		.uleb128 0xb
- 1281 012a 3B       		.uleb128 0x3b
- 1282 012b 05       		.uleb128 0x5
- 1283 012c 27       		.uleb128 0x27
- 1284 012d 19       		.uleb128 0x19
- 1285 012e 3C       		.uleb128 0x3c
- 1286 012f 19       		.uleb128 0x19
- 1287 0130 01       		.uleb128 0x1
- 1288 0131 13       		.uleb128 0x13
- 1289 0132 00       		.byte	0
- 1290 0133 00       		.byte	0
- 1291 0134 16       		.uleb128 0x16
- 1292 0135 05       		.uleb128 0x5
- 1293 0136 00       		.byte	0
- 1294 0137 49       		.uleb128 0x49
- 1295 0138 13       		.uleb128 0x13
- 1296 0139 00       		.byte	0
- 1297 013a 00       		.byte	0
- 1298 013b 17       		.uleb128 0x17
- 1299 013c 2E       		.uleb128 0x2e
- 1300 013d 00       		.byte	0
- 1301 013e 3F       		.uleb128 0x3f
- 1302 013f 19       		.uleb128 0x19
- 1303 0140 03       		.uleb128 0x3
- 1304 0141 0E       		.uleb128 0xe
- 1305 0142 3A       		.uleb128 0x3a
- 1306 0143 0B       		.uleb128 0xb
- 1307 0144 3B       		.uleb128 0x3b
- 1308 0145 05       		.uleb128 0x5
- 1309 0146 27       		.uleb128 0x27
- 1310 0147 19       		.uleb128 0x19
- 1311 0148 3C       		.uleb128 0x3c
- 1312 0149 19       		.uleb128 0x19
- 1313 014a 00       		.byte	0
- 1314 014b 00       		.byte	0
- 1315 014c 00       		.byte	0
- 1316              		.section	.debug_loc,"",%progbits
- 1317              	.Ldebug_loc0:
- 1318              	.LLST0:
- 1319 0000 00000000 		.4byte	.LVL0
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 26
+ 1235 055d 00000000 		.4byte	prev_selected
+ 1236 0561 18       		.uleb128 0x18
+ 1237 0562 9F020000 		.4byte	.LASF52
+ 1238 0566 09       		.byte	0x9
+ 1239 0567 1A02     		.2byte	0x21a
+ 1240 0569 82050000 		.4byte	0x582
+ 1241 056d 19       		.uleb128 0x19
+ 1242 056e 25000000 		.4byte	0x25
+ 1243 0572 19       		.uleb128 0x19
+ 1244 0573 25000000 		.4byte	0x25
+ 1245 0577 19       		.uleb128 0x19
+ 1246 0578 25000000 		.4byte	0x25
+ 1247 057c 19       		.uleb128 0x19
+ 1248 057d 25000000 		.4byte	0x25
+ 1249 0581 00       		.byte	0
+ 1250 0582 18       		.uleb128 0x18
+ 1251 0583 4F000000 		.4byte	.LASF53
+ 1252 0587 09       		.byte	0x9
+ 1253 0588 C101     		.2byte	0x1c1
+ 1254 058a 94050000 		.4byte	0x594
+ 1255 058e 19       		.uleb128 0x19
+ 1256 058f 6F000000 		.4byte	0x6f
+ 1257 0593 00       		.byte	0
+ 1258 0594 18       		.uleb128 0x18
+ 1259 0595 06000000 		.4byte	.LASF54
+ 1260 0599 09       		.byte	0x9
+ 1261 059a C001     		.2byte	0x1c0
+ 1262 059c A6050000 		.4byte	0x5a6
+ 1263 05a0 19       		.uleb128 0x19
+ 1264 05a1 6F000000 		.4byte	0x6f
+ 1265 05a5 00       		.byte	0
+ 1266 05a6 1A       		.uleb128 0x1a
+ 1267 05a7 87030000 		.4byte	.LASF59
+ 1268 05ab 09       		.byte	0x9
+ 1269 05ac F601     		.2byte	0x1f6
+ 1270 05ae 1B       		.uleb128 0x1b
+ 1271 05af C7010000 		.4byte	.LASF60
+ 1272 05b3 09       		.byte	0x9
+ 1273 05b4 1702     		.2byte	0x217
+ 1274 05b6 19       		.uleb128 0x19
+ 1275 05b7 25000000 		.4byte	0x25
+ 1276 05bb 19       		.uleb128 0x19
+ 1277 05bc 25000000 		.4byte	0x25
+ 1278 05c0 19       		.uleb128 0x19
+ 1279 05c1 25000000 		.4byte	0x25
+ 1280 05c5 00       		.byte	0
+ 1281 05c6 00       		.byte	0
+ 1282              		.section	.debug_abbrev,"",%progbits
+ 1283              	.Ldebug_abbrev0:
+ 1284 0000 01       		.uleb128 0x1
+ 1285 0001 11       		.uleb128 0x11
+ 1286 0002 01       		.byte	0x1
+ 1287 0003 25       		.uleb128 0x25
+ 1288 0004 0E       		.uleb128 0xe
+ 1289 0005 13       		.uleb128 0x13
+ 1290 0006 0B       		.uleb128 0xb
+ 1291 0007 03       		.uleb128 0x3
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 26
 
 
- 1320 0004 0A000000 		.4byte	.LVL1
- 1321 0008 0100     		.2byte	0x1
- 1322 000a 50       		.byte	0x50
- 1323 000b 0A000000 		.4byte	.LVL1
- 1324 000f 98000000 		.4byte	.LFE63
- 1325 0013 0400     		.2byte	0x4
- 1326 0015 F3       		.byte	0xf3
- 1327 0016 01       		.uleb128 0x1
- 1328 0017 50       		.byte	0x50
- 1329 0018 9F       		.byte	0x9f
- 1330 0019 00000000 		.4byte	0
- 1331 001d 00000000 		.4byte	0
- 1332              	.LLST1:
- 1333 0021 00000000 		.4byte	.LVL0
- 1334 0025 0D000000 		.4byte	.LVL2-1
- 1335 0029 0100     		.2byte	0x1
- 1336 002b 51       		.byte	0x51
- 1337 002c 0D000000 		.4byte	.LVL2-1
- 1338 0030 98000000 		.4byte	.LFE63
- 1339 0034 0400     		.2byte	0x4
- 1340 0036 F3       		.byte	0xf3
- 1341 0037 01       		.uleb128 0x1
- 1342 0038 51       		.byte	0x51
- 1343 0039 9F       		.byte	0x9f
- 1344 003a 00000000 		.4byte	0
- 1345 003e 00000000 		.4byte	0
- 1346              	.LLST2:
- 1347 0042 3A000000 		.4byte	.LVL3
- 1348 0046 3E000000 		.4byte	.LVL4
- 1349 004a 0200     		.2byte	0x2
- 1350 004c 30       		.byte	0x30
- 1351 004d 9F       		.byte	0x9f
- 1352 004e 3E000000 		.4byte	.LVL4
- 1353 0052 46000000 		.4byte	.LVL5
- 1354 0056 0100     		.2byte	0x1
- 1355 0058 53       		.byte	0x53
- 1356 0059 46000000 		.4byte	.LVL5
- 1357 005d 58000000 		.4byte	.LVL8
- 1358 0061 0300     		.2byte	0x3
- 1359 0063 75       		.byte	0x75
- 1360 0064 7F       		.sleb128 -1
- 1361 0065 9F       		.byte	0x9f
- 1362 0066 58000000 		.4byte	.LVL8
- 1363 006a 5A000000 		.4byte	.LVL9
- 1364 006e 0100     		.2byte	0x1
- 1365 0070 55       		.byte	0x55
- 1366 0071 5A000000 		.4byte	.LVL9
- 1367 0075 64000000 		.4byte	.LVL10
- 1368 0079 0100     		.2byte	0x1
- 1369 007b 53       		.byte	0x53
- 1370 007c 00000000 		.4byte	0
- 1371 0080 00000000 		.4byte	0
- 1372              	.LLST3:
- 1373 0084 4A000000 		.4byte	.LVL6
- 1374 0088 50000000 		.4byte	.LVL7
- 1375 008c 0100     		.2byte	0x1
- 1376 008e 52       		.byte	0x52
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 27
+ 1292 0008 0E       		.uleb128 0xe
+ 1293 0009 1B       		.uleb128 0x1b
+ 1294 000a 0E       		.uleb128 0xe
+ 1295 000b 55       		.uleb128 0x55
+ 1296 000c 17       		.uleb128 0x17
+ 1297 000d 11       		.uleb128 0x11
+ 1298 000e 01       		.uleb128 0x1
+ 1299 000f 10       		.uleb128 0x10
+ 1300 0010 17       		.uleb128 0x17
+ 1301 0011 00       		.byte	0
+ 1302 0012 00       		.byte	0
+ 1303 0013 02       		.uleb128 0x2
+ 1304 0014 24       		.uleb128 0x24
+ 1305 0015 00       		.byte	0
+ 1306 0016 0B       		.uleb128 0xb
+ 1307 0017 0B       		.uleb128 0xb
+ 1308 0018 3E       		.uleb128 0x3e
+ 1309 0019 0B       		.uleb128 0xb
+ 1310 001a 03       		.uleb128 0x3
+ 1311 001b 08       		.uleb128 0x8
+ 1312 001c 00       		.byte	0
+ 1313 001d 00       		.byte	0
+ 1314 001e 03       		.uleb128 0x3
+ 1315 001f 24       		.uleb128 0x24
+ 1316 0020 00       		.byte	0
+ 1317 0021 0B       		.uleb128 0xb
+ 1318 0022 0B       		.uleb128 0xb
+ 1319 0023 3E       		.uleb128 0x3e
+ 1320 0024 0B       		.uleb128 0xb
+ 1321 0025 03       		.uleb128 0x3
+ 1322 0026 0E       		.uleb128 0xe
+ 1323 0027 00       		.byte	0
+ 1324 0028 00       		.byte	0
+ 1325 0029 04       		.uleb128 0x4
+ 1326 002a 16       		.uleb128 0x16
+ 1327 002b 00       		.byte	0
+ 1328 002c 03       		.uleb128 0x3
+ 1329 002d 0E       		.uleb128 0xe
+ 1330 002e 3A       		.uleb128 0x3a
+ 1331 002f 0B       		.uleb128 0xb
+ 1332 0030 3B       		.uleb128 0x3b
+ 1333 0031 0B       		.uleb128 0xb
+ 1334 0032 49       		.uleb128 0x49
+ 1335 0033 13       		.uleb128 0x13
+ 1336 0034 00       		.byte	0
+ 1337 0035 00       		.byte	0
+ 1338 0036 05       		.uleb128 0x5
+ 1339 0037 16       		.uleb128 0x16
+ 1340 0038 00       		.byte	0
+ 1341 0039 03       		.uleb128 0x3
+ 1342 003a 0E       		.uleb128 0xe
+ 1343 003b 3A       		.uleb128 0x3a
+ 1344 003c 0B       		.uleb128 0xb
+ 1345 003d 3B       		.uleb128 0x3b
+ 1346 003e 05       		.uleb128 0x5
+ 1347 003f 49       		.uleb128 0x49
+ 1348 0040 13       		.uleb128 0x13
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 27
 
 
- 1377 008f 50000000 		.4byte	.LVL7
- 1378 0093 57000000 		.4byte	.LVL8-1
- 1379 0097 0100     		.2byte	0x1
- 1380 0099 50       		.byte	0x50
- 1381 009a 00000000 		.4byte	0
- 1382 009e 00000000 		.4byte	0
- 1383              	.LLST4:
- 1384 00a2 64000000 		.4byte	.LVL10
- 1385 00a6 6C000000 		.4byte	.LVL11
- 1386 00aa 0100     		.2byte	0x1
- 1387 00ac 52       		.byte	0x52
- 1388 00ad 6C000000 		.4byte	.LVL11
- 1389 00b1 7E000000 		.4byte	.LVL14
- 1390 00b5 0300     		.2byte	0x3
- 1391 00b7 75       		.byte	0x75
- 1392 00b8 7F       		.sleb128 -1
- 1393 00b9 9F       		.byte	0x9f
- 1394 00ba 7E000000 		.4byte	.LVL14
- 1395 00be 80000000 		.4byte	.LVL15
- 1396 00c2 0100     		.2byte	0x1
- 1397 00c4 55       		.byte	0x55
- 1398 00c5 80000000 		.4byte	.LVL15
- 1399 00c9 98000000 		.4byte	.LFE63
- 1400 00cd 0100     		.2byte	0x1
- 1401 00cf 52       		.byte	0x52
- 1402 00d0 00000000 		.4byte	0
- 1403 00d4 00000000 		.4byte	0
- 1404              	.LLST5:
- 1405 00d8 70000000 		.4byte	.LVL12
- 1406 00dc 7A000000 		.4byte	.LVL13
- 1407 00e0 0100     		.2byte	0x1
- 1408 00e2 53       		.byte	0x53
- 1409 00e3 7A000000 		.4byte	.LVL13
- 1410 00e7 7D000000 		.4byte	.LVL14-1
- 1411 00eb 0100     		.2byte	0x1
- 1412 00ed 51       		.byte	0x51
- 1413 00ee 00000000 		.4byte	0
- 1414 00f2 00000000 		.4byte	0
- 1415              	.LLST6:
- 1416 00f6 00000000 		.4byte	.LVL16
- 1417 00fa 20000000 		.4byte	.LVL17
- 1418 00fe 0100     		.2byte	0x1
- 1419 0100 50       		.byte	0x50
- 1420 0101 20000000 		.4byte	.LVL17
- 1421 0105 44000000 		.4byte	.LFE64
- 1422 0109 0400     		.2byte	0x4
- 1423 010b F3       		.byte	0xf3
- 1424 010c 01       		.uleb128 0x1
- 1425 010d 50       		.byte	0x50
- 1426 010e 9F       		.byte	0x9f
- 1427 010f 00000000 		.4byte	0
- 1428 0113 00000000 		.4byte	0
- 1429              	.LLST7:
- 1430 0117 00000000 		.4byte	.LVL16
- 1431 011b 23000000 		.4byte	.LVL18-1
- 1432 011f 0100     		.2byte	0x1
- 1433 0121 51       		.byte	0x51
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 28
+ 1349 0041 00       		.byte	0
+ 1350 0042 00       		.byte	0
+ 1351 0043 06       		.uleb128 0x6
+ 1352 0044 2E       		.uleb128 0x2e
+ 1353 0045 01       		.byte	0x1
+ 1354 0046 3F       		.uleb128 0x3f
+ 1355 0047 19       		.uleb128 0x19
+ 1356 0048 03       		.uleb128 0x3
+ 1357 0049 0E       		.uleb128 0xe
+ 1358 004a 3A       		.uleb128 0x3a
+ 1359 004b 0B       		.uleb128 0xb
+ 1360 004c 3B       		.uleb128 0x3b
+ 1361 004d 0B       		.uleb128 0xb
+ 1362 004e 27       		.uleb128 0x27
+ 1363 004f 19       		.uleb128 0x19
+ 1364 0050 11       		.uleb128 0x11
+ 1365 0051 01       		.uleb128 0x1
+ 1366 0052 12       		.uleb128 0x12
+ 1367 0053 06       		.uleb128 0x6
+ 1368 0054 40       		.uleb128 0x40
+ 1369 0055 18       		.uleb128 0x18
+ 1370 0056 9742     		.uleb128 0x2117
+ 1371 0058 19       		.uleb128 0x19
+ 1372 0059 01       		.uleb128 0x1
+ 1373 005a 13       		.uleb128 0x13
+ 1374 005b 00       		.byte	0
+ 1375 005c 00       		.byte	0
+ 1376 005d 07       		.uleb128 0x7
+ 1377 005e 05       		.uleb128 0x5
+ 1378 005f 00       		.byte	0
+ 1379 0060 03       		.uleb128 0x3
+ 1380 0061 0E       		.uleb128 0xe
+ 1381 0062 3A       		.uleb128 0x3a
+ 1382 0063 0B       		.uleb128 0xb
+ 1383 0064 3B       		.uleb128 0x3b
+ 1384 0065 0B       		.uleb128 0xb
+ 1385 0066 49       		.uleb128 0x49
+ 1386 0067 13       		.uleb128 0x13
+ 1387 0068 02       		.uleb128 0x2
+ 1388 0069 17       		.uleb128 0x17
+ 1389 006a 00       		.byte	0
+ 1390 006b 00       		.byte	0
+ 1391 006c 08       		.uleb128 0x8
+ 1392 006d 0B       		.uleb128 0xb
+ 1393 006e 01       		.byte	0x1
+ 1394 006f 11       		.uleb128 0x11
+ 1395 0070 01       		.uleb128 0x1
+ 1396 0071 12       		.uleb128 0x12
+ 1397 0072 06       		.uleb128 0x6
+ 1398 0073 01       		.uleb128 0x1
+ 1399 0074 13       		.uleb128 0x13
+ 1400 0075 00       		.byte	0
+ 1401 0076 00       		.byte	0
+ 1402 0077 09       		.uleb128 0x9
+ 1403 0078 34       		.uleb128 0x34
+ 1404 0079 00       		.byte	0
+ 1405 007a 03       		.uleb128 0x3
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 28
 
 
- 1434 0122 23000000 		.4byte	.LVL18-1
- 1435 0126 44000000 		.4byte	.LFE64
- 1436 012a 0400     		.2byte	0x4
- 1437 012c F3       		.byte	0xf3
- 1438 012d 01       		.uleb128 0x1
- 1439 012e 51       		.byte	0x51
- 1440 012f 9F       		.byte	0x9f
- 1441 0130 00000000 		.4byte	0
- 1442 0134 00000000 		.4byte	0
- 1443              	.LLST8:
- 1444 0138 00000000 		.4byte	.LVL21
- 1445 013c 0A000000 		.4byte	.LVL22
- 1446 0140 0100     		.2byte	0x1
- 1447 0142 50       		.byte	0x50
- 1448 0143 0A000000 		.4byte	.LVL22
- 1449 0147 10000000 		.4byte	.LFE65
- 1450 014b 0400     		.2byte	0x4
- 1451 014d F3       		.byte	0xf3
- 1452 014e 01       		.uleb128 0x1
- 1453 014f 50       		.byte	0x50
- 1454 0150 9F       		.byte	0x9f
- 1455 0151 00000000 		.4byte	0
- 1456 0155 00000000 		.4byte	0
- 1457              	.LLST9:
- 1458 0159 00000000 		.4byte	.LVL23
- 1459 015d 0A000000 		.4byte	.LVL24
- 1460 0161 0100     		.2byte	0x1
- 1461 0163 50       		.byte	0x50
- 1462 0164 0A000000 		.4byte	.LVL24
- 1463 0168 10000000 		.4byte	.LFE66
- 1464 016c 0400     		.2byte	0x4
- 1465 016e F3       		.byte	0xf3
- 1466 016f 01       		.uleb128 0x1
- 1467 0170 50       		.byte	0x50
- 1468 0171 9F       		.byte	0x9f
- 1469 0172 00000000 		.4byte	0
- 1470 0176 00000000 		.4byte	0
- 1471              	.LLST10:
- 1472 017a 00000000 		.4byte	.LVL25
- 1473 017e 14000000 		.4byte	.LVL26
- 1474 0182 0100     		.2byte	0x1
- 1475 0184 50       		.byte	0x50
- 1476 0185 14000000 		.4byte	.LVL26
- 1477 0189 AE000000 		.4byte	.LVL44
- 1478 018d 0400     		.2byte	0x4
- 1479 018f F3       		.byte	0xf3
- 1480 0190 01       		.uleb128 0x1
- 1481 0191 50       		.byte	0x50
- 1482 0192 9F       		.byte	0x9f
- 1483 0193 AE000000 		.4byte	.LVL44
- 1484 0197 C4000000 		.4byte	.LFE67
- 1485 019b 0100     		.2byte	0x1
- 1486 019d 50       		.byte	0x50
- 1487 019e 00000000 		.4byte	0
- 1488 01a2 00000000 		.4byte	0
- 1489              	.LLST11:
- 1490 01a6 1A000000 		.4byte	.LVL28
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 29
+ 1406 007b 08       		.uleb128 0x8
+ 1407 007c 3A       		.uleb128 0x3a
+ 1408 007d 0B       		.uleb128 0xb
+ 1409 007e 3B       		.uleb128 0x3b
+ 1410 007f 0B       		.uleb128 0xb
+ 1411 0080 49       		.uleb128 0x49
+ 1412 0081 13       		.uleb128 0x13
+ 1413 0082 02       		.uleb128 0x2
+ 1414 0083 17       		.uleb128 0x17
+ 1415 0084 00       		.byte	0
+ 1416 0085 00       		.byte	0
+ 1417 0086 0A       		.uleb128 0xa
+ 1418 0087 0B       		.uleb128 0xb
+ 1419 0088 01       		.byte	0x1
+ 1420 0089 11       		.uleb128 0x11
+ 1421 008a 01       		.uleb128 0x1
+ 1422 008b 12       		.uleb128 0x12
+ 1423 008c 06       		.uleb128 0x6
+ 1424 008d 00       		.byte	0
+ 1425 008e 00       		.byte	0
+ 1426 008f 0B       		.uleb128 0xb
+ 1427 0090 34       		.uleb128 0x34
+ 1428 0091 00       		.byte	0
+ 1429 0092 03       		.uleb128 0x3
+ 1430 0093 0E       		.uleb128 0xe
+ 1431 0094 3A       		.uleb128 0x3a
+ 1432 0095 0B       		.uleb128 0xb
+ 1433 0096 3B       		.uleb128 0x3b
+ 1434 0097 0B       		.uleb128 0xb
+ 1435 0098 49       		.uleb128 0x49
+ 1436 0099 13       		.uleb128 0x13
+ 1437 009a 02       		.uleb128 0x2
+ 1438 009b 17       		.uleb128 0x17
+ 1439 009c 00       		.byte	0
+ 1440 009d 00       		.byte	0
+ 1441 009e 0C       		.uleb128 0xc
+ 1442 009f 898201   		.uleb128 0x4109
+ 1443 00a2 01       		.byte	0x1
+ 1444 00a3 11       		.uleb128 0x11
+ 1445 00a4 01       		.uleb128 0x1
+ 1446 00a5 31       		.uleb128 0x31
+ 1447 00a6 13       		.uleb128 0x13
+ 1448 00a7 00       		.byte	0
+ 1449 00a8 00       		.byte	0
+ 1450 00a9 0D       		.uleb128 0xd
+ 1451 00aa 8A8201   		.uleb128 0x410a
+ 1452 00ad 00       		.byte	0
+ 1453 00ae 02       		.uleb128 0x2
+ 1454 00af 18       		.uleb128 0x18
+ 1455 00b0 9142     		.uleb128 0x2111
+ 1456 00b2 18       		.uleb128 0x18
+ 1457 00b3 00       		.byte	0
+ 1458 00b4 00       		.byte	0
+ 1459 00b5 0E       		.uleb128 0xe
+ 1460 00b6 898201   		.uleb128 0x4109
+ 1461 00b9 01       		.byte	0x1
+ 1462 00ba 11       		.uleb128 0x11
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 29
 
 
- 1491 01aa 1C000000 		.4byte	.LVL29
- 1492 01ae 0100     		.2byte	0x1
- 1493 01b0 50       		.byte	0x50
- 1494 01b1 1C000000 		.4byte	.LVL29
- 1495 01b5 AE000000 		.4byte	.LVL44
- 1496 01b9 0100     		.2byte	0x1
- 1497 01bb 5A       		.byte	0x5a
- 1498 01bc 00000000 		.4byte	0
- 1499 01c0 00000000 		.4byte	0
- 1500              	.LLST12:
- 1501 01c4 20000000 		.4byte	.LVL30
- 1502 01c8 38000000 		.4byte	.LVL34
- 1503 01cc 0100     		.2byte	0x1
- 1504 01ce 50       		.byte	0x50
- 1505 01cf 38000000 		.4byte	.LVL34
- 1506 01d3 AE000000 		.4byte	.LVL44
- 1507 01d7 0100     		.2byte	0x1
- 1508 01d9 5B       		.byte	0x5b
- 1509 01da 00000000 		.4byte	0
- 1510 01de 00000000 		.4byte	0
- 1511              	.LLST13:
- 1512 01e2 2A000000 		.4byte	.LVL31
- 1513 01e6 2E000000 		.4byte	.LVL32
- 1514 01ea 0100     		.2byte	0x1
- 1515 01ec 53       		.byte	0x53
- 1516 01ed 2E000000 		.4byte	.LVL32
- 1517 01f1 AE000000 		.4byte	.LVL44
- 1518 01f5 0200     		.2byte	0x2
- 1519 01f7 91       		.byte	0x91
- 1520 01f8 4C       		.sleb128 -52
- 1521 01f9 00000000 		.4byte	0
- 1522 01fd 00000000 		.4byte	0
- 1523              	.LLST14:
- 1524 0201 34000000 		.4byte	.LVL33
- 1525 0205 38000000 		.4byte	.LVL34
- 1526 0209 0100     		.2byte	0x1
- 1527 020b 53       		.byte	0x53
- 1528 020c 38000000 		.4byte	.LVL34
- 1529 0210 AE000000 		.4byte	.LVL44
- 1530 0214 0200     		.2byte	0x2
- 1531 0216 91       		.byte	0x91
- 1532 0217 50       		.sleb128 -48
- 1533 0218 00000000 		.4byte	0
- 1534 021c 00000000 		.4byte	0
- 1535              	.LLST15:
- 1536 0220 34000000 		.4byte	.LVL33
- 1537 0224 38000000 		.4byte	.LVL34
- 1538 0228 0200     		.2byte	0x2
- 1539 022a 30       		.byte	0x30
- 1540 022b 9F       		.byte	0x9f
- 1541 022c 38000000 		.4byte	.LVL34
- 1542 0230 AE000000 		.4byte	.LVL44
- 1543 0234 0100     		.2byte	0x1
- 1544 0236 56       		.byte	0x56
- 1545 0237 00000000 		.4byte	0
- 1546 023b 00000000 		.4byte	0
- 1547              	.LLST16:
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 30
+ 1463 00bb 01       		.uleb128 0x1
+ 1464 00bc 31       		.uleb128 0x31
+ 1465 00bd 13       		.uleb128 0x13
+ 1466 00be 01       		.uleb128 0x1
+ 1467 00bf 13       		.uleb128 0x13
+ 1468 00c0 00       		.byte	0
+ 1469 00c1 00       		.byte	0
+ 1470 00c2 0F       		.uleb128 0xf
+ 1471 00c3 898201   		.uleb128 0x4109
+ 1472 00c6 00       		.byte	0
+ 1473 00c7 11       		.uleb128 0x11
+ 1474 00c8 01       		.uleb128 0x1
+ 1475 00c9 31       		.uleb128 0x31
+ 1476 00ca 13       		.uleb128 0x13
+ 1477 00cb 00       		.byte	0
+ 1478 00cc 00       		.byte	0
+ 1479 00cd 10       		.uleb128 0x10
+ 1480 00ce 2E       		.uleb128 0x2e
+ 1481 00cf 01       		.byte	0x1
+ 1482 00d0 3F       		.uleb128 0x3f
+ 1483 00d1 19       		.uleb128 0x19
+ 1484 00d2 03       		.uleb128 0x3
+ 1485 00d3 0E       		.uleb128 0xe
+ 1486 00d4 3A       		.uleb128 0x3a
+ 1487 00d5 0B       		.uleb128 0xb
+ 1488 00d6 3B       		.uleb128 0x3b
+ 1489 00d7 0B       		.uleb128 0xb
+ 1490 00d8 27       		.uleb128 0x27
+ 1491 00d9 19       		.uleb128 0x19
+ 1492 00da 49       		.uleb128 0x49
+ 1493 00db 13       		.uleb128 0x13
+ 1494 00dc 11       		.uleb128 0x11
+ 1495 00dd 01       		.uleb128 0x1
+ 1496 00de 12       		.uleb128 0x12
+ 1497 00df 06       		.uleb128 0x6
+ 1498 00e0 40       		.uleb128 0x40
+ 1499 00e1 18       		.uleb128 0x18
+ 1500 00e2 9742     		.uleb128 0x2117
+ 1501 00e4 19       		.uleb128 0x19
+ 1502 00e5 01       		.uleb128 0x1
+ 1503 00e6 13       		.uleb128 0x13
+ 1504 00e7 00       		.byte	0
+ 1505 00e8 00       		.byte	0
+ 1506 00e9 11       		.uleb128 0x11
+ 1507 00ea 05       		.uleb128 0x5
+ 1508 00eb 00       		.byte	0
+ 1509 00ec 03       		.uleb128 0x3
+ 1510 00ed 08       		.uleb128 0x8
+ 1511 00ee 3A       		.uleb128 0x3a
+ 1512 00ef 0B       		.uleb128 0xb
+ 1513 00f0 3B       		.uleb128 0x3b
+ 1514 00f1 0B       		.uleb128 0xb
+ 1515 00f2 49       		.uleb128 0x49
+ 1516 00f3 13       		.uleb128 0x13
+ 1517 00f4 02       		.uleb128 0x2
+ 1518 00f5 17       		.uleb128 0x17
+ 1519 00f6 00       		.byte	0
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 30
 
 
- 1548 023f 40000000 		.4byte	.LVL36
- 1549 0243 4C000000 		.4byte	.LVL38
- 1550 0247 0100     		.2byte	0x1
- 1551 0249 50       		.byte	0x50
- 1552 024a 4C000000 		.4byte	.LVL38
- 1553 024e 9A000000 		.4byte	.LVL43
- 1554 0252 0100     		.2byte	0x1
- 1555 0254 55       		.byte	0x55
- 1556 0255 00000000 		.4byte	0
- 1557 0259 00000000 		.4byte	0
- 1558              	.LLST17:
- 1559 025d 48000000 		.4byte	.LVL37
- 1560 0261 9A000000 		.4byte	.LVL43
- 1561 0265 0100     		.2byte	0x1
- 1562 0267 54       		.byte	0x54
- 1563 0268 00000000 		.4byte	0
- 1564 026c 00000000 		.4byte	0
- 1565              		.section	.debug_aranges,"",%progbits
- 1566 0000 3C000000 		.4byte	0x3c
- 1567 0004 0200     		.2byte	0x2
- 1568 0006 00000000 		.4byte	.Ldebug_info0
- 1569 000a 04       		.byte	0x4
- 1570 000b 00       		.byte	0
- 1571 000c 0000     		.2byte	0
- 1572 000e 0000     		.2byte	0
- 1573 0010 00000000 		.4byte	.LFB63
- 1574 0014 98000000 		.4byte	.LFE63-.LFB63
- 1575 0018 00000000 		.4byte	.LFB64
- 1576 001c 44000000 		.4byte	.LFE64-.LFB64
- 1577 0020 00000000 		.4byte	.LFB65
- 1578 0024 10000000 		.4byte	.LFE65-.LFB65
- 1579 0028 00000000 		.4byte	.LFB66
- 1580 002c 10000000 		.4byte	.LFE66-.LFB66
- 1581 0030 00000000 		.4byte	.LFB67
- 1582 0034 C4000000 		.4byte	.LFE67-.LFB67
- 1583 0038 00000000 		.4byte	0
- 1584 003c 00000000 		.4byte	0
- 1585              		.section	.debug_ranges,"",%progbits
- 1586              	.Ldebug_ranges0:
- 1587 0000 00000000 		.4byte	.LFB63
- 1588 0004 98000000 		.4byte	.LFE63
- 1589 0008 00000000 		.4byte	.LFB64
- 1590 000c 44000000 		.4byte	.LFE64
- 1591 0010 00000000 		.4byte	.LFB65
- 1592 0014 10000000 		.4byte	.LFE65
- 1593 0018 00000000 		.4byte	.LFB66
- 1594 001c 10000000 		.4byte	.LFE66
- 1595 0020 00000000 		.4byte	.LFB67
- 1596 0024 C4000000 		.4byte	.LFE67
- 1597 0028 00000000 		.4byte	0
- 1598 002c 00000000 		.4byte	0
- 1599              		.section	.debug_line,"",%progbits
- 1600              	.Ldebug_line0:
- 1601 0000 75020000 		.section	.debug_str,"MS",%progbits,1
- 1601      0200AD01 
- 1601      00000201 
- 1601      FB0E0D00 
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 31
+ 1520 00f7 00       		.byte	0
+ 1521 00f8 12       		.uleb128 0x12
+ 1522 00f9 2E       		.uleb128 0x2e
+ 1523 00fa 01       		.byte	0x1
+ 1524 00fb 3F       		.uleb128 0x3f
+ 1525 00fc 19       		.uleb128 0x19
+ 1526 00fd 03       		.uleb128 0x3
+ 1527 00fe 0E       		.uleb128 0xe
+ 1528 00ff 3A       		.uleb128 0x3a
+ 1529 0100 0B       		.uleb128 0xb
+ 1530 0101 3B       		.uleb128 0x3b
+ 1531 0102 0B       		.uleb128 0xb
+ 1532 0103 11       		.uleb128 0x11
+ 1533 0104 01       		.uleb128 0x1
+ 1534 0105 12       		.uleb128 0x12
+ 1535 0106 06       		.uleb128 0x6
+ 1536 0107 40       		.uleb128 0x40
+ 1537 0108 18       		.uleb128 0x18
+ 1538 0109 9742     		.uleb128 0x2117
+ 1539 010b 19       		.uleb128 0x19
+ 1540 010c 01       		.uleb128 0x1
+ 1541 010d 13       		.uleb128 0x13
+ 1542 010e 00       		.byte	0
+ 1543 010f 00       		.byte	0
+ 1544 0110 13       		.uleb128 0x13
+ 1545 0111 34       		.uleb128 0x34
+ 1546 0112 00       		.byte	0
+ 1547 0113 03       		.uleb128 0x3
+ 1548 0114 0E       		.uleb128 0xe
+ 1549 0115 3A       		.uleb128 0x3a
+ 1550 0116 0B       		.uleb128 0xb
+ 1551 0117 3B       		.uleb128 0x3b
+ 1552 0118 05       		.uleb128 0x5
+ 1553 0119 49       		.uleb128 0x49
+ 1554 011a 13       		.uleb128 0x13
+ 1555 011b 3F       		.uleb128 0x3f
+ 1556 011c 19       		.uleb128 0x19
+ 1557 011d 3C       		.uleb128 0x3c
+ 1558 011e 19       		.uleb128 0x19
+ 1559 011f 00       		.byte	0
+ 1560 0120 00       		.byte	0
+ 1561 0121 14       		.uleb128 0x14
+ 1562 0122 35       		.uleb128 0x35
+ 1563 0123 00       		.byte	0
+ 1564 0124 49       		.uleb128 0x49
+ 1565 0125 13       		.uleb128 0x13
+ 1566 0126 00       		.byte	0
+ 1567 0127 00       		.byte	0
+ 1568 0128 15       		.uleb128 0x15
+ 1569 0129 34       		.uleb128 0x34
+ 1570 012a 00       		.byte	0
+ 1571 012b 03       		.uleb128 0x3
+ 1572 012c 0E       		.uleb128 0xe
+ 1573 012d 3A       		.uleb128 0x3a
+ 1574 012e 0B       		.uleb128 0xb
+ 1575 012f 3B       		.uleb128 0x3b
+ 1576 0130 0B       		.uleb128 0xb
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 31
 
 
- 1601      01010101 
- 1602              	.LASF34:
- 1603 0000 6F666673 		.ascii	"offset_y\000"
- 1603      65745F79 
- 1603      00
- 1604              	.LASF41:
- 1605 0009 6E756D5F 		.ascii	"num_rows\000"
- 1605      726F7773 
- 1605      00
- 1606              	.LASF9:
- 1607 0012 4755495F 		.ascii	"GUI_COLOR\000"
- 1607      434F4C4F 
- 1607      5200
- 1608              	.LASF40:
- 1609 001c 6E756D5F 		.ascii	"num_columns\000"
- 1609      636F6C75 
- 1609      6D6E7300 
- 1610              	.LASF42:
- 1611 0028 57494454 		.ascii	"WIDTH\000"
- 1611      4800
- 1612              	.LASF27:
- 1613 002e 436F6E6E 		.ascii	"Connect4Board_GetRowPosY\000"
- 1613      65637434 
- 1613      426F6172 
- 1613      645F4765 
- 1613      74526F77 
- 1614              	.LASF28:
- 1615 0047 436F6E6E 		.ascii	"Connect4Board_HighlightColumn\000"
- 1615      65637434 
- 1615      426F6172 
- 1615      645F4869 
- 1615      67686C69 
- 1616              	.LASF13:
- 1617 0065 5F5F696E 		.ascii	"__int32_t\000"
- 1617      7433325F 
- 1617      7400
- 1618              	.LASF49:
- 1619 006f 2E5C436F 		.ascii	".\\Connect4Board.c\000"
- 1619      6E6E6563 
- 1619      7434426F 
- 1619      6172642E 
- 1619      6300
- 1620              	.LASF48:
- 1621 0081 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
- 1621      4320342E 
- 1621      392E3320 
- 1621      32303135 
- 1621      30333033 
- 1622 00b4 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
- 1622      20726576 
- 1622      6973696F 
- 1622      6E203232 
- 1622      31323230 
- 1623 00e7 67202D73 		.ascii	"g -std=gnu11 -ffunction-sections -ffat-lto-objects\000"
- 1623      74643D67 
- 1623      6E753131 
- 1623      202D6666 
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 32
+ 1577 0131 49       		.uleb128 0x49
+ 1578 0132 13       		.uleb128 0x13
+ 1579 0133 3F       		.uleb128 0x3f
+ 1580 0134 19       		.uleb128 0x19
+ 1581 0135 02       		.uleb128 0x2
+ 1582 0136 18       		.uleb128 0x18
+ 1583 0137 00       		.byte	0
+ 1584 0138 00       		.byte	0
+ 1585 0139 16       		.uleb128 0x16
+ 1586 013a 01       		.uleb128 0x1
+ 1587 013b 01       		.byte	0x1
+ 1588 013c 49       		.uleb128 0x49
+ 1589 013d 13       		.uleb128 0x13
+ 1590 013e 01       		.uleb128 0x1
+ 1591 013f 13       		.uleb128 0x13
+ 1592 0140 00       		.byte	0
+ 1593 0141 00       		.byte	0
+ 1594 0142 17       		.uleb128 0x17
+ 1595 0143 21       		.uleb128 0x21
+ 1596 0144 00       		.byte	0
+ 1597 0145 49       		.uleb128 0x49
+ 1598 0146 13       		.uleb128 0x13
+ 1599 0147 2F       		.uleb128 0x2f
+ 1600 0148 0B       		.uleb128 0xb
+ 1601 0149 00       		.byte	0
+ 1602 014a 00       		.byte	0
+ 1603 014b 18       		.uleb128 0x18
+ 1604 014c 2E       		.uleb128 0x2e
+ 1605 014d 01       		.byte	0x1
+ 1606 014e 3F       		.uleb128 0x3f
+ 1607 014f 19       		.uleb128 0x19
+ 1608 0150 03       		.uleb128 0x3
+ 1609 0151 0E       		.uleb128 0xe
+ 1610 0152 3A       		.uleb128 0x3a
+ 1611 0153 0B       		.uleb128 0xb
+ 1612 0154 3B       		.uleb128 0x3b
+ 1613 0155 05       		.uleb128 0x5
+ 1614 0156 27       		.uleb128 0x27
+ 1615 0157 19       		.uleb128 0x19
+ 1616 0158 3C       		.uleb128 0x3c
+ 1617 0159 19       		.uleb128 0x19
+ 1618 015a 01       		.uleb128 0x1
+ 1619 015b 13       		.uleb128 0x13
+ 1620 015c 00       		.byte	0
+ 1621 015d 00       		.byte	0
+ 1622 015e 19       		.uleb128 0x19
+ 1623 015f 05       		.uleb128 0x5
+ 1624 0160 00       		.byte	0
+ 1625 0161 49       		.uleb128 0x49
+ 1626 0162 13       		.uleb128 0x13
+ 1627 0163 00       		.byte	0
+ 1628 0164 00       		.byte	0
+ 1629 0165 1A       		.uleb128 0x1a
+ 1630 0166 2E       		.uleb128 0x2e
+ 1631 0167 00       		.byte	0
+ 1632 0168 3F       		.uleb128 0x3f
+ 1633 0169 19       		.uleb128 0x19
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 32
 
 
- 1623      756E6374 
- 1624              	.LASF33:
- 1625 011a 706F735F 		.ascii	"pos_y\000"
- 1625      7900
- 1626              	.LASF24:
- 1627 0120 436F6E6E 		.ascii	"Connect4Board_Init\000"
- 1627      65637434 
- 1627      426F6172 
- 1627      645F496E 
- 1627      697400
- 1628              	.LASF45:
- 1629 0133 4755495F 		.ascii	"GUI_FillRect\000"
- 1629      46696C6C 
- 1629      52656374 
- 1629      00
- 1630              	.LASF44:
- 1631 0140 70726576 		.ascii	"prev_selected\000"
- 1631      5F73656C 
- 1631      65637465 
- 1631      6400
- 1632              	.LASF50:
- 1633 014e 433A5C55 		.ascii	"C:\\Users\\student\\Documents\\PSoC Creator\\rbeatt"
- 1633      73657273 
- 1633      5C737475 
- 1633      64656E74 
- 1633      5C446F63 
- 1634 017c 69655F66 		.ascii	"ie_final_project\\ConnectFour.cydsn\000"
- 1634      696E616C 
- 1634      5F70726F 
- 1634      6A656374 
- 1634      5C436F6E 
- 1635              	.LASF17:
- 1636 019f 666C6F61 		.ascii	"float\000"
- 1636      7400
- 1637              	.LASF36:
- 1638 01a5 506F7358 		.ascii	"PosX\000"
- 1638      00
- 1639              	.LASF37:
- 1640 01aa 506F7359 		.ascii	"PosY\000"
- 1640      00
- 1641              	.LASF38:
- 1642 01af 636F6C75 		.ascii	"column_width\000"
- 1642      6D6E5F77 
- 1642      69647468 
- 1642      00
- 1643              	.LASF6:
- 1644 01bc 756E7369 		.ascii	"unsigned char\000"
- 1644      676E6564 
- 1644      20636861 
- 1644      7200
- 1645              	.LASF51:
- 1646 01ca 4755495F 		.ascii	"GUI_Clear\000"
- 1646      436C6561 
- 1646      7200
- 1647              	.LASF3:
- 1648 01d4 6C6F6E67 		.ascii	"long unsigned int\000"
- 1648      20756E73 
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 33
+ 1634 016a 03       		.uleb128 0x3
+ 1635 016b 0E       		.uleb128 0xe
+ 1636 016c 3A       		.uleb128 0x3a
+ 1637 016d 0B       		.uleb128 0xb
+ 1638 016e 3B       		.uleb128 0x3b
+ 1639 016f 05       		.uleb128 0x5
+ 1640 0170 27       		.uleb128 0x27
+ 1641 0171 19       		.uleb128 0x19
+ 1642 0172 3C       		.uleb128 0x3c
+ 1643 0173 19       		.uleb128 0x19
+ 1644 0174 00       		.byte	0
+ 1645 0175 00       		.byte	0
+ 1646 0176 1B       		.uleb128 0x1b
+ 1647 0177 2E       		.uleb128 0x2e
+ 1648 0178 01       		.byte	0x1
+ 1649 0179 3F       		.uleb128 0x3f
+ 1650 017a 19       		.uleb128 0x19
+ 1651 017b 03       		.uleb128 0x3
+ 1652 017c 0E       		.uleb128 0xe
+ 1653 017d 3A       		.uleb128 0x3a
+ 1654 017e 0B       		.uleb128 0xb
+ 1655 017f 3B       		.uleb128 0x3b
+ 1656 0180 05       		.uleb128 0x5
+ 1657 0181 27       		.uleb128 0x27
+ 1658 0182 19       		.uleb128 0x19
+ 1659 0183 3C       		.uleb128 0x3c
+ 1660 0184 19       		.uleb128 0x19
+ 1661 0185 00       		.byte	0
+ 1662 0186 00       		.byte	0
+ 1663 0187 00       		.byte	0
+ 1664              		.section	.debug_loc,"",%progbits
+ 1665              	.Ldebug_loc0:
+ 1666              	.LLST0:
+ 1667 0000 00000000 		.4byte	.LVL0
+ 1668 0004 0A000000 		.4byte	.LVL1
+ 1669 0008 0100     		.2byte	0x1
+ 1670 000a 50       		.byte	0x50
+ 1671 000b 0A000000 		.4byte	.LVL1
+ 1672 000f 98000000 		.4byte	.LFE63
+ 1673 0013 0400     		.2byte	0x4
+ 1674 0015 F3       		.byte	0xf3
+ 1675 0016 01       		.uleb128 0x1
+ 1676 0017 50       		.byte	0x50
+ 1677 0018 9F       		.byte	0x9f
+ 1678 0019 00000000 		.4byte	0
+ 1679 001d 00000000 		.4byte	0
+ 1680              	.LLST1:
+ 1681 0021 00000000 		.4byte	.LVL0
+ 1682 0025 0D000000 		.4byte	.LVL2-1
+ 1683 0029 0100     		.2byte	0x1
+ 1684 002b 51       		.byte	0x51
+ 1685 002c 0D000000 		.4byte	.LVL2-1
+ 1686 0030 98000000 		.4byte	.LFE63
+ 1687 0034 0400     		.2byte	0x4
+ 1688 0036 F3       		.byte	0xf3
+ 1689 0037 01       		.uleb128 0x1
+ 1690 0038 51       		.byte	0x51
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 33
 
 
- 1648      69676E65 
- 1648      6420696E 
- 1648      7400
- 1649              	.LASF25:
- 1650 01e6 636F6C75 		.ascii	"column\000"
- 1650      6D6E00
- 1651              	.LASF35:
- 1652 01ed 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1652      52784275 
- 1652      66666572 
- 1652      00
- 1653              	.LASF31:
- 1654 01fa 70726576 		.ascii	"prev_offset_x\000"
- 1654      5F6F6666 
- 1654      7365745F 
- 1654      7800
- 1655              	.LASF23:
- 1656 0208 436F6E6E 		.ascii	"Connect4Board_DrawGrid\000"
- 1656      65637434 
- 1656      426F6172 
- 1656      645F4472 
- 1656      61774772 
- 1657              	.LASF18:
- 1658 021f 646F7562 		.ascii	"double\000"
- 1658      6C6500
- 1659              	.LASF29:
- 1660 0226 70726576 		.ascii	"prev_column_pos_x\000"
- 1660      5F636F6C 
- 1660      756D6E5F 
- 1660      706F735F 
- 1660      7800
- 1661              	.LASF2:
- 1662 0238 6C6F6E67 		.ascii	"long double\000"
- 1662      20646F75 
- 1662      626C6500 
- 1663              	.LASF8:
- 1664 0244 4C43445F 		.ascii	"LCD_COLOR\000"
- 1664      434F4C4F 
- 1664      5200
- 1665              	.LASF16:
- 1666 024e 75696E74 		.ascii	"uint16\000"
- 1666      313600
- 1667              	.LASF21:
- 1668 0255 77616C6C 		.ascii	"wall_pos_x\000"
- 1668      5F706F73 
- 1668      5F7800
- 1669              	.LASF22:
- 1670 0260 77616C6C 		.ascii	"wall_pos_y\000"
- 1670      5F706F73 
- 1670      5F7900
- 1671              	.LASF0:
- 1672 026b 756E7369 		.ascii	"unsigned int\000"
- 1672      676E6564 
- 1672      20696E74 
- 1672      00
- 1673              	.LASF32:
- 1674 0278 6F666673 		.ascii	"offset_x\000"
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 34
+ 1691 0039 9F       		.byte	0x9f
+ 1692 003a 00000000 		.4byte	0
+ 1693 003e 00000000 		.4byte	0
+ 1694              	.LLST2:
+ 1695 0042 3A000000 		.4byte	.LVL3
+ 1696 0046 3E000000 		.4byte	.LVL4
+ 1697 004a 0200     		.2byte	0x2
+ 1698 004c 30       		.byte	0x30
+ 1699 004d 9F       		.byte	0x9f
+ 1700 004e 3E000000 		.4byte	.LVL4
+ 1701 0052 46000000 		.4byte	.LVL5
+ 1702 0056 0100     		.2byte	0x1
+ 1703 0058 53       		.byte	0x53
+ 1704 0059 46000000 		.4byte	.LVL5
+ 1705 005d 58000000 		.4byte	.LVL8
+ 1706 0061 0300     		.2byte	0x3
+ 1707 0063 75       		.byte	0x75
+ 1708 0064 7F       		.sleb128 -1
+ 1709 0065 9F       		.byte	0x9f
+ 1710 0066 58000000 		.4byte	.LVL8
+ 1711 006a 5A000000 		.4byte	.LVL9
+ 1712 006e 0100     		.2byte	0x1
+ 1713 0070 55       		.byte	0x55
+ 1714 0071 5A000000 		.4byte	.LVL9
+ 1715 0075 64000000 		.4byte	.LVL10
+ 1716 0079 0100     		.2byte	0x1
+ 1717 007b 53       		.byte	0x53
+ 1718 007c 00000000 		.4byte	0
+ 1719 0080 00000000 		.4byte	0
+ 1720              	.LLST3:
+ 1721 0084 4A000000 		.4byte	.LVL6
+ 1722 0088 50000000 		.4byte	.LVL7
+ 1723 008c 0100     		.2byte	0x1
+ 1724 008e 52       		.byte	0x52
+ 1725 008f 50000000 		.4byte	.LVL7
+ 1726 0093 57000000 		.4byte	.LVL8-1
+ 1727 0097 0100     		.2byte	0x1
+ 1728 0099 50       		.byte	0x50
+ 1729 009a 00000000 		.4byte	0
+ 1730 009e 00000000 		.4byte	0
+ 1731              	.LLST4:
+ 1732 00a2 64000000 		.4byte	.LVL10
+ 1733 00a6 6C000000 		.4byte	.LVL11
+ 1734 00aa 0100     		.2byte	0x1
+ 1735 00ac 52       		.byte	0x52
+ 1736 00ad 6C000000 		.4byte	.LVL11
+ 1737 00b1 7E000000 		.4byte	.LVL14
+ 1738 00b5 0300     		.2byte	0x3
+ 1739 00b7 75       		.byte	0x75
+ 1740 00b8 7F       		.sleb128 -1
+ 1741 00b9 9F       		.byte	0x9f
+ 1742 00ba 7E000000 		.4byte	.LVL14
+ 1743 00be 80000000 		.4byte	.LVL15
+ 1744 00c2 0100     		.2byte	0x1
+ 1745 00c4 55       		.byte	0x55
+ 1746 00c5 80000000 		.4byte	.LVL15
+ 1747 00c9 98000000 		.4byte	.LFE63
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 34
 
 
- 1674      65745F78 
- 1674      00
- 1675              	.LASF43:
- 1676 0281 48454947 		.ascii	"HEIGHT\000"
- 1676      485400
- 1677              	.LASF5:
- 1678 0288 63686172 		.ascii	"char\000"
- 1678      00
- 1679              	.LASF15:
- 1680 028d 696E7433 		.ascii	"int32_t\000"
- 1680      325F7400 
- 1681              	.LASF12:
- 1682 0295 73697A65 		.ascii	"sizetype\000"
- 1682      74797065 
- 1682      00
- 1683              	.LASF20:
- 1684 029e 726F7773 		.ascii	"rows\000"
- 1684      00
- 1685              	.LASF1:
- 1686 02a3 6C6F6E67 		.ascii	"long long int\000"
- 1686      206C6F6E 
- 1686      6720696E 
- 1686      7400
- 1687              	.LASF30:
- 1688 02b1 636F6C75 		.ascii	"column_pos_x\000"
- 1688      6D6E5F70 
- 1688      6F735F78 
- 1688      00
- 1689              	.LASF4:
- 1690 02be 73686F72 		.ascii	"short int\000"
- 1690      7420696E 
- 1690      7400
- 1691              	.LASF47:
- 1692 02c8 4755495F 		.ascii	"GUI_SetBkColor\000"
- 1692      53657442 
- 1692      6B436F6C 
- 1692      6F7200
- 1693              	.LASF46:
- 1694 02d7 4755495F 		.ascii	"GUI_SetColor\000"
- 1694      53657443 
- 1694      6F6C6F72 
- 1694      00
- 1695              	.LASF39:
- 1696 02e4 726F775F 		.ascii	"row_height\000"
- 1696      68656967 
- 1696      687400
- 1697              	.LASF7:
- 1698 02ef 6C6F6E67 		.ascii	"long int\000"
- 1698      20696E74 
- 1698      00
- 1699              	.LASF19:
- 1700 02f8 636F6C75 		.ascii	"columns\000"
- 1700      6D6E7300 
- 1701              	.LASF11:
- 1702 0300 7369676E 		.ascii	"signed char\000"
- 1702      65642063 
- 1702      68617200 
-ARM GAS  C:\Users\student\AppData\Local\Temp\cchOdiPJ.s 			page 35
+ 1748 00cd 0100     		.2byte	0x1
+ 1749 00cf 52       		.byte	0x52
+ 1750 00d0 00000000 		.4byte	0
+ 1751 00d4 00000000 		.4byte	0
+ 1752              	.LLST5:
+ 1753 00d8 70000000 		.4byte	.LVL12
+ 1754 00dc 7A000000 		.4byte	.LVL13
+ 1755 00e0 0100     		.2byte	0x1
+ 1756 00e2 53       		.byte	0x53
+ 1757 00e3 7A000000 		.4byte	.LVL13
+ 1758 00e7 7D000000 		.4byte	.LVL14-1
+ 1759 00eb 0100     		.2byte	0x1
+ 1760 00ed 51       		.byte	0x51
+ 1761 00ee 00000000 		.4byte	0
+ 1762 00f2 00000000 		.4byte	0
+ 1763              	.LLST6:
+ 1764 00f6 00000000 		.4byte	.LVL16
+ 1765 00fa 32000000 		.4byte	.LVL20
+ 1766 00fe 0100     		.2byte	0x1
+ 1767 0100 50       		.byte	0x50
+ 1768 0101 32000000 		.4byte	.LVL20
+ 1769 0105 58000000 		.4byte	.LFE64
+ 1770 0109 0400     		.2byte	0x4
+ 1771 010b F3       		.byte	0xf3
+ 1772 010c 01       		.uleb128 0x1
+ 1773 010d 50       		.byte	0x50
+ 1774 010e 9F       		.byte	0x9f
+ 1775 010f 00000000 		.4byte	0
+ 1776 0113 00000000 		.4byte	0
+ 1777              	.LLST7:
+ 1778 0117 00000000 		.4byte	.LVL16
+ 1779 011b 20000000 		.4byte	.LVL18
+ 1780 011f 0100     		.2byte	0x1
+ 1781 0121 51       		.byte	0x51
+ 1782 0122 20000000 		.4byte	.LVL18
+ 1783 0126 58000000 		.4byte	.LFE64
+ 1784 012a 0400     		.2byte	0x4
+ 1785 012c F3       		.byte	0xf3
+ 1786 012d 01       		.uleb128 0x1
+ 1787 012e 51       		.byte	0x51
+ 1788 012f 9F       		.byte	0x9f
+ 1789 0130 00000000 		.4byte	0
+ 1790 0134 00000000 		.4byte	0
+ 1791              	.LLST8:
+ 1792 0138 1C000000 		.4byte	.LVL17
+ 1793 013c 20000000 		.4byte	.LVL18
+ 1794 0140 0200     		.2byte	0x2
+ 1795 0142 30       		.byte	0x30
+ 1796 0143 9F       		.byte	0x9f
+ 1797 0144 20000000 		.4byte	.LVL18
+ 1798 0148 35000000 		.4byte	.LVL21-1
+ 1799 014c 0100     		.2byte	0x1
+ 1800 014e 53       		.byte	0x53
+ 1801 014f 00000000 		.4byte	0
+ 1802 0153 00000000 		.4byte	0
+ 1803              	.LLST9:
+ 1804 0157 00000000 		.4byte	.LVL24
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 35
 
 
- 1703              	.LASF10:
- 1704 030c 73686F72 		.ascii	"short unsigned int\000"
- 1704      7420756E 
- 1704      7369676E 
- 1704      65642069 
- 1704      6E7400
- 1705              	.LASF14:
- 1706 031f 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1706      206C6F6E 
- 1706      6720756E 
- 1706      7369676E 
- 1706      65642069 
- 1707              	.LASF26:
- 1708 0336 436F6E6E 		.ascii	"Connect4Board_GetColumnPosX\000"
- 1708      65637434 
- 1708      426F6172 
- 1708      645F4765 
- 1708      74436F6C 
- 1709              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br
+ 1805 015b 0A000000 		.4byte	.LVL25
+ 1806 015f 0100     		.2byte	0x1
+ 1807 0161 50       		.byte	0x50
+ 1808 0162 0A000000 		.4byte	.LVL25
+ 1809 0166 10000000 		.4byte	.LFE65
+ 1810 016a 0400     		.2byte	0x4
+ 1811 016c F3       		.byte	0xf3
+ 1812 016d 01       		.uleb128 0x1
+ 1813 016e 50       		.byte	0x50
+ 1814 016f 9F       		.byte	0x9f
+ 1815 0170 00000000 		.4byte	0
+ 1816 0174 00000000 		.4byte	0
+ 1817              	.LLST10:
+ 1818 0178 00000000 		.4byte	.LVL26
+ 1819 017c 0A000000 		.4byte	.LVL27
+ 1820 0180 0100     		.2byte	0x1
+ 1821 0182 50       		.byte	0x50
+ 1822 0183 0A000000 		.4byte	.LVL27
+ 1823 0187 10000000 		.4byte	.LFE66
+ 1824 018b 0400     		.2byte	0x4
+ 1825 018d F3       		.byte	0xf3
+ 1826 018e 01       		.uleb128 0x1
+ 1827 018f 50       		.byte	0x50
+ 1828 0190 9F       		.byte	0x9f
+ 1829 0191 00000000 		.4byte	0
+ 1830 0195 00000000 		.4byte	0
+ 1831              	.LLST11:
+ 1832 0199 0E000000 		.4byte	.LVL28
+ 1833 019d 22000000 		.4byte	.LVL31
+ 1834 01a1 0100     		.2byte	0x1
+ 1835 01a3 50       		.byte	0x50
+ 1836 01a4 22000000 		.4byte	.LVL31
+ 1837 01a8 5A000000 		.4byte	.LVL38
+ 1838 01ac 0100     		.2byte	0x1
+ 1839 01ae 56       		.byte	0x56
+ 1840 01af 00000000 		.4byte	0
+ 1841 01b3 00000000 		.4byte	0
+ 1842              	.LLST12:
+ 1843 01b7 16000000 		.4byte	.LVL29
+ 1844 01bb 5A000000 		.4byte	.LVL38
+ 1845 01bf 0100     		.2byte	0x1
+ 1846 01c1 57       		.byte	0x57
+ 1847 01c2 00000000 		.4byte	0
+ 1848 01c6 00000000 		.4byte	0
+ 1849              	.LLST13:
+ 1850 01ca 20000000 		.4byte	.LVL30
+ 1851 01ce 5A000000 		.4byte	.LVL38
+ 1852 01d2 0100     		.2byte	0x1
+ 1853 01d4 55       		.byte	0x55
+ 1854 01d5 00000000 		.4byte	0
+ 1855 01d9 00000000 		.4byte	0
+ 1856              	.LLST14:
+ 1857 01dd 28000000 		.4byte	.LVL33
+ 1858 01e1 38000000 		.4byte	.LVL35
+ 1859 01e5 0100     		.2byte	0x1
+ 1860 01e7 50       		.byte	0x50
+ 1861 01e8 38000000 		.4byte	.LVL35
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 36
+
+
+ 1862 01ec 5A000000 		.4byte	.LVL38
+ 1863 01f0 0100     		.2byte	0x1
+ 1864 01f2 58       		.byte	0x58
+ 1865 01f3 00000000 		.4byte	0
+ 1866 01f7 00000000 		.4byte	0
+ 1867              	.LLST15:
+ 1868 01fb 34000000 		.4byte	.LVL34
+ 1869 01ff 5A000000 		.4byte	.LVL38
+ 1870 0203 0100     		.2byte	0x1
+ 1871 0205 54       		.byte	0x54
+ 1872 0206 00000000 		.4byte	0
+ 1873 020a 00000000 		.4byte	0
+ 1874              	.LLST16:
+ 1875 020e 00000000 		.4byte	.LVL39
+ 1876 0212 09000000 		.4byte	.LVL40-1
+ 1877 0216 0100     		.2byte	0x1
+ 1878 0218 50       		.byte	0x50
+ 1879 0219 09000000 		.4byte	.LVL40-1
+ 1880 021d 7C000000 		.4byte	.LFE68
+ 1881 0221 0400     		.2byte	0x4
+ 1882 0223 F3       		.byte	0xf3
+ 1883 0224 01       		.uleb128 0x1
+ 1884 0225 50       		.byte	0x50
+ 1885 0226 9F       		.byte	0x9f
+ 1886 0227 00000000 		.4byte	0
+ 1887 022b 00000000 		.4byte	0
+ 1888              	.LLST17:
+ 1889 022f 10000000 		.4byte	.LVL41
+ 1890 0233 28000000 		.4byte	.LVL44
+ 1891 0237 0100     		.2byte	0x1
+ 1892 0239 50       		.byte	0x50
+ 1893 023a 28000000 		.4byte	.LVL44
+ 1894 023e 64000000 		.4byte	.LVL51
+ 1895 0242 0100     		.2byte	0x1
+ 1896 0244 57       		.byte	0x57
+ 1897 0245 00000000 		.4byte	0
+ 1898 0249 00000000 		.4byte	0
+ 1899              	.LLST18:
+ 1900 024d 1C000000 		.4byte	.LVL42
+ 1901 0251 64000000 		.4byte	.LVL51
+ 1902 0255 0100     		.2byte	0x1
+ 1903 0257 58       		.byte	0x58
+ 1904 0258 00000000 		.4byte	0
+ 1905 025c 00000000 		.4byte	0
+ 1906              	.LLST19:
+ 1907 0260 26000000 		.4byte	.LVL43
+ 1908 0264 64000000 		.4byte	.LVL51
+ 1909 0268 0100     		.2byte	0x1
+ 1910 026a 55       		.byte	0x55
+ 1911 026b 00000000 		.4byte	0
+ 1912 026f 00000000 		.4byte	0
+ 1913              	.LLST20:
+ 1914 0273 2E000000 		.4byte	.LVL46
+ 1915 0277 3C000000 		.4byte	.LVL48
+ 1916 027b 0100     		.2byte	0x1
+ 1917 027d 50       		.byte	0x50
+ 1918 027e 3C000000 		.4byte	.LVL48
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 37
+
+
+ 1919 0282 64000000 		.4byte	.LVL51
+ 1920 0286 0100     		.2byte	0x1
+ 1921 0288 59       		.byte	0x59
+ 1922 0289 00000000 		.4byte	0
+ 1923 028d 00000000 		.4byte	0
+ 1924              	.LLST21:
+ 1925 0291 3A000000 		.4byte	.LVL47
+ 1926 0295 64000000 		.4byte	.LVL51
+ 1927 0299 0100     		.2byte	0x1
+ 1928 029b 54       		.byte	0x54
+ 1929 029c 00000000 		.4byte	0
+ 1930 02a0 00000000 		.4byte	0
+ 1931              	.LLST22:
+ 1932 02a4 00000000 		.4byte	.LVL52
+ 1933 02a8 0B000000 		.4byte	.LVL53-1
+ 1934 02ac 0100     		.2byte	0x1
+ 1935 02ae 50       		.byte	0x50
+ 1936 02af 0B000000 		.4byte	.LVL53-1
+ 1937 02b3 78000000 		.4byte	.LFE69
+ 1938 02b7 0400     		.2byte	0x4
+ 1939 02b9 F3       		.byte	0xf3
+ 1940 02ba 01       		.uleb128 0x1
+ 1941 02bb 50       		.byte	0x50
+ 1942 02bc 9F       		.byte	0x9f
+ 1943 02bd 00000000 		.4byte	0
+ 1944 02c1 00000000 		.4byte	0
+ 1945              	.LLST23:
+ 1946 02c5 00000000 		.4byte	.LVL52
+ 1947 02c9 0B000000 		.4byte	.LVL53-1
+ 1948 02cd 0100     		.2byte	0x1
+ 1949 02cf 51       		.byte	0x51
+ 1950 02d0 0B000000 		.4byte	.LVL53-1
+ 1951 02d4 78000000 		.4byte	.LFE69
+ 1952 02d8 0400     		.2byte	0x4
+ 1953 02da F3       		.byte	0xf3
+ 1954 02db 01       		.uleb128 0x1
+ 1955 02dc 51       		.byte	0x51
+ 1956 02dd 9F       		.byte	0x9f
+ 1957 02de 00000000 		.4byte	0
+ 1958 02e2 00000000 		.4byte	0
+ 1959              	.LLST24:
+ 1960 02e6 18000000 		.4byte	.LVL54
+ 1961 02ea 6A000000 		.4byte	.LVL60
+ 1962 02ee 0100     		.2byte	0x1
+ 1963 02f0 57       		.byte	0x57
+ 1964 02f1 00000000 		.4byte	0
+ 1965 02f5 00000000 		.4byte	0
+ 1966              	.LLST25:
+ 1967 02f9 34000000 		.4byte	.LVL56
+ 1968 02fd 6A000000 		.4byte	.LVL60
+ 1969 0301 0100     		.2byte	0x1
+ 1970 0303 59       		.byte	0x59
+ 1971 0304 00000000 		.4byte	0
+ 1972 0308 00000000 		.4byte	0
+ 1973              	.LLST26:
+ 1974 030c 3E000000 		.4byte	.LVL57
+ 1975 0310 6A000000 		.4byte	.LVL60
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 38
+
+
+ 1976 0314 0100     		.2byte	0x1
+ 1977 0316 54       		.byte	0x54
+ 1978 0317 00000000 		.4byte	0
+ 1979 031b 00000000 		.4byte	0
+ 1980              		.section	.debug_aranges,"",%progbits
+ 1981 0000 4C000000 		.4byte	0x4c
+ 1982 0004 0200     		.2byte	0x2
+ 1983 0006 00000000 		.4byte	.Ldebug_info0
+ 1984 000a 04       		.byte	0x4
+ 1985 000b 00       		.byte	0
+ 1986 000c 0000     		.2byte	0
+ 1987 000e 0000     		.2byte	0
+ 1988 0010 00000000 		.4byte	.LFB63
+ 1989 0014 98000000 		.4byte	.LFE63-.LFB63
+ 1990 0018 00000000 		.4byte	.LFB64
+ 1991 001c 58000000 		.4byte	.LFE64-.LFB64
+ 1992 0020 00000000 		.4byte	.LFB65
+ 1993 0024 10000000 		.4byte	.LFE65-.LFB65
+ 1994 0028 00000000 		.4byte	.LFB66
+ 1995 002c 10000000 		.4byte	.LFE66-.LFB66
+ 1996 0030 00000000 		.4byte	.LFB67
+ 1997 0034 70000000 		.4byte	.LFE67-.LFB67
+ 1998 0038 00000000 		.4byte	.LFB68
+ 1999 003c 7C000000 		.4byte	.LFE68-.LFB68
+ 2000 0040 00000000 		.4byte	.LFB69
+ 2001 0044 78000000 		.4byte	.LFE69-.LFB69
+ 2002 0048 00000000 		.4byte	0
+ 2003 004c 00000000 		.4byte	0
+ 2004              		.section	.debug_ranges,"",%progbits
+ 2005              	.Ldebug_ranges0:
+ 2006 0000 00000000 		.4byte	.LFB63
+ 2007 0004 98000000 		.4byte	.LFE63
+ 2008 0008 00000000 		.4byte	.LFB64
+ 2009 000c 58000000 		.4byte	.LFE64
+ 2010 0010 00000000 		.4byte	.LFB65
+ 2011 0014 10000000 		.4byte	.LFE65
+ 2012 0018 00000000 		.4byte	.LFB66
+ 2013 001c 10000000 		.4byte	.LFE66
+ 2014 0020 00000000 		.4byte	.LFB67
+ 2015 0024 70000000 		.4byte	.LFE67
+ 2016 0028 00000000 		.4byte	.LFB68
+ 2017 002c 7C000000 		.4byte	.LFE68
+ 2018 0030 00000000 		.4byte	.LFB69
+ 2019 0034 78000000 		.4byte	.LFE69
+ 2020 0038 00000000 		.4byte	0
+ 2021 003c 00000000 		.4byte	0
+ 2022              		.section	.debug_line,"",%progbits
+ 2023              	.Ldebug_line0:
+ 2024 0000 A5020000 		.section	.debug_str,"MS",%progbits,1
+ 2024      0200AD01 
+ 2024      00000201 
+ 2024      FB0E0D00 
+ 2024      01010101 
+ 2025              	.LASF17:
+ 2026 0000 666C6F61 		.ascii	"float\000"
+ 2026      7400
+ 2027              	.LASF54:
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 39
+
+
+ 2028 0006 4755495F 		.ascii	"GUI_SetBkColor\000"
+ 2028      53657442 
+ 2028      6B436F6C 
+ 2028      6F7200
+ 2029              	.LASF25:
+ 2030 0015 636F6C75 		.ascii	"column\000"
+ 2030      6D6E00
+ 2031              	.LASF51:
+ 2032 001c 70726576 		.ascii	"prev_selected\000"
+ 2032      5F73656C 
+ 2032      65637465 
+ 2032      6400
+ 2033              	.LASF30:
+ 2034 002a 726F775F 		.ascii	"row_index\000"
+ 2034      696E6465 
+ 2034      7800
+ 2035              	.LASF34:
+ 2036 0034 636F6C75 		.ascii	"column_pos_x\000"
+ 2036      6D6E5F70 
+ 2036      6F735F78 
+ 2036      00
+ 2037              	.LASF20:
+ 2038 0041 726F7773 		.ascii	"rows\000"
+ 2038      00
+ 2039              	.LASF12:
+ 2040 0046 73697A65 		.ascii	"sizetype\000"
+ 2040      74797065 
+ 2040      00
+ 2041              	.LASF53:
+ 2042 004f 4755495F 		.ascii	"GUI_SetColor\000"
+ 2042      53657443 
+ 2042      6F6C6F72 
+ 2042      00
+ 2043              	.LASF33:
+ 2044 005c 436F6E6E 		.ascii	"Connect4Board_HighlightColumn\000"
+ 2044      65637434 
+ 2044      426F6172 
+ 2044      645F4869 
+ 2044      67686C69 
+ 2045              	.LASF57:
+ 2046 007a 443A5C72 		.ascii	"D:\\rbeattie_final_project\\ConnectFour.cydsn\000"
+ 2046      62656174 
+ 2046      7469655F 
+ 2046      66696E61 
+ 2046      6C5F7072 
+ 2047              	.LASF4:
+ 2048 00a6 73686F72 		.ascii	"short int\000"
+ 2048      7420696E 
+ 2048      7400
+ 2049              	.LASF8:
+ 2050 00b0 4C43445F 		.ascii	"LCD_COLOR\000"
+ 2050      434F4C4F 
+ 2050      5200
+ 2051              	.LASF56:
+ 2052 00ba 2E5C436F 		.ascii	".\\Connect4Board.c\000"
+ 2052      6E6E6563 
+ 2052      7434426F 
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 40
+
+
+ 2052      6172642E 
+ 2052      6300
+ 2053              	.LASF16:
+ 2054 00cc 75696E74 		.ascii	"uint16\000"
+ 2054      313600
+ 2055              	.LASF27:
+ 2056 00d3 436F6E6E 		.ascii	"Connect4Board_GetRowPosY\000"
+ 2056      65637434 
+ 2056      426F6172 
+ 2056      645F4765 
+ 2056      74526F77 
+ 2057              	.LASF38:
+ 2058 00ec 63656E74 		.ascii	"center_pos_x\000"
+ 2058      65725F70 
+ 2058      6F735F78 
+ 2058      00
+ 2059              	.LASF39:
+ 2060 00f9 63656E74 		.ascii	"center_pos_y\000"
+ 2060      65725F70 
+ 2060      6F735F79 
+ 2060      00
+ 2061              	.LASF44:
+ 2062 0106 636F6C75 		.ascii	"column_width\000"
+ 2062      6D6E5F77 
+ 2062      69647468 
+ 2062      00
+ 2063              	.LASF48:
+ 2064 0113 706C6163 		.ascii	"placed_heights\000"
+ 2064      65645F68 
+ 2064      65696768 
+ 2064      747300
+ 2065              	.LASF49:
+ 2066 0122 57494454 		.ascii	"WIDTH\000"
+ 2066      4800
+ 2067              	.LASF1:
+ 2068 0128 6C6F6E67 		.ascii	"long long int\000"
+ 2068      206C6F6E 
+ 2068      6720696E 
+ 2068      7400
+ 2069              	.LASF7:
+ 2070 0136 6C6F6E67 		.ascii	"long int\000"
+ 2070      20696E74 
+ 2070      00
+ 2071              	.LASF26:
+ 2072 013f 436F6E6E 		.ascii	"Connect4Board_GetColumnPosX\000"
+ 2072      65637434 
+ 2072      426F6172 
+ 2072      645F4765 
+ 2072      74436F6C 
+ 2073              	.LASF28:
+ 2074 015b 70726576 		.ascii	"prev_column_pos_x\000"
+ 2074      5F636F6C 
+ 2074      756D6E5F 
+ 2074      706F735F 
+ 2074      7800
+ 2075              	.LASF9:
+ 2076 016d 4755495F 		.ascii	"GUI_COLOR\000"
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 41
+
+
+ 2076      434F4C4F 
+ 2076      5200
+ 2077              	.LASF46:
+ 2078 0177 6E756D5F 		.ascii	"num_columns\000"
+ 2078      636F6C75 
+ 2078      6D6E7300 
+ 2079              	.LASF2:
+ 2080 0183 6C6F6E67 		.ascii	"long double\000"
+ 2080      20646F75 
+ 2080      626C6500 
+ 2081              	.LASF6:
+ 2082 018f 756E7369 		.ascii	"unsigned char\000"
+ 2082      676E6564 
+ 2082      20636861 
+ 2082      7200
+ 2083              	.LASF40:
+ 2084 019d 72616469 		.ascii	"radius\000"
+ 2084      757300
+ 2085              	.LASF11:
+ 2086 01a4 7369676E 		.ascii	"signed char\000"
+ 2086      65642063 
+ 2086      68617200 
+ 2087              	.LASF14:
+ 2088 01b0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2088      206C6F6E 
+ 2088      6720756E 
+ 2088      7369676E 
+ 2088      65642069 
+ 2089              	.LASF60:
+ 2090 01c7 4755495F 		.ascii	"GUI_FillCircle\000"
+ 2090      46696C6C 
+ 2090      43697263 
+ 2090      6C6500
+ 2091              	.LASF0:
+ 2092 01d6 756E7369 		.ascii	"unsigned int\000"
+ 2092      676E6564 
+ 2092      20696E74 
+ 2092      00
+ 2093              	.LASF19:
+ 2094 01e3 636F6C75 		.ascii	"columns\000"
+ 2094      6D6E7300 
+ 2095              	.LASF36:
+ 2096 01eb 436F6E6E 		.ascii	"Connect4Board_Place\000"
+ 2096      65637434 
+ 2096      426F6172 
+ 2096      645F506C 
+ 2096      61636500 
+ 2097              	.LASF45:
+ 2098 01ff 726F775F 		.ascii	"row_height\000"
+ 2098      68656967 
+ 2098      687400
+ 2099              	.LASF42:
+ 2100 020a 506F7358 		.ascii	"PosX\000"
+ 2100      00
+ 2101              	.LASF43:
+ 2102 020f 506F7359 		.ascii	"PosY\000"
+ 2102      00
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 42
+
+
+ 2103              	.LASF31:
+ 2104 0214 706F735F 		.ascii	"pos_y\000"
+ 2104      7900
+ 2105              	.LASF5:
+ 2106 021a 63686172 		.ascii	"char\000"
+ 2106      00
+ 2107              	.LASF21:
+ 2108 021f 77616C6C 		.ascii	"wall_pos_x\000"
+ 2108      5F706F73 
+ 2108      5F7800
+ 2109              	.LASF22:
+ 2110 022a 77616C6C 		.ascii	"wall_pos_y\000"
+ 2110      5F706F73 
+ 2110      5F7900
+ 2111              	.LASF15:
+ 2112 0235 696E7433 		.ascii	"int32_t\000"
+ 2112      325F7400 
+ 2113              	.LASF29:
+ 2114 023d 70726576 		.ascii	"prev_offset_x\000"
+ 2114      5F6F6666 
+ 2114      7365745F 
+ 2114      7800
+ 2115              	.LASF23:
+ 2116 024b 436F6E6E 		.ascii	"Connect4Board_DrawGrid\000"
+ 2116      65637434 
+ 2116      426F6172 
+ 2116      645F4472 
+ 2116      61774772 
+ 2117              	.LASF10:
+ 2118 0262 73686F72 		.ascii	"short unsigned int\000"
+ 2118      7420756E 
+ 2118      7369676E 
+ 2118      65642069 
+ 2118      6E7400
+ 2119              	.LASF3:
+ 2120 0275 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2120      20756E73 
+ 2120      69676E65 
+ 2120      6420696E 
+ 2120      7400
+ 2121              	.LASF18:
+ 2122 0287 646F7562 		.ascii	"double\000"
+ 2122      6C6500
+ 2123              	.LASF50:
+ 2124 028e 48454947 		.ascii	"HEIGHT\000"
+ 2124      485400
+ 2125              	.LASF13:
+ 2126 0295 5F5F696E 		.ascii	"__int32_t\000"
+ 2126      7433325F 
+ 2126      7400
+ 2127              	.LASF52:
+ 2128 029f 4755495F 		.ascii	"GUI_FillRect\000"
+ 2128      46696C6C 
+ 2128      52656374 
+ 2128      00
+ 2129              	.LASF35:
+ 2130 02ac 6F666673 		.ascii	"offset_x\000"
+ARM GAS  C:\Users\student\AppData\Local\Temp\ccLlhEpp.s 			page 43
+
+
+ 2130      65745F78 
+ 2130      00
+ 2131              	.LASF32:
+ 2132 02b5 6F666673 		.ascii	"offset_y\000"
+ 2132      65745F79 
+ 2132      00
+ 2133              	.LASF55:
+ 2134 02be 474E5520 		.ascii	"GNU C 4.9.3 20150303 (release) [ARM/embedded-4_9-br"
+ 2134      4320342E 
+ 2134      392E3320 
+ 2134      32303135 
+ 2134      30333033 
+ 2135 02f1 616E6368 		.ascii	"anch revision 221220] -mcpu=cortex-m3 -mthumb -g -O"
+ 2135      20726576 
+ 2135      6973696F 
+ 2135      6E203232 
+ 2135      31323230 
+ 2136 0324 67202D73 		.ascii	"g -std=gnu11 -ffunction-sections -ffat-lto-objects\000"
+ 2136      74643D67 
+ 2136      6E753131 
+ 2136      202D6666 
+ 2136      756E6374 
+ 2137              	.LASF41:
+ 2138 0357 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2138      52784275 
+ 2138      66666572 
+ 2138      00
+ 2139              	.LASF24:
+ 2140 0364 436F6E6E 		.ascii	"Connect4Board_Init\000"
+ 2140      65637434 
+ 2140      426F6172 
+ 2140      645F496E 
+ 2140      697400
+ 2141              	.LASF47:
+ 2142 0377 6E756D5F 		.ascii	"num_rows\000"
+ 2142      726F7773 
+ 2142      00
+ 2143              	.LASF37:
+ 2144 0380 706C6179 		.ascii	"player\000"
+ 2144      657200
+ 2145              	.LASF59:
+ 2146 0387 4755495F 		.ascii	"GUI_Clear\000"
+ 2146      436C6561 
+ 2146      7200
+ 2147              	.LASF58:
+ 2148 0391 436F6E6E 		.ascii	"Connect4Board_ClearHighlight\000"
+ 2148      65637434 
+ 2148      426F6172 
+ 2148      645F436C 
+ 2148      65617248 
+ 2149              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 4.9.3 20150303 (release) [ARM/embedded-4_9-br

@@ -47,7 +47,7 @@ Revision: $Rev: 9374 $
 ---------------------------END-OF-HEADER------------------------------
 */
 
-#ifndef GLOBAL_H            // Guard against multiple inclusion
+//#ifndef GLOBAL_H            // Guard against multiple inclusion
 #define GLOBAL_H
 
 #define U8    unsigned char
@@ -92,6 +92,6 @@ Revision: $Rev: 9374 $
   #endif
 #endif
 
-#endif                      // Avoid multiple inclusion
+//#endif                      // Avoid multiple inclusion
 
 /*************************** End of file ****************************/
