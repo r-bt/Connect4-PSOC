@@ -253,16 +253,37 @@ int Connect4_GetValue(int player)
     for (int i = 0; i < 4; i++) {
         int direction = directions[i];
         long temp = board >> direction;
-        score += __builtin_popcountl(board & temp & (temp >> direction));
+        score += __builtin_popcountl(board & temp & (temp >> direction)) * 8;
     }
 
-    // Check how favourable the position is
-    for (int i = 0; i < 14; i++) {
-        if (IS_VALUE_USED[i]) {
-            long mask = MASKS[i];
-            score += __builtin_popcountl(board & mask) * i;
-        }
+    // Count number of twos
+    for (int i = 0; i < 4; i++) {
+        int direction = directions[i];
+        long temp = board >> direction;
+        score += __builtin_popcountl(board & temp) * 4;
     }
+
+    // Count number of ones
+    for (int i = 0; i < 4; i++) {
+        int direction = directions[i];
+        score += __builtin_popcountl(board);
+    }
+
+    long opponent_board = bitboards[!player];
+    // Count number of threes
+    for (int i = 0; i < 4; i++) {
+        int direction = directions[i];
+        long temp = opponent_board >> direction;
+        score += __builtin_popcountl(opponent_board & temp & (temp >> direction)) * -8;
+    }
+
+    // // Check how favourable the position is
+    // for (int i = 0; i < 14; i++) {
+    //     if (IS_VALUE_USED[i]) {
+    //         long mask = MASKS[i];
+    //         score += __builtin_popcountl(board & mask) * i;
+    //     }
+    // }
 
     return score;
 }
