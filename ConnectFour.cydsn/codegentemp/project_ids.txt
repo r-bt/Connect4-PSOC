@@ -1,7 +1,0 @@
-D:\rbeattie_final_project\ConnectFour.cydsn\ConnectFour.cyprj|0ba9c5fa-0c0c-4bbc-b50b-9fef9786460d
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c75f7f0f-0fb5-431b-b15e-5d71d32c41c3
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|50c8ca4b-d5f4-4e16-80fa-7ab4fe31f311
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|f0794789-3b83-4d62-8763-70683a90bc74
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|24f15b8a-3ba9-44e6-8bb6-dfe356b6424e
-D:\rbeattie_final_project\WaveDAC8_Example01.cydsn\WaveDAC8_Example01.cyprj|199f68cc-68ec-436a-a921-89aa7162e481
-C:\Program Files (x86)\Cypress\PSoC Creator\3.3\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|f7e2b81f-cc8e-45e3-9005-c554bd0ed64d

@@ -125,7 +125,7 @@ uint8 XPT2046_ReadXY(uint16 *X,  uint16 *Y)  // Return 1 if data is valid
         if(py <= 0) py = 0;
         if(py >= YSIZE_PHYS) py = YSIZE_PHYS;
         *X = py; // Based on the orientation of my screen I flip here
-        *Y = px;
+        *Y = XSIZE_PHYS - px; // Need to match the origin point when drawing
         return(1);      // Data Valid
     }
     else

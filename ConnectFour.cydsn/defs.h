@@ -10,7 +10,12 @@
  * ========================================
 */
 
+#ifndef Defs_H
+#define Defs_H
+
 #define XSIZE_PHYS 240
 #define YSIZE_PHYS 320
+
+#endif
 
 /* [] END OF FILE */
