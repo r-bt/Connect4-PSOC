@@ -14,13 +14,13 @@
 #include "GUI.h"
 #include "Connect4Board.h"
 #include "XPT2046.h"
-//#include <stdlib.h>
+#include <stdlib.h>
 #include "defs.h"
 #include "Connect4.h"
-//#include "Robot.h"
+#include "Robot.h"
 #include "Tick.h"
 #include "FS.h"
-//#include "stdio.h"
+#include "stdio.h"
 
 //=================
 // System Settings Defintions and variables
@@ -30,7 +30,14 @@ enum SystemState {
     SETUP_SETTINGS,
     SETTINGS,
     SETUP_GAME,
-    GAME
+    GAME,
+    GAME_LOSE,
+    GAME_WIN
+};
+
+enum PlayStyle {
+    TFT_STYLE,
+    ROBOT_STYLE,
 };
 
 enum SystemState state;
@@ -44,7 +51,7 @@ enum SystemState state;
 #define NUM_PLAY_STYLES 2
 #define NUM_OPPONENT_OPTIONS 2
 #define NUM_BUTTON_ROWS 4
-#define NUM_BUTTONS 8
+#define NUM_BUTTONS 10
 
 struct Button {
     char* label;
@@ -53,23 +60,26 @@ struct Button {
 
 struct Button buttons[] = {
     {"Easy", 1},
-    {"Medium", 3},
+    {"Medium", 5},
     {"Hard", 7},
-    {"Screen", 0},
-    {"Robot", 1},
+    {"Screen", TFT_STYLE},
+    {"Robot", ROBOT_STYLE},
     {"Local", 0},
     {"Remote", 1},
+    {"First", 0},
+    {"Second", 1},
     {"Play", 0}
 };
 
-GUI_RECT easy_button, medium_button, hard_button, tft_button, robot_button, local_button, remote_button, play_button;
-GUI_RECT* button_rects[NUM_BUTTONS] = {&easy_button, &medium_button, &hard_button, &tft_button, &robot_button, &local_button, &remote_button, &play_button};
+GUI_RECT easy_button, medium_button, hard_button, tft_button, robot_button, local_button, remote_button, first_button, second_button, play_button;
+GUI_RECT* button_rects[NUM_BUTTONS] = {&easy_button, &medium_button, &hard_button, &tft_button, &robot_button, &local_button, &remote_button, &first_button, &second_button, &play_button};
 
 int selectedDifficulty = 0;
 int selectedPlayStyle = 3;
 int selectedOpponent = 5;
+int selectedPosition = 7;
 
-int columns_for_row[NUM_BUTTON_ROWS] = {NUM_LEVELS, NUM_PLAY_STYLES, NUM_OPPONENT_OPTIONS, 1};
+int columns_for_row[NUM_BUTTON_ROWS] = {NUM_LEVELS, NUM_PLAY_STYLES, NUM_OPPONENT_OPTIONS, 3};
 
 //===================
 // Connect 4 Game Definitions and variables
@@ -113,9 +123,9 @@ void Init() {
     
     SPIM_1_Start();                         // Init SPI for TFT screen
     USBUART_Start(0, USBUART_5V_OPERATION); // Use USB Serial for debugging
-    //FS_Init();                              // Init Filesystem to read TFT SD card
+    FS_Init();                              // Init Filesystem to read TFT SD card
     GUI_Init();                             // initilize graphics library
-    //Tick_Init();                            // Start timer interrupts
+    Tick_Init();                            // Start timer interrupts
     
     Settings_Init();
 }
@@ -185,7 +195,10 @@ void Handle_Settings() {
                         case 5 ... 6:
                             previouslySelected = &selectedOpponent;
                             break;
-                        case 7:
+                        case 7 ... 8:
+                            previouslySelected = &selectedPosition;
+                            break;
+                        case 9:
                             state = SETUP_GAME;
                             return; // Handle play
                         default:
@@ -210,6 +223,12 @@ void Setup_Game() {
     Connect4Board_Init(COLUMNS, ROWS); // Setup the Connect 4 Board
     Connect4_Init(); // Start the connect 4 game
     
+    int play_style = buttons[selectedPlayStyle].value;
+    
+    if (play_style == ROBOT_STYLE) {
+        Robot_Init();
+    }
+    
     state = GAME;
 }
 
@@ -222,19 +241,29 @@ void Handle_Game() {
     uint16 prevXPTState = 0;
     uint16 prev_selected_column = COLUMNS;
     
+    int playerPosition = buttons[selectedPosition].value;
+    int difficulty = buttons[selectedDifficulty].value;
+    int playStyle = buttons[selectedPlayStyle].value;
+    
     for (;;) {
-        //Robot_Update();
+        if (playStyle == ROBOT_STYLE) {
+            Robot_Update();
+        }
         
-        if (Connect4_GetCurrentPlayer() == 0) {
-            // AI turn
-            struct Move bestMove = Connect4_NegaMax(5, -INF, INF);
-            Connect4_Move(bestMove.column);
+        if (Connect4_GetCurrentPlayer() == playerPosition) {
             
-            Connect4Board_Place(bestMove.column, 0);
-            //Robot_ClearInterrupter();
-            //Robot_Move(bestMove.column); 
-        } else {
-            if (prevXPTState != XPT2046_IRQ) { // Stop multiple events for one touch
+            if (playStyle == ROBOT_STYLE) {
+                if (Robot_GetState() == Robot_Idle && Robot_GetInterrupter() != 7) {
+                    uint8 column = Robot_GetInterrupter();
+                    
+                    Connect4_Move(column);
+                    Connect4Board_Place(column, 1);
+                    
+                    Robot_ClearInterrupter();
+                    
+                    CyDelay(500); // Pretend robot is thinking
+                }
+            } else if (prevXPTState != XPT2046_IRQ) { // Stop multiple events for one touch
                 prevXPTState = XPT2046_IRQ;
                 if (XPT2046_IRQ == 0) {
                     if (XPT2046_ReadXY(&PosX, &PosY)) {
@@ -247,34 +276,68 @@ void Handle_Game() {
                             CyDelay(250);
                         } else {
                             Connect4Board_ClearHighlight();
-                            Connect4_Move(selected_column);
+                            int move_status = Connect4_Move(selected_column);
+                            
                             Connect4Board_Place(selected_column, 1);
                             
-                            CyDelay(1000); // let user think the board is thinking...
+                            char print[100];
+                            sprintf(print, "Move status %d\r\n", move_status);
+                            USBUART_PutString(print);
+                            
+                            CyDelay(100);
+            
+                            Connect4_PrintBoard();
+                            
+                            CyDelay(500); // let user think the board is thinking...
                             prev_selected_column = COLUMNS;
                         }
                     }
                 }
             }
+        } else {
+            // AI turn
+            struct Move bestMove = Connect4_NegaMax(difficulty, -INF, INF);
+            char print[100];
+            sprintf(print, "Best move: %d, score is %d, at depth %d\r\n", bestMove.column, bestMove.score, bestMove.depth);
+            
+            USBUART_PutString(print);
+            
+            if (playStyle == ROBOT_STYLE) {
+                Robot_ClearInterrupter();
+                Robot_Move(bestMove.column); 
+                
+                while (Robot_GetInterrupter() == 7){
+                    continue;
+                };
+                
+                uint8 column = Robot_GetInterrupter();
+                
+                Connect4_Move(column);
+                Connect4Board_Place(column, 0);
+            } else {
+                Connect4_Move(bestMove.column);
+                Connect4Board_Place(bestMove.column, 0);
+            }
+            
+            if (Connect4_IsWon(!playerPosition)) {
+                state = GAME_LOSE;
+                return;
+            }
         }
-//        else if (Robot_GetState() == Robot_Idle) {
-//            
-//            if (Robot_GetInterrupter() != 7) {
-//                uint8 column = Robot_GetInterrupter();
-//                
-//                Connect4_Move(column);
-//                Connect4Board_Place(column, 1);
-//                
-//                Robot_ClearInterrupter();
-//                
-//                CyDelay(1000); // Pretend robot is thinking
-//            }
-//            
-//            continue;
-//            
-
-//        }
     }
+}
+
+/**
+Tells the user they won / lost and waits for them to touch screen again to continue
+**/
+void HandleWinLose() {
+    GUI_SetTextMode(GUI_TM_TRANS);
+    GUI_SetFont(GUI_FONT_32_ASCII);
+    
+    GUI_SetColor(GUI_BLACK);
+    GUI_DispStringAt(state == GAME_LOSE ? "YOU LOSE!" : "YOU WON!", WIDTH / 2 - 50, HEIGHT / 2 - ELEMENT_MARGIN);
+    
+    for (;;) {}
 }
 
 /**
@@ -300,6 +363,10 @@ void MainTask()
             case GAME:
                 Handle_Game();
                 break;
+            case GAME_LOSE:
+            case GAME_WIN:
+                HandleWinLose();
+                break;
         }
     }
 }
@@ -311,7 +378,6 @@ int main()
     MainTask();                             
     for(;;) {}                              // loop
 }
-
 
 //
 ///* [] END OF FILE */

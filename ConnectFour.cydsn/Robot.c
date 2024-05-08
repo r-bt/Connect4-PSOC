@@ -18,27 +18,27 @@
 #include "Robot.h"
 #include "Tick.h"
 
-int column_compare_values[] = {1500, 1175, 1100, 1030, 1000, 950, 900};
+int column_compare_values[] = {1500, 1175, 1100, 1050, 1000, 950, 900};
 
 int hammer_open = 2570;
 int hammer_closed = 1000;
 
 uint8 intrSrc;
 
-enum Robot_State state = Robot_Idle;
+enum Robot_State robot_state = Robot_Idle;
 
 int interrupter_debounce_elapsed = 1;
 CY_ISR(PHOTO_INTERRUPTER_Control) {
     uint8 intrSrcTemp = PHOTO_INTERRUPTER_PINS_ClearInterrupt(); // Get the pin which caused the interrupt
     
+    if (!interrupter_debounce_elapsed) return;
+    
+    intrSrc = intrSrcTemp;
+    
     char print[100];
     sprintf(print, "Interrupt on pin %d, debounce elapsed %d\r\n", Robot_GetInterrupter(), interrupter_debounce_elapsed);
     
     USBUART_PutString(print);
-    
-    if (!interrupter_debounce_elapsed) return;
-    
-    intrSrc = intrSrcTemp;
     
     interrupter_debounce_elapsed = 0;
     Tick_Reset(); // Wa
@@ -70,7 +70,7 @@ void Robot_Move(int column) {
     
     CyDelay(500);
     
-    state = Robot_Moving; 
+    robot_state = Robot_Moving; 
 }
 
 void Robot_Init() {
@@ -88,16 +88,16 @@ void Robot_Init() {
 }
 
 void Robot_Update()  {
-    if (intrSrc != 0 && state == Robot_Moving) {
+    if (intrSrc != 0 && robot_state == Robot_Moving) {
         // Piece placed, move the servos back
         HAMMER_PWM_WriteCompare(hammer_open);
         SELECT_PWM_WriteCompare(column_compare_values[0]);
         
         Robot_ClearInterrupter();
-        state = Robot_Idle;
+        robot_state = Robot_Idle;
     }
 }
 
 enum Robot_State Robot_GetState() {
-    return state;
+    return robot_state;
 }

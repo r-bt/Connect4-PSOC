@@ -2,8 +2,9 @@
 #include "math.h"
 #include <limits.h>
 #include <stdio.h>
+#include <project.h>
 
-#define INF 10000
+long long LL1 = 1;
 
 /**
  * Bitboard Connect 4 Implementation allows for efficent move generation and evaluation
@@ -21,7 +22,7 @@
  *
  * See https://github.com/denkspuren/BitboardC4/blob/master/BitboardDesign.md
  */
-long bitboards[2] = { 0, 0 };
+long long bitboards[2] = { 0, 0 };
 
 // Keeps track of the next available position in each column
 int column_heights[7];
@@ -144,7 +145,7 @@ void Connect4_RawMove(int column)
     int player = Connect4_GetCurrentPlayer();
 
     // Shift by the height of the column
-    long move = 1L << column_heights[column];
+    long long move = LL1 << column_heights[column];
 
     // Update the height of the column
     column_heights[column]++;
@@ -188,7 +189,7 @@ void Connect4_RawUndoMove()
     column_heights[column]--;
 
     // Get the last move
-    long move = 1L << column_heights[column];
+    long long move = LL1 << column_heights[column];
 
     // Get the current player
     int player = Connect4_GetCurrentPlayer();
@@ -206,12 +207,12 @@ void Connect4_RawUndoMove()
  */
 int Connect4_IsWon(int player)
 {
-    long bitboard = bitboards[player];
+    long long bitboard = bitboards[player];
 
     int differences[] = { 1, 6, 7, 8 };
     for (int i = 0; i < 4; i++) {
         int difference = differences[i];
-        long temp = bitboard & (bitboard >> difference);
+        long long temp = bitboard & (bitboard >> difference);
         if ((temp & (temp >> (2 * difference))) != 0) {
             return 1;
         }
@@ -230,7 +231,7 @@ int Connect4_GetMoves(int* moves)
 
     int count = 0;
     for (int col = 0; col <= 6; col++) {
-        if ((TOP & (1L << column_heights[col])) == 0) {
+        if ((TOP & (LL1 << column_heights[col])) == 0) {
             moves[count] = col;
             count++;
         }
@@ -245,45 +246,24 @@ int Connect4_GetMoves(int* moves)
 int Connect4_GetValue(int player)
 {
     int directions[] = { 1, 6, 7, 8 }; // vert, diag, diag, horizon
-    long board = bitboards[player];
+    long long board = bitboards[player];
 
     int score = 0;
 
     // Count number of threes
     for (int i = 0; i < 4; i++) {
         int direction = directions[i];
-        long temp = board >> direction;
-        score += __builtin_popcountl(board & temp & (temp >> direction)) * 8;
+        long long temp = board >> direction;
+        score += __builtin_popcountl(board & temp & (temp >> direction));
     }
 
-    // Count number of twos
-    for (int i = 0; i < 4; i++) {
-        int direction = directions[i];
-        long temp = board >> direction;
-        score += __builtin_popcountl(board & temp) * 4;
+    // Check how favourable the position is
+    for (int i = 0; i < 14; i++) {
+        if (IS_VALUE_USED[i]) {
+            long long mask = MASKS[i];
+            score += __builtin_popcountl(board & mask) * i;
+        }
     }
-
-    // Count number of ones
-    for (int i = 0; i < 4; i++) {
-        int direction = directions[i];
-        score += __builtin_popcountl(board);
-    }
-
-    long opponent_board = bitboards[!player];
-    // Count number of threes
-    for (int i = 0; i < 4; i++) {
-        int direction = directions[i];
-        long temp = opponent_board >> direction;
-        score += __builtin_popcountl(opponent_board & temp & (temp >> direction)) * -8;
-    }
-
-    // // Check how favourable the position is
-    // for (int i = 0; i < 14; i++) {
-    //     if (IS_VALUE_USED[i]) {
-    //         long mask = MASKS[i];
-    //         score += __builtin_popcountl(board & mask) * i;
-    //     }
-    // }
 
     return score;
 }
@@ -350,40 +330,26 @@ struct Move Connect4_NegaMax(int depth, int alpha, int beta)
     return best_result;
 }
 
-void Connect4_PrintBoardDebug(long bitboard0, long bitboard1)
-{
-    for (int i = 5; i >= 0; i--) {
-        for (int j = 0; j < 7; j++) {
-            int index = i + j * 7;
-
-            if (bitboard0 & (1L << index)) {
-                printf("X ");
-            } else if (bitboard1 & (1L << (index))) {
-                printf("O ");
-            } else {
-                printf(". ");
-            }
-        }
-        printf("\n");
-    }
-    printf("\n");
-}
-
 void Connect4_PrintBoard()
 {
     for (int i = 5; i >= 0; i--) {
         for (int j = 0; j < 7; j++) {
             int index = i + j * 7;
 
-            if (bitboards[0] & (1L << index)) {
-                printf("X ");
-            } else if (bitboards[1] & (1L << (index))) {
-                printf("O ");
+            if (bitboards[0] & (LL1 << index)) {
+                USBUART_PutString("X ");
+                CyDelay(100);
+            } else if (bitboards[1] & (LL1 << (index))) {
+                USBUART_PutString("O ");
+                CyDelay(100);
             } else {
-                printf(". ");
+                USBUART_PutString(". ");
+                CyDelay(100);
             }
         }
-        printf("\n");
+        USBUART_PutString("\r\n");
+        CyDelay(100);
     }
-    printf("\n");
+    USBUART_PutString("\r\n");
+    CyDelay(100);
 }

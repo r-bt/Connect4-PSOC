@@ -23,8 +23,6 @@ void Connect4_RawMove(int column);
 
 void Connect4_RawUndoMove();
 
-void Connect4_PrintBoardDebug(long bitboard0, long bitboard1);
-
 int Connect4_GetCurrentPlayer();
 
 #endif
