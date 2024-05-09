@@ -261,7 +261,9 @@ void Handle_Game() {
                     
                     Robot_ClearInterrupter();
                     
-                    CyDelay(500); // Pretend robot is thinking
+                    Connect4Board_DisplayPlayerMoveTaunt();
+                    
+                    CyDelay(1000); // Pretend robot is thinking
                 }
             } else if (prevXPTState != XPT2046_IRQ) { // Stop multiple events for one touch
                 prevXPTState = XPT2046_IRQ;
@@ -280,19 +282,18 @@ void Handle_Game() {
                             
                             Connect4Board_Place(selected_column, 1);
                             
-                            char print[100];
-                            sprintf(print, "Move status %d\r\n", move_status);
-                            USBUART_PutString(print);
-                            
-                            CyDelay(100);
-            
-                            Connect4_PrintBoard();
-                            
-                            CyDelay(500); // let user think the board is thinking...
+                            Connect4Board_DisplayPlayerMoveTaunt();
+                    
+                            CyDelay(1000); // Pretend robot is thinking
                             prev_selected_column = COLUMNS;
                         }
                     }
                 }
+            }
+            
+            if (Connect4_IsWon(playerPosition)) {
+                state = GAME_WIN;
+                return;
             }
         } else {
             // AI turn
@@ -301,6 +302,8 @@ void Handle_Game() {
             sprintf(print, "Best move: %d, score is %d, at depth %d\r\n", bestMove.column, bestMove.score, bestMove.depth);
             
             USBUART_PutString(print);
+            
+            Connect4Board_DisplayOpponentMoveTaunt();
             
             if (playStyle == ROBOT_STYLE) {
                 Robot_ClearInterrupter();

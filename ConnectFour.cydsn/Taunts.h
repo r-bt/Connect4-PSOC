@@ -10,15 +10,15 @@
  * ========================================
 */
 
-/* [] END OF FILE */
-#ifndef Tick_H
-#define Tick_H
+#ifndef TAUNTS_H
+#define TAUNTS_H
+
+#define TAUNTS_LINELEN 100
     
-#include <project.h>
-    
-void Tick_Init();
-void Tick_Reset();
-void Tick_AddFlag(int *flag);
-uint32_t Tick_GetTicks();
+void Taunts_Init();
+void Taunts_GetOpponentMoveTaunt();
+void Taunts_GetPlayerMoveTaunt();
     
 #endif
+
+/* [] END OF FILE */

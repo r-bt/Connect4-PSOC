@@ -24,4 +24,8 @@ void Connect4Board_Place(uint16 column, uint16 player);
 
 void Connect4Board_ClearHighlight();
 
+void Connect4Board_DisplayOpponentMoveTaunt();
+
+void Connect4Board_DisplayPlayerMoveTaunt();
+
 /* [] END OF FILE */

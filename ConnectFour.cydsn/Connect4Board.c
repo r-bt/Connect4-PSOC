@@ -16,6 +16,7 @@
 #include "XPT2046.h"
 #include <stdlib.h>
 #include "defs.h"
+#include "Taunts.h"
 
 #define WALL_THICKNESS 2
 
@@ -33,23 +34,27 @@ int prev_selected = 7;
 
 #define GUI_HIGHLIGHT GUI_MAKE_COLOR(0xFCF7DE)
 
+#define TEXT_AREA_HEIGHT 30
+
 void Connect4Board_DrawGrid(uint16 columns, uint16 rows) {
     // Draw the Connect 4 Board
     GUI_SetColor(GUI_BLUE);
     
     column_width = (WIDTH - WALL_THICKNESS * (columns - 1)) / columns;
-    row_height = (HEIGHT - WALL_THICKNESS * (rows - 1)) / rows;
+    row_height = ((HEIGHT - TEXT_AREA_HEIGHT) - WALL_THICKNESS * (rows - 1)) / rows;
     
     for (int i = 0; i < columns - 1; i++) {
         int wall_pos_x = column_width * (i+1) + WALL_THICKNESS * i;
-        GUI_FillRect(wall_pos_x, 0, wall_pos_x + WALL_THICKNESS, HEIGHT);
+        GUI_FillRect(wall_pos_x, 0, wall_pos_x + WALL_THICKNESS, HEIGHT - TEXT_AREA_HEIGHT);
     }
     
-    for (int j = 0; j < rows - 1; j++){
+    for (int j = 0; j < rows; j++){
         int wall_pos_y = row_height * (j+1) + WALL_THICKNESS * j;
         GUI_FillRect(0, wall_pos_y, WIDTH, wall_pos_y + WALL_THICKNESS);
     }
 }
+
+GUI_RECT text_box;
 
 void Connect4Board_Init(uint16 columns, uint16 rows) {
     WIDTH = YSIZE_PHYS;
@@ -67,6 +72,40 @@ void Connect4Board_Init(uint16 columns, uint16 rows) {
     GUI_Clear();
     
     Connect4Board_DrawGrid(columns, rows);
+    
+    text_box.x0 = 0;
+    text_box.x1 = WIDTH;
+    text_box.y0 = HEIGHT - TEXT_AREA_HEIGHT;
+    text_box.y1 = HEIGHT;
+    
+    GUI_SetColor(GUI_WHITE);
+    GUI_FillRectEx(&text_box);
+    
+    Taunts_Init();
+}
+
+void Connect4Board_DisplayOpponentMoveTaunt() {
+    char taunt[TAUNTS_LINELEN];
+    
+    Taunts_GetOpponentMoveTaunt(taunt);
+    
+    GUI_SetColor(GUI_WHITE);
+    GUI_FillRectEx(&text_box);
+    
+    GUI_SetColor(GUI_BLACK);
+    GUI_DispStringInRect(taunt, &text_box, GUI_TA_HCENTER | GUI_TA_VCENTER);
+}
+
+void Connect4Board_DisplayPlayerMoveTaunt() {
+    char taunt[TAUNTS_LINELEN];
+    
+    Taunts_GetPlayerMoveTaunt(taunt);
+    
+    GUI_SetColor(GUI_WHITE);
+    GUI_FillRectEx(&text_box);
+    
+    GUI_SetColor(GUI_BLACK);
+    GUI_DispStringInRect(taunt, &text_box, GUI_TA_HCENTER | GUI_TA_VCENTER);
 }
 
 int Connect4Board_GetColumnPosX(int column) {

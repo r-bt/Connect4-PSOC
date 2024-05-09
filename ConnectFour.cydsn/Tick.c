@@ -49,3 +49,7 @@ void Tick_AddFlag(int* ptr) {
         }
     }
 }
+
+uint32_t Tick_GetTicks() {
+    return systick;
+}

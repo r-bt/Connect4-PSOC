@@ -47,6 +47,7 @@
           <File BuildType="BUILD" Toolchain="">.\Robot.c</File>
           <File BuildType="BUILD" Toolchain="">.\Tick.c</File>
           <File BuildType="BUILD" Toolchain="">.\Music.c</File>
+          <File BuildType="BUILD" Toolchain="">.\Taunts.c</File>
           <File BuildType="BUILD" Toolchain="">.\cyapicallbacks.h</File>
           <File BuildType="BUILD" Toolchain="">.\tft.h</File>
           <File BuildType="BUILD" Toolchain="">.\GUIDRV_FlexColor.h</File>
@@ -59,6 +60,7 @@
           <File BuildType="BUILD" Toolchain="">.\Robot.h</File>
           <File BuildType="BUILD" Toolchain="">.\Tick.h</File>
           <File BuildType="BUILD" Toolchain="">.\Music.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Taunts.h</File>
         </Files>
       </Folder>
       <Folder BuildType="BUILD" Path="C:\Users\student\Downloads\DDS_WaveGen_01c-000.cywrk.Archive01\DDS_WaveGen_01c.cydsn">
