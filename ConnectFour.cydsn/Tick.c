@@ -17,17 +17,24 @@
 
 #define COUNTS 12000
 
-uint32_t systick;
 int* flags[5];
+uint32_t counts[5];
+uint32_t triggers[5];
+
+uint32_t systick = 0;
+
 CY_ISR(isr_systick) {
     systick++;
-    if (systick >= 1000) {
-       for (int i = 0; i < 5; i++) {
-            if (flags[i] != NULL) {
+    
+    for (int i = 0; i < 5; i++) {
+        if (flags[i] != NULL) {
+            counts[i]++;
+            
+            if (counts[i] >= triggers[i]) {
                 *(flags[i]) = 1;
+                counts[i] = 0;
             }
         }
-        systick = 0;
     }
 }
 
@@ -37,19 +44,27 @@ void Tick_Init() {
     CySysTickSetCallback(0, isr_systick);
 }
 
-void Tick_Reset() {
-    systick = 0;
+void Tick_Reset(int index) {
+    counts[index] = 0;
 }
 
-void Tick_AddFlag(int* ptr) {
+int Tick_AddFlag(int* ptr, uint32_t trigger) {
     for (int i = 0; i < 5; i++) {
         if (flags[i] == NULL) {
             flags[i] = ptr;
-            return;
+            counts[i] = 0;
+            triggers[i] = trigger;
+            return i;
         }
     }
+    
+    return 5; // No available position for flag
 }
 
-uint32_t Tick_GetTicks() {
-    return systick;
+uint32_t Tick_GetTicks(int index) {
+    if (index > 4) {
+        return systick;
+    }
+    
+    return counts[index];
 }

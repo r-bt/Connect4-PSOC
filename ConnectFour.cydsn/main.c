@@ -21,6 +21,8 @@
 #include "Tick.h"
 #include "FS.h"
 #include "stdio.h"
+#include "Music.h"
+#include "Songs.h"
 
 //=================
 // System Settings Defintions and variables
@@ -49,7 +51,7 @@ enum SystemState state;
 
 #define NUM_LEVELS 3
 #define NUM_PLAY_STYLES 2
-#define NUM_OPPONENT_OPTIONS 2
+#define NUM_POSITION_OPTIONS 2
 #define NUM_BUTTON_ROWS 4
 #define NUM_BUTTONS 10
 
@@ -64,22 +66,19 @@ struct Button buttons[] = {
     {"Hard", 7},
     {"Screen", TFT_STYLE},
     {"Robot", ROBOT_STYLE},
-    {"Local", 0},
-    {"Remote", 1},
     {"First", 0},
     {"Second", 1},
     {"Play", 0}
 };
 
-GUI_RECT easy_button, medium_button, hard_button, tft_button, robot_button, local_button, remote_button, first_button, second_button, play_button;
-GUI_RECT* button_rects[NUM_BUTTONS] = {&easy_button, &medium_button, &hard_button, &tft_button, &robot_button, &local_button, &remote_button, &first_button, &second_button, &play_button};
+GUI_RECT easy_button, medium_button, hard_button, tft_button, robot_button, first_button, second_button, play_button;
+GUI_RECT* button_rects[NUM_BUTTONS] = {&easy_button, &medium_button, &hard_button, &tft_button, &robot_button, &first_button, &second_button, &play_button};
 
 int selectedDifficulty = 0;
 int selectedPlayStyle = 3;
-int selectedOpponent = 5;
-int selectedPosition = 7;
+int selectedPosition = 5;
 
-int columns_for_row[NUM_BUTTON_ROWS] = {NUM_LEVELS, NUM_PLAY_STYLES, NUM_OPPONENT_OPTIONS, 3};
+int columns_for_row[NUM_BUTTON_ROWS] = {NUM_LEVELS, NUM_PLAY_STYLES, NUM_POSITION_OPTIONS, 1};
 
 //===================
 // Connect 4 Game Definitions and variables
@@ -118,6 +117,10 @@ void Settings_Init() {
 /**
 Initalizes all the modules and interrupts
 **/
+int game_wait_flag = 1;
+int game_wait_flag_index;
+#define GAME_WAIT_TICK_COUNT 2000
+
 void Init() {
     CyGlobalIntEnable;                      // Enable global interrupt
     
@@ -126,6 +129,10 @@ void Init() {
     FS_Init();                              // Init Filesystem to read TFT SD card
     GUI_Init();                             // initilize graphics library
     Tick_Init();                            // Start timer interrupts
+    game_wait_flag_index = Tick_AddFlag(&game_wait_flag, GAME_WAIT_TICK_COUNT);
+    
+    Music_Init();
+    Music_SetSampleFrequency(44.1E+3);
     
     Settings_Init();
 }
@@ -193,12 +200,9 @@ void Handle_Settings() {
                             previouslySelected = &selectedPlayStyle;
                             break;
                         case 5 ... 6:
-                            previouslySelected = &selectedOpponent;
-                            break;
-                        case 7 ... 8:
                             previouslySelected = &selectedPosition;
                             break;
-                        case 9:
+                        case 7:
                             state = SETUP_GAME;
                             return; // Handle play
                         default:
@@ -246,6 +250,8 @@ void Handle_Game() {
     int playStyle = buttons[selectedPlayStyle].value;
     
     for (;;) {
+        Music_Update();
+        
         if (playStyle == ROBOT_STYLE) {
             Robot_Update();
         }
@@ -263,7 +269,11 @@ void Handle_Game() {
                     
                     Connect4Board_DisplayPlayerMoveTaunt();
                     
-                    CyDelay(1000); // Pretend robot is thinking
+                    Music_Play(piece_played_effect, sizeof(piece_played_effect) / sizeof(piece_played_effect[0]));
+                    
+                    Tick_Reset(game_wait_flag_index);
+                    game_wait_flag = 0;
+                    
                 }
             } else if (prevXPTState != XPT2046_IRQ) { // Stop multiple events for one touch
                 prevXPTState = XPT2046_IRQ;
@@ -283,8 +293,12 @@ void Handle_Game() {
                             Connect4Board_Place(selected_column, 1);
                             
                             Connect4Board_DisplayPlayerMoveTaunt();
+                            
+                            Music_Play(piece_played_effect, sizeof(piece_played_effect) / sizeof(piece_played_effect[0]));
+                            
+                            Tick_Reset(game_wait_flag_index);
+                            game_wait_flag = 0;
                     
-                            CyDelay(1000); // Pretend robot is thinking
                             prev_selected_column = COLUMNS;
                         }
                     }
@@ -293,9 +307,11 @@ void Handle_Game() {
             
             if (Connect4_IsWon(playerPosition)) {
                 state = GAME_WIN;
+                Music_Play(win_sound_effect, sizeof(win_sound_effect) / sizeof(win_sound_effect[0]));
                 return;
             }
         } else {
+            if(!game_wait_flag) continue;
             // AI turn
             struct Move bestMove = Connect4_NegaMax(difficulty, -INF, INF);
             char print[100];
@@ -324,6 +340,7 @@ void Handle_Game() {
             
             if (Connect4_IsWon(!playerPosition)) {
                 state = GAME_LOSE;
+                Music_Play(lose_sound_effect, sizeof(lose_sound_effect) / sizeof(lose_sound_effect[0]));
                 return;
             }
         }
@@ -340,14 +357,20 @@ void HandleWinLose() {
     GUI_SetColor(GUI_BLACK);
     GUI_DispStringAt(state == GAME_LOSE ? "YOU LOSE!" : "YOU WON!", WIDTH / 2 - 50, HEIGHT / 2 - ELEMENT_MARGIN);
     
-    for (;;) {}
+    for (;;) {
+        Music_Update();
+    }
 }
 
 /**
 Main Program
 **/
+
+
 void MainTask()
 {
+    
+    
     for(;;) {
         switch (state) {
             case IDLE: // Handle reset case

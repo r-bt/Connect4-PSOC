@@ -110,7 +110,7 @@ void Taunts_Init() {
     after_ai_taunts_num = Taunts_NumLines("\\taunts\\taunts1.txt");
     after_human_taunts_num = Taunts_NumLines("\\taunts\\taunts2.txt");
     
-    srand(Tick_GetTicks());
+    srand(Tick_GetTicks(5));
 }
 
 /**

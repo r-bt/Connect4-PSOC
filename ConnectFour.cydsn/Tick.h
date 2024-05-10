@@ -17,8 +17,8 @@
 #include <project.h>
     
 void Tick_Init();
-void Tick_Reset();
-void Tick_AddFlag(int *flag);
-uint32_t Tick_GetTicks();
+void Tick_Reset(int index);
+int Tick_AddFlag(int *flag, uint32_t trigger);
+uint32_t Tick_GetTicks(int index);
     
 #endif

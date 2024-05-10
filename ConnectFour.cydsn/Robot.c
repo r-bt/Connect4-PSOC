@@ -27,7 +27,13 @@ uint8 intrSrc;
 
 enum Robot_State robot_state = Robot_Idle;
 
+#define INTERRUPTER_DEBOUNCE_COUNT 1000 // 1/24Mhz * 12000 * 1000 = 0.5seconds
 int interrupter_debounce_elapsed = 1;
+int interrupter_tick_index;
+
+/**
+To stop robot detecting same gamepiece for both opponents and humans move we need to debounce the interrupters
+**/
 CY_ISR(PHOTO_INTERRUPTER_Control) {
     uint8 intrSrcTemp = PHOTO_INTERRUPTER_PINS_ClearInterrupt(); // Get the pin which caused the interrupt
     
@@ -41,7 +47,7 @@ CY_ISR(PHOTO_INTERRUPTER_Control) {
     USBUART_PutString(print);
     
     interrupter_debounce_elapsed = 0;
-    Tick_Reset(); // Wa
+    Tick_Reset(interrupter_tick_index); // Reset the debounce counter
 }
 
 void Robot_ClearInterrupter() {
@@ -74,9 +80,10 @@ void Robot_Move(int column) {
 }
 
 void Robot_Init() {
+    interrupter_tick_index = Tick_AddFlag(&interrupter_debounce_elapsed, INTERRUPTER_DEBOUNCE_COUNT);
+    
     PHOTO_INTERRUPTER_ISR_StartEx(PHOTO_INTERRUPTER_Control);
     Robot_ClearInterrupter();
-    Tick_AddFlag(&interrupter_debounce_elapsed);
     
     SELECT_PWM_Start();
     HAMMER_PWM_Start();

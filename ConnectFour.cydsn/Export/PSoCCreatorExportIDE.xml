@@ -61,12 +61,7 @@
           <File BuildType="BUILD" Toolchain="">.\Tick.h</File>
           <File BuildType="BUILD" Toolchain="">.\Music.h</File>
           <File BuildType="BUILD" Toolchain="">.\Taunts.h</File>
-        </Files>
-      </Folder>
-      <Folder BuildType="BUILD" Path="C:\Users\student\Downloads\DDS_WaveGen_01c-000.cywrk.Archive01\DDS_WaveGen_01c.cydsn">
-        <Files Root="D:\Connect4-PSOC\ConnectFour.cydsn">
-          <File BuildType="BUILD" Toolchain="">C:\Users\student\Downloads\DDS_WaveGen_01c-000.cywrk.Archive01\DDS_WaveGen_01c.cydsn\dds.c</File>
-          <File BuildType="BUILD" Toolchain="">C:\Users\student\Downloads\DDS_WaveGen_01c-000.cywrk.Archive01\DDS_WaveGen_01c.cydsn\dds.h</File>
+          <File BuildType="BUILD" Toolchain="">.\Songs.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="D:\Connect4-PSOC\ConnectFour.cydsn\Generated_Source\PSoC5">

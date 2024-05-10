@@ -562,94 +562,16 @@
         <register>
           <name>HAMMER_PWM_COMPARE_Reg</name>
           <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x40006528</addressOffset>
+          <addressOffset>0x40006427</addressOffset>
           <size>16</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0</resetMask>
         </register>
         <register>
-          <name>HAMMER_PWM_Control_Reg</name>
-          <description>UDB Control Register - Assigned Control Register Value</description>
-          <addressOffset>0x4000657A</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-          <fields>
-            <field>
-              <name>CTRL_ENABLE</name>
-              <description>Enable the PWM</description>
-              <lsb>7</lsb>
-              <msb>7</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE2</name>
-              <description>Compare mode 2</description>
-              <lsb>3</lsb>
-              <msb>5</msb>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>CTRL_CMPMODE1</name>
-              <description>Compare mode 1</description>
-              <lsb>0</lsb>
-              <msb>2</msb>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>HAMMER_PWM_STATUS_MASK</name>
-          <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x4000658A</addressOffset>
-          <size>8</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-          <fields>
-            <field>
-              <name>PWM_STS_CMP1</name>
-              <description>Enables the Interrupt on Compare 1</description>
-              <lsb>0</lsb>
-              <msb>0</msb>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>PWM_STS_CMP2</name>
-              <description>Enables the Interrupt on Compare 2</description>
-              <lsb>1</lsb>
-              <msb>1</msb>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>PWM_STS_TC</name>
-              <description>Enables the Interrupt on Terminal Count</description>
-              <lsb>2</lsb>
-              <msb>2</msb>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>PWM_STS_FIFO_FULL</name>
-              <description>FIFO Full Status Mask </description>
-              <lsb>3</lsb>
-              <msb>3</msb>
-              <access>read-only</access>
-            </field>
-            <field>
-              <name>PWM_STS_KILL</name>
-              <description>Enables the Interrupt on Kill</description>
-              <lsb>5</lsb>
-              <msb>5</msb>
-              <access>read-only</access>
-            </field>
-          </fields>
-        </register>
-        <register>
           <name>HAMMER_PWM_STATUS_AUX_CTRLDP0</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x40006598</addressOffset>
+          <addressOffset>0x40006497</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -774,7 +696,7 @@
         <register>
           <name>HAMMER_PWM_STATUS_AUX_CTRLDP1</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x40006599</addressOffset>
+          <addressOffset>0x40006498</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -896,6 +818,84 @@
             </field>
           </fields>
         </register>
+        <register>
+          <name>HAMMER_PWM_Control_Reg</name>
+          <description>UDB Control Register - Assigned Control Register Value</description>
+          <addressOffset>0x40006578</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>CTRL_ENABLE</name>
+              <description>Enable the PWM</description>
+              <lsb>7</lsb>
+              <msb>7</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE2</name>
+              <description>Compare mode 2</description>
+              <lsb>3</lsb>
+              <msb>5</msb>
+              <access>read-write</access>
+            </field>
+            <field>
+              <name>CTRL_CMPMODE1</name>
+              <description>Compare mode 1</description>
+              <lsb>0</lsb>
+              <msb>2</msb>
+              <access>read-write</access>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>HAMMER_PWM_STATUS_MASK</name>
+          <description>UDB Status bits Interrupt Mask Enable Register</description>
+          <addressOffset>0x40006588</addressOffset>
+          <size>8</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+          <fields>
+            <field>
+              <name>PWM_STS_CMP1</name>
+              <description>Enables the Interrupt on Compare 1</description>
+              <lsb>0</lsb>
+              <msb>0</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>PWM_STS_CMP2</name>
+              <description>Enables the Interrupt on Compare 2</description>
+              <lsb>1</lsb>
+              <msb>1</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>PWM_STS_TC</name>
+              <description>Enables the Interrupt on Terminal Count</description>
+              <lsb>2</lsb>
+              <msb>2</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>PWM_STS_FIFO_FULL</name>
+              <description>FIFO Full Status Mask </description>
+              <lsb>3</lsb>
+              <msb>3</msb>
+              <access>read-only</access>
+            </field>
+            <field>
+              <name>PWM_STS_KILL</name>
+              <description>Enables the Interrupt on Kill</description>
+              <lsb>5</lsb>
+              <msb>5</msb>
+              <access>read-only</access>
+            </field>
+          </fields>
+        </register>
       </registers>
     </peripheral>
     <peripheral>
@@ -911,7 +911,7 @@
         <register>
           <name>RX_ESP_UART_RX_ADDRESS1</name>
           <description>RX Address1 Register</description>
-          <addressOffset>0x40006527</addressOffset>
+          <addressOffset>0x40006424</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -920,7 +920,7 @@
         <register>
           <name>RX_ESP_UART_RX_ADDRESS2</name>
           <description>RX Address2 Register</description>
-          <addressOffset>0x40006537</addressOffset>
+          <addressOffset>0x40006434</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -929,7 +929,7 @@
         <register>
           <name>RX_ESP_UART_RX_DATA</name>
           <description>RX Data Register</description>
-          <addressOffset>0x40006547</addressOffset>
+          <addressOffset>0x40006444</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -938,7 +938,7 @@
         <register>
           <name>TX_ESP_UART_TX_DATA</name>
           <description>TX Data Register</description>
-          <addressOffset>0x4000654B</addressOffset>
+          <addressOffset>0x40006449</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -947,7 +947,7 @@
         <register>
           <name>RX_ESP_UART_RX_STATUS</name>
           <description>RX status register</description>
-          <addressOffset>0x40006564</addressOffset>
+          <addressOffset>0x40006468</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -1007,7 +1007,7 @@
         <register>
           <name>TX_ESP_UART_TX_STATUS</name>
           <description>TX status register</description>
-          <addressOffset>0x40006568</addressOffset>
+          <addressOffset>0x40006569</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -1056,15 +1056,6 @@
       </addressBlock>
       <registers>
         <register>
-          <name>SELECT_PWM_COMPARE_Reg</name>
-          <description>UDB.D0 - Assigned Compare Value</description>
-          <addressOffset>0x40006421</addressOffset>
-          <size>16</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0</resetMask>
-        </register>
-        <register>
           <name>SELECT_PWM_Control_Reg</name>
           <description>UDB Control Register - Assigned Control Register Value</description>
           <addressOffset>0x40006477</addressOffset>
@@ -1097,9 +1088,18 @@
           </fields>
         </register>
         <register>
+          <name>SELECT_PWM_COMPARE_Reg</name>
+          <description>UDB.D0 - Assigned Compare Value</description>
+          <addressOffset>0x40006528</addressOffset>
+          <size>16</size>
+          <access>read-write</access>
+          <resetValue>0</resetValue>
+          <resetMask>0</resetMask>
+        </register>
+        <register>
           <name>SELECT_PWM_STATUS_MASK</name>
           <description>UDB Status bits Interrupt Mask Enable Register</description>
-          <addressOffset>0x40006484</addressOffset>
+          <addressOffset>0x4000658B</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -1145,7 +1145,7 @@
         <register>
           <name>SELECT_PWM_STATUS_AUX_CTRLDP0</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x40006491</addressOffset>
+          <addressOffset>0x40006598</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
@@ -1270,7 +1270,7 @@
         <register>
           <name>SELECT_PWM_STATUS_AUX_CTRLDP1</name>
           <description>UDB Auxilliary Control Register</description>
-          <addressOffset>0x40006492</addressOffset>
+          <addressOffset>0x40006599</addressOffset>
           <size>8</size>
           <access>read-write</access>
           <resetValue>0</resetValue>
