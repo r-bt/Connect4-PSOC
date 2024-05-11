@@ -44,7 +44,9 @@ CY_ISR(PHOTO_INTERRUPTER_Control) {
     char print[100];
     sprintf(print, "Interrupt on pin %d, debounce elapsed %d\r\n", Robot_GetInterrupter(), interrupter_debounce_elapsed);
     
-    USBUART_PutString(print);
+    if (USBUART_GetConfiguration()) {
+        USBUART_PutString(print);
+    }
     
     interrupter_debounce_elapsed = 0;
     Tick_Reset(interrupter_tick_index); // Reset the debounce counter

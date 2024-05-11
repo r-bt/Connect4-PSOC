@@ -44,11 +44,16 @@ int Taunts_NumLines(const char* pFileName) {
         }
         
         if (FS_FClose(pFile)) {
-            USBUART_PutString("Failed to close the file \r\n");
+            if (USBUART_GetConfiguration()) {
+                USBUART_PutString("Failed to close the file \r\n");
+            }
+            
             CyDelay(100);
         }
     } else {
-        USBUART_PutString("Failed to open the file\r\n");
+        if (USBUART_GetConfiguration()) {
+            USBUART_PutString("Failed to open the file\r\n");
+        }
         CyDelay(100);
     }
     
@@ -94,11 +99,16 @@ void Taunts_GetLine(const char* pFileName, int line, char *taunt) {
         }
         
         if (FS_FClose(pFile)) {
-            USBUART_PutString("Failed to close the file \r\n");
+            if (USBUART_GetConfiguration()) {
+                USBUART_PutString("Failed to close the file \r\n");
+            }
+            
             CyDelay(100);
         }
     } else {
-        USBUART_PutString("Failed to open the file\r\n");
+        if (USBUART_GetConfiguration()) {
+            USBUART_PutString("Failed to open the file\r\n");
+        }
         CyDelay(100);
     }
 }

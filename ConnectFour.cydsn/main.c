@@ -94,6 +94,11 @@ void Settings_Init() {
     int button_spacing_y = HEIGHT / NUM_BUTTON_ROWS;
     int button_spacing_x = 0;
     
+    // Reset settings to defaults
+    int selectedDifficulty = 0;
+    int selectedPlayStyle = 3;
+    int selectedPosition = 5;
+    
     // Setup all the buttons
     int btn_index = 0;
     
@@ -143,7 +148,8 @@ Fills button with specific color
 void Settings_FillButton(int btn_index, GUI_COLOR color) {
     GUI_SetColor(color);
     GUI_FillRectEx(button_rects[btn_index]);
-            
+    
+    GUI_SetFont(GUI_FONT_16_ASCII);
     GUI_SetColor(GUI_WHITE);
     GUI_DispStringInRect(buttons[btn_index].label, button_rects[btn_index], GUI_TA_HCENTER | GUI_TA_VCENTER);
 }
@@ -317,7 +323,9 @@ void Handle_Game() {
             char print[100];
             sprintf(print, "Best move: %d, score is %d, at depth %d\r\n", bestMove.column, bestMove.score, bestMove.depth);
             
-            USBUART_PutString(print);
+            if (USBUART_GetConfiguration()) {
+                USBUART_PutString(print);
+            }
             
             Connect4Board_DisplayOpponentMoveTaunt();
             
@@ -359,6 +367,12 @@ void HandleWinLose() {
     
     for (;;) {
         Music_Update();
+       
+        if (XPT2046_IRQ == 0) {
+            if (!game_wait_flag) continue;
+            state = IDLE;
+            return;
+        }
     }
 }
 
